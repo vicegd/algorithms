@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class BasicAlgorithmsTest {
-	private static BasicAlgorithms alg;
+public class HelloWorldTest {
+	private static HelloWorld alg;
 	
 	@BeforeClass
 	public static void setup() {
-		alg = new BasicAlgorithms();
+		alg = new HelloWorld();
 	}
 	
 	@Test
