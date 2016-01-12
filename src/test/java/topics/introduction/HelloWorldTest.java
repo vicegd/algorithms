@@ -5,22 +5,22 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class HelloWorldTest {
-	private static HelloWorld alg;
+	private static HelloWorld helloWorld;
 	
 	@BeforeClass
 	public static void setup() {
-		alg = new HelloWorld();
+		helloWorld = new HelloWorld();
 	}
 	
 	@Test
 	public void testSum() {
-		int sum = alg.sum(10, 40);
+		int sum = helloWorld.sum(10, 40);
 		assertEquals("The addition was not executed correctly", 50, sum);
 	}
 	
 	@Test
 	public void testSum2() {
-		int sum = alg.sum(10, 40);
+		int sum = helloWorld.sum(10, 40);
 		assertNotEquals("The addition was not executed correctly", 51, sum);
 		assertNotEquals("The addition was not executed correctly", 49, sum);
 	}
