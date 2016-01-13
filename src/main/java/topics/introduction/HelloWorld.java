@@ -18,6 +18,8 @@ public class HelloWorld {
 	 */
 	public int sum(int a, int b) {
 		log.info("Adding two numbers");
+		log.debug("DEBUG");
+		log.trace("TRACE");
 		return a+b;
 	}
 }
