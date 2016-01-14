@@ -4,9 +4,6 @@ import java.util.HashSet;
 
 public class HashSetExample {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		HashSet<String> collection = new HashSet<String>();
 		System.out.println("Initial size of the collection: " + collection.size());

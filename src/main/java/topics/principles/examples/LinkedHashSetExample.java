@@ -4,9 +4,6 @@ import java.util.LinkedHashSet;
 
 public class LinkedHashSetExample {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		LinkedHashSet<String> collection = new LinkedHashSet<String>();
 		System.out.println("Initial size of the collection: " + collection.size());

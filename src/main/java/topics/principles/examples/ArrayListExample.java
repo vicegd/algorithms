@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class ArrayListExample {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		ArrayList<String> collection = new ArrayList<String>();
 		System.out.println("Initial size of the collection: " + collection.size());

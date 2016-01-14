@@ -4,10 +4,6 @@ import java.util.LinkedList;
 
 public class LinkedListExample {
 
-	/**
-	 * @param args
-	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		LinkedList<String> collection = new LinkedList<String>();
 		System.out.println("Initial size of the collection: " + collection.size());
@@ -27,7 +23,7 @@ public class LinkedListExample {
 		collection.remove(3);
 		collection.removeFirst();
 		collection.removeLast();
-		String firstElement = collection.peekFirst();
+		//String firstElement = collection.peekFirst();
 		System.out.println("Size after deletions: " + collection.size());
 		System.out.println("Contents: " + collection);
 	}

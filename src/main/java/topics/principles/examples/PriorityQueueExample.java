@@ -4,9 +4,6 @@ import java.util.PriorityQueue;
 
 public class PriorityQueueExample {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		PriorityQueue<String> collection = new PriorityQueue<String>();
 		System.out.println("Initial size of the collection: " + collection.size());

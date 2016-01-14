@@ -22,7 +22,7 @@ public class FactorialTest {
 	}
 	
 	/**
-	 * Calculates the factorial of -4 => NO OK
+	 * Calculates the factorial of -4: NO OK
 	 */
 	@Test
 	public void factorialNegative() {

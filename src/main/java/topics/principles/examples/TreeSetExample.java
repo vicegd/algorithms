@@ -4,9 +4,6 @@ import java.util.TreeSet;
 
 public class TreeSetExample {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		TreeSet<String> collection = new TreeSet<String>();
 		System.out.println("Initial size of the collection: " + collection.size());

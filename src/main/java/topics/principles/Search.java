@@ -43,7 +43,7 @@ public class Search {
 	}
 	
 	/**
-	 * Performs a binary search in an array, reducing the complexity when the number is not there -> O(nlogn)
+	 * Performs a binary search in an array, reducing the complexity when the number is not there: O(nlogn)
 	 * @param list Array with numbers 
 	 * @param value Value to be found in the array
 	 * @return True if the element was found, false otherwise

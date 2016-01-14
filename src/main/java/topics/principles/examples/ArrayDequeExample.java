@@ -4,9 +4,6 @@ import java.util.ArrayDeque;
 
 public class ArrayDequeExample {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		ArrayDeque<String> collection = new ArrayDeque<String>();
 		collection.add("B");

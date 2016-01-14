@@ -20,7 +20,7 @@ public class GetMaximumFromListTest {
 	}
 	
 	/**
-	 * Calculates the maximum of the array => 10
+	 * Calculates the maximum of the array: 10
 	 */
 	@Test
 	public void max() {
@@ -30,7 +30,7 @@ public class GetMaximumFromListTest {
 	}
 	
 	/**
-	 * Calculates the maximum of the array => 10
+	 * Calculates the maximum of the array: 10
 	 */
 	@Test
 	public void maxNotCorrect() {
