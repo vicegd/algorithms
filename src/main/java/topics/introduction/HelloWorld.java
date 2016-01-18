@@ -11,7 +11,6 @@ public class HelloWorld {
 	
 	/**
 	 * Adds two integer numbers and return the result
-	 * 
 	 * @param a The first integer number to be added
 	 * @param b The second integer number to be added
 	 * @return The calculation of a+b

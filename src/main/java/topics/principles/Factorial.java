@@ -8,7 +8,6 @@ public class Factorial {
 	
 	/**
 	 * Calculates the factorial of a number with a recursive algorithm
-	 * 
 	 * @param n Value used to calculate the factorial
 	 * @return Factorial of n
 	 */
@@ -23,7 +22,6 @@ public class Factorial {
 	/**
 	 * Calculates the factorial of a number with a recursive algorithm
 	 * It has a problem: if n is negative, it never stops
-	 * 
 	 * @param n Value used to calculate the factorial
 	 * @return Factorial of n
 	 */
