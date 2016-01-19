@@ -1,4 +1,4 @@
-package topics.sorting.core;
+package topics.sorting.utils;
 
 /**
  * Interface for sorting algorithms

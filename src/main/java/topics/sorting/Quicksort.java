@@ -3,11 +3,16 @@ package topics.sorting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import topics.sorting.core.ISortingAlgorithm;
-import topics.sorting.core.Util;
+import topics.sorting.utils.ISortingAlgorithm;
+import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Quicksort method
+ * This algorithm uses the D&C technique. Complexity:
+ * 	Average and best case: 
+ * 		- By division a=2;b=2;k=1 => O(nlogn)
+ * 	Worst case:
+ * 		- By subtraction a=1;b=1;k=1 => O(n^2)
  * @author viceg
  */
 public class Quicksort implements ISortingAlgorithm{

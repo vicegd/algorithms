@@ -1,10 +1,10 @@
 package topics.sorting.others;
 
-import topics.sorting.core.ISortingAlgorithm;
-import topics.sorting.core.Util;
-
 import java.util.ArrayDeque;
 import java.util.Queue;
+
+import topics.sorting.utils.ISortingAlgorithm;
+import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Radix method

@@ -3,7 +3,8 @@ package topics.sorting;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import topics.sorting.core.ISortingAlgorithm;
+
+import topics.sorting.utils.ISortingAlgorithm;
 
 /**
  * Bubble sorting JUnit tests
