@@ -9,9 +9,9 @@ public class Mergesort {
 	private int[]elements;
 	
 	/**
-	 * This algorithm uses the D&C technique. Complexity:
+	 * This algorithm uses the DandC technique. Complexity:
 	 * All cases: 
-	 * - By division a=2;b=2;k=1 => O(nlogn)
+	 * - By division a=2,b=2,k=1 - O(nlogn)
 	 * @param v Array to be sorted
 	 */
 	public void mergesort(int[]v) {

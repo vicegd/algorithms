@@ -11,7 +11,7 @@ public class Median {
 	/**
 	 * This method sorts the vector O(nlogn) and then 
 	 * it is a very basic operation O(1), so its 
-	 * calculation is O(nlogn) + O(1) => O(nlogn)
+	 * calculation is O(nlogn) + O(1) - O(nlogn)
 	 * @param v Array to calculate the median
 	 * @return Median value in the array
 	 */
@@ -22,8 +22,8 @@ public class Median {
 	/**
 	 * This method is recursive and is based on the 
 	 * concept of partition seen for the Quicksort
-	 * algorithm. It is D&C by division with a=1;
-	 * b=2; k=1 => O(n)
+	 * algorithm. It is DandC by division with a=1,
+	 * b=2, k=1 - O(n)
 	 * @param v Array to calculate the median
 	 * @return Median value in the array
 	 */

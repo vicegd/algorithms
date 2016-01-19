@@ -46,8 +46,8 @@ public class Fibonacci {
 	
 	/**
 	 * First recursive version, with a linear 
-	 * complexity O(n). It is D&C by subtraction
-	 * with a=1;b=1;k=0 => O(n) 
+	 * complexity O(n). It is DandC by subtraction
+	 * with a=1,b=1,k=0 - O(n) 
 	 * @param n Positive number to be used as input
 	 * @return Fibonacci value for n
 	 */
@@ -73,8 +73,8 @@ public class Fibonacci {
 	}
 	
 	/**
-	 * D&C sophisticated solution that is O(log n). 
-	 * It is D&V by division with a=1;b=2;k=0 and 
+	 * DandC sophisticated solution that is O(log n). 
+	 * It is DandV by division with a=1,b=2,k=0 and 
 	 * it is programmed in an iterative way.
 
 	 * @param n Positive number to be used as input

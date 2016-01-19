@@ -31,7 +31,7 @@ public class MajoritarianElement {
 	 * This method previously orders the vector O(nlogn) and then it 
 	 * looks for the majoritarian element (if there is one), 
 	 * knowing that if there is one, it should be in the central 
-	 * position (among others) v[n/2]. It is O(nlogn) + O(n) =>
+	 * position (among others) v[n/2]. It is O(nlogn) + O(n) -
 	 * O(nlogn)
 	 * @param v Array with numbers to be used for the calculation
 	 * @return Whether there is a majoritarian element
@@ -43,8 +43,8 @@ public class MajoritarianElement {
 	/**
 	 * This method is recursive and difficult to understand. 
 	 * It is explained in the base book  (section 3.11) and 
-	 * has a linear complexity O(n). It is D&V by division 
-	 * with a=1,b=2,k=1 => O(n) 
+	 * has a linear complexity O(n). It is DandV by division 
+	 * with a=1,b=2,k=1 - O(n) 
 	 * @param v Array with numbers to be used for the calculation
 	 * @return Whether there is a majoritarian element
 	 */

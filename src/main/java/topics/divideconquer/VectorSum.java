@@ -23,7 +23,7 @@ public class VectorSum {
 	/**
 	 * This method recursively calculates the 
 	 * sum with a linear complexity O(n). 
-	 * D&C by subtraction with a=1;b=1;k=0 => O(n)
+	 * DandC by subtraction with a=1,b=1,k=0 - O(n)
 	 * @param v Array to be used for the addition
 	 * @return Addition of all the elements of the array
 	 */
@@ -40,7 +40,7 @@ public class VectorSum {
 	/**
 	 * This method recursively calculates the 
 	 * sum with a linear complexity O(n). 
-	 * D&C by division with a=2;b=2;k=0 => O(n)
+	 * DandC by division with a=2,b=2,k=0 - O(n)
 	 * @param v Array to be used for the addition
 	 * @return Addition of all the elements of the array
 	 */

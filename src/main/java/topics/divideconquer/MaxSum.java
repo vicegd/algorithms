@@ -39,8 +39,8 @@ public class MaxSum {
 	
 	/**
 	 * This algorithms is recursive. 
-	 * It is D&C by division with 
-	 * a=2;b=2;k=1 => O(nlogn)
+	 * It is DandC by division with 
+	 * a=2,b=2,k=1 - O(nlogn)
 	 * @param v Vector to calculate the values
 	 * @return The maximum sum of the subsequences
 	 */

@@ -9,7 +9,7 @@ public class BinarySearch {
 	/**
 	 * This method iteratively calculates the position 
 	 * of x in the ordered vector. It is O(log n), 
-	 * using D&C with iterative programming
+	 * using DandC with iterative programming
 	 * @param v Array with numbers
 	 * @param x Value that is being searched
 	 * @return The position of the value x in 
@@ -31,8 +31,8 @@ public class BinarySearch {
 	
 	/**
 	 * This method recursively calculates the 
-	 * position of x in a sorted vector. D&V 
-	 * by division with a=1;b=2;k=0 => O(logn) 
+	 * position of x in a sorted vector. DandV 
+	 * by division with a=1,b=2,k=0 - O(logn) 
 	 * @param v Array with numbers
 	 * @param x Value that is being searched
 	 * @return The position of the value x in

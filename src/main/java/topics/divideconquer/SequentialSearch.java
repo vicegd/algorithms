@@ -28,7 +28,7 @@ public class SequentialSearch {
 	/**
 	 * This method recursively calculates the 
 	 * position of x in a vector. 
-	 * D&C by subtraction with a=1;b=1;k=0 => O(n) 
+	 * DandC by subtraction with a=1,b=1,k=0 - O(n) 
 	 * @param v Array with numbers
 	 * @param x Value that is being searched
 	 * @return The position of the value x in v

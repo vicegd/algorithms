@@ -33,8 +33,8 @@ public class Mode {
 	
 	/**
 	 * This method previously orders the vector O(nlogn) and then it 
-	 * looks for the mode O(n). It is O(nlogn) + O(n) =>
-	 * O (nlogn). It is D&C because of the Quicksort sorting
+	 * looks for the mode O(n). It is O(nlogn) + O(n) -
+	 * O (nlogn). It is DandC because of the Quicksort sorting
 	 * @param v Array used to calculate the mode
 	 * @param mo Array with the solution (value and repetitions)
 	 */

@@ -63,7 +63,7 @@ public class BinarySearchTest {
 	@Ignore("Not ready yet")
 	@Test
 	public void binarySearchRecursive2() {
-		int[] v = {10, 3, 9, 109, 89, 1, 2, 6};
+		int[] v = {10, 3, 9, 109, 89, 1, 2, 6, 902};
 		int x = 99;
 		int result = search.binarySearch2(v, x);
 		assertEquals(Integer.MIN_VALUE, result);

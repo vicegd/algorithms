@@ -9,7 +9,7 @@ public class Factorial {
 	/**
 	 * This method iteratively calculates the 
 	 * factorial with a linear complexity O(n) 
-	 * @param n Number to calculate >= 0
+	 * @param n Number to calculate greater than or equal to 0
 	 * @return Factorial of the number
 	 */
 	public int fact1(int n) {
@@ -22,8 +22,8 @@ public class Factorial {
 	/**
 	 * This method recursively calculates the 
 	 * factorial with a linear complexity O(n), 
-	 * D&C by subtraction with a=1;b=1;k=0 
-	 * @param n Number to calculate >= 0 
+	 * DandC by subtraction with a=1,b=1,k=0 
+	 * @param n Number to calculate greater than or equal to 0 
 	 * @return Factorial of the number
 	 */
 	public int fact2(int n) { 
