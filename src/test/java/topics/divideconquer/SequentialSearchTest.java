@@ -26,7 +26,7 @@ public class SequentialSearchTest {
 	 */
 	@Test
 	public void sequeantialSearchIterative() {
-		int[] v = {10, 3, 9, 109, 89, 1, 2, 6};
+		int[] v = {10, 3, 9, 109, 89, 1, 2, 6, 2};
 		int x = 109;
 		int result = search.sequentialSearch1(v, x);
 		assertEquals(3, result);
