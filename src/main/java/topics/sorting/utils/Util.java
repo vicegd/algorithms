@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Helper class to trace and to use common operations among sorting algorithms
+ * Helper class to trace and use common operations among sorting algorithms
  * @author viceg
  */
 public class Util {
