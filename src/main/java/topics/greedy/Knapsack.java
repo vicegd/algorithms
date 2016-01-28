@@ -14,7 +14,6 @@ public class Knapsack {
 	  * Constructor for Knapsack objects
 	  * @param weights Weights that can be used
 	  * @param values Values of the objects
-	  * @param relations Relation value/weight of each object
 	  * @param solution Array to save the amount of each object taken as a solution
 	  */
 	 public Knapsack(int[] weights, int[] values, float[] solution) {

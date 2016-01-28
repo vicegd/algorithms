@@ -19,7 +19,6 @@ public class TruckDriver {
 	 * @param petrolStations Cities in which there are petrol stations
 	 * @param distancesBetweenPetrolStations Distances among cities (petrol stations)
 	 * @param range Maximum kilometers the truck can be moved before stopping
-	 * @param solution Array indicating if the truck has stopped in a specific city
 	 */
 	public TruckDriver(String[] petrolStations, int[] distancesBetweenPetrolStations, int range) {
 		this.petrolStations = petrolStations;
