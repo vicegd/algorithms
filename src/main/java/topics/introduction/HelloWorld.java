@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * @author viceg
  */
 public class HelloWorld {
-	static Logger log = LoggerFactory.getLogger(HelloWorld.class);
+	private static Logger log = LoggerFactory.getLogger(HelloWorld.class);
 	
 	/**
 	 * Adds two integer numbers and return the result

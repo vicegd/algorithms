@@ -25,7 +25,7 @@ public class FibonacciTest {
 	 * Calculates the Fibonacci of a number in an iterative way
 	 */
 	@Test
-	public void fibonacchiIterative() {
+	public void fibonacciIterative() {
 		int result = fib.fib1(11);
 		assertEquals(89, result);
 	}	
@@ -54,7 +54,7 @@ public class FibonacciTest {
 	 */
 	@Ignore("Not ready yet")
 	@Test
-	public void fibonacchRecursive2() {
+	public void fibonacciRecursive2() {
 		int result = fib.fib4(11);
 		assertEquals(89, result);
 	}	
@@ -63,7 +63,7 @@ public class FibonacciTest {
 	 * Calculates the Fibonacci of a number in a sophisticated way
 	 */
 	@Test
-	public void fibonacchiSophisticated() {
+	public void fibonacciSophisticated() {
 		int result = fib.fib5(11);
 		assertEquals(89, result);
 	}
