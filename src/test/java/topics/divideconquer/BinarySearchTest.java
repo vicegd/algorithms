@@ -38,7 +38,7 @@ public class BinarySearchTest {
 	 */
 	@Test
 	public void binarySearchIterative2() {
-		int[] v = {10, 3, 9, 109, 89, 1, 2, 6, 99};
+		int[] v = {10, 3, 9, 109, 89, 1, 2, 6};
 		int x = 99;
 		int result = search.binarySearch1(v, x);
 		assertEquals(Integer.MIN_VALUE, result);
