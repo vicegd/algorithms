@@ -43,7 +43,7 @@ public class ChessQueensOne {
 	
 	/**
 	 * Performs the backtracking process
-	 * @param level Level in the tree of states starting at 0
+	 * @param j Level in the tree of states starting at 0
 	 */
 	public void backtracking(int j) {
 		if (j==n) {  //We have already placed the n queens

@@ -44,7 +44,7 @@ public class ChessQueensAll {
 		
 	/**
 	 * Performs the backtracking process
-	 * @param level Level in the tree of states starting at 0
+	 * @param j Level in the tree of states starting at 0
 	 */
 	public void backtracking(int j) {
 		 throw new UnsupportedOperationException("This operation needs to be implemented");  

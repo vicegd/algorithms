@@ -29,6 +29,7 @@ public class BranchAndBoundThreads {
 	/**
 	 * Manages all the process, from the beginning to the end
 	 * @param rootNode Starting state of the problem
+	 * @param numberOfThreads Number of threads used 
 	 */
 	public void branchAndBound(Node rootNode, int numberOfThreads) { 
 		ds.insert(rootNode); //First node to be explored
