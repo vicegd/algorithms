@@ -17,7 +17,7 @@ public class Change {
 	private static Logger log = LoggerFactory.getLogger(Change.class);
 	
 	/**
-	 * Dynamic programming version. The temporal 
+	 * Dynamic programming version. The time 
 	 * complexity is quadratic 0(amount*coins) 
 	 * @param amount Amount of money that should be given
 	 * @param coins Different available types of coins
