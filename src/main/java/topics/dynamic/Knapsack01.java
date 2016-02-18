@@ -15,7 +15,7 @@ public class Knapsack01 {
 	private static Logger log = LoggerFactory.getLogger(Knapsack01.class);
 	
 	/**
-	 * Dynamic programming version. The temporal 
+	 * Dynamic programming version. The time 
 	 * complexity is quadratic 0(maxWeight*objects)
 	 * @param maxWeight Maximum weight that can be carried in the backpack
 	 * @param benefits Benefits for each object

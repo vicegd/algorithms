@@ -42,7 +42,7 @@ public class AgentsTasksTimes {
 	
 	/**
 	 * To measure execution times for a specific problem
-	 * @param nTimes
+	 * @param nTimes Number of times the task is performed
 	 */
 	public void measureTimes(int nTimes) {
 		long t1, t2;
