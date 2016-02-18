@@ -54,18 +54,18 @@ If you do not know how to complete any of the code snippets, you can see and dow
 ### Greedy algorithms
 
 #### TOC
-* The problem of the change (*Change.java* - **OPTIMAL SOLUTION**)
-* The problem of the change (*ChangeNotOptimal* - **NOT OPTIMAL SOLUTION**)
-* The knapsack problem (*Knapsack.java* - **OPTIMAL SOLUTION**)
-* The knapsack problem (0/1) (*Knapsack01.java* - **NOT OPTIMAL SOLUTION**)
-* Maximize the number of files on a disk (*FilesDisc1.java* - **OPTIMAL SOLUTION**)
-* Minimize the free space on a disk with files (*FilesDisc2.java* - **NOT OPTIMAL SOLUTION**)
-* The diligent plumber (*Plumber.java* - **OPTIMAL SOLUTION**)
-* Some diligent plumbers (*SomePlumbers.java* - **OPTIMAL SOLUTION**)
-* The truck driver in a hurry (*TruckDriver.java* - **OPTIMAL SOLUTION**)
-* Prim (*Prim.java* - **OPTIMAL SOLUTION**)
-* The horse jumping problem (*ChessHorseSimpleHeuristic, ChessHorse.java* - **OPTIMAL SOLUTION FOR SOME CASES**)
-* The problem of assigning tasks to agents (*AgentsTasks.java, AgentsTasksRandomValues, AgentsTasksDifferentSizesTimes* - **NOT OPTIMAL SOLUTION**)
+* The problem of the change (*Change.java* - **OPTIMAL**)
+* The problem of the change (*ChangeNotOptimal* - **NOT OPTIMAL**)
+* The knapsack problem (*Knapsack.java* - **OPTIMAL**)
+* The knapsack problem (0/1) (*Knapsack01.java* - **NOT OPTIMAL**)
+* Maximize the number of files on a disk (*FilesDisc1.java* - **OPTIMAL**)
+* Minimize the free space on a disk with files (*FilesDisc2.java* - **NOT OPTIMAL**)
+* The diligent plumber (*Plumber.java* - **OPTIMAL**)
+* Some diligent plumbers (*SomePlumbers.java* - **OPTIMAL**)
+* The truck driver in a hurry (*TruckDriver.java* - **OPTIMAL**)
+* Prim (*Prim.java* - **OPTIMAL**)
+* The horse jumping problem (*ChessHorseSimpleHeuristic, ChessHorse.java* - **OPTIMAL SOMETIMES**)
+* The problem of assigning tasks to agents (*AgentsTasks.java, AgentsTasksRandomValues, AgentsTasksDifferentSizesTimes* - **NOT OPTIMAL**)
 
 #### Missing code snippets
 * [calculate()](https://gist.github.com/vicegd/33fb652c42f6d659e294)
