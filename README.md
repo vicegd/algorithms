@@ -65,23 +65,58 @@ If you do not know how to complete any of the code snippets, you can see and dow
 * The truck driver in a hurry (*TruckDriver.java* - **OPTIMAL SOLUTION**)
 * Prim (*Prim.java* - **OPTIMAL SOLUTION**)
 * The horse jumping problem (*ChessHorseSimpleHeuristic, ChessHorse.java* - **OPTIMAL SOLUTION FOR SOME CASES**)
-* The problem of assigning tasks to agents (*AgentsTasks.java, AgentsTasksRandomValues, AgentsTasksDifferentSizesTimes* - **OPTIMAL SOLUTION**)
+* The problem of assigning tasks to agents (*AgentsTasks.java, AgentsTasksRandomValues, AgentsTasksDifferentSizesTimes* - **NOT OPTIMAL SOLUTION**)
 
 #### Missing code snippets
-* [fact2()](https://gist.github.com/vicegd/7553ecb737c0f888a870)
-* [fib4()](https://gist.github.com/vicegd/6b5061139d53f620f52a)
-* [sequentialSearch2()](https://gist.github.com/vicegd/f99718b268841865c2e8)
-* [binarySearch2()](https://gist.github.com/vicegd/0220c92fa1525806ccbc)
-* [majoritarian2()](https://gist.github.com/vicegd/723110ab76e7b5750f64)
-* [mode2()](https://gist.github.com/vicegd/93eb127241b916e04110)
-* [median1()](https://gist.github.com/vicegd/720801a57e72b364b97c)
-* [maxsum2()](https://gist.github.com/vicegd/f24a1b8262707217f5f6)
+* [calculate()](https://gist.github.com/vicegd/33fb652c42f6d659e294)
+* [getTotalTimeOfWait()](https://gist.github.com/vicegd/a1cf2dea92c46e615682)
+* [orderInWhichTasksAreHandledBESTWAY()](https://gist.github.com/vicegd/6a2536b070fd904eb24f)
+* [assignTasksToPlumbersBESTWAY()](https://gist.github.com/vicegd/535378f474fa0c072e51)
+* [minimumSpanningTree()](https://gist.github.com/vicegd/26a8aa81469bf904eab6)
+* [jump()](https://gist.github.com/vicegd/a756666382190c037cba)
+* [newMovement()](https://gist.github.com/vicegd/71f6e3ae15d79e644d86)
+* [greedy2()](https://gist.github.com/vicegd/1ed82e1b03e487955c1a)
+* [getCost2()](https://gist.github.com/vicegd/aba41de7c68ff2f90236)
 
 ### Dynamic programming
 
+#### TOC
+* Fibonacci series (*Fibonacci.java*)
+* Combinations (*Combinations.java*)
+* The knapsack problem (0/1) (*Knapsack01.java*)
+* The problem of the change (*Change.java*)
+* Cheaper travel on the river (*RiverTravel.java*)
+
+#### Missing code snippets
+* [fib2()](https://gist.github.com/vicegd/e42b1b4a86c3993ca9f1)
+* [combinationsDivideAndConquer()](https://gist.github.com/vicegd/e64eae49928f982e43e4)
+* [change()](https://gist.github.com/vicegd/81ce8a0f19a83cbedc7f)
+* [riverTravel()](https://gist.github.com/vicegd/6904f0fc73561f6fcf79)
+
 ### Backtracking
 
+#### TOC
+* Permutations of elements (*Permutations.java, PermutationsTimes.java*)
+* Subsets of a given sum (*SubsetsGivenSum.java*)
+* The problem of the n queens (*ChessQueensOne.java, ChessQueensAll.java*)
+* The horse jumping problem (*ChessHorseOne.java, ChessHorseAll.java*)
+* The problem of assigning tasks to agents (*AgentsTaskTimes.java*)
+
+#### Missing code snippets
+* [backtracking() (queens)](https://gist.github.com/vicegd/b28e6c5b49878b93270b)
+* [backtracking() (horse - one)](https://gist.github.com/vicegd/4f4475e7b66fbd4c9f2f )
+* [backtracking() (horse - all)](https://gist.github.com/vicegd/ec8981ca9c674662c862)
+* [findBestSolution()](https://gist.github.com/vicegd/5c7d325df9e2ee880094 )
+* [calculateCost()](https://gist.github.com/vicegd/f8241289b9f11e4efa70)
+* [assigned()](https://gist.github.com/vicegd/e7260dde753c95ec5525)
+* [printBestSol()](https://gist.github.com/vicegd/99a2df03bbb0eeb32685)
+
 ### Branch and bound
+
+#### TOC
+* The problem of assigning tasks to agents  (*AgentsTasks.java*)
+* The problem of the puzzle  (*EightPuzzle.java*)
+* Optimal placement of rectangles (*RectanglesPlacement.java*)
 
 ## License
 
