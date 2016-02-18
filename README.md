@@ -5,7 +5,7 @@ You can run the JUnit test cases to check whether everything is working properly
 
 However, some test cases are skipped because some algorithms are not complete. Please, try to complete them and after that you can remove the '@Ignore' attribute in the corresponding test cases in order to execute all of them.
 
-If you do not know how to complete any of the code snippets, you can see and download the code snippets in Gists. 
+If you do not know how to complete any of the code snippets, you can see and download the code snippets in Gists (links are indicated below). 
 
 ## Topics
 
@@ -16,19 +16,19 @@ If you do not know how to complete any of the code snippets, you can see and dow
 ### Divide and Conquer
 
 #### TOC
-* Factorial of a number
-* Fibonacci series
-* Sum of elements
-* Sequential search
-* Binary (dichotomous) search
-* Quicksort 
-* Mergesort
-* The majoritarian element
-* Mode of a set of numbers
-* Median of a set of numbers
-* Maximum sum of subsequences of elements
+* Factorial of a number (*Factorial.java*)
+* Fibonacci series (*Fibonacci.java*)
+* Sum of elements (*VectorSum.java*)
+* Sequential search (*SequentialSearch.java*)
+* Binary (dichotomous) search (*BinarySearch.java*)
+* Quicksort (*Quicksort.java*)
+* Mergesort (*Mergesort.java*)
+* The majoritarian element (*MajoritarianElement.java*)
+* Mode of a set of numbers (*Mode.java*)
+* Median of a set of numbers (*Median.java*)
+* Maximum sum of subsequences of elements (*MaxSum.java*)
 
-#### Code snippets
+#### Missing code snippets
 * [fact2()](https://gist.github.com/vicegd/7553ecb737c0f888a870)
 * [fib4()](https://gist.github.com/vicegd/6b5061139d53f620f52a)
 * [sequentialSearch2()](https://gist.github.com/vicegd/f99718b268841865c2e8)
