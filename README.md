@@ -9,9 +9,13 @@ If you do not know how to complete any of the code snippets, you can see and dow
 
 ## Topics
 
-### Introduction
-
 ### Sorting
+#### TOC
+* Bubble (*Bubble.java*)
+* Bubble with sentinel (*ImprovedBubble.java*)
+* Direct insertion (*Insertion.java*)
+* Direct selection (*Selection.java*)
+* Quicksort (*Quicksort.java*)
 
 ### Divide and Conquer
 
