@@ -3,7 +3,7 @@ Some example algorithms for the Algorithmics course in the [School of Computer S
 
 You can run the JUnit test cases to check whether everything is working properly. 
 
-However, some test cases are skipped because some algorithms are not complete. Please, try to complete them and after that you can remove the '@Ignore' attribute in the corresponding test cases in order to execute all of them.
+However, some test cases are skipped because some algorithms are not complete. Please, try to complete them and after that you can remove the **@Ignore** attribute in the corresponding test cases in order to execute all of them.
 
 If you do not know how to complete any of the code snippets, you can see and download the code snippets in Gists (links are indicated below). 
 
