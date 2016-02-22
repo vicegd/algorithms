@@ -51,6 +51,7 @@ public class RecursiveActionComparisonTest {
 	/**
 	 * Obtains the cube root of the values in an array
 	 */
+	@Test
 	public void executeTask() {
 		data = srcData.clone();
 		level = 3; //Level of parallelism
