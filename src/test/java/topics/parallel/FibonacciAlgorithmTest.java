@@ -37,7 +37,7 @@ public class FibonacciAlgorithmTest {
 	 */
 	@Test
 	public void executeTask() {
-		 int n = 10;
+		 int n = 50;
 		 fib = new FibonacciAlgorithm(n);
 		 
 		 long t1 = System.currentTimeMillis(); 
@@ -46,7 +46,7 @@ public class FibonacciAlgorithmTest {
 	 
 		 log.trace("Fibonacci problem of size: " + n);
 		 log.trace("Result: " + result);
-		 assertEquals(55, result);
+		 assertEquals(12586269025l, result);
 		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 
 	}
 
