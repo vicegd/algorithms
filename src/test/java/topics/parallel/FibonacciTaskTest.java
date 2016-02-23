@@ -1,7 +1,9 @@
 package topics.parallel;
 
 import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.ForkJoinPool;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,6 +53,22 @@ public class FibonacciTaskTest {
 		 assertEquals(832040, result);
 		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 		
 	}
+	
+//	@Test
+//	public void executeTask() {
+//		 int n = 50;
+//		 FibonacciAlgorithm problem = new FibonacciAlgorithm(n);
+//		 FibonacciTask task = new FibonacciTask(problem);
+// 
+//		 long t1 = System.currentTimeMillis(); 
+//		 long result = pool.invoke(task); 
+//		 long t2 = System.currentTimeMillis();
+//	
+//		 log.trace("Fibonacci problem of size: " + n);
+//		 log.trace("Result: " + result);
+//		 assertEquals(12586269025l, result);
+//		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 		
+//	}
 
 
 
