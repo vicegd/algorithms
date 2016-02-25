@@ -13,4 +13,5 @@ hs_err_pid*
 /logging.log
 /doc/
 /target/
-/.classpath
+/bin/
+.classpath
