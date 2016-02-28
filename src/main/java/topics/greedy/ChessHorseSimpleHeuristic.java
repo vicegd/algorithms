@@ -70,7 +70,7 @@ public class ChessHorseSimpleHeuristic {
 		throw new UnsupportedOperationException("This operation needs to be implemented");
 	}
 	
-	private void writeSolution(){
+	public void writeSolution(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
 		for (int i = 0; i<board.length; i++){

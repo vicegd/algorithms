@@ -93,7 +93,7 @@ public class ChessHorse {
 				&&(board[newPos[0]][newPos[1]]==-1)); //The new position is empty
 	}
 	
-	private void writeSolution(){
+	public void writeSolution(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
 		for (int i = 0; i<board.length; i++){

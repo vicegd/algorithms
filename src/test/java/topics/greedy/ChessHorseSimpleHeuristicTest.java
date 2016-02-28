@@ -4,7 +4,6 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +36,6 @@ public class ChessHorseSimpleHeuristicTest {
 	 * Shows the state of the board
 	 * In this case there is not solution
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChess() {
 		int n = 5;
@@ -45,6 +43,7 @@ public class ChessHorseSimpleHeuristicTest {
 		
 		chess = new ChessHorseSimpleHeuristic(n);
 		boolean result = chess.horse(initialPos); //Initial position of the horse (x, y)
+		chess.writeSolution();
 		assertFalse(result);
 	}
 	
