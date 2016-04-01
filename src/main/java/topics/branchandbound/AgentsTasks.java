@@ -1,10 +1,8 @@
 package topics.branchandbound;
 
 import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import topics.branchandbound.util.BranchAndBound;
 import topics.branchandbound.util.Node;
 
@@ -65,7 +63,7 @@ class Table extends Node {
 		partialSolution = parent.partialSolution.clone();
 		taskWithWorker = parent.taskWithWorker.clone();
 		depth = parent.depth;
-		parentID = parent.hashCode();
+		parentID = parent.getID();
 		partialSolution[depth] = j;	//Depth corresponds to the first agent that is not assigned
 		taskWithWorker[j] = true; //We mark the task as assigned
 		depth++;
@@ -101,7 +99,7 @@ class Table extends Node {
     
 	/* PRUNING METHOD (bounding) heuristic. 
 	 * Initially, the limit of pruning is the smallest 
-	 * of the sums of the two  diagonals of the matrix 
+	 * of the sums of the two diagonals of the matrix 
 	 * of costs */
     @Override
     public int initialValuePruneLimit() {
@@ -127,10 +125,10 @@ class Table extends Node {
 		//Sum the minimum of the columns (tasks) that are not assigned to a worker
 		for (int j = 0; j<n; j++)
 			if (!taskWithWorker[j])
-				heuristicValue += minimumColumn(depth, j);
+				heuristicValue += minimumColumn(j);
 	}
 
-	private int minimumColumn(int depth, int j) {
+	private int minimumColumn(int j) {
 		int minValueColumn = Integer.MAX_VALUE;
 		for (int i = depth; i<n; i++)
 			//Calculate the minimum of the column

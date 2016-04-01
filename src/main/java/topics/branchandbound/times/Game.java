@@ -2,6 +2,8 @@ package topics.branchandbound.times;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 import topics.branchandbound.util.Node;
 
 class Game extends Node {
@@ -13,7 +15,7 @@ class Game extends Node {
         this.pieces = pieces;
     }
 
-    public Game(int[][] board, List<Piece> pieces, int depth, int parentID) {
+    public Game(int[][] board, List<Piece> pieces, int depth, UUID parentID) {
         this.board = board;
         this.pieces = pieces;
         this.depth = depth;
@@ -153,7 +155,7 @@ class Game extends Node {
         boards = placeNewPiece(); //We could place the new piece in different locations, so for each location we have a new state
         for (Object board : boards) {
         	testBoard = (int[][])board;
-            temp = new Game(testBoard, pieces, depth+1, hashCode()); //parentID = hashCode() of the previous node
+            temp = new Game(testBoard, pieces, depth+1, this.getID()); //parentID = UUID of the previous node
             result.add(temp);
         }
         return result;

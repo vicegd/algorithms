@@ -1,6 +1,7 @@
 package topics.branchandbound;
 
 import java.util.ArrayList;
+import java.util.UUID;
 import topics.branchandbound.util.BranchAndBound;
 import topics.branchandbound.util.Node;
 
@@ -31,7 +32,7 @@ class Puzzle extends Node {
     	this.board = board;
     }
 
-    public Puzzle(int[] board, HeuristicType heuristicType, int depth, int parentID) {
+    public Puzzle(int[] board, HeuristicType heuristicType, int depth, UUID parentID) {
         this.board = board;
         this.heuristicType = heuristicType;
         this.depth = depth;
@@ -150,7 +151,7 @@ class Puzzle extends Node {
     	return result;
     }
   
-    /* It is the number of pieces j such that j<i 
+    /* It is the number of pieces such that j<i 
      * and position(j)>position(i) */
     private int smaller(int i) { 
     	int j = 0;
@@ -165,7 +166,7 @@ class Puzzle extends Node {
     	int position = -1;
     	for (int k = 0; k < board.length; k++) {
     		if (board[k] == i)
-    			position = k+1; //We start in 0
+    			position = k+1; //We start at 0
     	}
     	return position;
     }
@@ -176,10 +177,12 @@ class Puzzle extends Node {
         for (int i=1; i<=9; i++) {
             if ((i%3) == 1)
                 sb.append(" | "); //First |
+            
             if (board[i-1] == 9)
                 sb.append("  | ");
             else
                 sb.append(board[i-1]+" | ");
+            
             if ((i%3) == 0) //Each three numbers...
                 sb.append("\n===============\n");
         }
@@ -212,19 +215,19 @@ class Puzzle extends Node {
 	       
 	    //Possible movements of the pieces towards the empty cell
 	    testBoard = up(); //UP
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, hashCode());
+	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
 	    result.add(temp);
 	        
 	    testBoard = down(); //DOWN
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, hashCode());
+	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
 	    result.add(temp);
 	        
 	    testBoard = left(); //LEFT
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, hashCode());
+	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
 	    result.add(temp);
 	        
 	    testBoard = right(); //RIGHT
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, hashCode());
+	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
 	    result.add(temp);
 	    return result;
 	}

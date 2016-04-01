@@ -1,6 +1,7 @@
 package topics.branchandbound.util;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * To represents the different states of a problem in the graph
@@ -10,7 +11,8 @@ import java.util.ArrayList;
  */
 public abstract class Node implements Comparable<Node> {
     protected int depth; //Number of moves made so far (is equal to the number of nodes developed) on this branch
-    protected int parentID; //Parent ID for node tracking
+    protected UUID parentID; //Parent ID for node tracking
+    protected UUID ID; //ID for the node
     protected int heuristicValue; //Value of the calculated heuristic
 
     /**
@@ -18,7 +20,8 @@ public abstract class Node implements Comparable<Node> {
      */
 	public Node() { //Values by default
     	depth = 0; 
-    	parentID = -1; //It does not have parent unless we say another thing
+    	parentID = null; //It does not have parent unless we say another thing
+    	ID = UUID.randomUUID();
 	}
 	
 	/**
@@ -26,13 +29,7 @@ public abstract class Node implements Comparable<Node> {
 	 * @return The depth variable
 	 */
     public int getDepth() {return depth;}
-	
-    /**
-     * Getter for parentID
-     * @return The parentID variable
-     */
-    public int getParentID() {return parentID;}
-    
+	  
     /**
      * Getter for heuristicValue
      * @return The heuristicValue variable
@@ -47,6 +44,22 @@ public abstract class Node implements Comparable<Node> {
     public boolean equals(Node n) {
 		return (n.toString().equals(toString()));
 	}
+    
+    /**
+     * Getter for parentID
+     * @return The parentID variable
+     */
+    public UUID getParentID() {
+    	return parentID;
+    }
+    
+    /**
+     * Gets the ID of the node
+     * @return ID of the node
+     */
+    public UUID getID() {
+    	return ID;
+    }
     
     /**
      * We can have extra information about the problem to prune all the nodes

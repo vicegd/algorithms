@@ -1,6 +1,7 @@
 package topics.branchandbound.util.threads;
 
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
 import topics.branchandbound.util.Node;
@@ -11,14 +12,14 @@ import topics.branchandbound.util.Node;
  */
 public class HeapThreads {
 	private PriorityBlockingQueue<Node> nodes; //Nodes on the Heap
-	private ConcurrentHashMap<Integer, Node> usedNodes; //To compose the solution and to know what nodes have been treated
+	private ConcurrentHashMap<UUID, Node> usedNodes; //To compose the solution and to know what nodes have been treated
 	
 	/**
 	 * Constructor for Heap objects
 	 */
 	public HeapThreads() {
 		nodes = new PriorityBlockingQueue<Node>();
-        usedNodes = new ConcurrentHashMap<Integer, Node>();
+        usedNodes = new ConcurrentHashMap<UUID, Node>();
 	}
 	
 	/**
@@ -68,7 +69,7 @@ public class HeapThreads {
 	 */
 	public Node extractBestNode() {
 		Node node = nodes.poll();
-        usedNodes.put(node.hashCode(), node); //We save it because it can be part of the solution
+        usedNodes.put(node.getID(), node); //We save it because it can be part of the solution
         //In addition, we can check if we have explored a node previously
 		return node;
 	}
@@ -82,9 +83,9 @@ public class HeapThreads {
 		ArrayList<Node> result = new ArrayList<Node>();
 		
         result.add(node); //Add the last node
-        int parentID = node.getParentID(); //Find its parent node
+        UUID parentID = node.getParentID(); //Find its parent node
 
-        while (parentID != -1) { //While there is a parent node
+        while (parentID != null) { //While there is a parent node
         	node = usedNodes.get(parentID);
             result.add(node);
             parentID = node.getParentID();
