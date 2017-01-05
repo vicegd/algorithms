@@ -35,7 +35,7 @@ public class MaxPairWiseProductTest5 {
         Runtime runtime = Runtime.getRuntime();
         //calculate the used memory
         long memory = (runtime.totalMemory() - runtime.freeMemory()) / 1024;
-        assertThat("The memory usage is too big", memory, Matchers.lessThan(21000L));
+        assertThat("The memory usage is too big", memory, Matchers.lessThan(19000L));
 	}
 
 }
