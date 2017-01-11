@@ -55,7 +55,7 @@ public class MaxSum {
 			int center = (left+right)/2;
 			int maxLeft = maxSumByDivision(left,center, v);
 			int maxRight = maxSumByDivision(center+1,right, v);	
-			//calculates the maximum of the subsequence that pass from one-half to the other half
+			//calculates the maximum of the subsequence that passes from one-half to the other half
 			int sum1=0;
 			int maxSum1=0;
 			for(int i=center; i>=left; i--) {

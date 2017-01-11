@@ -36,7 +36,7 @@ public class Median {
 		int pivotPosition = Util.partition(v, left, right); //O(n) using as the pivot the central element
 		int centerPosition = v.length/2;
 		/* We find the median when we find the element that corresponds with the central position. 
-		 * Note that when an element is partitionated it is sure that it is in its correct position */
+		 * Note that when an element is partitioned it is sure that it is in its correct position */
 		if (pivotPosition == centerPosition) 
 			return v[pivotPosition];
 		else if (pivotPosition > centerPosition) 
