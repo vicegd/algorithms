@@ -7,7 +7,7 @@ However, some test cases are skipped because some algorithms are not complete. P
 
 If you do not know how to complete any of the code snippets, you can see and download the code snippets in Gists (links are indicated below). 
 
-## Main topics (there are more)
+## Main topics (there are more in the code)
 
 ### Sorting
 #### TOC
