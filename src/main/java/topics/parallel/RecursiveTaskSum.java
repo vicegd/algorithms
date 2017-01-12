@@ -1,6 +1,6 @@
 package topics.parallel;
 
-import java.util.concurrent.*;  
+import java.util.concurrent.RecursiveTask;  
 
 /**
  * To calculate the addition of the values of an array

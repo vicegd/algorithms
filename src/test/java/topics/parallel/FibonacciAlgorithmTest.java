@@ -50,20 +50,20 @@ public class FibonacciAlgorithmTest {
 		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 
 	}
 	
-//	@Test
-//	public void executeTask() {
-//		 int n = 50;
-//		 fib = new FibonacciAlgorithm(n);
-//		 
-//		 long t1 = System.currentTimeMillis(); 
-//		 long result = fib.solve();   
-//		 long t2 = System.currentTimeMillis();
-//	 
-//		 log.trace("Fibonacci problem of size: " + n);
-//		 log.trace("Result: " + result);
-//		 assertEquals(12586269025l, result);
-//		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 
-//	}
+	/*@Test
+	public void executeTask() {
+		 int n = 50;
+		 fib = new FibonacciAlgorithm(n);
+		 
+		 long t1 = System.currentTimeMillis(); 
+		 long result = fib.solve();   
+		 long t2 = System.currentTimeMillis();
+	 
+		 log.trace("Fibonacci problem of size: " + n);
+		 log.trace("Result: " + result);
+		 assertEquals(12586269025l, result);
+		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 
+	}*/
 
 	  	
 
