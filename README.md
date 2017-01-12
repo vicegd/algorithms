@@ -7,7 +7,7 @@ However, some test cases are skipped because some algorithms are not complete. P
 
 If you do not know how to complete any of the code snippets, you can see and download the code snippets in Gists (links are indicated below). 
 
-## Topics
+## Main topics (there are more)
 
 ### Sorting
 #### TOC
@@ -20,8 +20,9 @@ If you do not know how to complete any of the code snippets, you can see and dow
 ### Divide and Conquer
 
 #### TOC
-* Factorial of a number (*Factorial.java*)
 * Fibonacci series (*Fibonacci.java*)
+* Greatest common factorial (*GCGTest.java*)
+* Factorial of a number (*Factorial.java*)
 * Sum of elements (*VectorSum.java*)
 * Sequential search (*SequentialSearch.java*)
 * Binary (dichotomous) search (*BinarySearch.java*)
@@ -33,8 +34,9 @@ If you do not know how to complete any of the code snippets, you can see and dow
 * Maximum sum of subsequences of elements (*MaxSum.java*)
 
 #### Missing code snippets
-* [fact2()](https://gist.github.com/vicegd/7553ecb737c0f888a870)
 * [fib4()](https://gist.github.com/vicegd/6b5061139d53f620f52a)
+* [euclideanGCG()](https://gist.github.com/vicegd/5046c292ffc2be4b310e31e0878425a2)
+* [fact2()](https://gist.github.com/vicegd/7553ecb737c0f888a870)
 * [sequentialSearch2()](https://gist.github.com/vicegd/f99718b268841865c2e8)
 * [binarySearch2()](https://gist.github.com/vicegd/0220c92fa1525806ccbc)
 * [majoritarian2()](https://gist.github.com/vicegd/723110ab76e7b5750f64)
