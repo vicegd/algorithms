@@ -70,7 +70,7 @@ public class SubsetsGivenSum {
 		}    
 		else
 			if (sum <= c) //If sum>c it can be pruned, since the values we are working with are positive
-				//With j=0 the element does not belong to the solution; with j=1 we consider the element as part of the solution (there are two different possibilities)
+				//With j=1 the element does not belong to the solution; with j=0 we consider the element as part of the solution (there are two different possibilities)
 				for (int j=0; j<=1; j++) { 
 					if (j == 0) { 
 						sum = sum + v[level];
