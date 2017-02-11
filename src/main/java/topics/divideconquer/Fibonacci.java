@@ -10,7 +10,7 @@ public class Fibonacci {
 	
 	/**
 	 * First iterative solution with a
-	 * temporal complexity O(n)
+	 * time complexity O(n)
 	 * @param n Positive number to be used as input
 	 * @return Fibonacci value for n
 	 */
@@ -27,7 +27,7 @@ public class Fibonacci {
 	
 
 	/**
-	 * Second iterative solution with temporal 
+	 * Second iterative solution with time 
 	 * complexity O(n) and that uses a vector. 
 	 * Simple case of the DYNAMIC PROGRAMMING 
 	 * technique (MORE ON THAT LATER IN THE 
