@@ -31,11 +31,11 @@ public class ChessQueensOne {
 			a[i] = false;
 	  
 		b = new boolean[2*n-1];
-		for (int i=0;i<2*n-2;i++) //e.g., if n = 5, we would have from 0 to 8
+		for (int i=0;i<2*n-1;i++) //e.g., if n = 5, we would have from 0 to 8
 			b[i] = false;
 	
 		c = new boolean[2*n-1];
-		for (int i=0;i<2*n-2;i++) //e.g., if n = 5, we would have from 0 to 8
+		for (int i=0;i<2*n-1;i++) //e.g., if n = 5, we would have from 0 to 8
 			c[i] = false;
 	
 		found = false;;
