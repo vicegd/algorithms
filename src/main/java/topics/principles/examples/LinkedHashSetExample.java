@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 
 public class LinkedHashSetExample {
 
+	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
 		LinkedHashSet<String> collection = new LinkedHashSet<String>();
 		System.out.println("Initial size of the collection: " + collection.size());
