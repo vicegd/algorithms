@@ -20,7 +20,7 @@ public class Knapsack01 {
 	 * @param maxWeight Maximum weight that can be carried in the backpack
 	 * @param benefits Benefits for each object
 	 * @param weights Weights for each object
-	 * @return The maximum value when taken objects taking into accout the maxWeight constraint
+	 * @return The maximum value when taken objects taking into account the maxWeight constraint
 	 */
 	public float knapsack01(int maxWeight, float[]benefits, int[]weights) {
 		int n = weights.length;
