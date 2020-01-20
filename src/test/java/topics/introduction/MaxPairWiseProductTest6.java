@@ -7,21 +7,19 @@ import java.time.Duration;
 import java.time.Instant;
 
 import org.hamcrest.Matchers;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * MaxPairWiseProduct JUnit tests
  * @author viceg
  */
-public class MaxPairWiseProductTest4 {
+public class MaxPairWiseProductTest6 {
 	/**
 	 * Computes the max pairwise product
 	 */
-	@Ignore("Just to try")
 	@Test
-	public void testSum() {
-		MaxPairWiseProduct4 maxPairWiseProduct = new MaxPairWiseProduct4();
+	public void test() {
+		MaxPairWiseProduct6 maxPairWiseProduct = new MaxPairWiseProduct6();
 		Instant start = Instant.now();
 		long result = maxPairWiseProduct.compute();
 		Instant end = Instant.now();
