@@ -12,8 +12,8 @@
 hs_err_pid*
 doc/
 bin/
-#.settings/
+.settings/
 target/
 logging.log
-#.classpath
-#.project
+.classpath
+.project
