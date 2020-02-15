@@ -59,7 +59,7 @@ public class RecursiveTaskSumTest {
 	    log.trace("Elapsed time: " + (t2-t1) + " ms"); 
 	    log.trace("Result: " + result);
 	    
-	    //0.001 is the "fuzz factor", something like the margin of error 
+	    //0.001 is the "fuzzy factor", something like the margin of error 
 	    //since doubles may not be exactly equal
 	   	assertEquals(49999, result, 0.001); 
 	}
