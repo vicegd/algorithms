@@ -14,7 +14,7 @@ public class GCG {
 	 */
 	public long naiveGCD(long a, long b) {
 		long gcd = 0;
-		for (long d = 1; d <= (a>b?a:b); d++) {
+		for (long d = 1; d <= (a>b?b:a); d++) {
 			if ((a % d == 0) && (b % d == 0)) {
 				gcd = d;
 			}
