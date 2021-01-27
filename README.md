@@ -124,4 +124,4 @@ If you do not know how to complete any of the code snippets, you can see and dow
 
 License [GNU General Public License] (https://en.wikipedia.org/wiki/GNU_General_Public_License)
 
-Copyright (C) 2020 - [Vicente García Díaz] (http://www.vicentegarciadiaz.es)
+Copyright (C) 2020 - [Vicente García Díaz] (http://www.vicentegarciadiaz.com)
