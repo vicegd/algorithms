@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import topics.principles.Factorial;
-
 /**
  * Factorial JUnit tests
  * @author viceg
