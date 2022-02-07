@@ -50,8 +50,8 @@ public class FibonacciAlgorithmTest {
 		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 
 	}
 	
-	/*@Test
-	public void executeTask() {
+	@Test
+	public void executeTask2() {
 		 int n = 50;
 		 fib = new FibonacciAlgorithm(n);
 		 
@@ -63,7 +63,7 @@ public class FibonacciAlgorithmTest {
 		 log.trace("Result: " + result);
 		 assertEquals(12586269025l, result);
 		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 
-	}*/
+	}
 
 	  	
 

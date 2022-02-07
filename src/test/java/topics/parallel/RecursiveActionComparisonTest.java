@@ -27,7 +27,7 @@ public class RecursiveActionComparisonTest {
 	public static void setup() {
 		log.trace("Recursive Action Comparison Tests - Setup");
 	    Random rnd = new Random(); //Random numbers
-	    data = new int[100000]; //Numbers to work with
+	    data = new int[1000000]; //Numbers to work with
 	    
 	    for(int i = 0; i < data.length; i++) //Some values
 	      data[i] = rnd.nextInt(100);
