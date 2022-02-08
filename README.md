@@ -1,5 +1,5 @@
 # Algorithms examples
-Some example algorithms for the Algorithmics course in the [School of Computer Science] (https://ingenieriainformatica.uniovi.es/) in the [University of Oviedo] (http://www.uniovi.es).
+Example algorithms for the Algorithmics course in the [School of Computer Science] (https://ingenieriainformatica.uniovi.es/) in the [University of Oviedo] (http://www.uniovi.es).
 
 You can run the JUnit test cases to check whether everything is working properly. 
 
