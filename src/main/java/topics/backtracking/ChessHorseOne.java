@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
  * horse through an entire chessboard of side n 
  * @author viceg
  */
-@SuppressWarnings("unused")
 public class ChessHorseOne {	
 	private static Logger log = LoggerFactory.getLogger(ChessHorseOne.class);
 	private int n; //Size of the side of the board
@@ -27,12 +26,8 @@ public class ChessHorseOne {
 	public ChessHorseOne(int n, int startingX, int startingY) {
 		this.n = n;
 		
-		board = new int[n][n];
-		for (int i=0;i<n;i++)
-			for (int j=0;j<n;j++)
-				board[i][j]= 0; //The cell (i,j) has not been visited
-
-		board[startingX][startingY]=1;  //Initial position of the horse
+		board = new int[n][n]; //The cell (i,j) has not been visited
+		board[startingX][startingY] = 1;  //Initial position of the horse
 	   
 		a = new int[8]; //Valid movements in x
 		b = new int[8]; //Valid movements in y
@@ -45,7 +40,7 @@ public class ChessHorseOne {
 		a[6]=-2; b[6]=1;
 		a[7]=-1; b[7]=2;
 	 
-		found=false;
+		found = false;
 	}
 	
 	/**
@@ -55,7 +50,30 @@ public class ChessHorseOne {
 	 * @param y Current y position
 	 */
 	public void backtracking(int jumpNumber, int x, int y) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");        
+		if (jumpNumber==n*n+1) { //At this moment the horse has finished (it has been all over the board)
+			found=true;
+			log.debug("SOLUTION FOUND:");
+			StringBuilder sb = new StringBuilder();
+			for (int s=0;s<n;s++) {
+				for (int t=0;t<n;t++)
+					sb.append(String.format("%5d", board[s][t]));   
+				sb.append("\n");
+			}
+			log.debug(sb.toString());
+		}
+		else
+			for (int k=0;k<=7;k++) { //We have 8 possibilities (the different types of jumps of the chess horse)
+				int u = x+a[k]; //Target coordinate x of the horse
+				int v = y+b[k]; //Target coordinate y of the horse
+	     
+				if (!found  && u>=0 && u<=n && v>=0 && v<=n && board[u][v]==0 ) {
+					board[u][v] = jumpNumber; //We mark the position with the number of the jump
+	         
+					backtracking(jumpNumber+1, u, v);
+	      
+					board[u][v] = 0; //We leave it as it was (available to be used)
+				}
+			} //for	       
 	} //method
 
 	/**

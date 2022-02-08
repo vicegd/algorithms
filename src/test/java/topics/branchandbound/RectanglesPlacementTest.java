@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 public class RectanglesPlacementTest {
 	private static Logger log = LoggerFactory.getLogger(RectanglesPlacementTest.class);
 	private RectanglesPlacement rect;
+	private RectanglesPlacementThreads rectThreads;
 	
 	/**
 	 * Initializes the object to perform tests
@@ -116,5 +117,47 @@ public class RectanglesPlacementTest {
 		rect.branchAndBound(rect.getRootNode()); 
 		rect.printSolutionTrace(); //There is always a solution for this problem (with enough space)
 		rect.getBestNode().getHeuristicValue();
+	}
+	
+	@Test
+	public void testRectanglesPlacementBigOk() {
+		int n = 8; //Size of the board
+        
+        //EXAMPLE 1
+        List<Piece> pieces = new ArrayList<Piece>();
+        Piece p1 = new Piece(2, 5);
+        Piece p2 = new Piece(1, 3);
+        Piece p3 = new Piece(1, 5);
+        Piece p4 = new Piece(3, 1);
+        Piece p5 = new Piece(1, 1);
+        Piece p6 = new Piece(2, 1);
+        pieces.add(p1); pieces.add(p2); pieces.add(p3); pieces.add(p4); pieces.add(p5); pieces.add(p6);
+        
+		rect = new RectanglesPlacement(n, pieces); 
+		rect.branchAndBound(rect.getRootNode()); 
+		rect.printSolutionTrace(); //There is always a solution for this problem
+		int result = rect.getBestNode().getHeuristicValue();
+		assertEquals(24, result);
+	}
+	
+	@Test
+	public void testRectanglesPlacementBigThreadsOk() {
+		int n = 8; //Size of the board
+        
+        //EXAMPLE 1
+        List<Piece> pieces = new ArrayList<Piece>();
+        Piece p1 = new Piece(2, 5);
+        Piece p2 = new Piece(1, 3);
+        Piece p3 = new Piece(1, 5);
+        Piece p4 = new Piece(3, 1);
+        Piece p5 = new Piece(1, 1);
+        Piece p6 = new Piece(2, 1);
+        pieces.add(p1); pieces.add(p2); pieces.add(p3); pieces.add(p4); pieces.add(p5); pieces.add(p6);
+        
+		rectThreads = new RectanglesPlacementThreads(n, pieces); 
+		rectThreads.branchAndBound(rectThreads.getRootNode(), 4); 
+		rectThreads.printSolutionTrace(); //There is always a solution for this problem
+		int result = rectThreads.getBestNode().getHeuristicValue();
+		assertEquals(24, result);
 	}
 }

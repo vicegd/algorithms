@@ -18,7 +18,7 @@ public class AgentsTasksRandomValues {
 	public static void main(String arg []) {
 		int n = Integer.parseInt(arg[0]); 
 		
-		c = new int[n][n] ;
+		c = new int[n][n];
 		sol = new int[n];
 		 
 		fillIn(c);

@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +37,6 @@ public class ChessHorseTest {
 	 * Shows the state of the board
 	 * In this case there is not solution
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChessNo() {
 		int n = 5;
@@ -54,7 +52,6 @@ public class ChessHorseTest {
 	 * Shows the state of the board
 	 * In this case there is solution
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChessOk() {
 		int n = 8;

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +59,6 @@ public class SomePlumbersTest {
 	 * It gives the total waiting time. Optimal solution
 	 * Assuming that tasks arrived in this order {2, 5, 4, 8, 6, 7, 3} with 3 plumbers
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testWaitingTimeOk() {
 		times = new int[] {2, 5, 4, 8, 6, 7, 3}; //Time of each of the tasks that the plumbers need to do

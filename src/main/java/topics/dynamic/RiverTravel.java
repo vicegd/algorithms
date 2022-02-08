@@ -1,4 +1,4 @@
-package topics.dynamic;
+ package topics.dynamic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,21 @@ public class RiverTravel {
 	 * @param c Final matrix of minimum cost for each pair of docks
 	 */
 	public void riverTravel(int[][]t, int[][]c) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		int n = t.length;
+
+		for (int i=n-2; i>=0; i--) //Be careful, it is a descendant loop
+			for (int j=i+1; j<n; j++) {
+				int min = Integer.MAX_VALUE;
+				for (int k=i+1; k<=j; k++) {
+					int valueK = 0;
+					if (k==j)
+						valueK = t[i][j];
+					else valueK = c[i][k] + c[k][j];
+					if (valueK < min) 
+						min = valueK;
+				}
+				c[i][j] = min;
+			}
 	}
 	
 	/**

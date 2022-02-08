@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,11 +63,25 @@ public class CombinationsTest {
 		//This result is too big to be calculated with D&C instead
 		assertEquals(847660528, result);
 	}
+	
+	/**
+	 * It gives the combinations value (n taken k by k)
+	 */
+	@Test
+	public void testCombinationsDP3() {
+		int n = 9; 
+		int k = 5;
+
+		table = new int[n+1][k+1];
+		comb = new Combinations();
+		int result = comb.combinations(table, n, k);
+		comb.writeSolution(table, n, k);
+		assertEquals(126, result);
+	}
 
 	/**
 	 * It gives the combinations value (n taken k by k)
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testCombinationsDC() {
 		int n = 52; 
@@ -78,4 +91,6 @@ public class CombinationsTest {
 		long result = comb.combinationsDivideAndConquer(n, k);	
 		assertEquals(2598960, result);
 	}
+	
+
 }

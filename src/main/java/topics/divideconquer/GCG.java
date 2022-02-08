@@ -30,7 +30,12 @@ public class GCG {
 	 * @return GCD
 	 */
 	public long euclideanGCG(long a, long b) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (a == 0) return b;
+		else if (b == 0) return a;
+		else {
+			long r = a % b;
+			return euclideanGCG(b, r);
+		}
 	}
 	
 }

@@ -141,7 +141,7 @@ class Puzzle extends Node {
     	for (int i = 1; i <= 9; i++) {
     		sum += smaller(i);
     	}
-    	if ((position(9)%2) == 0)
+    	if ((position(9)%2) == 0) 
     		x = 1;
     	
     	if ((sum + x)%2 == 1) { //It is an odd number
@@ -152,7 +152,7 @@ class Puzzle extends Node {
     }
   
     /* It is the number of pieces such that j<i 
-     * and position(j)>position(i) */
+     * and position(j) > position(i) */
     private int smaller(int i) { 
     	int j = 0;
     	for (int k = position(i); k < board.length; k++) {

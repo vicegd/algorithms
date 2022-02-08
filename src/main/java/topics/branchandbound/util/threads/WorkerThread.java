@@ -15,19 +15,21 @@ public class WorkerThread extends Thread {
 		long l1 = System.currentTimeMillis();
 		
 		while (!BranchAndBoundThreads.ds.empty() && BranchAndBoundThreads.ds.estimateBest() < BranchAndBoundThreads.pruneLimit) {
-			Node node = BranchAndBoundThreads.ds.extractBestNode();	
-				
+			Node node;
+			node = BranchAndBoundThreads.ds.extractBestNode();	
 			ArrayList<Node> children = node.expand(); 				
 
 			for (Node child : children) 
 				if (child.isSolution()) {
-					int cost = child.getHeuristicValue();					
-					if (cost < BranchAndBoundThreads.pruneLimit) {
-						BranchAndBoundThreads.pruneLimit = cost;
-						BranchAndBoundThreads.bestNode = child;
-					} 
+					int cost = child.getHeuristicValue();			
+					synchronized(this) {
+						if (cost < BranchAndBoundThreads.pruneLimit) {						
+							BranchAndBoundThreads.pruneLimit = cost;
+							BranchAndBoundThreads.bestNode = child;
+						} 
+					}
 				}
-				else
+				else 					
 					if (child.getHeuristicValue() < BranchAndBoundThreads.pruneLimit) {
 						BranchAndBoundThreads.ds.insert(child);
 					}

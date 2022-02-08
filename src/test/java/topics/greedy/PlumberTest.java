@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +37,6 @@ public class PlumberTest {
 	 * It gives the total waiting time. Not optimal solution
 	 * Assuming that tasks arrived in a random order {2, 5, 4, 8, 6, 7, 3}
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testWaitingTimeRandom() {
 		tasks = new int[] {2, 5, 4, 8, 6, 7, 3}; //Time of each of the tasks that the plumber needs to do
@@ -53,7 +51,6 @@ public class PlumberTest {
 	 * It gives the total waiting time. Optimal solution
 	 * Assuming that tasks arrived in a smallest-first order {2, 3, 4, 5, 6, 7, 8}
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testWaitingTimeSmallestFirst() {
 		tasks = new int[] {2, 3, 4, 5, 6, 7, 8};
@@ -68,7 +65,6 @@ public class PlumberTest {
 	 * It gives the total waiting time. Not optimal solution
 	 * Assuming that tasks arrived in a biggest-first order {8, 7, 6, 5, 4, 3, 2, 1}
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testWaitingTimeBiggestFirst() {
 		tasks = new int[] {8, 7, 6, 5, 4, 3, 2, 1};

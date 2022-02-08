@@ -1,8 +1,8 @@
 package topics.divideconquer;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -32,7 +32,6 @@ public class FactorialTest {
 	/**
 	 * Calculates the factorial of a number in a recursive way
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void factorialRecursive() {
 		int result = factorial.fact2(6);

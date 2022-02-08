@@ -69,14 +69,15 @@ public class Fibonacci {
 	 * @return Fibonacci value for n
 	 */
 	public int fib4(int n) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (n <= 1) 
+			return n;
+		return fib4(n-1) + fib4(n-2);
 	}
 	
 	/**
 	 * DandC sophisticated solution that is O(log n). 
 	 * It is DandV by division with a=1,b=2,k=0 and 
 	 * it is programmed in an iterative way.
-
 	 * @param n Positive number to be used as input
 	 * @return Fibonacci value for n
 	 */

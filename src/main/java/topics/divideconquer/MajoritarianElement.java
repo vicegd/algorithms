@@ -1,4 +1,6 @@
-package topics.divideconquer;
+ package topics.divideconquer;
+
+import topics.sorting.Quicksort;
 
 /**
  * //DIVIDE AND CONQUER PROBLEM: IS THERE A MAJORITARIAN ELEMENT 
@@ -17,7 +19,7 @@ public class MajoritarianElement {
 		int n = v.length;
 		int majority = n/2 + 1; //to be the majoritarian element, it should be at least n/2 +1 times
 		int counter = 0;
-		for (int i=0; i<=n/2; i++) {
+		for (int i=0; i<n/2; i++) {
 			counter=0; //we count for each number 
 			for (int j=i; j<n; j++)
 				if (v[j]==v[i]) 
@@ -37,7 +39,18 @@ public class MajoritarianElement {
 	 * @return Whether there is a majoritarian element
 	 */
 	public boolean majoritarian2(int[]v) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		Quicksort quicksort = new Quicksort();
+		quicksort.sort(v);
+		
+		int n = v.length;
+		int majority = n/2+1;
+		int counter = 0;
+		//if there is a majoritarian element, it should be placed in the center
+		for (int i=0; i<n; i++)
+			if (v[i] == v[n/2]) counter++;
+		if (counter >= majority) 
+			return true; 
+		else return false; 
 	}    
 	
 	/**

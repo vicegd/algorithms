@@ -36,7 +36,7 @@ public class SubsetsGivenSumTest {
 	 * Calculates the number of subsets that results in 10 with 5 numbers (assumption 1)
 	 */
 	@Test
-	public void testPermutations() {
+	public void testSubset() {
 		sum = new SubsetsGivenSum(5, 10);
 		sum.assumption1();
 		sum.backtracking(0);
@@ -48,7 +48,7 @@ public class SubsetsGivenSumTest {
 	 * Calculates the number of subsets that results in 14 for 4 numbers (assumption 2)
 	 */
 	@Test
-	public void testPermutations2() {
+	public void testSubset2() {
 		sum = new SubsetsGivenSum(4, 14);
 		sum.assumption2();
 		sum.backtracking(0);

@@ -54,8 +54,6 @@ public class RecursiveActionSquareTest {
 	 */
 	@Test
 	public void executeTask() {
-		data = srcData.clone();
-		
 	    RecursiveActionSquare task = new RecursiveActionSquare(data, 0, data.length); 
 	    pool.invoke(task); //Start the main ForkJoinTask 
 	 

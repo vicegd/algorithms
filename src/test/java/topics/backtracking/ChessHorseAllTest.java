@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +35,6 @@ public class ChessHorseAllTest {
 	/**
 	 * Indicates whether it is possible move the horse through the complete board 5x5
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChessHorseOk() {
 		int startingX = 0;
@@ -51,7 +49,6 @@ public class ChessHorseAllTest {
 	/**
 	 * Indicates whether it is possible move the horse through the complete board 5x5
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChessHorseNo() {
 		int startingX = 1;

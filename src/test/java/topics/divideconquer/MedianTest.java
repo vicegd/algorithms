@@ -3,7 +3,6 @@ package topics.divideconquer;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -24,7 +23,6 @@ public class MedianTest {
 	/**
 	 * Calculates the median using an iterative approach
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void medianIterative() {
 		int[] v = {5, 8, 3, 1, 18, 12, 10, 7};

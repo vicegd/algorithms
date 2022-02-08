@@ -24,21 +24,11 @@ public class ChessQueensOne {
 	 */
 	public ChessQueensOne(int n) {
 		this.n = n;	 
-		sol = new int[n];
-		
+		sol = new int[n];	
 		a = new boolean[n];
-		for (int i=0;i<n;i++) 
-			a[i] = false;
-	  
 		b = new boolean[2*n-1];
-		for (int i=0;i<2*n-1;i++) //e.g., if n = 5, we would have from 0 to 8
-			b[i] = false;
-	
 		c = new boolean[2*n-1];
-		for (int i=0;i<2*n-1;i++) //e.g., if n = 5, we would have from 0 to 8
-			c[i] = false;
-	
-		found = false;;
+		found = false;
 	}
 	
 	/**

@@ -38,24 +38,24 @@ public class FibonacciTaskTest {
 	/**
 	 * Obtains the Fiboanacci value
 	 */
+//	@Test
+//	public void executeTask() {
+//		 int n = 30;
+//		 FibonacciAlgorithm problem = new FibonacciAlgorithm(n);
+//		 FibonacciTask task = new FibonacciTask(problem);
+// 
+//		 long t1 = System.currentTimeMillis(); 
+//		 long result = pool.invoke(task); 
+//		 long t2 = System.currentTimeMillis();
+//	
+//		 log.trace("Fibonacci problem of size: " + n);
+//		 log.trace("Result: " + result);
+//		 assertEquals(832040, result);
+//		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 		
+//	}
+	
 	@Test
 	public void executeTask() {
-		 int n = 30;
-		 FibonacciAlgorithm problem = new FibonacciAlgorithm(n);
-		 FibonacciTask task = new FibonacciTask(problem);
- 
-		 long t1 = System.currentTimeMillis(); 
-		 long result = pool.invoke(task); 
-		 long t2 = System.currentTimeMillis();
-	
-		 log.trace("Fibonacci problem of size: " + n);
-		 log.trace("Result: " + result);
-		 assertEquals(832040, result);
-		 log.trace("Elapsed time: " + (t2-t1) + " ms"); 		
-	}
-	
-	@Test
-	public void executeTask2() {
 		 int n = 50;
 		 FibonacciAlgorithm problem = new FibonacciAlgorithm(n);
 		 FibonacciTask task = new FibonacciTask(problem);

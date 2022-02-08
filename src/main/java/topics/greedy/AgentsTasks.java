@@ -44,10 +44,7 @@ public class AgentsTasks {
 	public void greedy1(int[] sol) {
 	    int n = sol.length;
 	    boolean [] mark = new boolean[n];
-	 
-	    for (int k=0; k<n; k++) 
-	    	mark[k] = false; //To mark columns as used
-	 
+	  
 	    int min,pos;
 	 
 	    for(int i=0; i<n; i++) { //We get the minimum from each of the rows  
@@ -71,11 +68,20 @@ public class AgentsTasks {
 	public void greedy2(int[] sol) {
 	    int n = sol.length;
 	    boolean []mark = new boolean[n];
+	 	 
+	    int min,pos;
 	 
-	    for (int k=0; k<n; k++) 
-	    	mark[k] = false; //To mark rows as used 
-	 
-	    throw new UnsupportedOperationException("This operation needs to be implemented");
+	    for(int j=0;j<n;j++) {  
+	    	min = Integer.MAX_VALUE; //We get the minimum from each of the columns
+	        pos = -1;
+	        for(int i=0; i<n; i++)
+	        	if (!mark[i] && c[i][j]<min) { //If the row is not already used and the value is less than the current one
+	        		min=c[i][j];
+	        		pos=i;
+	        	}
+	        sol[j] = pos; //The task j is performed by the agent pos
+	        mark[pos] = true; //We mark the row as used
+	     } 
 	}  
 	
 	/**
@@ -108,7 +114,10 @@ public class AgentsTasks {
 	    	log.trace("\tThe task "+i+" is assigned to worker "+sol[i]);
 	    log.trace("");
 	
-	    throw new UnsupportedOperationException("This operation needs to be implemented");
+	    int cost=0;
+	    for (int i=0; i<n; i++)
+	    	cost += c[sol[i]][i];
+	    return cost;
 	}     
 
 } 

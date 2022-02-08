@@ -62,7 +62,13 @@ public class Combinations {
 	 * @return Number of combinations
 	 */
 	public long combinationsDivideAndConquer(int n, int k) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (n==k) 
+			return 1;
+		else 
+			if (k==0)
+				return 1;
+		else return combinationsDivideAndConquer(n-1, k-1) + 
+				combinationsDivideAndConquer(n-1, k);
 	}
 	
 }

@@ -1,4 +1,4 @@
-package topics.dynamic;
+ package topics.dynamic;
 
 import static org.junit.Assert.assertEquals;
 
@@ -128,6 +128,32 @@ public class Knapsack01Test {
 		float result = knapsack.knapsack01(maxWeight, benefits, weights);
 		
 		assertEquals(10, result, 0.01);
+	}
+	
+	/**
+	 * It gives the maximum value in a knapsack
+	 * Objects cannot be broken
+	 */
+	@Test
+	public void testKnapsack5() {
+		//CASE 4
+		int maxWeight = 10; //the limit of weight you can put in the backpack
+		int n = 5; //number of elements
+		
+		float[]benefits = new float[n]; //values/weights (Kg)
+		benefits[0]=2;benefits[1]=3;benefits[2]=13/(float)5;
+		benefits[3]=26/(float)7;benefits[4]=1;
+		
+		int[]weights = new int[n]; //weights of the elements
+		weights[0]=3;weights[1]=4;weights[2]=5;
+		weights[3]=7;weights[4]=5;
+		
+		log.trace("Case with a maximum weight of " + maxWeight + " Kg");
+		
+		knapsack = new Knapsack01();
+		float result = knapsack.knapsack01(maxWeight, benefits, weights);
+		
+		assertEquals(32, result, 0.01);
 	}
 	
 	

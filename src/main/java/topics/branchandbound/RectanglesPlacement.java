@@ -95,16 +95,16 @@ class Game extends Node {
     	//We need that the piece is next to another piece (but not on another piece)
     	if (depth == 0) result = true; //The first element does not need a neighbor
     	else { //If it is not the first element
-	    	if (x+limitX < newBoard.length) //On the right
+	    	if (x+limitX < newBoard.length) //On the button
 	    		for (int k = y; k < y+limitY; k++)
 	    			if (newBoard[x+limitX][k] != 0) result = true; //We have a neighbor
-	    	if (x != 0) //On the left
+	    	if (x != 0) //On the top
 	    		for (int k = y; k < y+limitY; k++)
 	    			if (newBoard[x-1][k] != 0) result = true; //We have a neighbor
-	    	if (y != 0) //On the top
+	    	if (y != 0) //On the left
 	    		for (int k = x; k < x+limitX; k++)
 	    			if (newBoard[k][y-1] != 0) result = true; //We have a neighbor
-	    	if (y+limitY < newBoard.length) //On the button
+	    	if (y+limitY < newBoard.length) //On the right
 	    		for (int k = x; k < x+limitX; k++)
 	    			if (newBoard[k][y+limitY] != 0) result = true; //We have a neighbor
     	}

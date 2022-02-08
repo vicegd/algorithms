@@ -25,7 +25,6 @@ public class Fibonacci {
 		return n1;
 	}  
 	
-
 	/**
 	 * Second iterative solution with time 
 	 * complexity O(n) and that uses a vector. 
@@ -37,7 +36,11 @@ public class Fibonacci {
 	 * @return Fibonacci value for n
 	 */
 	public int fib2(int n, int[]v) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		v[0] = 0;
+		v[1] = 1;
+		for (int i=2; i <= n; i++) 
+			v[i]= v[i-1] + v[i-2];
+		return v[n];
 	}
 	
 	/**
@@ -74,7 +77,6 @@ public class Fibonacci {
 	 * DandC sophisticated solution that is O(log n). 
 	 * It is DandV by division with a=1,b=2,k=0 and 
 	 * it is programmed in an iterative way.
-
 	 * @param n Positive number to be used as input
 	 * @return Fibonacci value for n
 	 */

@@ -51,15 +51,13 @@ class Table extends Node {
  	   		partialSolution[i] = -1; //Initially, no assignments
  	   	
  	   	taskWithWorker = new boolean[n];
- 	   	for (int i = 0; i < taskWithWorker.length; i++)
- 	   		taskWithWorker[i] = false; //Initially, no assignments
     }
  
 	public Table(Table parent, int j) { //To create a state from the parent
 		super();
 		
 		n = parent.n;
-		c = parent.c.clone();
+		c = parent.c;
 		partialSolution = parent.partialSolution.clone();
 		taskWithWorker = parent.taskWithWorker.clone();
 		depth = parent.depth;
@@ -142,7 +140,7 @@ class Table extends Node {
      * point to their parent through the parentID */
 	@Override
 	public ArrayList<Node> expand() {
-		ArrayList<Node> result= new ArrayList<Node>();
+		ArrayList<Node> result = new ArrayList<Node>();
 
 		//Iterate through the tasks
 		for (int j=0; j<n; j++)

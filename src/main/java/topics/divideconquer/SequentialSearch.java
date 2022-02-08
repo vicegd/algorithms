@@ -37,7 +37,14 @@ public class SequentialSearch {
 		return searchBySubtraction(0, v, x);
 	}
 	private int searchBySubtraction(int i, int[]v, int x){
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (i==v.length) 
+			return Integer.MIN_VALUE; //the element x does not exist
+		else { 
+			if (v[i]==x) 
+				return i;
+			else 
+				return searchBySubtraction(i+1, v, x);
+		}
 	}
-	 
+	
 }

@@ -42,7 +42,16 @@ public class BinarySearch {
 	}
 	
 	private int searchByDivision(int left,int right, int[]v, int x) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (left > right) 
+			return Integer.MIN_VALUE;  //x does not exist
+		else {
+			int center = (left + right)/2;
+			if (v[center] == x) 
+				return center;
+			else if (v[center] > x) //the element is on the left
+				return searchByDivision(left,center-1, v, x);
+			else return searchByDivision(center+1, right, v, x); //the element is on the right  	 	 	       
+		}
 	}
 	
 }

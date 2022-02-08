@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * We need to extend it for any specific problem
  * @author viceg
  */
-public class BranchAndBound {
+public abstract class BranchAndBound {
 	private static Logger log = LoggerFactory.getLogger(BranchAndBound.class);
 	protected Heap ds; //Nodes to be explored (not used nodes)
 	protected Node bestNode; //To save the final node of the best solution

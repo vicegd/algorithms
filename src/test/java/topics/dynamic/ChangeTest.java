@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,13 +35,12 @@ public class ChangeTest {
 	/**
 	 * It gives the fewest possible number of coins to pay a certain amount of money
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChange() {
 		//CASE 1
 		int amount = 15;
 		int[]coins = new int[3];
-		coins[0]=1;coins[1]=4;coins[2]=6;
+		coins[0]=1;coins[1]=6;coins[2]=4;
 		
 		log.trace("Case with an amount of " + amount);
 		
@@ -55,7 +53,6 @@ public class ChangeTest {
 	/**
 	 * It gives the fewest possible number of coins to pay a certain amount of money
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChange2() {
 		//CASE 2: Seen in case 1 of greedy algorithms (ChangeNotOptimal.java)
@@ -75,7 +72,6 @@ public class ChangeTest {
 	/**
 	 * It gives the fewest possible number of coins to pay a certain amount of money
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testChange3() {
 		//CASE 3: Seen in case 2 of greedy algorithms (ChangeNotOptimal.java

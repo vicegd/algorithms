@@ -18,7 +18,7 @@ public class AgentsTasksDifferentSizesTimes {
 		long t1,t2;
 		
 		for (int n=10; n<=1000000; n*=2) {
-			c = new int[n][n] ;
+			c = new int[n][n];
 			sol = new int[n];
 		 
 			AgentsTasksRandomValues.fillIn(c);

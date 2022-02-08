@@ -10,7 +10,7 @@ import java.util.UUID;
  * @author viceg
  */
 public class Heap {
-	private PriorityQueue<Node> nodes; //Nodes on the Heap
+	protected PriorityQueue<Node> nodes; //Nodes on the Heap
 	private HashMap<UUID, Node> usedNodes; //To compose the solution and to know what nodes have been treated
 	
 	/**
@@ -33,7 +33,7 @@ public class Heap {
 	 * @param node Node to be inserted
 	 */
 	public void insert(Node node) {
-        if (!nodeRepeated(node)) { //To not repeat used nodes and avoid infinite loops (e.g., in the puzzle problem)
+        if (!nodeRepeated(node)) { //Not repeat used nodes and avoid infinite loops (e.g., in the puzzle problem)
             nodes.add(node);
         }
 	}

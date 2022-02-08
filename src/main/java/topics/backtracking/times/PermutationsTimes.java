@@ -27,9 +27,7 @@ public class PermutationsTimes {
 				v[i] = i;
 	   
 			mark = new boolean[n];
-			for (int i=0; i<n; i++) 
-				mark[i] = false;
-	  
+  
 			sol = new int[n];
 	
 			t1 = System.currentTimeMillis();

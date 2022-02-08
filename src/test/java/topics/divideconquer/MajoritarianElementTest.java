@@ -3,7 +3,6 @@ package topics.divideconquer;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -44,7 +43,6 @@ public class MajoritarianElementTest {
 	/**
 	 * Calculates whether there is a majoritarian element using a recursive approach
 	 */
-	@Ignore("Not ready yet")	
 	@Test
 	public void majoritarianRecursiveNo() {
 		int[] v = {3, 8, 3, 1, 7, 3};
@@ -55,7 +53,6 @@ public class MajoritarianElementTest {
 	/**
 	 * Calculates whether there is a majoritarian element using a recursive approach
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void majoritarianRecursiveYes() {
 		int[] v = {3, 8, 3, 1, 3, 3};

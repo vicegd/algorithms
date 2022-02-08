@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +37,6 @@ public class FilesDisc2Test {
 	/**
 	 * It gives the space that is used. Not optimal solution expected
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testUsedSpace() {
 		files = new int[] {100, 350, 450, 370, 5000, 500, 700, 800, 50};

@@ -1,8 +1,10 @@
 package topics.parallel;
 
 import static org.junit.Assert.assertEquals;
+
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -99,7 +101,7 @@ public class RecursiveActionComparisonTest {
 	    	sb.append(data[i] + " ");
 	    	assertEquals((int)Math.cbrt(srcData[i]), data[i]);
 	    }
-	    log.trace(sb.toString());
+	    //log.trace(sb.toString());
 	}
 	
 }

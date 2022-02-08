@@ -23,7 +23,7 @@ public class RecursiveActionSquare extends RecursiveAction {
 	protected void compute() {
 	    //If number of elements is below the sequential threshold, then process sequentially 
 	    if((end - start) < seqThreshold) { 
-	      for(int i = start; i < end; i++) { 
+	      for(int i = start; i < end; i++) { 	    	  
 	         data[i] = data[i]*data[i]; //Transform each element into its square 
 	      } 
 	    } 

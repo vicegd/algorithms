@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
  * It has not an optimal solution in some cases
  * @author viceg
  */
-@SuppressWarnings("unused")
 public class ChessHorse {
 	private static Logger log = LoggerFactory.getLogger(ChessHorseSimpleHeuristic.class);
 	private int n; //Size of the board
@@ -46,12 +45,27 @@ public class ChessHorse {
 	
 	private boolean newMovement(int[] pos, int[] newPos) { //heuristic
 		boolean hasMovement = false; //To know if it has a possible movement
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		int[] tempPos = new int[2]; //To temporally keep the value to return
+		int minAccessible = Integer.MAX_VALUE; //To keep the smaller number of jumps from a position
+		for (int i = 1; i <= 8; i++){ //Different types of jumps. We should try all to study the position from which we have less possible jumps
+			if (jump(pos, i, newPos)){ //If we can do that movement, we keep the new possible position in the newPos variable
+				hasMovement = true; //We have at least one possible movement
+				int result = jumpCounter(newPos); //We should choose the one from which we have less accessible jumps (our heuristic)
+				if (result < minAccessible) {
+					minAccessible = result;
+					tempPos[0] = newPos[0]; //We need tempPos to keep the best result because the value of newPos is changes in each iteration
+					tempPos[1] = newPos[1];
+				}
+			}
+		}
+		newPos[0] = tempPos[0];
+		newPos[1] = tempPos[1];
+		return hasMovement;
 	}
 	
 	/* Returns the number of cells to which the horse 
 	 * can jump from a given position */
-	private int jumpCounter(int[] pos){
+	private int jumpCounter(int[] pos) {
 		int count = 0;
 		for (int i = 1; i <= 8; i++){ //Different types of jumps
 			if (jump(pos, i, new int[2])) count++;

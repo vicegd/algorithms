@@ -1,6 +1,7 @@
 package topics.backtracking.times;
 
 import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +10,6 @@ import org.slf4j.LoggerFactory;
  * This program can solve the problem using a backtracking algorithm
  * @author viceg
  */
-@SuppressWarnings("unused")
 public class AgentsTasksTimes {
 	private static Logger log = LoggerFactory.getLogger(AgentsTasksTimes.class);
 	private int n; //Number of agents/tasks to be assigned 
@@ -19,12 +19,9 @@ public class AgentsTasksTimes {
 	private int costBestSol; //Total cost of the best solution (until the moment)
 	
 	public static void main(String args[]) {
-		int smallestSize = Integer.parseInt(args[0]); //Number of agents/tasks to be assigned
-		int biggestSize = Integer.parseInt(args[1]);
-		for (int n = smallestSize; n <= biggestSize; n++) {
-			AgentsTasksTimes at = new AgentsTasksTimes(n); //We create different instances of the object AgentsTasks
-			at.measureTimes(1); //The param is the number of repetitions (nTimes) 	
-		}
+		int n = 5; //Number of agents/tasks to be assigned
+		AgentsTasksTimes problem = new AgentsTasksTimes(n);
+		problem.execute(); 
 	}
 	
 	/**
@@ -35,7 +32,7 @@ public class AgentsTasksTimes {
 	public AgentsTasksTimes(int n) {
 		this.n = n;
 		sol = new int[n];
-		for (int i= 0; i<n; i++)
+		for (int i=0; i<n; i++)
 			sol[i] = -1; //We create the array of values and we initialize it to -1 to avoid confusion with the task 0
 		costBestSol = Integer.MAX_VALUE;  //Initially the cost is very large (assumed infinite)
 	}
@@ -44,19 +41,18 @@ public class AgentsTasksTimes {
 	 * To measure execution times for a specific problem
 	 * @param nTimes Number of times the task is performed
 	 */
-	public void measureTimes(int nTimes) {
+	public void execute() {
 		long t1, t2;
 		
 		generateCostMatrix();
 		printCosts();		
 		
 		t1=System.currentTimeMillis();
-		for (int r= 0; r<nTimes; r++) 		
-			backtracking(0); //We only measure the time it takes the backtracking
+		backtracking(0); //We only measure the time it takes the backtracking
 		t2=System.currentTimeMillis();
 		
 		printBestSol();
-		log.debug("n="+n+" *** "+"Time="+(t2-t1)+" *** "+"nTimes="+nTimes);
+		log.debug("n="+n+" *** "+"Time="+(t2-t1));
 	}
 	
 	/**
@@ -90,8 +86,7 @@ public class AgentsTasksTimes {
 	 */
 	public void backtracking(int agent) {
 		if (agent==n) {  //Solution condition
-			//printState(sol);
-			findBestSolution(sol); //If the new solution improves the past solutions => we get a new best solution
+			checkIfBestSolution(sol); //If the new solution improves the past solutions => we get a new best solution
 		}
 		else {
 			for (int task=0; task<n; task++) {
@@ -110,21 +105,17 @@ public class AgentsTasksTimes {
 	 * Calculates if the current new solution is the best or not
 	 * If so, it updates the best solution found so far
 	 * @param sol Current solution
-	 * @return True if the current best solution is now sol. False otherwise
 	 */
-	private boolean findBestSolution(int[] sol) {
-		int cost = calculateCost(sol);
+	private void checkIfBestSolution(int[] sol) {
+		int cost = 0;
+		for (int i=0; i<n; i++)
+			cost += costs[i][sol[i]]; //[agent][task]
+		
 		//If the cost of the current solution is better than the best solution so far
-		throw new UnsupportedOperationException("This operation needs to be implemented");
-	}
-	
-	/**
-	 * Calculate the cost of the sol[] solution from the cost matrix
-	 * @param sol State from which we calculate the cost
-	 * @return Accumulated cost carrying out the tasks assigned by the agents
-	 */
-	private int calculateCost(int[] sol) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (cost < costBestSol) {
+			bestSol = (int[])sol.clone(); //we keep this solution as the best
+			costBestSol = cost;
+		}
 	}
 	
 	/**
@@ -136,27 +127,21 @@ public class AgentsTasksTimes {
 	 * valid to assign the same task again			
 	 */
 	private boolean assigned(int task) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		for (int i=0; i<n; i++)
+			if (sol[i]==task) //it is already assigned
+				return true;
+		return false;
 	}
 	
 	/**
 	 * Prints the best solution found
 	 */
 	public void printBestSol() {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
-	}
-	
-	/**
-	 * Prints the state of the problem
-	 * @param sol Array with the tasks already assigned
-	 */
-	private void printState(int[] sol) {
-		int costSol = 0;
+		log.debug("Best solution: ");
 		for (int i=0; i<n; i++) {
-			System.out.println("(Worker:"+ i + "-Task:"+sol[i]+") "); 
-			costSol  += costs[i][sol[i]]; //[agent][task]
+			System.out.println("(Worker:"+ i + "-Task:"+bestSol[i]+") "); 
 		}
-		log.debug("Solution cost: " + costSol);
+		log.debug("Solution cost: " + costBestSol);
 	}
-
 }
+

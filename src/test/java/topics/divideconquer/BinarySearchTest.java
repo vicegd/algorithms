@@ -3,7 +3,6 @@ package topics.divideconquer;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -47,7 +46,6 @@ public class BinarySearchTest {
 	/**
 	 * Searches the position of a number in an array in recursive way
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void binarySearchRecursive() {
 		int[] v = {10, 3, 9, 109, 89, 1, 2, 6};
@@ -60,10 +58,9 @@ public class BinarySearchTest {
 	 * Searches the position of a number in an array in a recursive way
 	 * The number is not in the array
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void binarySearchRecursive2() {
-		int[] v = {10, 3, 9, 109, 89, 1, 2, 6, 902};
+		int[] v = {10, 3, 9, 109, 89, 1, 2, 6};
 		int x = 99;
 		int result = search.binarySearch2(v, x);
 		assertEquals(Integer.MIN_VALUE, result);

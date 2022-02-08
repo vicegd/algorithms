@@ -3,7 +3,6 @@ package topics.divideconquer;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -36,7 +35,6 @@ public class ModeTest {
 	/**
 	 * Calculates the mode using a recursive approach
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void modeRecursive() {
 		int[] v = {3, 7, 7, 1, 7, 3};

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +57,6 @@ public class AgentsTasksTest {
 	/**
 	 * Gives the result if each tasks is assigned to the less expensive agent
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void testTasksAgents() {
 		int n = 4; //Number of tasks and workers (size of the problem)

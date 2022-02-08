@@ -5,6 +5,7 @@ import java.util.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import topics.sorting.Quicksort;
 
 /**
  * GREEDY ALGORITHM PROBLEM: SOME DILIGENT PLUMBERS
@@ -69,7 +70,11 @@ public class SomePlumbers {
 	 * @param times Times for the different tasks to be done
 	 */
 	public void orderInWhichTasksAreHandledBESTWAY(int[] tasks, int[] times) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		for (int i = 0; i < times.length; i++) { //O(n)
+			tasks[i] = times[i]; //The tasks are handled in the same order the customers call
+		}
+		Quicksort quicksort = new Quicksort();
+		quicksort.sort(tasks); //we order the array using Quicksort O(nlogn)
 	}
 	
 	/**
@@ -78,7 +83,14 @@ public class SomePlumbers {
 	 * @param tasks Final order in which the different tasks are going to be done
 	 */
 	public void assignTasksToPlumbersBESTWAY(int[][] plumbers, int[] tasks) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		int nPlumber = 0; //Index of the current plumber
+		for (int i = 0; i < tasks.length; i++) { //Each of the tasks
+			plumbers[nPlumber][i] = tasks[i]; //The current plumber performs the task
+			log.trace("\tPlumber: " + nPlumber + " is going to handled tasks of time: " + tasks[i]);
+			nPlumber++; //We go to the next plumber 
+			if (nPlumber == plumbers.length) //If it is the last plumber, we start again
+				nPlumber = 0; //Again, first plumber
+		}
 	}
 
 }

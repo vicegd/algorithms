@@ -1,5 +1,7 @@
 package topics.greedy;
 
+import topics.sorting.Quicksort;
+
 /**
  * GREEDY ALGORITHM PROBLEM: MINIMIZE THE FREE SPACE ON A DISK WITH FILES
  * It has NOT an optimal solution in some cases. The idea
@@ -7,7 +9,6 @@ package topics.greedy;
  * space to copy them
  * @author viceg
  */
-@SuppressWarnings("unused")
 public class FilesDisc2 {
 	 private int[] files; //Size of each of the files
 	 private int discCapacity; //Maximum capacity of the disk where files will be saved
@@ -27,7 +28,17 @@ public class FilesDisc2 {
 	  * @return The amount of data used of a disc
 	  */
 	 public int calculate(){
-		 throw new UnsupportedOperationException("This operation needs to be implemented");
+		 Quicksort quicksort = new Quicksort();
+		 quicksort.sort(files);
+		 int i = files.length-1;
+		 int counter = 0;
+		 while (i >= 0){
+			 if ((counter + files[i]) <= discCapacity){
+				 counter += files[i];
+			 }
+			 i--;
+		 }
+		 return counter;
 	 }
 	
 }

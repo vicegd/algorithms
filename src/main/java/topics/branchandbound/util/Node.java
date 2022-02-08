@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * To represents the different states of a problem in the graph
+ * To represent the different states of a problem in the graph
  * For each problem, we should extend this class with specific information
  * We also need to compare Nodes because it is the way to compare them in the priority queue
  * @author viceg

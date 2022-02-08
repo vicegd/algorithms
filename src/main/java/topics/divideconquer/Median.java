@@ -1,6 +1,7 @@
 package topics.divideconquer;
 
 import topics.divideconquer.utils.Util;
+import topics.sorting.Quicksort;
 
 /**
  * //DIVIDE AND CONQUER PROBLEM: THE MEDIAN OF n ELEMENTS
@@ -16,7 +17,11 @@ public class Median {
 	 * @return Median value in the array
 	 */
 	public int median1(int[]v) {
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		Quicksort quicksort = new Quicksort();
+		quicksort.sort(v);
+		
+		int centerPosition = v.length/2;
+		return v[centerPosition]; 
 	}    
 	
 	/**

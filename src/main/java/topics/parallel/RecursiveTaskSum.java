@@ -1,6 +1,7 @@
+
 package topics.parallel;
 
-import java.util.concurrent.RecursiveTask;  
+import java.util.concurrent.*;  
 
 /**
  * To calculate the addition of the values of an array
@@ -34,7 +35,7 @@ public class RecursiveTaskSum extends RecursiveTask<Double> {
 	      subTaskA.fork(); //Start each subtask by forking
 	      //Wait for the subtasks to return, and aggregate the results 
 	      sum = subTaskB.compute() + subTaskA.join();
-	      //sum = subTaskA.invoke() + subTaskB.invoke();
+	     // sum = subTaskA.invoke() + subTaskB.invoke();
 	    } 
 	    return sum;
 	}

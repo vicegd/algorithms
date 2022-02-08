@@ -27,8 +27,8 @@ public class GCGTest {
 	@Ignore("Too slow but it works")
 	@Test
 	public void GCGNaive() {
-		long result = gcg.naiveGCD(Integer.MAX_VALUE/2, 4623);
-		assertEquals(3, result);
+		long result = gcg.naiveGCD(Integer.MAX_VALUE, Integer.MAX_VALUE-1);
+		assertEquals(1, result);
 	}	
 	
 	/**
@@ -43,17 +43,15 @@ public class GCGTest {
 	/**
 	 * Calculates the GCG of two numbers in a fast way
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void GCGEuclidean() {
-		long result = gcg.euclideanGCG(Integer.MAX_VALUE/2, 4623);
-		assertEquals(3, result);
+		long result = gcg.euclideanGCG(Integer.MAX_VALUE, Integer.MAX_VALUE-1);
+		assertEquals(1, result);
 	}	
 	
 	/**
 	 * Calculates the GCG of two numbers in a fast way
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void GCGEuclidean2() {
 		long result = gcg.euclideanGCG(3918848, 1653264);
@@ -63,7 +61,6 @@ public class GCGTest {
 	/**
 	 * Calculates the GCG of two numbers in a fast way
 	 */
-	@Ignore("Not ready yet")
 	@Test
 	public void GCGEuclidean3() {
 		long result = gcg.euclideanGCG(300, 120);

@@ -25,7 +25,6 @@ public class RecursiveTaskSumTest {
 		log.trace("Recursive Task Sum Tests - Setup");
 		pool = new ForkJoinPool(); //Task pool 
 	    data = new double[99999]; //Numbers to work with
-	   
 	    
 	    //Initialize numbers with values that alternate between positive and negative 
 	    for(int i = 0; i < data.length; i++) //Some values

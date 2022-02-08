@@ -6,7 +6,6 @@ package topics.greedy;
  * @author viceg
  */
 public class Plumber {
-	@SuppressWarnings("unused")
 	private int[] tasks; //Time for the tasks that are handled
 	
 	 /**
@@ -22,7 +21,13 @@ public class Plumber {
 	  * @return Total waiting time
 	  */
 	public int getTotalTimeOfWait(){
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		int cumulative = 0;
+		int time = 0;
+		for (int i = 0; i < tasks.length; i++){
+			cumulative = cumulative + time;
+			time = time + tasks[i];
+		}
+		return time+cumulative;
 	}
 	
 }

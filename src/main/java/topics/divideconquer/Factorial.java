@@ -1,3 +1,4 @@
+
 package topics.divideconquer;
 
 /**
@@ -23,11 +24,14 @@ public class Factorial {
 	 * This method recursively calculates the 
 	 * factorial with a linear complexity O(n), 
 	 * DandC by subtraction with a=1,b=1,k=0 
-	 * @param n Number to calculate greater than or equal to 0 
-	 * @return Factorial of the number
+	 * @param n Number to calculate greater than or equal to 0
+	 * @return Factorial of the number 
 	 */
 	public int fact2(int n) { 
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		if (n == 0) 
+			return 1;
+		else 
+			return n * fact2(n-1);
 	}   
 	 
 }

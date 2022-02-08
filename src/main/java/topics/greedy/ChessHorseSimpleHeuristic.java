@@ -59,15 +59,33 @@ public class ChessHorseSimpleHeuristic {
 		//newPos saves the new position to which the horse will jump
 		switch (jumpType) {
 		case 1:
+			newPos[0] = pos[0]+2; newPos[1] = pos[1]+1;
+			break;
 		case 2:
+			newPos[0] = pos[0]+1; newPos[1] = pos[1]+2;
+			break;
 		case 3:
+			newPos[0] = pos[0]-1; newPos[1] = pos[1]+2;
+			break;
 		case 4:
+			newPos[0] = pos[0]-2; newPos[1] = pos[1]+1;
+			break;
 		case 5:
+			newPos[0] = pos[0]-2; newPos[1] = pos[1]-1;
+			break;
 		case 6:
+			newPos[0] = pos[0]-1; newPos[1] = pos[1]-2;
+			break;
 		case 7:
+			newPos[0] = pos[0]+1; newPos[1] = pos[1]-2;
+			break;
 		case 8:
+			newPos[0] = pos[0]+2; newPos[1] = pos[1]-1;
+			break;
 		}
-		throw new UnsupportedOperationException("This operation needs to be implemented");
+		return ((newPos[0]>=0)&&(newPos[0]<n) //The new position for X is within the board
+				&&(newPos[1]>=0)&&(newPos[1]<n) //The new position for Y is within the board
+				&&(board[newPos[0]][newPos[1]]==-1)); //The new position is empty
 	}
 	
 	public void writeSolution(){

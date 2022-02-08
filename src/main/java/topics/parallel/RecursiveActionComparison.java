@@ -3,7 +3,7 @@ package topics.parallel;
 import java.util.concurrent.*;  
 
 /**
- * To calculate the cubee root of the values of an array
+ * To calculate the cube root of the values of an array
  * @author viceg
  */
 public class RecursiveActionComparison extends RecursiveAction {
