@@ -66,7 +66,7 @@ public class ChessHorseOne {
 				int u = x+a[k]; //Target coordinate x of the horse
 				int v = y+b[k]; //Target coordinate y of the horse
 	     
-				if (!found  && u>=0 && u<=n && v>=0 && v<=n && board[u][v]==0 ) {
+				if (!found  && u>=0 && u<n && v>=0 && v<n && board[u][v]==0 ) {
 					board[u][v] = jumpNumber; //We mark the position with the number of the jump
 	         
 					backtracking(jumpNumber+1, u, v);
