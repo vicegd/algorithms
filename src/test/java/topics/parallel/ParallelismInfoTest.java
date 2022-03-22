@@ -18,7 +18,7 @@ public class ParallelismInfoTest {
 	 */
 	@Test
 	public void executeTask() {
-	    ForkJoinPool pool = new ForkJoinPool(5); //Task pool 
+	    ForkJoinPool pool = new ForkJoinPool(); //Task pool 
 
 	    log.debug("Level of parallelism: " + 
 	    pool.getParallelism());
