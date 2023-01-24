@@ -83,4 +83,4 @@ You can run the JUnit test cases to check whether everything is working properly
 
 License [GNU General Public License] (https://en.wikipedia.org/wiki/GNU_General_Public_License)
 
-Copyright (C) 2022 - [Vicente García Díaz] (http://www.vicentegarciadiaz.com)
+Copyright (C) 2023 - [Vicente García Díaz] (http://www.vicentegarciadiaz.com)
