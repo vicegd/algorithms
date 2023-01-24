@@ -12,7 +12,7 @@ public class MaxPairWiseProductRandomNumbers {
 		Path path = Paths.get("src/main/java/topics/introduction/MaxPairWiseProductRandomNumbers.txt");
 		BufferedWriter writer = Files.newBufferedWriter(path);
 		Random r = new Random();
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 100_000; i++) {
 			writer.write(r.nextInt(100) + " ");
 		}
 		writer.close();
