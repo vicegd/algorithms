@@ -28,10 +28,7 @@ public class Permutations {
 		for (int i=0; i<n; i++) //Generates a vector of size n
 			v[i] = i;
 	   
-		mark = new boolean[n]; //To mark (label) which items are already used in each of the solutions
-		for (int i=0; i<n; i++) 
-			mark[i] = false; //At first there is none used in any solution
-	  
+		mark = new boolean[n]; //To mark (label) which items are already used in each of the solutions	  
 		sol = new int[n]; //Creates a vector for the solutions
 	}
 	
@@ -54,9 +51,14 @@ public class Permutations {
 		else { 
 			for (int j=0; j<n; j++) //Tries new permutations (new sequences of elements)
 				if (!mark[j]) { //If the element is not marked in this permutation
+					//I DO THINGS
 					sol[level] = v[j]; //...Uses it
 					mark[j] = true; //...And marks it
+					
 					backtracking(level+1); //When the backtracking ends (after printing its permutation), unmarks the previously marked numbers
+					
+					//I UNDO THINGS
+					sol[level] = -1;
 					mark[j] = false;
 	        }
 	   } //else  

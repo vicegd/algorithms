@@ -13,7 +13,6 @@ public class MaxPairWiseProductTest2 {
 	/**
 	 * Computes the max pairwise product
 	 */
-	@Ignore("Just to try")
 	@Test
 	public void testSum() {
 		MaxPairWiseProduct2 maxPairWiseProduct = new MaxPairWiseProduct2();

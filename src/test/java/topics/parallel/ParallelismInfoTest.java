@@ -18,13 +18,12 @@ public class ParallelismInfoTest {
 	 */
 	@Test
 	public void executeTask() {
-	    try (ForkJoinPool pool = new ForkJoinPool(7)) {
-			log.debug("Level of parallelism: " + 
-			pool.getParallelism());
-		}
-
-	    log.debug("Available processors: " + 
-	    Runtime.getRuntime().availableProcessors()); 
+	   ForkJoinPool pool = new ForkJoinPool(7);
+	   log.debug("Level of parallelism: " + 
+	   pool.getParallelism());
+		
+	   log.debug("Available processors: " + 
+	   Runtime.getRuntime().availableProcessors()); 
 	}
 
 	  	

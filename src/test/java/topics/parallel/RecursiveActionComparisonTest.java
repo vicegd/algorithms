@@ -84,17 +84,17 @@ public class RecursiveActionComparisonTest {
 	}
 	
 	private void execution() {
-		try (ForkJoinPool pool = new ForkJoinPool(level)) {
-			RecursiveActionComparison task = new RecursiveActionComparison(data, 0, data.length, threshold); 
+		ForkJoinPool pool = new ForkJoinPool(level);
+		RecursiveActionComparison task = new RecursiveActionComparison(data, 0, data.length, threshold); 
 			
-			long t1 = System.currentTimeMillis(); //to measure the time
-			pool.invoke(task); //Start the main ForkJoinTask 
-			long t2 = System.currentTimeMillis();
+		long t1 = System.currentTimeMillis(); //to measure the time
+		pool.invoke(task); //Start the main ForkJoinTask 
+		long t2 = System.currentTimeMillis();
 			
-			log.trace("Level of parallelism: " + level); 
-			log.trace("Sequential threshold: " + threshold); 
-			log.trace("Elapsed time: " + (t2-t1) + " ms");
-		}
+		log.trace("Level of parallelism: " + level); 
+		log.trace("Sequential threshold: " + threshold); 
+		log.trace("Elapsed time: " + (t2-t1) + " ms");
+		
 		log.trace("The transformed sequence:"); 
 	    StringBuilder sb = new StringBuilder();
 	    for(int i=0; i < data.length; i++) {
