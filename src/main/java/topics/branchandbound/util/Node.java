@@ -10,9 +10,9 @@ import java.util.UUID;
  * @author viceg
  */
 public abstract class Node implements Comparable<Node> {
-    protected int depth; //Number of moves made so far (is equal to the number of nodes developed) on this branch
-    protected UUID parentID; //Parent ID for node tracking
     protected UUID ID; //ID for the node
+    protected UUID parentID; //Parent ID for node tracking
+    protected int depth; //Number of moves made so far (is equal to the number of nodes developed) on this branch
     protected int heuristicValue; //Value of the calculated heuristic
 
     /**
@@ -24,6 +24,22 @@ public abstract class Node implements Comparable<Node> {
     	ID = UUID.randomUUID();
 	}
 	
+    /**
+     * Gets the ID of the node
+     * @return ID of the node
+     */
+    public UUID getID() {
+    	return ID;
+    }
+    
+    /**
+     * Getter for parentID
+     * @return The parentID variable
+     */
+    public UUID getParentID() {
+    	return parentID;
+    }
+    
 	/**
 	 * Getter for depth
 	 * @return The depth variable
@@ -44,23 +60,7 @@ public abstract class Node implements Comparable<Node> {
     public boolean equals(Node n) {
 		return (n.toString().equals(toString()));
 	}
-    
-    /**
-     * Getter for parentID
-     * @return The parentID variable
-     */
-    public UUID getParentID() {
-    	return parentID;
-    }
-    
-    /**
-     * Gets the ID of the node
-     * @return ID of the node
-     */
-    public UUID getID() {
-    	return ID;
-    }
-    
+
     /**
      * We can have extra information about the problem to prune all the nodes
      * above a specific heuristicValue. By default we know nothing, so we 

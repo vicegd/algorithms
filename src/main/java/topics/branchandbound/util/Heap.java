@@ -10,7 +10,7 @@ import java.util.UUID;
  * @author viceg
  */
 public class Heap {
-	protected PriorityQueue<Node> nodes; //Nodes on the Heap
+	protected PriorityQueue<Node> nodes; //Nodes in the priority queue
 	private HashMap<UUID, Node> usedNodes; //To compose the solution and to know what nodes have been treated
 	
 	/**
