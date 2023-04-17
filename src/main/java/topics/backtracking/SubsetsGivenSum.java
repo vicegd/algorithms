@@ -29,9 +29,7 @@ public class SubsetsGivenSum {
 		
 		v = new int[n];
 		mark = new boolean[n];
-		
-		for (int i=0; i<n; i++) 
-			mark[i]=false;
+	
 		counter = 0;
 		sum = 0;
 	}
