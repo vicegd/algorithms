@@ -41,7 +41,7 @@ public class ChessHorseOneTest {
 		int startingY = 0;
 		
 		chess = new ChessHorseOne(5, startingX, startingY);
-		chess.backtracking(2, startingX, startingY);
+		chess.backtracking();
 		boolean result = chess.isSolution();
 		assertEquals(true, result);
 	}
@@ -55,7 +55,7 @@ public class ChessHorseOneTest {
 		int startingY = 4;
 		
 		chess = new ChessHorseOne(5, startingX, startingY);
-		chess.backtracking(2, startingX, startingY);
+		chess.backtracking();
 		boolean result = chess.isSolution();
 		assertEquals(false, result);
 	}

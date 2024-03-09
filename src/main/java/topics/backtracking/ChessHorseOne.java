@@ -16,6 +16,7 @@ public class ChessHorseOne {
 	private int[]a; //Displacements of horse (axis x)
 	private int[]b; //Displacements of horse (axis y)
 	private boolean found; //Solutions found
+	private int startingX, startingY; //initial position of the horse
 	
 	/**
 	 * Constructor for ChessHorseOne objects
@@ -25,6 +26,8 @@ public class ChessHorseOne {
 	 */
 	public ChessHorseOne(int n, int startingX, int startingY) {
 		this.n = n;
+		this.startingX = startingX;
+		this.startingY = startingY;
 		
 		board = new int[n][n]; //The cell (i,j) has not been visited
 		board[startingX][startingY] = 1;  //Initial position of the horse
@@ -43,13 +46,17 @@ public class ChessHorseOne {
 		found = false;
 	}
 	
+	public void backtracking() {
+		backtracking(2, startingX, startingY);
+	}
+	
 	/**
 	 * Performs the backtracking process
 	 * @param jumpNumber Number of jumps performed so far starting at 1
 	 * @param x Current x position
 	 * @param y Current y position
 	 */
-	public void backtracking(int jumpNumber, int x, int y) {
+	private void backtracking(int jumpNumber, int x, int y) {
 		if (jumpNumber==n*n+1) { //At this moment the horse has finished (it has been all over the board)
 			found=true;
 			log.debug("SOLUTION FOUND:");
