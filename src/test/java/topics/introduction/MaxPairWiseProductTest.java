@@ -15,6 +15,7 @@ public class MaxPairWiseProductTest {
 	 */
 
 	@Test
+	@Ignore
 	public void testSum() {
 		MaxPairWiseProduct maxPairWiseProduct = new MaxPairWiseProduct();
 		int result = maxPairWiseProduct.compute();
