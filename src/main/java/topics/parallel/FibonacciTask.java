@@ -8,7 +8,7 @@ import java.util.concurrent.RecursiveTask;
  */
 public class FibonacciTask extends RecursiveTask<Long> {
 	private static final long serialVersionUID = 1L;
-	private static final int THRESHOLD = 9;
+	private static final int THRESHOLD = 15;
 	private FibonacciAlgorithm problem;
 	private long result;
 	 

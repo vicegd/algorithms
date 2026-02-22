@@ -24,7 +24,7 @@ public class RecursiveTaskSumTest {
 	public static void setup() {
 		log.trace("Recursive Task Sum Tests - Setup");
 		pool = new ForkJoinPool(); //Task pool 
-	    data = new double[99999]; //Numbers to work with
+	    data = new double[999999]; //Numbers to work with
 	    
 	    //Initialize numbers with values that alternate between positive and negative 
 	    for(int i = 0; i < data.length; i++) //Some values
@@ -60,7 +60,7 @@ public class RecursiveTaskSumTest {
 	    
 	    //0.001 is the "fuzzy factor", something like the margin of error 
 	    //since doubles may not be exactly equal
-	   	assertEquals(49999, result, 0.001); 
+	   	assertEquals(499999, result, 0.001); 
 	}
 
 
