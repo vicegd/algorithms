@@ -24,7 +24,7 @@ public class Combinations {
 	 * @param k Taken k by k
 	 * @return Number of combinations
 	 */
-	public int combinations(int[][] table, int n, int k) {
+	public long combinations(long[][] table, int n, int k) {
 		for (int i = 0; i <= n; i++) table[i][0] = 1;
 		for (int i = 1; i <= n; i++) table[i][1] = i;
 		for (int i = 2; i <= k; i++) table[i][i] = 1;
@@ -40,7 +40,7 @@ public class Combinations {
 	 * @param n n elements
 	 * @param k taken k by k
 	 */
-	public void writeSolution(int[][] table, int n, int k){
+	public void writeSolution(long[][] table, int n, int k){
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n");
 		for (int i = 0; i <= n; i++) {

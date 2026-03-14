@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class CombinationsTest {
 	private static Logger log = LoggerFactory.getLogger(CombinationsTest.class);
 	private Combinations comb;
-	int[][] table; //To calculate the combinations in a dynamic programming way
+	long[][] table; //To calculate the combinations in a dynamic programming way
 	
 	/**
 	 * Initializes the object to perform tests
@@ -41,9 +41,9 @@ public class CombinationsTest {
 		int n = 52; 
 		int k = 5;
 
-		table = new int[n+1][k+1];
+		table = new long[n+1][k+1];
 		comb = new Combinations();
-		int result = comb.combinations(table, n, k);
+		long result = comb.combinations(table, n, k);
 		//comb.writeSolution(table, n, k);		
 		assertEquals(2598960, result);
 	}
@@ -53,15 +53,15 @@ public class CombinationsTest {
 	 */
 	@Test
 	public void testCombinationsDP2() {
-		int n = 40; 
-		int k = 30;
+		int n = 100; 
+		int k = 15;
 
-		table = new int[n+1][k+1];
+		table = new long[n+1][k+1];
 		comb = new Combinations();
-		int result = comb.combinations(table, n, k);
+		long result = comb.combinations(table, n, k);
 		//comb.writeSolution(table, n, k);
 		//This result is too big to be calculated with D&C instead
-		assertEquals(847660528, result);
+		assertEquals(253338471349988640L, result);
 	}
 	
 	/**
@@ -72,9 +72,9 @@ public class CombinationsTest {
 		int n = 9; 
 		int k = 5;
 
-		table = new int[n+1][k+1];
+		table = new long[n+1][k+1];
 		comb = new Combinations();
-		int result = comb.combinations(table, n, k);
+		long result = comb.combinations(table, n, k);
 		comb.writeSolution(table, n, k);
 		assertEquals(126, result);
 	}
@@ -84,12 +84,12 @@ public class CombinationsTest {
 	 */
 	@Test
 	public void testCombinationsDC() {
-		int n = 52; 
-		int k = 5;
+		int n = 100; 
+		int k = 15;
 
 		comb = new Combinations();
 		long result = comb.combinationsDivideAndConquer(n, k);	
-		assertEquals(2598960, result);
+		assertEquals(253338471349988640L, result);
 	}
 	
 
