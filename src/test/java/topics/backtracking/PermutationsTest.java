@@ -48,7 +48,7 @@ public class PermutationsTest {
 	 */
 	@Test
 	public void testPermutations2() {
-		permutations = new Permutations(5);
+		permutations = new Permutations(15);
 		permutations.backtracking();
 		int result = permutations.getNumberOfPermutations();
 		assertEquals(120, result);
