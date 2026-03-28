@@ -28,6 +28,7 @@ int main(void) {
     printf("Hello, world!\n");
     return 0;
 }
+```
 
 **In Java:**
 ```java
@@ -36,10 +37,12 @@ class Hallo {
         System.out.println("Hello, world!");
     }
 }
+```
 
 **In Lisp:**
 ```lisp
 "Hello, world!"
+```
 
 While the syntax varies wildly—from the verbose, object-oriented structure of Java to the minimalist functional evaluation of Lisp—the underlying instruction is identical. This illustrates a fundamental truth of computer science: **programming languages are merely temporary tools; the underlying logic is permanent.**
 
