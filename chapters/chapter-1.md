@@ -22,21 +22,24 @@ When students write their first lines of code, the focus is almost entirely on s
 Consider how this simple instruction is written across different programming paradigms:
 
 **In C:**
-    #include <stdio.h>
-    int main(void) {
-        printf("Hello, world!\n");
-        return 0;
-    }
+```c
+#include <stdio.h>
+int main(void) {
+    printf("Hello, world!\n");
+    return 0;
+}
 
 **In Java:**
-    class Hallo {
-        public static void main(String[] args) {
-            System.out.println("Hello, world!");
-        }
+```java
+class Hallo {
+    public static void main(String[] args) {
+        System.out.println("Hello, world!");
     }
+}
 
 **In Lisp:**
-    "Hello, world!"
+```lisp
+"Hello, world!"
 
 While the syntax varies wildly—from the verbose, object-oriented structure of Java to the minimalist functional evaluation of Lisp—the underlying instruction is identical. This illustrates a fundamental truth of computer science: **programming languages are merely temporary tools; the underlying logic is permanent.**
 
@@ -99,6 +102,8 @@ While a human understands the ellipsis ($\dots$) intuitively, a computer does no
 5.  **Output:** Once the loop terminates, the `result` variable holds the final factorial value, which we return.
 
 This breakdown satisfies all of Knuth's properties. We have taken an abstract mathematical concept and structured it into a sequence of operations that can be implemented in C, Java, Lisp, or any future programming language.
+
+## Algorithm Analysis
 
 ## Conclusions
 
