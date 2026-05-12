@@ -53,6 +53,21 @@ algorithms/
 
 ## 📚 Core Topics & Algorithms
 
+### 0. **Getting Started - Introduction**
+New to algorithms? Start here!
+
+**What you'll learn:**
+- What is an algorithm?
+- How to measure efficiency (Big-O)
+- Problem-solving strategies
+- Correctness vs Efficiency trade-offs
+
+**Key Example:** MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
+
+**📖 Learn more:** See [introduction/README.md](src/main/java/topics/introduction/README.md)
+
+---
+
 ### 1. **Sorting Algorithms**
 Learn fundamental sorting techniques with complexity analysis.
 
@@ -162,6 +177,22 @@ Master concurrent programming with Fork/Join Framework.
 **Framework:** Java ForkJoinPool (Java 7+)
 
 **📖 Learn more:** See [parallel/README.md](src/main/java/topics/parallel/README.md)
+
+---
+
+## 💡 Learning Path (Recommended Order)
+-### 8. **Principles & Fundamentals**
+Master data structures, recursion, and basic search techniques.
+
+**Core Topics:**
+- Data structures: Arrays, LinkedLists, Stacks, Queues, Hash Tables, Trees
+- Search algorithms: Linear search, Binary search
+- Recursion fundamentals
+- Problem-solving patterns (max/min, aggregation, search)
+
+**Why start here:** All other algorithm categories depend on these foundations. Building a strong base here makes everything else easier.
+
+**📖 Learn more:** See [principles/README.md](src/main/java/topics/principles/README.md)
 
 ---
 
