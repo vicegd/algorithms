@@ -276,34 +276,15 @@ University of Oviedo
 GNU General Public License (GPL) v3.0  
 See [LICENSE](LICENSE) file for details
 
-Copyright © 2016-2026 Vicente García Díaz
-
 ---
 
 ## 🤝 Contributing
 
-This is an educational project. Suggestions for improvements are welcome:
-
+This is an educational project. Suggestions for improvements are welcome. 
 Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
-
-1. Open an issue describing the improvement
-2. Fork the repository
-3. Create a feature branch
-4. Submit a pull request with clear descriptions
 
 ---
 
 ## 📝 Changelog
 
 Complete release history: [CHANGELOG.md](CHANGELOG.md)
-
-### Version 2.0 (Current)
-- Updated to Java 25
-- Upgraded to JUnit 5
-- Enhanced documentation
-- Improved code comments
-
-### Version 1.0 (Legacy)
-- Initial release with core algorithms
-- JUnit 4 based tests
-- Java 8 compatible
