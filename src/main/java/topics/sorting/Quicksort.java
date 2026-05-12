@@ -26,7 +26,6 @@ public class Quicksort implements ISortingAlgorithm{
 	@Override
 	public void sort(int[] elements, boolean trace) {
 		if (trace) log.debug("Quicksort method");
-		quickSort(elements, 0, elements.length-1, 1);
 	}
 	
     /**
@@ -35,6 +34,7 @@ public class Quicksort implements ISortingAlgorithm{
      * moves the elements to order them
      * @param elements Array with numbers to calculate the median of three
      * @param left Position of the element on the left
+/**
      * @param right Position of the element on the right
      * @return Position of the median of three
      */
