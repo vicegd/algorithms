@@ -311,10 +311,10 @@ Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 Complete release history: [CHANGELOG.md](CHANGELOG.md)
 
 ### Version 2.0 (Current)
-- ✅ Updated to Java 25
-- ✅ Upgraded to JUnit 5
-- ✅ Enhanced documentation
-- ✅ Improved code comments
+- Updated to Java 25
+- Upgraded to JUnit 5
+- Enhanced documentation
+- Improved code comments
 
 ### Version 1.0 (Legacy)
 - Initial release with core algorithms
