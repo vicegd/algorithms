@@ -1,3 +1,22 @@
+================================================================================
+           ALGORITHMS TEACHING REPOSITORY
+           Educational Implementation of Computer Science Algorithms
+================================================================================
+
+License: GNU General Public License v2 or later (GPLv2+)
+Copyright (C) 2023-2026 Vicente García Díaz <vicegd@example.com>
+
+This software is free and open source, distributed under the terms of the
+GNU General Public License. You are welcome to redistribute it and modify it
+according to the terms of the license below.
+
+Project Repository: https://github.com/vicegd/algorithms
+Project Description: A comprehensive educational repository implementing
+  classical algorithms in Java for students learning computer science
+  fundamentals including sorting, divide & conquer, dynamic programming,
+  greedy algorithms, backtracking, branch & bound, and parallel computing.
+
+================================================================================
                     GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991
 
@@ -290,8 +309,9 @@ to attach them to the start of each source file to most effectively
 convey the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
-    {description}
-    Copyright (C) {year}  {fullname}
+EXAMPLE FOR THIS PROJECT (src/main/java/topics/*/Algorithm.java):
+    Algorithms Teaching Repository - {description}
+    Copyright (C) 2023-2026 Vicente García Díaz
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -307,7 +327,15 @@ the "copyright" line and a pointer to where the full notice is found.
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-Also add information on how to contact you by electronic and paper mail.
+AUTHOR CONTACT INFORMATION:
+    Vicente García Díaz
+    Email: vicegd@example.com
+    GitHub: https://github.com/vicegd/algorithms
+
+EDUCATIONAL USE NOTICE:
+    This repository is designed for educational purposes. Students are
+    encouraged to study, modify, and extend these implementations to
+    deepen their understanding of algorithms and data structures.
 
 If the program is interactive, make it output a short notice like this
 when it starts in an interactive mode:
@@ -338,3 +366,63 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.
 
+================================================================================
+                   ADDITIONAL NOTES FOR THIS PROJECT
+================================================================================
+
+EDUCATIONAL REPOSITORY GUIDELINES
+==================================
+
+1. REUSE AND MODIFICATION
+   ✓ Students are encouraged to study, modify, and extend these algorithms
+   ✓ You must credit the original author when using or distributing modified versions
+   ✓ You must maintain the GPL license for any derived work
+
+2. ATTRIBUTION REQUIREMENTS
+   When using code from this repository:
+   - Include copyright notice: "Copyright (C) 2023-2026 Vicente García Díaz"
+   - Include source reference or link to original repository
+   - Mention this is an educational implementation
+
+3. USAGE IN ACADEMIC WORK
+   For academic papers, assignments, or projects:
+   - Proper attribution is mandatory
+   - Cite as: "Algorithms Teaching Repository by Vicente García Díaz"
+   - Include repository URL in references
+   - Academic integrity policies apply
+
+4. COLLABORATION AND CONTRIBUTIONS
+   ✓ Contributions are welcome and encouraged
+   ✓ Submit pull requests following project guidelines
+   ✓ Contributors retain copyright but grant project the right to use contributions
+   ✓ All contributions must also be under GPLv2 or compatible license
+
+5. NO WARRANTY CLAUSE
+   This software is provided as-is for educational purposes.
+   The author assumes no responsibility for:
+   - Correctness in edge cases or unusual scenarios
+   - Performance on specific hardware configurations
+   - Data loss or corruption from bugs in implementation
+   - Misuse or misapplication of algorithms
+
+6. LEARNING INTENT
+   This project aims to provide:
+   ✓ Clear, well-commented implementations
+   ✓ Multiple algorithm approaches for comparison
+   ✓ Educational explanations and complexity analysis
+   ✓ Example usage and test cases
+   
+   It is NOT intended for:
+   ✗ Production systems without thorough testing and review
+   ✗ Mission-critical applications
+   ✗ Direct use in professional software without independent verification
+
+7. FUTURE LICENSE CONSIDERATIONS
+   This project currently uses GPLv2. A future migration to GPLv3 is being
+   considered to provide additional protections against software patents.
+   Users will have the option to use either version as they prefer.
+
+================================================================================
+For questions about licensing or use cases not covered above, please contact:
+Vicente García Díaz <vicegd@example.com>
+================================================================================
