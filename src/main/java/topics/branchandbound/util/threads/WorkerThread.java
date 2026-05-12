@@ -6,6 +6,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import topics.branchandbound.util.Node;
 
+/**
+ * Worker thread for the parallel Branch and Bound search.
+ *
+ * Each {@code WorkerThread} repeatedly pulls the most promising node from the
+ * shared data structure, expands it, and updates the global pruning limit when
+ * a better solution is found. Threads stop when the data structure is empty or
+ * no node can improve the current best solution.
+ *
+ * @author vicegd
+ * @see BranchAndBoundThreads
+ */
 public class WorkerThread extends Thread {
 	private static Logger log = LoggerFactory.getLogger(WorkerThread.class);          
 	

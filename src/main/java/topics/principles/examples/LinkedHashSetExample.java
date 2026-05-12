@@ -2,6 +2,14 @@ package topics.principles.examples;
 
 import java.util.LinkedHashSet;
 
+/**
+ * Demonstrates {@link java.util.LinkedHashSet} operations.
+ *
+ * LinkedHashSet is a HashSet that preserves insertion order during iteration,
+ * unlike the unordered {@link java.util.HashSet}.
+ *
+ * @author vicegd
+ */
 public class LinkedHashSetExample {
 
 	@SuppressWarnings("unlikely-arg-type")

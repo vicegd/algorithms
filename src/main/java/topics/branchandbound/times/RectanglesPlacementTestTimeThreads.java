@@ -7,6 +7,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import topics.branchandbound.util.threads.BranchAndBoundThreads;
 
+/**
+ * Benchmark driver for the rectangle placement problem using Branch and Bound
+ * with multiple worker threads.
+ *
+ * Executes the B&B search in parallel using a fixed thread pool and reports the
+ * elapsed wall-clock time. Compare with {@link RectanglesPlacementTestTime}
+ * to measure the speedup gained by parallel execution.
+ *
+ * @author vicegd
+ * @see RectanglesPlacementTestTime
+ * @see topics.branchandbound.util.threads.BranchAndBoundThreads
+ */
 class RectanglesPlacementTestTimeThreads extends BranchAndBoundThreads {  
 	private static Logger log = LoggerFactory.getLogger(RectanglesPlacementTestTimeThreads.class);
 	

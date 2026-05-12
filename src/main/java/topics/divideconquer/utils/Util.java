@@ -1,5 +1,16 @@
 package topics.divideconquer.utils;
 
+/**
+ * Utility class for divide-and-conquer sorting helpers.
+ *
+ * Provides the partition operation used by Quicksort and related algorithms.
+ * The partition method rearranges array elements in-place around a pivot so
+ * that all elements to the left are less than or equal to the pivot and all
+ * elements to the right are greater than or equal to the pivot.
+ *
+ * @author vicegd
+ * @see topics.sorting.Quick
+ */
 public class Util {
 	/* This is a linear process O(n). At the end it leaves the pivot 
 	 * in a position such that: on its left there is no largest 

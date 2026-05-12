@@ -7,6 +7,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Random;
 
+/**
+ * Generates a test data file of random integers for the MaxPairWiseProduct problem.
+ *
+ * Writes 100,000 random integers (each in range [0, 99]) space-separated into
+ * {@code MaxPairWiseProductRandomNumbers.txt} so that the MaxPairWiseProduct
+ * algorithm implementations can be benchmarked against a large input.
+ *
+ * @author vicegd
+ * @see topics.introduction.MaxPairWiseProduct
+ */
 public class MaxPairWiseProductRandomNumbers {
 	public static void main(String...args) throws IOException {
 		Path path = Paths.get("src/main/java/topics/introduction/MaxPairWiseProductRandomNumbers.txt");

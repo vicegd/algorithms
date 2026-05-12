@@ -2,6 +2,14 @@ package topics.principles.examples;
 
 import java.util.PriorityQueue;
 
+/**
+ * Demonstrates {@link java.util.PriorityQueue} with natural ordering.
+ *
+ * Elements are retrieved in ascending (min-heap) order regardless of insertion
+ * order, showing that PriorityQueue does NOT preserve FIFO ordering.
+ *
+ * @author vicegd
+ */
 public class PriorityQueueExample {
 
 	public static void main(String[] args) {

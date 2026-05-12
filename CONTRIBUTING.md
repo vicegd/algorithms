@@ -134,7 +134,7 @@ Review PRs, suggest improvements, test changes locally. Even reviews from learne
 
 ### **Prerequisites**
 
-- Java 23 or higher
+- Java 25 or higher
 - Maven 3.6+
 - Git
 - Your favorite IDE (Eclipse, IntelliJ, VSCode, NetBeans)

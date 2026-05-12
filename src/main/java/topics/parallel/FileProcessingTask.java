@@ -9,8 +9,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * To process a number of files in parallel
+ * Parallel file processing task using the Fork/Join framework.
+ *
+ * Recursively splits a list of Java source files into smaller sub-tasks
+ * (using {@link java.util.concurrent.RecursiveAction}) until each sub-task
+ * contains at most {@code THRESHOLD} files, then processes them. Demonstrates
+ * the Fork/Join divide-and-conquer pattern for parallel I/O workloads.
+ *
  * @author vicegd
+ * @see java.util.concurrent.ForkJoinPool
+ * @see java.util.concurrent.RecursiveAction
  */
 class FileProcessingTask extends RecursiveAction {
 	private static Logger log = LoggerFactory.getLogger(FileProcessingTask.class);

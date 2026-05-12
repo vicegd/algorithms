@@ -2,6 +2,11 @@ package topics.principles.examples;
 
 import java.util.ArrayList;
 
+/**
+ * Demonstrates basic {@link java.util.ArrayList} operations: add, remove, and iteration.
+ *
+ * @author vicegd
+ */
 public class ArrayListExample {
 
 	public static void main(String[] args) {

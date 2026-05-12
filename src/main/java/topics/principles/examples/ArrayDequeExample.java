@@ -2,6 +2,12 @@ package topics.principles.examples;
 
 import java.util.ArrayDeque;
 
+/**
+ * Demonstrates {@link java.util.ArrayDeque} as both a queue (FIFO via
+ * {@code add}/{@code poll}) and a stack (LIFO via {@code push}/{@code pop}).
+ *
+ * @author vicegd
+ */
 public class ArrayDequeExample {
 
 	public static void main(String[] args) {

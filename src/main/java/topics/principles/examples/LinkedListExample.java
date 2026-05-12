@@ -2,6 +2,12 @@ package topics.principles.examples;
 
 import java.util.LinkedList;
 
+/**
+ * Demonstrates {@link java.util.LinkedList} as a doubly-linked list with
+ * operations at both ends: addFirst, addLast, removeFirst, and removeLast.
+ *
+ * @author vicegd
+ */
 public class LinkedListExample {
 
 	public static void main(String[] args) {

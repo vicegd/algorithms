@@ -2,6 +2,15 @@ package topics.principles.examples;
 
 import java.util.Stack;
 
+/**
+ * Demonstrates the legacy {@link java.util.Stack} class (LIFO) with
+ * {@code push} and {@code pop} operations.
+ *
+ * Note: In modern Java, {@link java.util.ArrayDeque} is preferred over
+ * {@code Stack} for stack semantics.
+ *
+ * @author vicegd
+ */
 public class StackExample {
 
 	public static void main(String[] args) {

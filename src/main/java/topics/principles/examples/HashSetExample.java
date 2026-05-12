@@ -2,6 +2,14 @@ package topics.principles.examples;
 
 import java.util.HashSet;
 
+/**
+ * Demonstrates {@link java.util.HashSet} operations: add, remove, and contains.
+ *
+ * HashSet stores elements with no guaranteed iteration order and allows at most
+ * one null element.
+ *
+ * @author vicegd
+ */
 public class HashSetExample {
 
 	@SuppressWarnings("unlikely-arg-type")

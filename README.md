@@ -276,7 +276,7 @@ University of Oviedo
 GNU General Public License (GPL) v3.0  
 See [LICENSE](LICENSE) file for details
 
-Copyright © 2023-2026 Vicente García Díaz
+Copyright © 2016-2026 Vicente García Díaz
 
 ---
 
