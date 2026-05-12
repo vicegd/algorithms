@@ -9,7 +9,7 @@ A comprehensive collection of **algorithm implementations** covering fundamental
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Java 23** or higher
+- **Java 25** or higher
 - **Maven 3.6+**
 - Git (optional)
 
@@ -180,8 +180,7 @@ Master concurrent programming with Fork/Join Framework.
 
 ---
 
-## 💡 Learning Path (Recommended Order)
--### 8. **Principles & Fundamentals**
+### 8. **Principles & Fundamentals**
 Master data structures, recursion, and basic search techniques.
 
 **Core Topics:**
@@ -312,7 +311,7 @@ Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 Complete release history: [CHANGELOG.md](CHANGELOG.md)
 
 ### Version 2.0 (Current)
-- ✅ Updated to Java 23
+- ✅ Updated to Java 25
 - ✅ Upgraded to JUnit 5
 - ✅ Enhanced documentation
 - ✅ Improved code comments
