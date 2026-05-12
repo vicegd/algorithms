@@ -83,6 +83,8 @@ Master the divide-and-conquer problem-solving paradigm.
 - **Array Operations:** Vector Sum, Mergesort, Quicksort
 - **Statistical:** Median, Mode, Majoritarian Element, Max Sum
 
+**📖 Learn more:** See [divideconquer/README.md](src/main/java/topics/divideconquer/README.md)
+
 ---
 
 ### 3. **Dynamic Programming**
@@ -100,6 +102,8 @@ Solve optimization problems by building solutions from subproblems.
 - Combinations/Permutations
 - River Travel Optimization
 
+**📖 Learn more:** See [dynamic/README.md](src/main/java/topics/dynamic/README.md)
+
 ---
 
 ### 4. **Greedy Algorithms**
@@ -113,6 +117,8 @@ Learn when greedy choices lead to optimal solutions.
 - File Disk Optimization
 - Agent Task Assignment
 - Chess Horse Movement
+
+**📖 Learn more:** See [greedy/README.md](src/main/java/topics/greedy/README.md)
 
 ---
 
@@ -128,6 +134,8 @@ Explore systematic search techniques with pruning.
 
 **Complexity:** Exponential, with pruning optimizations
 
+**📖 Learn more:** See [backtracking/README.md](src/main/java/topics/backtracking/README.md)
+
 ---
 
 ### 6. **Branch & Bound**
@@ -137,6 +145,8 @@ Solve optimization problems using intelligent search.
 - Eight Puzzle (3x3 sliding puzzle)
 - Rectangle Placement Optimization
 - Agent Task Assignment
+
+**📖 Learn more:** See [branchandbound/README.md](src/main/java/topics/branchandbound/README.md)
 
 ---
 
@@ -150,6 +160,8 @@ Master concurrent programming with Fork/Join Framework.
 - Concurrent file processing
 
 **Framework:** Java ForkJoinPool (Java 7+)
+
+**📖 Learn more:** See [parallel/README.md](src/main/java/topics/parallel/README.md)
 
 ---
 
