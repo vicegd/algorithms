@@ -263,22 +263,22 @@ O(1) << O(log n) << O(n) << O(n log n) << O(n²) << O(n³) << O(2ⁿ) << O(n!)
 
 ## 👨‍💼 Author
 
-[Vicente García Díaz](http://www.vicentegarciadiaz.com)
-School of Computer Science  
+[Vicente García Díaz](http://www.vicentegarciadiaz.com) 
+School of Computer Science    
 University of Oviedo
 
 ---
 
 ## 📜 License
 
-GNU General Public License (GPL) v3.0.
+GNU General Public License (GPL) v3.0.  
 See [LICENSE](LICENSE) file for details
 
 ---
 
 ## 🤝 Contributing
 
-This is an educational project. Suggestions for improvements are welcome. 
+This is an educational project. Suggestions for improvements are welcome.    
 Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
