@@ -1,23 +1,36 @@
+# EditorConfig: https://editorconfig.org
+# Stops editors from searching parent directories for more .editorconfig files
 root = true
 
+# Defaults for all files
 [*]
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+# Java source files: tabs for indentation 
 [*.java]
 indent_style = tab
 tab_width = 4
+indent_size = 4
 
+# Config/markup/data files: 2-space indentation
 [*.{xml,yml,yaml,json,md}]
 indent_style = space
 indent_size = 2
 
+# Markdown: allow trailing spaces (used for manual line breaks)
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{ps1,bat,cmd}]
+# Java properties files (e.g. log4j.properties)
+[*.properties]
+indent_style = space
+indent_size = 2
+
+# Windows/shell scripts: CRLF line endings
+[*.{ps1,bat,cmd,sh}]
 end_of_line = crlf
 indent_style = space
 indent_size = 2
