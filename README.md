@@ -195,25 +195,6 @@ Master data structures, recursion, and basic search techniques.
 
 ---
 
-## 💡 Learning Path (Recommended Order)
-
-### Beginner
-1. **Principles** - Data structures fundamentals
-2. **Sorting** - Start with Bubble, progress to Quicksort
-3. **Divide & Conquer** - Binary Search and Mergesort
-
-### Intermediate
-4. **Dynamic Programming** - Fibonacci → Knapsack
-5. **Greedy** - Understand when greedy works vs fails
-6. **Backtracking** - N-Queens, Permutations
-
-### Advanced
-7. **Branch & Bound** - Optimization techniques
-8. **Parallel Algorithms** - Concurrent programming
-9. **Complex Problems** - Combination of techniques
-
----
-
 ## 🧪 Testing
 
 The project includes **comprehensive unit tests** using **JUnit 5**.
@@ -231,27 +212,6 @@ mvn test jacoco:report
 
 ---
 
-## 📊 Complexity Reference
-
-### Time Complexity Classes
-| Class | Example | Behavior |
-|-------|---------|----------|
-| O(1) | Array access | Constant |
-| O(log n) | Binary Search | Logarithmic |
-| O(n) | Linear Search | Linear |
-| O(n log n) | Mergesort | Linearithmic |
-| O(n²) | Bubble Sort | Quadratic |
-| O(n³) | Matrix mult | Cubic |
-| O(2ⁿ) | Backtracking | Exponential |
-| O(n!) | Permutations | Factorial |
-
-### Big-O Comparison
-```
-O(1) << O(log n) << O(n) << O(n log n) << O(n²) << O(n³) << O(2ⁿ) << O(n!)
-```
-
----
-
 ## 📖 Additional Resources
 
 - **Complexity Analysis:** [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
@@ -263,7 +223,7 @@ O(1) << O(log n) << O(n) << O(n log n) << O(n²) << O(n³) << O(2ⁿ) << O(n!)
 
 ## 👨‍💼 Author
 
-[Vicente García Díaz](http://www.vicentegarciadiaz.com) 
+[Vicente García Díaz](http://www.vicentegarciadiaz.com)  
 School of Computer Science    
 University of Oviedo
 
