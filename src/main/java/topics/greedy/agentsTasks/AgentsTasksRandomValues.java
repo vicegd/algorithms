@@ -9,7 +9,7 @@ import topics.greedy.AgentsTasks;
  * This program serves to randomly generate a matrix 
  * of costs (the size is introduced by the user).
  * This matrix will have random values between 1..999
- * @author viceg
+ * @author vicegd
  */
 public class AgentsTasksRandomValues {
 	static int [][]c;
@@ -39,3 +39,4 @@ public class AgentsTasksRandomValues {
 	}    
 
 } 
+

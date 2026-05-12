@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Combinations JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class CombinationsTest {
 	private static Logger log = LoggerFactory.getLogger(CombinationsTest.class);
@@ -94,3 +94,4 @@ public class CombinationsTest {
 	
 
 }
+

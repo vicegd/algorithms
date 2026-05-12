@@ -5,7 +5,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Shellsort method
- * @author viceg
+ * @author vicegd
  */
 public class Shellsort implements ISortingAlgorithm{
 	@Override
@@ -51,3 +51,4 @@ public class Shellsort implements ISortingAlgorithm{
 	}
 
 }
+

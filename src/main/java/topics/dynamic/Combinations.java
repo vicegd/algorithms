@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * on the idea of the Pascal Triangle. This requires the creation 
  * of a two-dimensional table wherein storing the intermediate 
  * values we are obtaining 
- * @author viceg
+ * @author vicegd
  */
 public class Combinations {
 	private static Logger log = LoggerFactory.getLogger(Combinations.class);
@@ -72,3 +72,4 @@ public class Combinations {
 	}
 	
 }
+

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Change JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class ChangeTest {
 	private static Logger log = LoggerFactory.getLogger(ChangeTest.class);
@@ -98,3 +98,4 @@ public class ChangeTest {
 	}
 
 }
+

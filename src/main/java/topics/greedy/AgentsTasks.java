@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  * This program can solve the problem using two 
  * greedy algorithms and test operation. 
  * It has not an optimal solution in some cases
- * @author viceg
+ * @author vicegd
  */
 public class AgentsTasks {
 	private static Logger log = LoggerFactory.getLogger(AgentsTasks.class);

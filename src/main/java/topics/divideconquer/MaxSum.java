@@ -3,7 +3,7 @@ package topics.divideconquer;
 /**
  * DIVIDE AND CONQUER PROBLEM: MAXIMUM SUMMATION 
  * OF ALL THE SUBSEQUENCES OF n ELEMENTS
- * @author viceg
+ * @author vicegd
  */
 public class MaxSum {
 

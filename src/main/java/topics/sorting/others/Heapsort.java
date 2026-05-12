@@ -5,7 +5,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Heapsort method
- * @author viceg
+ * @author vicegd
  */
 public class Heapsort implements ISortingAlgorithm{
     private int[] elements;
@@ -58,3 +58,4 @@ public class Heapsort implements ISortingAlgorithm{
     }
 
 }
+

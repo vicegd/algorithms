@@ -2,7 +2,7 @@ package topics.divideconquer;
 
 /**
  * DIVIDE AND CONQUER PROBLEM: CALCULATE THE SUM OF n ELEMENTS IN A VECTOR
- * @author viceg
+ * @author vicegd
  */
 public class VectorSum {
 	
@@ -57,3 +57,4 @@ public class VectorSum {
 	}  
 
 }
+

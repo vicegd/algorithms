@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Knapsack01 JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class Knapsack01Test {
 	private static Logger log = LoggerFactory.getLogger(Knapsack01Test.class);
@@ -95,3 +95,4 @@ public class Knapsack01Test {
 	}
 
 }
+

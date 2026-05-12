@@ -3,7 +3,7 @@ package topics.divideconquer;
 /**
  * DIVIDE AND CONQUER PROBLEM: CALCULATE THE POSITION OF AN ELEMENT x IN A 
  * VECTOR (SORTED OR UNSORTED) OF n DIFFERENT ELEMENTS
- * @author viceg
+ * @author vicegd
  */
 public class SequentialSearch {
 

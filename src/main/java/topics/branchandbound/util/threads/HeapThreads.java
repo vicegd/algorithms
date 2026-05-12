@@ -8,7 +8,7 @@ import topics.branchandbound.util.Node;
 
 /**
  * To save and sort the nodes that are going to be used
- * @author viceg
+ * @author vicegd
  */
 public class HeapThreads {
 	private PriorityBlockingQueue<Node> nodes; //Nodes on the Heap
@@ -94,3 +94,4 @@ public class HeapThreads {
 		return result;
 	}
 }
+

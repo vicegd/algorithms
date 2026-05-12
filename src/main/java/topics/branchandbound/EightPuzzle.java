@@ -7,7 +7,7 @@ import topics.branchandbound.util.Node;
 
 /**
  * BRANCH AND BOUND PROBLEM: THE PUZZLE
- * @author viceg
+ * @author vicegd
  */
 public class EightPuzzle extends BranchAndBound {	
 	/**
@@ -247,4 +247,5 @@ enum HeuristicType {
 	WrongPlace
 }
 /***************************************************/
+
 

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * FibonacciTaskTest JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class FibonacciTaskTest {
 	private static Logger log = LoggerFactory.getLogger(FibonacciTaskTest.class);
@@ -73,3 +73,4 @@ public class FibonacciTaskTest {
 
 
 }
+

@@ -2,7 +2,7 @@ package topics.principles;
 
 /**
  * To calculate the factorial of a number
- * @author viceg
+ * @author vicegd
  */
 public class Factorial {
 	
@@ -32,3 +32,4 @@ public class Factorial {
 	}
 
 }
+

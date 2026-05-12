@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Fibonacci JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class FibonacciTest {
 	private static Fibonacci fib;
@@ -69,3 +69,4 @@ public class FibonacciTest {
 	}
 	
 }
+

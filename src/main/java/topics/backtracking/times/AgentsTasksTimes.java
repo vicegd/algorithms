@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * BACKTRACKING PROBLEM: THE PROBLEM OF ASSIGNING N TASK TO AGENTS
  * This program can solve the problem using a backtracking algorithm
- * @author viceg
+ * @author vicegd
  */
 public class AgentsTasksTimes {
 	private static Logger log = LoggerFactory.getLogger(AgentsTasksTimes.class);
@@ -144,4 +144,5 @@ public class AgentsTasksTimes {
 		log.debug("Solution cost: " + costBestSol);
 	}
 }
+
 

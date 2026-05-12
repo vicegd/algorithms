@@ -8,7 +8,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Direct selection method
- * @author viceg
+ * @author vicegd
  */
 public class DirectSelection implements ISortingAlgorithm{
 	static Logger log = LoggerFactory.getLogger(DirectSelection.class);
@@ -37,3 +37,4 @@ public class DirectSelection implements ISortingAlgorithm{
 	}
 
 }
+

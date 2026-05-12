@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * BACKTRACKING PROBLEM: THE PROBLEM OF THE N QUEENS
  * This program calculates one way of placing 
  * n queens on a chessboard of side n
- * @author viceg
+ * @author vicegd
  */
 public class ChessQueensOne {
 	private static Logger log = LoggerFactory.getLogger(ChessQueensOne.class);
@@ -70,3 +70,4 @@ public class ChessQueensOne {
 		return found;
 	}
 } 
+

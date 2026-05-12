@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Mode JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class ModeTest {
 	private static Mode elem;
@@ -45,3 +45,4 @@ public class ModeTest {
 	}	
 	
 }
+

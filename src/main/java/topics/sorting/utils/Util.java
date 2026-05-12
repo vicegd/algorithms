@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Helper class to trace and use common operations among sorting algorithms
- * @author viceg
+ * @author vicegd
  */
 public class Util {
 	static Logger log = LoggerFactory.getLogger(Util.class);
@@ -101,3 +101,4 @@ public class Util {
 		return pos;
 	}
 }
+

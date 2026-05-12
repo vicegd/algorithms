@@ -10,7 +10,7 @@ import topics.sorting.Quicksort;
 /**
  * GREEDY ALGORITHM PROBLEM: SOME DILIGENT PLUMBERS
  * It has an optimal solution
- * @author viceg
+ * @author vicegd
  */
 public class SomePlumbers {
 	private static Logger log = LoggerFactory.getLogger(SomePlumbers.class);
@@ -94,3 +94,4 @@ public class SomePlumbers {
 	}
 
 }
+

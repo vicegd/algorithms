@@ -7,7 +7,7 @@ import java.util.UUID;
  * To represent the different states of a problem in the graph
  * For each problem, we should extend this class with specific information
  * We also need to compare Nodes because it is the way to compare them in the priority queue
- * @author viceg
+ * @author vicegd
  */
 public abstract class Node implements Comparable<Node> {
     protected UUID ID; //ID for the node
@@ -85,3 +85,4 @@ public abstract class Node implements Comparable<Node> {
 	public abstract ArrayList<Node> expand();
 	public abstract boolean isSolution();
 }
+

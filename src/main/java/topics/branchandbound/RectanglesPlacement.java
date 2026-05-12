@@ -9,7 +9,7 @@ import topics.branchandbound.util.Node;
 
 /**
  * BRANCH AND BOUND PROBLEM: OPTIMAL PLACEMENT OF RECTANGLES
- * @author viceg
+ * @author vicegd
  */
 public class RectanglesPlacement extends BranchAndBound {    
 	/**

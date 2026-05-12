@@ -8,7 +8,7 @@ import topics.sorting.utils.ISortingAlgorithm;
 
 /**
  * Direct selection sorting JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class DirectSelectionTest {
 	private static ISortingAlgorithm sorting;
@@ -50,3 +50,4 @@ public class DirectSelectionTest {
 
 	
 }
+

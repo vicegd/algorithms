@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Sequential search JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class SequentialSearchTest {
 	private static SequentialSearch search;
@@ -68,3 +68,4 @@ public class SequentialSearchTest {
 
 	
 }
+

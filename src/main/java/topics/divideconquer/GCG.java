@@ -2,7 +2,7 @@ package topics.divideconquer;
 
 /**
  * GREATEST COMMON DIVISORS: Calculate the GCG of two positive integers
- * @author viceg
+ * @author vicegd
  */
 public class GCG {
 	
@@ -39,3 +39,4 @@ public class GCG {
 	}
 	
 }
+

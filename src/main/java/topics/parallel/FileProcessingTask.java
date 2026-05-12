@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * To process a number of files in parallel
- * @author viceg
+ * @author vicegd
  */
 class FileProcessingTask extends RecursiveAction {
 	private static Logger log = LoggerFactory.getLogger(FileProcessingTask.class);

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * ChessQueensAll JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class ChessHorseAllTest {
 	private static Logger log = LoggerFactory.getLogger(ChessHorseAllTest.class);
@@ -61,3 +61,4 @@ public class ChessHorseAllTest {
 	}
 	
 }
+

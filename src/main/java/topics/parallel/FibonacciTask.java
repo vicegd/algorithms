@@ -4,7 +4,7 @@ import java.util.concurrent.RecursiveTask;
 
 /**
  * To calculate the Fibonacci of a number n
- * @author viceg
+ * @author vicegd
  */
 public class FibonacciTask extends RecursiveTask<Long> {
 	private static final long serialVersionUID = 1L;
@@ -32,6 +32,7 @@ public class FibonacciTask extends RecursiveTask<Long> {
 		return result;
 	}
 }
+
 
 
 

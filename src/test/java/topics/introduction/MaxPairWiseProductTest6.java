@@ -9,7 +9,7 @@ import org.junit.Test;
 
 /**
  * MaxPairWiseProduct JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class MaxPairWiseProductTest6 {
 	/**
@@ -38,3 +38,4 @@ public class MaxPairWiseProductTest6 {
 	}
 
 }
+

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Binary search JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class BinarySearchTest {
 	private static BinarySearch search;
@@ -68,3 +68,4 @@ public class BinarySearchTest {
 
 	
 }
+

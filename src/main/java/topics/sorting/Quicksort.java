@@ -13,7 +13,7 @@ import topics.sorting.utils.Util;
  * 		- By division a=2,b=2,k=1 - O(nlogn)
  * 	Worst case:
  * 		- By subtraction a=1,b=1,k=1 - O(n^2)
- * @author viceg
+ * @author vicegd
  */
 public class Quicksort implements ISortingAlgorithm{
 	static Logger log = LoggerFactory.getLogger(Quicksort.class);
@@ -78,3 +78,4 @@ public class Quicksort implements ISortingAlgorithm{
 	}
 
 }
+

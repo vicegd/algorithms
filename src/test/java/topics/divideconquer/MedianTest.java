@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Median JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class MedianTest {
 	private static Median elem;
@@ -41,3 +41,4 @@ public class MedianTest {
 	}
 	
 }
+

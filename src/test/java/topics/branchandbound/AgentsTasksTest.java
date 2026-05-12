@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * AgentsTasks JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class AgentsTasksTest {
 	private static Logger log = LoggerFactory.getLogger(AgentsTasksTest.class);
@@ -51,3 +51,4 @@ public class AgentsTasksTest {
 	}
 	
 }
+

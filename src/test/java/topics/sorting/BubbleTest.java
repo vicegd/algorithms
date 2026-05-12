@@ -8,7 +8,7 @@ import topics.sorting.utils.ISortingAlgorithm;
 
 /**
  * Bubble sorting JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class BubbleTest {
 	private static ISortingAlgorithm sorting;
@@ -48,3 +48,4 @@ public class BubbleTest {
 	}
 	
 }
+

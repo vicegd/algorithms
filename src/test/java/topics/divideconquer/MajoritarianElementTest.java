@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Majoritarian element JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class MajoritarianElementTest {
 	private static MajoritarianElement elem;
@@ -83,3 +83,4 @@ public class MajoritarianElementTest {
 
 	
 }
+

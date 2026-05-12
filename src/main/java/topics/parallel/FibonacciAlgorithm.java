@@ -3,7 +3,7 @@ package topics.parallel;
 /**
  * To solve the classical Fibonacci algorithm 
  * using a recursive and inefficient algorithm
- * @author viceg
+ * @author vicegd
  *
  */
 public class FibonacciAlgorithm {	
@@ -33,4 +33,5 @@ public class FibonacciAlgorithm {
 	}
 
 }
+
 

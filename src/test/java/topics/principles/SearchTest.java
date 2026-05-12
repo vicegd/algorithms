@@ -10,7 +10,7 @@ import org.junit.Test;
 
 /**
  * Search JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class SearchTest {
 	private static Search search;
@@ -86,3 +86,4 @@ public class SearchTest {
 	}
 	
 }
+

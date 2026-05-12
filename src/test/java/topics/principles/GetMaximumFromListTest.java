@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * GetMaximumFromList JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class GetMaximumFromListTest {
 	private static GetMaximumFromList op;
@@ -40,3 +40,4 @@ public class GetMaximumFromListTest {
 	}
 	
 }
+

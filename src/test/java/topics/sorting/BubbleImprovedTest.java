@@ -8,7 +8,7 @@ import topics.sorting.utils.ISortingAlgorithm;
 
 /**
  * Bubble with sentinel sorting JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class BubbleImprovedTest {
 	private static ISortingAlgorithm sorting;
@@ -50,3 +50,4 @@ public class BubbleImprovedTest {
 
 	
 }
+

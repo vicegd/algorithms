@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * Here we only calculate the minimum number of coins.
  * In the base book, you can learn how to know what
  * coins are used
- * @author viceg
+ * @author vicegd
  */
 public class Change {
 	private static Logger log = LoggerFactory.getLogger(Change.class);
@@ -53,3 +53,4 @@ public class Change {
 	}
 		
 }
+

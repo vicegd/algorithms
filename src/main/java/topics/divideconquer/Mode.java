@@ -4,7 +4,7 @@ import topics.sorting.Quicksort;
 
 /**
  * //DIVIDE AND CONQUER PROBLEM: MODE OF n ELEMENTS
- * @author viceg
+ * @author vicegd
  */
 public class Mode {
 	

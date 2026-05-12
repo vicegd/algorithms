@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * ChessHorseSimpleHeuristic JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class ChessHorseSimpleHeuristicTest {
 	private static Logger log = LoggerFactory.getLogger(ChessHorseSimpleHeuristicTest.class);
@@ -48,3 +48,4 @@ public class ChessHorseSimpleHeuristicTest {
 	}
 	
 }
+

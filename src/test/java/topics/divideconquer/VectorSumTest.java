@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * VectorSum JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class VectorSumTest {
 	private static VectorSum sum;
@@ -51,3 +51,4 @@ public class VectorSumTest {
 	}
 	
 }
+

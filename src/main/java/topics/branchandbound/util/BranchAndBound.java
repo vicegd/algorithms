@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Main class to solve problems using the Branch and Bound technique
  * We need to extend it for any specific problem
- * @author viceg
+ * @author vicegd
  */
 public abstract class BranchAndBound {
 	private static Logger log = LoggerFactory.getLogger(BranchAndBound.class);
@@ -92,3 +92,4 @@ public abstract class BranchAndBound {
     	}
     }
 }
+

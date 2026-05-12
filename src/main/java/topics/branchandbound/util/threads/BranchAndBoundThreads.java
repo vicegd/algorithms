@@ -9,7 +9,7 @@ import topics.branchandbound.util.Node;
 /**
  * Main class to solve problems using the Branch and Bound technique
  * We need to extend it for any specific problem
- * @author viceg
+ * @author vicegd
  */
 public class BranchAndBoundThreads {
 	private static Logger log = LoggerFactory.getLogger(BranchAndBoundThreads.class);
@@ -100,3 +100,4 @@ public class BranchAndBoundThreads {
     	}
     }
 }
+

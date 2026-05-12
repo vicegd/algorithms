@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Just to show a small example of how the project is structured
- * @author viceg
+ * @author vicegd
  */
 public class HelloWorld {
 	private static Logger log = LoggerFactory.getLogger(HelloWorld.class);
@@ -20,3 +20,4 @@ public class HelloWorld {
 		return a+b;
 	}
 }
+

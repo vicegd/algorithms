@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * FibonacciAlgorithm JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class FibonacciAlgorithmTest {
 	private static Logger log = LoggerFactory.getLogger(FibonacciAlgorithmTest.class);
@@ -68,3 +68,4 @@ public class FibonacciAlgorithmTest {
 	  	
 
 }
+

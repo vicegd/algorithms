@@ -8,7 +8,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Bubble method
- * @author viceg
+ * @author vicegd
  */
 public class Bubble implements ISortingAlgorithm{
 	static Logger log = LoggerFactory.getLogger(Bubble.class);
@@ -38,3 +38,4 @@ public class Bubble implements ISortingAlgorithm{
 	}
 
 }
+

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Permutations JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class PermutationsTest {
 	private static Logger log = LoggerFactory.getLogger(PermutationsTest.class);
@@ -55,3 +55,4 @@ public class PermutationsTest {
 	}
 	
 }
+

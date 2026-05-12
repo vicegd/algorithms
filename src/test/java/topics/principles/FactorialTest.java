@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * Factorial JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class FactorialTest {
 	private static Factorial fact;
@@ -38,3 +38,4 @@ public class FactorialTest {
 	}
 	
 }
+

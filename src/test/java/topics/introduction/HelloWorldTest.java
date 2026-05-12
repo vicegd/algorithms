@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * HelloWorld JUnit tests
- * @author vicegd
+ * @author vicegdd
  */
 public class HelloWorldTest {
 	private static HelloWorld helloWorld;
@@ -39,3 +39,4 @@ public class HelloWorldTest {
 	}
 
 }
+

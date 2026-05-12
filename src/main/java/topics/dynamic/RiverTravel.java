@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * DYNAMIC PROGRAMMING PROBLEM: CHEAPER TRAVEL ON THE RIVER 
  * It consists on finding the minimum cost for each pair of points
- * @author viceg
+ * @author vicegd
  */
 public class RiverTravel {
 	private static Logger log = LoggerFactory.getLogger(RiverTravel.class);	

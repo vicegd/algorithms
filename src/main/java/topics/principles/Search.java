@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * To use different methods for searching numbers in an array
- * @author viceg
+ * @author vicegd
  */
 public class Search {
 

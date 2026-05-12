@@ -8,7 +8,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Radix method
- * @author viceg
+ * @author vicegd
  */
 public class Radix implements ISortingAlgorithm{
 	@SuppressWarnings("unchecked")
@@ -82,3 +82,4 @@ public class Radix implements ISortingAlgorithm{
 
 
 }
+

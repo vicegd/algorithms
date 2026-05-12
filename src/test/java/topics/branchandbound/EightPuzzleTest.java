@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * EightPuzzle JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class EightPuzzleTest {
 	private static Logger log = LoggerFactory.getLogger(EightPuzzleTest.class);
@@ -105,3 +105,4 @@ public class EightPuzzleTest {
 		puzzle.getBestNode().getHeuristicValue();
 	}
 }
+

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * SubsetsGivenSum JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class SubsetsGivenSumTest {
 	private static Logger log = LoggerFactory.getLogger(SubsetsGivenSumTest.class);
@@ -57,3 +57,4 @@ public class SubsetsGivenSumTest {
 	}
 	
 }
+

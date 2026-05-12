@@ -2,7 +2,7 @@ package topics.principles;
 
 /**
  * To get the maximum of a list of numbers
- * @author viceg
+ * @author vicegd
  */
 public class GetMaximumFromList {
 	
@@ -21,3 +21,4 @@ public class GetMaximumFromList {
 	}
 
 }
+

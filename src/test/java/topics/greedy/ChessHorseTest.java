@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * ChessHorse JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class ChessHorseTest {
 	private static Logger log = LoggerFactory.getLogger(ChessHorseTest.class);
@@ -64,3 +64,4 @@ public class ChessHorseTest {
 	}
 	
 }
+

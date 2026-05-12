@@ -7,7 +7,7 @@ import java.util.UUID;
 
 /**
  * To save and sort the nodes that are going to be used
- * @author viceg
+ * @author vicegd
  */
 public class Heap {
 	protected PriorityQueue<Node> nodes; //Nodes in the priority queue
@@ -93,3 +93,4 @@ public class Heap {
 		return result;
 	}
 }
+

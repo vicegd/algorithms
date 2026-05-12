@@ -3,7 +3,7 @@ package topics.divideconquer;
 
 /**
  * DIVIDE AND CONQUER PROBLEM: CALCULATE THE FACTORIAL OF A NUMBER
- * @author viceg
+ * @author vicegd
  */
 public class Factorial {
 	
@@ -35,3 +35,4 @@ public class Factorial {
 	}   
 	 
 }
+

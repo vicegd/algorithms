@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * GetAdditionFromList JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class GetAdditionFromListTest {
 	private static GetAdditionFromList op;
@@ -40,3 +40,4 @@ public class GetAdditionFromListTest {
 	}
 	
 }
+

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * RecursiveActionSquare JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class RecursiveActionSquareTest {
 	private static Logger log = LoggerFactory.getLogger(RecursiveActionSquareTest.class);
@@ -67,3 +67,4 @@ public class RecursiveActionSquareTest {
 	}
 	
 }
+

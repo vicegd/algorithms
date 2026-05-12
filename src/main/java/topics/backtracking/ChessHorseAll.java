@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * BACKTRACKING PROBLEM: THE HORSE JUMPING PROBLEM
  * The program calculates all the ways of moving a 
  * horse through an entire chessboard of side n 
- * @author viceg
+ * @author vicegd
  */
 public class ChessHorseAll {
 	private static Logger log = LoggerFactory.getLogger(ChessHorseAll.class);
@@ -93,3 +93,4 @@ public class ChessHorseAll {
 	}
 	
 } 
+

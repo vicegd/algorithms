@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * MaxSum JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class MaxSumTest {
 	private static MaxSum max;
@@ -53,3 +53,4 @@ public class MaxSumTest {
 	}
 	
 }
+

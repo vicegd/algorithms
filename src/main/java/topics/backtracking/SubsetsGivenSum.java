@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * BACKTRACKING PROBLEM: SUBSETS OF A GIVEN SUM
  * This program, given a set consisting of n different positive 
  * integers, computes all subsets which sum a given value c
- * @author viceg
+ * @author vicegd
  */
 public class SubsetsGivenSum {
 	private static Logger log = LoggerFactory.getLogger(SubsetsGivenSum.class);
@@ -90,3 +90,4 @@ public class SubsetsGivenSum {
 		return counter;
 	}
 } 
+

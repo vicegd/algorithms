@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * RectanglesPlacement JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class RectanglesPlacementTest {
 	private static Logger log = LoggerFactory.getLogger(RectanglesPlacementTest.class);
@@ -161,3 +161,4 @@ public class RectanglesPlacementTest {
 		assertEquals(24, result);
 	}
 }
+

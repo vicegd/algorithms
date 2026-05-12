@@ -2,7 +2,7 @@ package topics.sorting.utils;
 
 /**
  * Interface for sorting algorithms
- * @author viceg
+ * @author vicegd
  */
 public interface ISortingAlgorithm {
 	/**
@@ -18,3 +18,4 @@ public interface ISortingAlgorithm {
 	 */
 	void sort(int[] elements, boolean trace);
 }
+

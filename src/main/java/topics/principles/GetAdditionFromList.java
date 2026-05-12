@@ -2,7 +2,7 @@ package topics.principles;
 
 /**
  * To get the addition of a list of numbers
- * @author viceg
+ * @author vicegd
  */
 public class GetAdditionFromList {
 	
@@ -20,3 +20,4 @@ public class GetAdditionFromList {
 	}
 
 }
+

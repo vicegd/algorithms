@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * SomePlumbers JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class SomePlumbersTest {
 	private static Logger log = LoggerFactory.getLogger(SomePlumbersTest.class);
@@ -77,3 +77,4 @@ public class SomePlumbersTest {
 
 	
 }
+

@@ -7,7 +7,7 @@ import topics.sorting.Quicksort;
  * It has NOT an optimal solution in some cases. The idea
  * is: First the biggest files while the disc has enough 
  * space to copy them
- * @author viceg
+ * @author vicegd
  */
 public class FilesDisc2 {
 	 private int[] files; //Size of each of the files
@@ -42,3 +42,4 @@ public class FilesDisc2 {
 	 }
 	
 }
+

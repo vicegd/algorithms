@@ -7,7 +7,7 @@ import org.junit.Test;
 
 /**
  * Mergesort JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class MergesortTests {
 	private static Mergesort sort;
@@ -37,3 +37,4 @@ public class MergesortTests {
 
 	
 }
+

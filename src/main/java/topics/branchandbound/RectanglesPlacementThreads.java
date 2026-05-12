@@ -6,7 +6,7 @@ import topics.branchandbound.util.threads.BranchAndBoundThreads;
 
 /**
  * BRANCH AND BOUND PROBLEM: OPTIMAL PLACEMENT OF RECTANGLES
- * @author viceg
+ * @author vicegd
  */
 public class RectanglesPlacementThreads extends BranchAndBoundThreads {    
 	/**

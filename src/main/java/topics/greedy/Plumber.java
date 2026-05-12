@@ -3,7 +3,7 @@ package topics.greedy;
 /**
  * GREEDY ALGORITHM PROBLEM: THE DILIGENT PLUMBER
  * It has an optimal solution
- * @author viceg
+ * @author vicegd
  */
 public class Plumber {
 	private int[] tasks; //Time for the tasks that are handled
@@ -31,3 +31,4 @@ public class Plumber {
 	}
 	
 }
+

@@ -5,7 +5,7 @@ import topics.sorting.Quicksort;
 
 /**
  * //DIVIDE AND CONQUER PROBLEM: THE MEDIAN OF n ELEMENTS
- * @author viceg
+ * @author vicegd
  */
 public class Median {
 

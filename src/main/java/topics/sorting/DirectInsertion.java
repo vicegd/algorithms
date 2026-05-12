@@ -8,7 +8,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Direct insertion method
- * @author viceg
+ * @author vicegd
  */
 public class DirectInsertion implements ISortingAlgorithm{
 	static Logger log = LoggerFactory.getLogger(DirectInsertion.class);
@@ -53,3 +53,4 @@ public class DirectInsertion implements ISortingAlgorithm{
 	}
 
 }
+

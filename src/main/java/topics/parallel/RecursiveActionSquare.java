@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 
 /**
  * To calculate the square of the values of an array
- * @author viceg
+ * @author vicegd
  */
 public class RecursiveActionSquare extends RecursiveAction {
 	private static final long serialVersionUID = 1L;
@@ -35,5 +35,6 @@ public class RecursiveActionSquare extends RecursiveAction {
 	    } 
 	}
 }
+
 
 

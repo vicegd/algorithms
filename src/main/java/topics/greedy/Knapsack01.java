@@ -3,7 +3,7 @@ package topics.greedy;
 /**
  * GREEDY ALGORITHM PROBLEM: THE KNAPSACK PROBLEM (0/1). ELEMENTS CANNOT BE BROKEN
  * It has not an optimal solution in some cases
- * @author viceg
+ * @author vicegd
  */
 public class Knapsack01 {
 	 private int[] weights; //Weight of each of the objects
@@ -85,3 +85,4 @@ public class Knapsack01 {
 	 }
 	 
 }
+

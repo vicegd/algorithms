@@ -8,7 +8,7 @@ import topics.branchandbound.util.Node;
 
 /**
  * BRANCH AND BOUND PROBLEM: THE PROBLEM OF ASSIGNING N TASK TO AGENTS
- * @author viceg
+ * @author vicegd
  */
 public class AgentsTasks extends BranchAndBound {	
 	/**
@@ -160,5 +160,6 @@ class Table extends Node {
 
 } //Table
 /***************************************************/
+
 
 

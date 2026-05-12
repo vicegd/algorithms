@@ -3,7 +3,7 @@ package topics.divideconquer;
 /**
  * DIVIDE AND CONQUER PROBLEM: CALCULATE THE POSITION OF AN ELEMENT x IN A 
  * SORTED VECTOR OF n DIFFERENT ELEMENTS
- * @author viceg
+ * @author vicegd
  */
 public class BinarySearch {
 	/**

@@ -7,7 +7,7 @@ import topics.sorting.Quicksort;
  * It has an optimal solution. The idea is: 
  * First the smallest files while the disc has enough 
  * space to copy them 
- * @author viceg
+ * @author vicegd
  *
  */
 public class FilesDisc1 {
@@ -45,3 +45,4 @@ public class FilesDisc1 {
 	 }
 	
 }
+

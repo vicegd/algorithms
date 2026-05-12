@@ -5,7 +5,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Bidirectional Bubble method
- * @author viceg
+ * @author vicegd
  */
 public class BidirectionalBubble implements ISortingAlgorithm{
 	@Override
@@ -69,3 +69,4 @@ public class BidirectionalBubble implements ISortingAlgorithm{
 	}
 
 }
+

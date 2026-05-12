@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * FileProcessingTask JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class FileProcessingTaskTest {
 	private static Logger log = LoggerFactory.getLogger(FileProcessingTaskTest.class);
@@ -49,3 +49,4 @@ public class FileProcessingTaskTest {
 	}
 	
 }
+

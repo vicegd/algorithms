@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * RecursiveActionComparison JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class RecursiveActionComparisonTest {
 	private static Logger log = LoggerFactory.getLogger(RecursiveActionComparisonTest.class);
@@ -107,6 +107,7 @@ public class RecursiveActionComparisonTest {
 	}
 	
 }
+
 
 
 

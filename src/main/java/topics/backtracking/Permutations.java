@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * BACKTRACKING PROBLEM: PERMUTATIONS OF N ELEMENTS
  * This program generates permutations of the 
  * integer elements that are in the vector v
- * @author viceg	
+ * @author vicegd	
  */
 public class Permutations {
 	private static Logger log = LoggerFactory.getLogger(Permutations.class);
@@ -73,3 +73,4 @@ public class Permutations {
 	}
 	
 } 
+

@@ -4,7 +4,7 @@ package topics.dynamic;
  * DYNAMIC PROGRAMMING: CALCULATE THE FIBONACCI NUMBER OF ORDER n
  * Fibonacci Series = 0,1,1,2,3,5,8,13,21,34,55,89,...
  * e.g. the 0 is when n=0 and the 89 is when n=11
- * @author viceg
+ * @author vicegd
  */
 public class Fibonacci {
 	
@@ -97,3 +97,4 @@ public class Fibonacci {
 	}  
 	
 }
+

@@ -6,7 +6,7 @@ package topics.greedy;
  * The idea (heuristic) is always give the higher currency 
  * value that is less than or equal to the amount left to 
  * return 
- * @author viceg
+ * @author vicegd
  */
 public class Change {
 	private float[] coins; //Available coins to be used 
@@ -45,3 +45,4 @@ public class Change {
 	}
 
 }
+

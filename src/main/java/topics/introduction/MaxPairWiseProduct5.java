@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  * Computes the max pairwise product among different numbers
  * E.g.: 7 3 6 => 42
  * We will load the numbers from MaxPairWiseProductRandomNumbers.txt
- * @author viceg
+ * @author vicegd
  *
  */
 public class MaxPairWiseProduct5 {
@@ -44,3 +44,4 @@ public class MaxPairWiseProduct5 {
 		return candidate1 * candidate2;
 	}
 }
+

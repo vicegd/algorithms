@@ -7,7 +7,7 @@ import topics.greedy.AgentsTasks;
  * This program serves to increase the size of the 
  * execution times of the problem and to check the 
  * quadratic behavior expected O(n^2) 
- * @author viceg
+ * @author vicegd
  */
 public class AgentsTasksDifferentSizesTimes {
 	static int [][] c;
@@ -37,3 +37,4 @@ public class AgentsTasksDifferentSizesTimes {
 	}  
 
 }  
+

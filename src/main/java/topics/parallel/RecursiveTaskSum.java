@@ -5,7 +5,7 @@ import java.util.concurrent.*;
 
 /**
  * To calculate the addition of the values of an array
- * @author viceg
+ * @author vicegd
  */
 public class RecursiveTaskSum extends RecursiveTask<Double> {
 	private static final long serialVersionUID = 1L;
@@ -40,5 +40,6 @@ public class RecursiveTaskSum extends RecursiveTask<Double> {
 	    return sum;
 	}
 }
+
 
 

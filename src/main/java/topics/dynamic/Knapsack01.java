@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * we apply the greedy algorithm already seen.
  * Here we only calculate the maximum benefit
  * It has always an optimal solution
- * @author viceg
+ * @author vicegd
  */
 public class Knapsack01 {
 	private static Logger log = LoggerFactory.getLogger(Knapsack01.class);

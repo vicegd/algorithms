@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * Computes the max pairwise product among different numbers
  * E.g.: 7 3 6 => 42
  * However, in this example we will only work with two integer numbers
- * @author viceg
+ * @author vicegd
  *
  */
 public class MaxPairWiseProduct {
@@ -25,3 +25,4 @@ public class MaxPairWiseProduct {
 		return number1 * number2;
 	}
 }
+

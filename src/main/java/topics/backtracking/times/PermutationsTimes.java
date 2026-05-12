@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * BACKTRACKING PROBLEM: PERMUTATIONS OF N ELEMENTS
  * This program calculates times to generate the permutations 
  * of n elements. The time is factorial, that is untreatable
- * @author viceg
+ * @author vicegd
  */
 public class PermutationsTimes {
 	private static Logger log = LoggerFactory.getLogger(PermutationsTimes.class);
@@ -52,3 +52,4 @@ public class PermutationsTimes {
 	}
 
 } 
+

@@ -5,7 +5,7 @@ import topics.sorting.Quicksort;
 /**
  * //DIVIDE AND CONQUER PROBLEM: IS THERE A MAJORITARIAN ELEMENT 
  * IN n ELEMENTS?
- * @author viceg
+ * @author vicegd
  */
 public class MajoritarianElement {
 	

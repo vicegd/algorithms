@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 
 /**
  * To calculate the cube root of the values of an array
- * @author viceg
+ * @author vicegd
  */
 public class RecursiveActionComparison extends RecursiveAction {
 	private static final long serialVersionUID = 1L;
@@ -37,5 +37,6 @@ public class RecursiveActionComparison extends RecursiveAction {
 	    } 
 	}
 }
+
 
 

@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * GREEDY ALGORITHM PROBLEM: THE HORSE JUMPING PROBLEM (Knight's tour)
  * It has not an optimal solution in some cases
- * @author viceg
+ * @author vicegd
  */
 public class ChessHorse {
 	private static Logger log = LoggerFactory.getLogger(ChessHorseSimpleHeuristic.class);
@@ -120,3 +120,4 @@ public class ChessHorse {
 	}
 
 } 
+

@@ -3,7 +3,7 @@ package topics.divideconquer;
 /**
  * DIVIDE AND CONQUER PROBLEM: ORDER n ELEMENTS WITH AN EXTERNAL ALGORITHM. 
  * THE MERGESORT ALGORITHM
- * @author viceg
+ * @author vicegd
  */
 public class Mergesort {
 	private int[]elements;
@@ -73,4 +73,5 @@ public class Mergesort {
 	}
 	  
 } 
+
 

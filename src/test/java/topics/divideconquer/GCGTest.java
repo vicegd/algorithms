@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * GCG JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class GCGTest {
 	private static GCG gcg;
@@ -69,3 +69,4 @@ public class GCGTest {
 
 	
 }
+

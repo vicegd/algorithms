@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * RecursiveTaskSum JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class RecursiveTaskSumTest {
 	private static Logger log = LoggerFactory.getLogger(RecursiveTaskSumTest.class);
@@ -66,3 +66,4 @@ public class RecursiveTaskSumTest {
 
 
 }
+

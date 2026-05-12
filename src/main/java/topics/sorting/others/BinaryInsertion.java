@@ -5,7 +5,7 @@ import topics.sorting.utils.Util;
 
 /**
  * Sorting algorithm: Binary Insertion method
- * @author viceg
+ * @author vicegd
  */
 public class BinaryInsertion implements ISortingAlgorithm{
 	@Override
@@ -65,3 +65,4 @@ public class BinaryInsertion implements ISortingAlgorithm{
 	}
 
 }
+

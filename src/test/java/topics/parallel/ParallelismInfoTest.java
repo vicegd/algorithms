@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * ParallelismInfo JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class ParallelismInfoTest {
 	private static Logger log = LoggerFactory.getLogger(ParallelismInfoTest.class);
@@ -29,3 +29,4 @@ public class ParallelismInfoTest {
 	  	
 
 }
+

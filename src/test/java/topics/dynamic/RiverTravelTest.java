@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * RiverTravel JUnit tests
- * @author viceg
+ * @author vicegd
  */
 public class RiverTravelTest {
 	private static Logger log = LoggerFactory.getLogger(RiverTravelTest.class);
@@ -100,3 +100,4 @@ public class RiverTravelTest {
 	}
 	
 }
+
