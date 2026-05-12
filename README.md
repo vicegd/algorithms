@@ -252,19 +252,6 @@ O(1) << O(log n) << O(n) << O(n log n) << O(n²) << O(n³) << O(2ⁿ) << O(n!)
 
 ---
 
-## 🎓 Educational Features
-
-✅ **Well-commented code** - Explains algorithm logic  
-✅ **Multiple implementations** - Compare approaches  
-✅ **Optimal vs Sub-optimal examples** - Learn from contrasts  
-✅ **Unit tests** - Verify correctness  
-✅ **Javadoc documentation** - Complete API reference  
-✅ **Real-world problems** - Chess, puzzles, optimization  
-✅ **Performance analysis** - Trace and timing code  
-✅ **Visualization support** - Trace algorithm execution  
-
----
-
 ## 📖 Additional Resources
 
 - **Complexity Analysis:** [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
