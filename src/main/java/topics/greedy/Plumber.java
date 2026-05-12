@@ -11,7 +11,7 @@ import java.util.Objects;
  * total customer waiting time.
  *
  * For a fixed order, the waiting-time sum is computed in O(n). For an
- * optimal order (Shortest Processing Time first), use
+ * optimal order (Shortest Processing Time first), use then
  * {@link #getOptimalTotalTimeOfWait()}.
  *
  * @author vicegd
