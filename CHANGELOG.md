@@ -112,57 +112,142 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] - 2025-01-01
+## [1.8.0] - 2026-03-28
 
 ### Added
 
-- **Initial Release**
-  - 7 algorithmic paradigm topics: Sorting, Divide & Conquer, Dynamic Programming, Greedy, Backtracking, Branch & Bound, Parallel
-  - ~149 Java algorithm implementations
-  - ~48 unit test files
-  - Basic README documentation
-  - pom.xml with Maven 3.6+ and JUnit 5.10.2 dependencies
+- Chapter 1 practical exercises added
+- Additional `combinations` variants
+- New 2026 parallel algorithm implementations
+- New `Pair` data structure
 
-### Implementation Coverage
+### Fixed
 
-- **Sorting (6 algorithms)**
-  - Bubble Sort, Improved Bubble, Direct Insertion, Direct Selection, Quicksort, Mergesort
+- First example corrections for 2026 academic year
 
-- **Divide & Conquer (11 algorithms)**
-  - Binary Search, Fibonacci, Factorial, GCD, Power, Median, Mode, Majoritarian Element, MaxSum, Mergesort, Quicksort
+---
 
-- **Dynamic Programming (5+ problems)**
-  - Fibonacci, 0/1 Knapsack, Coin Change, Combinations, Permutations, River Travel
+## [1.7.0] - 2024-02-05
 
-- **Greedy (10+ problems)**
-  - Coin Change (non-optimal), Knapsack, Chess Horse, File Disk Optimization, Plumber Assignment
+### Fixed
 
-- **Backtracking (5+ problems)**
-  - N-Queens, Permutations, Subsets, Subset Sum, Chess Horse Tour
+- Fixed resource leak in parallel algorithms: added `pool.close()` call
+- `ChessHorse` path-finding implementation improvements
 
-- **Branch & Bound (3+ problems)**
-  - Eight Puzzle, Rectangle Placement, Agent Task Assignment
+---
 
-- **Parallel Algorithms (4+ implementations)**
-  - Recursive Sum, Array Transformation, Fibonacci (educational note), File Processing
+## [1.6.0] - 2023-01-24
 
-- **Principles (5 core implementations)**
-  - Factorial, Search, GetMaximum, GetAddition, Examples
+### Added
 
-### Documentation
+- `Node` data structure
+- Updates for 2023 academic year (Introduction and Combinations sections)
 
-- Basic README explaining project structure
-- Javadoc on core methods
-- SLF4J logging configuration
+### Changed
 
-### Testing
+- Java version migration across the project
+- Parallel algorithms updated for new semester
+- Backtracking refinements
 
-- JUnit 5 unit tests across topics
-- Test suite validates algorithm correctness
+---
 
-### License
+## [1.5.0] - 2022-02-08
 
-- GNU GPLv2 - Educational use allowed and encouraged
+### Added
+
+- `ChessHorse` improvements and new test cases
+- Lab 1.1 practical exercises
+
+### Changed
+
+- Full update for 2022 academic year
+- Fixed logger properties (`log4j.properties`)
+- Removed external library dependency
+- Cleaned up empty code snippets
+
+### Removed
+
+- PRIM algorithm (out of scope for the course)
+- Truck-driver problem
+
+---
+
+## [1.4.0] - 2020-01-20
+
+### Changed
+
+- **Java 8 migration** — project updated to Java 8 compatibility
+- Preparation and updates for the 2020 academic year
+- Added new Divide & Conquer implementations
+- Fixed `.classpath` and `.gitignore` configuration
+
+### Fixed
+
+- Updated JUnit dependency (Oct 2020)
+- Various small fixes
+
+---
+
+## [1.3.0] - 2019-02-01
+
+### Fixed
+
+- Bug fixes across multiple algorithm topics
+- Removed deprecation warnings throughout the codebase
+- README.md maintenance (Apr 2019)
+
+---
+
+## [1.2.0] - 2018-02-12
+
+### Changed
+
+- Branch & Bound: removed out-of-scope backpack and task variants; cleaned up problem set
+- Switched from `hashCode()` to `UUID` for node identity in Branch & Bound (Apr 2016)
+
+---
+
+## [1.1.0] - 2017-01-12
+
+### Added
+
+- `MaxPairWiseProduct` problem with multiple implementations to Introduction topic
+- GCF (Greatest Common Factor) added to Divide & Conquer
+- Code snippets in README for `GCF.java`
+
+### Changed
+
+- Complete review of all major algorithm categories:
+  - Divide & Conquer: full review and Javadoc improvements
+  - Parallel Computing: Fork/Join review and corrections
+  - Backtracking: review and correctness fixes
+- Project renamed from `BasicAlgorithms` to `algorithmsCourse` (Oct 2016)
+
+### Fixed
+
+- Fibonacci implementation edge case corrected
+- Classpath configuration fixed
+- Logger level adjusted
+
+---
+
+## [1.0.0] - 2016-01-11
+
+### Added
+
+- **Project Creation** — initial repository for the Algorithmics course at the University of Oviedo
+  - Maven project configured with JUnit and Log4J
+  - **Principles** — core data-structure examples: `Factorial`, `Search`, `GetMaximum`, `GetAddition`
+  - **Sorting** — `BubbleSort`, `DirectInsertion`, `DirectSelection`; rotation logging
+  - **Divide & Conquer** — `BinarySearch`, `Fibonacci`, `Factorial`, `GCD`; Javadoc coverage
+  - **Greedy Algorithms** — coin change and foundational greedy problems
+  - **Dynamic Programming** — `Fibonacci`, `Knapsack`, combinatorics
+  - **Backtracking** — N-Queens, Permutations, Subset Sum
+  - **Branch & Bound** — multi-threaded B&B implementation
+  - **Parallel Algorithms** — first Fork/Join pool implementations
+  - Unit tests for all topic areas
+  - SLF4J + Log4J logging infrastructure
+  - GNU GPLv2 license — educational use encouraged
 
 ---
 
@@ -269,17 +354,18 @@ git merge upstream/master
 
 ## Dependency Changes
 
-### Version 2.0.0
-- Java: 17 → 23 (in v1.1.0)
-- JUnit: 4.13.1 → 5.10.2 (in v1.1.0)
-- Maven: 3.6+ (unchanged)
+### Version 2.0.0 (2026)
+- Java: → 25 (`maven.compiler.source/target=25`)
+- JUnit: 5.10.2 (unchanged)
+- Maven Compiler Plugin: 3.13.0
+- Maven Surefire Plugin: 3.2.5
 - SLF4J: 1.7.13 (unchanged)
 
-### Version 1.0.0
-- Java 17
-- JUnit 4.13.1
+### Version 1.0.0 (2016)
+- Java 8
+- JUnit 4 (vintage)
 - Maven 3.6+
-- SLF4J 1.7.13
+- SLF4J + Log4J 1.7.13
 
 ---
 
@@ -292,9 +378,16 @@ git merge upstream/master
 - **Test Coverage**: Increasing with each release
 
 ### Release Timeline
-- **v1.0.0**: January 2025 - Initial release
-- **v1.1.0**: February 2025 - Java 17→23, JUnit 4→5 upgrade
-- **v2.0.0**: May 2026 - Educational enhancement complete overhaul
+- **v1.0.0**: January 2016 — Project creation
+- **v1.1.0**: January 2017 — Reviews, MaxPairWise, project rename
+- **v1.2.0**: February 2018 — Branch & Bound cleanup
+- **v1.3.0**: February 2019 — Bug fixes and deprecation removal
+- **v1.4.0**: January 2020 — Java 8 migration
+- **v1.5.0**: February 2022 — 2022 academic year update
+- **v1.6.0**: January 2023 — Java version migration, Node, parallel update
+- **v1.7.0**: February 2024 — Parallel pool fix, ChessHorse
+- **v1.8.0**: March 2026 — 2026 academic year additions
+- **v2.0.0**: May 2026 — Java 25 upgrade, complete documentation overhaul
 
 ---
 
