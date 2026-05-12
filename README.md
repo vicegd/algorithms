@@ -298,6 +298,8 @@ Copyright © 2023-2026 Vicente García Díaz
 
 This is an educational project. Suggestions for improvements are welcome:
 
+Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+
 1. Open an issue describing the improvement
 2. Fork the repository
 3. Create a feature branch
@@ -306,6 +308,8 @@ This is an educational project. Suggestions for improvements are welcome:
 ---
 
 ## 📝 Changelog
+
+Complete release history: [CHANGELOG.md](CHANGELOG.md)
 
 ### Version 2.0 (Current)
 - ✅ Updated to Java 23
