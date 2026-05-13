@@ -408,20 +408,3 @@ find . -name "README.md" -exec wc -l {} \; | awk '{sum+=$1} END {print sum}'
 # Check current version in pom.xml
 grep -A 1 "<version>" pom.xml | head -1
 ```
-
----
-
-## Contact & Support
-
-- **Author**: Vicente García Díaz
-- **Email**: vicegd@example.com
-- **GitHub Issues**: https://github.com/vicegd/algorithms/issues
-- **License**: GNU GPLv2
-
-For more information, see [README.md](README.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
-
----
-
-**Last Updated**: 2026-05-12  
-**Maintained by**: Vicente García Díaz  
-**License**: GNU GPLv2

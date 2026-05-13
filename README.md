@@ -240,7 +240,7 @@ University of Oviedo
 
 ## 📜 License
 
-MIT License — Copyright (c) 2026 Vicente García Díaz  
+MIT License — Copyright (c) 2016 Vicente García Díaz  
 See [LICENSE](LICENSE) file for details
 
 ---
