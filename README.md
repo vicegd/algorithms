@@ -223,10 +223,8 @@ mvn test jacoco:report
 
 ## 📖 Additional Resources
 
-- **Complexity Analysis:** [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
-- **Algorithm Visualizations:** [VisuAlgo](https://visualgo.net/)
-- **Interactive Learning:** [LeetCode](https://leetcode.com/), [HackerRank](https://www.hackerrank.com/)
-- **Books:** "Introduction to Algorithms" (CLRS), "Algorithms" (Sedgewick & Wayne)
+- **API Documentation:** [vicegd.github.io/algorithms](http://vicegd.github.io/algorithms) — Javadoc for all packages and classes in this repository
+- **Learning Guide:** [learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
 
 ---
 
