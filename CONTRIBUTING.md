@@ -278,33 +278,50 @@ public void algorithm() {
 
 #### **3. Comments and Javadoc**
 
-Every public class and method needs Javadoc.
-No HTML tags inside Javadoc — use plain text, `-` bullet lists, and indented code examples:
+Every public class and method must have Javadoc.
+Use **standard HTML tags** for structure so the generated documentation renders correctly:
+
+| Purpose | Tag |
+|---|---|
+| Paragraph break | `<p>` |
+| Section heading | `<h2>`, `<h3>` |
+| Preformatted text (tables, formulas) | `<pre>` |
+| Inline code | `{@code ...}` |
+| Lists | `<ul>` / `<ol>` / `<li>` |
+| Emphasis | `<strong>`, `<em>` |
+| Special chars | `&times;` `&ge;` `&le;` `&rarr;` |
 
 ```java
 /**
- * Performs binary search on sorted array.
+ * Performs binary search on a sorted array.
  *
- * Complexity:
- * - Time:  O(log n)
- * - Space: O(1)
+ * <p>Repeatedly halves the search interval until the target is found
+ * or the interval is empty.
  *
- * Example:
+ * <h2>Complexity</h2>
+ * <ul>
+ *   <li><strong>Time:</strong>  O(log n)</li>
+ *   <li><strong>Space:</strong> O(1)</li>
+ * </ul>
+ *
+ * <h2>Example</h2>
+ * <pre>
  *   int[] nums = {1, 3, 5, 7, 9};
- *   int index = search(nums, 5);  // Returns 2
+ *   int index = search(nums, 5);  // returns 2
+ * </pre>
  *
- * @param array the sorted array to search
+ * @param array  the sorted array to search
  * @param target the value to find
- * @return index of target, or Integer.MIN_VALUE if not found
- * @throws IllegalArgumentException if array is null
+ * @return index of {@code target}, or {@code Integer.MIN_VALUE} if not found
+ * @throws IllegalArgumentException if {@code array} is {@code null}
  */
 public int search(int[] array, int target) {
   // implementation
 }
 ```
 
-Inline comments (`//`) are avoided unless explaining a non-obvious *why*.
-Comments that merely repeat what the code says are omitted.
+Inline `//` comments are avoided unless explaining a non-obvious *why*.
+Comments that merely repeat what the code already says are omitted.
 
 #### **4. Error Handling**
 

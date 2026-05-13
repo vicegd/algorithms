@@ -241,17 +241,6 @@ See [LICENSE](LICENSE) file for details
 This is an educational project. Suggestions for improvements are welcome.    
 Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 
-### Documentation style
-
-All Java source files are documented using **Javadoc** (standard Java documentation system).
-Code formatting follows the **[Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)**.
-
-Rules applied throughout the codebase:
-- **Class level**: Javadoc on every public and package-private class describing its purpose, algorithm, complexity, and usage examples.
-- **Method level**: Javadoc on every method with `@param`, `@return`, and `@throws` tags where applicable.
-- **Inline comments**: avoided unless explaining a non-obvious *why* (e.g. algorithm decision, workaround). Comments that merely repeat what the code already says are omitted.
-- **No HTML tags** inside Javadoc blocks — plain text, bullet lists with `-`, and indented code examples are used instead.
-
 ---
 
 ## 📝 Changelog
