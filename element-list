@@ -10,9 +10,8 @@ topics.dynamic
 topics.greedy
 topics.greedy.agentsTasks
 topics.introduction
+topics.introduction.examples
 topics.parallel
-topics.principles
-topics.principles.examples
 topics.sorting
 topics.sorting.others
 topics.sorting.utils
