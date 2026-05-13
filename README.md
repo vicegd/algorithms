@@ -231,7 +231,7 @@ University of Oviedo
 
 ## 📜 License
 
-GNU General Public License (GPL) v3.0.  
+MIT License — Copyright (c) 2016 Vicente García Díaz  
 See [LICENSE](LICENSE) file for details
 
 ---
