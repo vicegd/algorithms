@@ -13,85 +13,85 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class CombinationsTest {
-	private static Logger log = LoggerFactory.getLogger(CombinationsTest.class);
-	private Combinations comb;
-	long[][] table; //To calculate the combinations in a dynamic programming way
-	
-	/**
-	 * Initializes the object to perform tests
-	 */
-	@BeforeClass
-	public static void setup() {
-		log.trace("Combinations Tests - Setup");
-	}
-	
-	/**
-	 * Ends the object to perform tests
-	 */
-	@AfterClass
-	public static void teardown() {
-		log.trace("Combinations Tests - Teardown");
-	}
-	
-	/**
-	 * It gives the combinations value (n taken k by k)
-	 */
-	@Test
-	public void testCombinationsDP() {
-		int n = 52; 
-		int k = 5;
+  private static Logger log = LoggerFactory.getLogger(CombinationsTest.class);
+  private Combinations comb;
+  long[][] table; //To calculate the combinations in a dynamic programming way
+  
+  /**
+   * Initializes the object to perform tests
+   */
+  @BeforeClass
+  public static void setup() {
+    log.trace("Combinations Tests - Setup");
+  }
+  
+  /**
+   * Ends the object to perform tests
+   */
+  @AfterClass
+  public static void teardown() {
+    log.trace("Combinations Tests - Teardown");
+  }
+  
+  /**
+   * It gives the combinations value (n taken k by k)
+   */
+  @Test
+  public void testCombinationsDP() {
+    int n = 52; 
+    int k = 5;
 
-		table = new long[n+1][k+1];
-		comb = new Combinations();
-		long result = comb.combinations(table, n, k);
-		//comb.writeSolution(table, n, k);		
-		assertEquals(2598960, result);
-	}
-	
-	/**
-	 * It gives the combinations value (n taken k by k)
-	 */
-	@Test
-	public void testCombinationsDP2() {
-		int n = 100; 
-		int k = 15;
+    table = new long[n+1][k+1];
+    comb = new Combinations();
+    long result = comb.combinations(table, n, k);
+    //comb.writeSolution(table, n, k);    
+    assertEquals(2598960, result);
+  }
+  
+  /**
+   * It gives the combinations value (n taken k by k)
+   */
+  @Test
+  public void testCombinationsDP2() {
+    int n = 100; 
+    int k = 15;
 
-		table = new long[n+1][k+1];
-		comb = new Combinations();
-		long result = comb.combinations(table, n, k);
-		//comb.writeSolution(table, n, k);
-		//This result is too big to be calculated with D&C instead
-		assertEquals(253338471349988640L, result);
-	}
-	
-	/**
-	 * It gives the combinations value (n taken k by k)
-	 */
-	@Test
-	public void testCombinationsDP3() {
-		int n = 9; 
-		int k = 5;
+    table = new long[n+1][k+1];
+    comb = new Combinations();
+    long result = comb.combinations(table, n, k);
+    //comb.writeSolution(table, n, k);
+    //This result is too big to be calculated with D&C instead
+    assertEquals(253338471349988640L, result);
+  }
+  
+  /**
+   * It gives the combinations value (n taken k by k)
+   */
+  @Test
+  public void testCombinationsDP3() {
+    int n = 9; 
+    int k = 5;
 
-		table = new long[n+1][k+1];
-		comb = new Combinations();
-		long result = comb.combinations(table, n, k);
-		comb.writeSolution(table, n, k);
-		assertEquals(126, result);
-	}
+    table = new long[n+1][k+1];
+    comb = new Combinations();
+    long result = comb.combinations(table, n, k);
+    comb.writeSolution(table, n, k);
+    assertEquals(126, result);
+  }
 
-	/**
-	 * It gives the combinations value (n taken k by k)
-	 */
-	@Test
-	public void testCombinationsDC() {
-		int n = 100; 
-		int k = 15;
+  /**
+   * It gives the combinations value (n taken k by k)
+   */
+  @Test
+  public void testCombinationsDC() {
+    int n = 100; 
+    int k = 15;
 
-		comb = new Combinations();
-		long result = comb.combinationsDivideAndConquer(n, k);	
-		assertEquals(253338471349988640L, result);
-	}
-	
+    comb = new Combinations();
+    long result = comb.combinationsDivideAndConquer(n, k);  
+    assertEquals(253338471349988640L, result);
+  }
+  
 
 }
 

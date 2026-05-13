@@ -9,14 +9,14 @@ import topics.branchandbound.util.Node;
  * BRANCH AND BOUND PROBLEM: THE PUZZLE
  * @author vicegd
  */
-public class EightPuzzle extends BranchAndBound {	
-	/**
-	 * Constructor for EightPuzzle objects
-	 * @param heuristicType Type of the heuristic used to solve the problem - Manhattan or WrongPlace
-	 * @param board Representation of the board for playing the EightPuzzle
-	 */
+public class EightPuzzle extends BranchAndBound {  
+  /**
+   * Constructor for EightPuzzle objects
+   * @param heuristicType Type of the heuristic used to solve the problem - Manhattan or WrongPlace
+   * @param board Representation of the board for playing the EightPuzzle
+   */
     public EightPuzzle(HeuristicType heuristicType, int[] board) {
-    	rootNode = new Puzzle(heuristicType, board); //We create the puzzle to start playing
+      rootNode = new Puzzle(heuristicType, board); //We create the puzzle to start playing
     }
 }
 /***************************************************/
@@ -28,8 +28,8 @@ class Puzzle extends Node {
     private HeuristicType heuristicType; //Type of heuristic function
 
     public Puzzle(HeuristicType heuristicType, int[] board) { //Generates a fresh set of squares (ROOT NODE)
-    	this.heuristicType = heuristicType;
-    	this.board = board;
+      this.heuristicType = heuristicType;
+      this.board = board;
     }
 
     public Puzzle(int[] board, HeuristicType heuristicType, int depth, UUID parentID) {
@@ -134,41 +134,41 @@ class Puzzle extends Node {
     }
     
     private boolean prune() { //PRUNING METHOD
-    	boolean result = false;
-    	
-    	int x = 0;
-    	int sum = 0;
-    	for (int i = 1; i <= 9; i++) {
-    		sum += smaller(i);
-    	}
-    	if ((position(9)%2) == 0) 
-    		x = 1;
-    	
-    	if ((sum + x)%2 == 1) { //It is an odd number
-    		result = true;
-    	}
-    	
-    	return result;
+      boolean result = false;
+      
+      int x = 0;
+      int sum = 0;
+      for (int i = 1; i <= 9; i++) {
+        sum += smaller(i);
+      }
+      if ((position(9)%2) == 0) 
+        x = 1;
+      
+      if ((sum + x)%2 == 1) { //It is an odd number
+        result = true;
+      }
+      
+      return result;
     }
   
     /* It is the number of pieces such that j<i 
      * and position(j) > position(i) */
     private int smaller(int i) { 
-    	int j = 0;
-    	for (int k = position(i); k < board.length; k++) {
-    		if (board[k] < i) j++;
-    	}
-    	return j;
+      int j = 0;
+      for (int k = position(i); k < board.length; k++) {
+        if (board[k] < i) j++;
+      }
+      return j;
     }
     
     /* Position in the initial state of the piece number i */
     private int position(int i) { 
-    	int position = -1;
-    	for (int k = 0; k < board.length; k++) {
-    		if (board[k] == i)
-    			position = k+1; //We start at 0
-    	}
-    	return position;
+      int position = -1;
+      for (int k = 0; k < board.length; k++) {
+        if (board[k] == i)
+          position = k+1; //We start at 0
+      }
+      return position;
     }
    
     @Override
@@ -191,51 +191,51 @@ class Puzzle extends Node {
 
     @Override
     public void calculateHeuristicValue() {
-		if (prune()) 
-			heuristicValue = Integer.MAX_VALUE;
-		else {
-    		switch (heuristicType){
-    		case Manhattan:
-    			heuristicValue = getManhattanHeuristicValue();
-    			break;
-    		case WrongPlace:
-    			heuristicValue = getWrongPlaceHeuristicValue();
-    			break;
-    		}
-		} 	
+    if (prune()) 
+      heuristicValue = Integer.MAX_VALUE;
+    else {
+        switch (heuristicType){
+        case Manhattan:
+          heuristicValue = getManhattanHeuristicValue();
+          break;
+        case WrongPlace:
+          heuristicValue = getWrongPlaceHeuristicValue();
+          break;
+        }
+    }   
     }
     
     /* To get the children of the current node. They 
      * point to their parent through the parentID */
-	@Override
-	public ArrayList<Node> expand() {
-		ArrayList<Node> result = new ArrayList<Node>();
-		int[] testBoard;
-	    Puzzle temp;
-	       
-	    //Possible movements of the pieces towards the empty cell
-	    testBoard = up(); //UP
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-	    result.add(temp);
-	        
-	    testBoard = down(); //DOWN
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-	    result.add(temp);
-	        
-	    testBoard = left(); //LEFT
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-	    result.add(temp);
-	        
-	    testBoard = right(); //RIGHT
-	    temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-	    result.add(temp);
-	    return result;
-	}
+  @Override
+  public ArrayList<Node> expand() {
+    ArrayList<Node> result = new ArrayList<Node>();
+    int[] testBoard;
+      Puzzle temp;
+         
+      //Possible movements of the pieces towards the empty cell
+      testBoard = up(); //UP
+      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
+      result.add(temp);
+          
+      testBoard = down(); //DOWN
+      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
+      result.add(temp);
+          
+      testBoard = left(); //LEFT
+      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
+      result.add(temp);
+          
+      testBoard = right(); //RIGHT
+      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
+      result.add(temp);
+      return result;
+  }
 
-	@Override
-	public boolean isSolution() {
-		return (getHeuristicValue() == 0) ? true : false;
-	}
+  @Override
+  public boolean isSolution() {
+    return (getHeuristicValue() == 0) ? true : false;
+  }
 
 } //Puzzle
 /***************************************************/
@@ -243,8 +243,8 @@ class Puzzle extends Node {
 
 /***************************************************/
 enum HeuristicType {
-	Manhattan,
-	WrongPlace
+  Manhattan,
+  WrongPlace
 }
 /***************************************************/
 

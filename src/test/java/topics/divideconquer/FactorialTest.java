@@ -10,33 +10,33 @@ import org.junit.Test;
  * @author vicegd
  */
 public class FactorialTest {
-	private static Factorial factorial;
-	
-	/**
-	 * Initializes the object to perform tests
-	 */
-	@BeforeClass
-	public static void setup() {
-		factorial = new Factorial();
-	}
-	
-	/**
-	 * Calculates the factorial of a number in an iterative way
-	 */
-	@Test
-	public void factorialIterative() {
-		int result = factorial.fact1(6);
-		assertEquals(720, result);
-	}	
+  private static Factorial factorial;
+  
+  /**
+   * Initializes the object to perform tests
+   */
+  @BeforeClass
+  public static void setup() {
+    factorial = new Factorial();
+  }
+  
+  /**
+   * Calculates the factorial of a number in an iterative way
+   */
+  @Test
+  public void factorialIterative() {
+    int result = factorial.fact1(6);
+    assertEquals(720, result);
+  }  
 
-	/**
-	 * Calculates the factorial of a number in a recursive way
-	 */
-	@Test
-	public void factorialRecursive() {
-		int result = factorial.fact2(6);
-		assertEquals(720, result);
-	}	
-	
+  /**
+   * Calculates the factorial of a number in a recursive way
+   */
+  @Test
+  public void factorialRecursive() {
+    int result = factorial.fact2(6);
+    assertEquals(720, result);
+  }  
+  
 }
 

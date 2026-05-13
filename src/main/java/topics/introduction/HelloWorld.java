@@ -7,17 +7,17 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class HelloWorld {
-	private static Logger log = LoggerFactory.getLogger(HelloWorld.class);
-	
-	/**
-	 * Adds two integer numbers and return the result
-	 * @param a The first integer number to be added
-	 * @param b The second integer number to be added
-	 * @return The calculation of a+b
-	 */
-	public int sum(int a, int b) {
-		log.info("Adding two numbers");
-		return a+b;
-	}
+  private static Logger log = LoggerFactory.getLogger(HelloWorld.class);
+  
+  /**
+   * Adds two integer numbers and return the result
+   * @param a The first integer number to be added
+   * @param b The second integer number to be added
+   * @return The calculation of a+b
+   */
+  public int sum(int a, int b) {
+    log.info("Adding two numbers");
+    return a+b;
+  }
 }
 

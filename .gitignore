@@ -71,6 +71,7 @@ dist/
 # Documentation
 doc/
 bin/
+TODO.txt
 
 # Logs
 logging.log

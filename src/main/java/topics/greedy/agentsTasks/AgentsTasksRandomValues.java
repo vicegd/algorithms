@@ -12,31 +12,31 @@ import topics.greedy.AgentsTasks;
  * @author vicegd
  */
 public class AgentsTasksRandomValues {
-	static int [][]c;
-	static int[]sol;
-	
-	public static void main(String arg []) {
-		int n = Integer.parseInt(arg[0]); 
-		
-		c = new int[n][n];
-		sol = new int[n];
-		 
-		fillIn(c);
-		AgentsTasks tasks = new AgentsTasks(c);
-		tasks.greedy1(sol);
-		tasks.getCost1(sol);
-		
-		tasks.greedy2(sol);
-		tasks.getCost2(sol);
-	} 
-	
-	public static void fillIn(int[][]c) {
-		Random r = new Random();
-		int n = c.length;
-		for(int i=0; i<n; i++)
-			for(int j=0; j<n; j++)
-				c[i][j] = r.nextInt(999)+1; //Values between 1 and 999
-	}    
+  static int [][]c;
+  static int[]sol;
+  
+  public static void main(String arg []) {
+    int n = Integer.parseInt(arg[0]); 
+    
+    c = new int[n][n];
+    sol = new int[n];
+     
+    fillIn(c);
+    AgentsTasks tasks = new AgentsTasks(c);
+    tasks.greedy1(sol);
+    tasks.getCost1(sol);
+    
+    tasks.greedy2(sol);
+    tasks.getCost2(sol);
+  } 
+  
+  public static void fillIn(int[][]c) {
+    Random r = new Random();
+    int n = c.length;
+    for(int i=0; i<n; i++)
+      for(int j=0; j<n; j++)
+        c[i][j] = r.nextInt(999)+1; //Values between 1 and 999
+  }    
 
 } 
 

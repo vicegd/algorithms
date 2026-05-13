@@ -10,31 +10,31 @@ import topics.greedy.AgentsTasks;
  * @author vicegd
  */
 public class AgentsTasksDifferentSizesTimes {
-	static int [][] c;
-	static int[] sol;
+  static int [][] c;
+  static int[] sol;
 
-	public static void main(String arg []) {
-		int nTimes = Integer.parseInt(arg[0]); 
-		long t1,t2;
-		
-		for (int n=10; n<=1000000; n*=2) {
-			c = new int[n][n];
-			sol = new int[n];
-		 
-			AgentsTasksRandomValues.fillIn(c);
-		
-			t1 = System.currentTimeMillis();
-			for (int r=1;r<=nTimes;r++) {  
-				AgentsTasks tasks = new AgentsTasks(c);
-				tasks.greedy1(sol);
-				tasks.greedy2(sol);
-			}
-			t2=System.currentTimeMillis();
-		
-			System.out.println("n="+n+"***"+"TIME="+(t2-t1)+"***"+"nTimes="+nTimes);
-		}  
-	
-	}  
+  public static void main(String arg []) {
+    int nTimes = Integer.parseInt(arg[0]); 
+    long t1,t2;
+    
+    for (int n=10; n<=1000000; n*=2) {
+      c = new int[n][n];
+      sol = new int[n];
+     
+      AgentsTasksRandomValues.fillIn(c);
+    
+      t1 = System.currentTimeMillis();
+      for (int r=1;r<=nTimes;r++) {  
+        AgentsTasks tasks = new AgentsTasks(c);
+        tasks.greedy1(sol);
+        tasks.greedy2(sol);
+      }
+      t2=System.currentTimeMillis();
+    
+      System.out.println("n="+n+"***"+"TIME="+(t2-t1)+"***"+"nTimes="+nTimes);
+    }  
+  
+  }  
 
 }  
 

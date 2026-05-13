@@ -10,6 +10,6 @@ package topics.branchandbound.times;
  * @see Piece
  */
 enum PieceOrientation {
-	Horizontal,
-	Vertical
+  Horizontal,
+  Vertical
 }

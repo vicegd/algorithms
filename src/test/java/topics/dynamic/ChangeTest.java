@@ -1,92 +1,81 @@
 package topics.dynamic;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
- * Change JUnit tests
+ * Unit tests for the Change (coin change) Dynamic Programming implementation.
+ *
+ * Covers three classic cases where the greedy approach fails and confirms that
+ * the DP solution always returns the true minimum coin count.
+ *
+ * Test Cases:
+ * - Case 1: coins=[1,6,4],                   amount=15 -> greedy: 5, DP: 4
+ * - Case 2: coins=[1,2,20,50,100,200],       amount=60 -> greedy: 3, DP: 3
+ * - Case 3: coins=[1,4,5,12,20,50,100,200],  amount=15 -> greedy: 4, DP: 3
+ *
  * @author vicegd
+ * @see Change
  */
-public class ChangeTest {
-	private static Logger log = LoggerFactory.getLogger(ChangeTest.class);
-	private Change change;
-	
-	/**
-	 * Initializes the object to perform tests
-	 */
-	@BeforeClass
-	public static void setup() {
-		log.trace("Change Tests - Setup");
-	}
-	
-	/**
-	 * Ends the object to perform tests
-	 */
-	@AfterClass
-	public static void teardown() {
-		log.trace("Change Tests - Teardown");
-	}
-	
-	/**
-	 * It gives the fewest possible number of coins to pay a certain amount of money
-	 */
-	@Test
-	public void testChange() {
-		//CASE 1
-		int amount = 15;
-		int[]coins = new int[3];
-		coins[0]=1;coins[1]=6;coins[2]=4;
-		
-		log.trace("Case with an amount of " + amount);
-		
-		change = new Change();
-		int result = change.change(amount, coins);
-		
-		assertEquals(4, result);
-	}
-	
-	/**
-	 * It gives the fewest possible number of coins to pay a certain amount of money
-	 */
-	@Test
-	public void testChange2() {
-		//CASE 2: Seen in case 1 of greedy algorithms (ChangeNotOptimal.java)
-		int amount = 60;
-		int[]coins = new int[6];
-		coins[0]=1;coins[1]=2;coins[2]=20;
-		coins[3]=50;coins[4]=100;coins[5]=200;
-		
-		log.trace("Case with an amount of " + amount);
-		
-		change = new Change();
-		int result = change.change(amount, coins);
-		
-		assertEquals(3, result);
-	}
-	
-	/**
-	 * It gives the fewest possible number of coins to pay a certain amount of money
-	 */
-	@Test
-	public void testChange3() {
-		//CASE 3: Seen in case 2 of greedy algorithms (ChangeNotOptimal.java
-		int amount = 15;
-		int[]coins = new int[8];
-		coins[0]=1;coins[1]=4;coins[2]=5;coins[3]=12;
-		coins[4]=20;coins[5]=50;coins[6]=100;coins[7]=200;
-		
-		log.trace("Case with an amount of " + amount);
-		
-		change = new Change();
-		int result = change.change(amount, coins);
-		
-		assertEquals(3, result);
-	}
-	
+@DisplayName("Coin Change - Dynamic Programming")
+class ChangeTest {
+  private static final Logger LOG = LoggerFactory.getLogger(ChangeTest.class);
+
+  @BeforeAll
+  static void setup() {
+    LOG.trace("Change Tests - Setup");
+  }
+
+  @AfterAll
+  static void teardown() {
+    LOG.trace("Change Tests - Teardown");
+  }
+
+  /**
+   * Case 1: Greedy fails - coins [1, 6, 4], amount 15.
+   *
+   * Greedy picks 6+6+1+1+1 = 5 coins.
+   * DP finds   6+4+4+1   = 4 coins (optimal).
+   */
+  @Test
+  @DisplayName("Case 1: coins=[1,6,4], amount=15 -> 4 coins")
+  void testChange() {
+    int[] coins = {1, 6, 4};
+    LOG.trace("Case with an amount of 15");
+    assertEquals(4, new Change().change(15, coins));
+  }
+
+  /**
+   * Case 2: From ChangeNotOptimal greedy case 1 - coins [1,2,20,50,100,200], amount 60.
+   *
+   * Optimal: 20+20+20 = 3 coins.
+   */
+  @Test
+  @DisplayName("Case 2: coins=[1,2,20,50,100,200], amount=60 -> 3 coins")
+  void testChange2() {
+    int[] coins = {1, 2, 20, 50, 100, 200};
+    LOG.trace("Case with an amount of 60");
+    assertEquals(3, new Change().change(60, coins));
+  }
+
+  /**
+   * Case 3: From ChangeNotOptimal greedy case 2 - coins [1,4,5,12,20,50,100,200], amount 15.
+   *
+   * Greedy picks 12+1+1+1 = 4 coins.
+   * DP finds   5+5+5     = 3 coins (optimal).
+   */
+  @Test
+  @DisplayName("Case 3: coins=[1,4,5,12,20,50,100,200], amount=15 -> 3 coins")
+  void testChange3() {
+    int[] coins = {1, 4, 5, 12, 20, 50, 100, 200};
+    LOG.trace("Case with an amount of 15");
+    assertEquals(3, new Change().change(15, coins));
+  }
 }
 

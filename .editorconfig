@@ -9,11 +9,10 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# Java source files: tabs for indentation 
+# Java source files: 2-space indentation (Google Java Style Guide)
 [*.java]
-indent_style = tab
-tab_width = 4
-indent_size = 4
+indent_style = space
+indent_size = 2
 
 # Config/markup/data files: 2-space indentation
 [*.{xml,yml,yaml,json,md}]

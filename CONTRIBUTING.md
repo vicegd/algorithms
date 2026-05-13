@@ -230,7 +230,8 @@ mvn test jacoco:report
 
 ### **Java Style Guide**
 
-Follow these conventions for consistency:
+This project follows the **[Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)**.
+Key rules applied:
 
 #### **1. Naming Conventions**
 
@@ -256,56 +257,54 @@ List<Integer> sortedNumbers;
 #### **2. Code Formatting**
 
 ```java
-// Braces: Opening on same line
+// Braces: Opening on same line (K&R style)
 if (condition) {
-    doSomething();
+  doSomething();
 } else {
-    doOtherThing();
+  doOtherThing();
 }
 
-// Indentation: 4 spaces (no tabs)
+// Indentation: 2 spaces (no tabs) - Google Java Style
 public void algorithm() {
-    for (int i = 0; i < n; i++) {
-        if (condition) {
-            result += process(i);
-        }
+  for (int i = 0; i < n; i++) {
+    if (condition) {
+      result += process(i);
     }
+  }
 }
 
-// Line length: Max 100-120 characters
+// Line length: Max 100 characters
 ```
 
 #### **3. Comments and Javadoc**
 
-Every public class and method needs Javadoc:
+Every public class and method needs Javadoc.
+No HTML tags inside Javadoc — use plain text, `-` bullet lists, and indented code examples:
 
 ```java
 /**
  * Performs binary search on sorted array.
- * 
- * <h3>Algorithm</h3>
- * Divides search space in half at each iteration.
- * 
- * <h3>Complexity</h3>
- * Time: O(log n)
- * Space: O(1)
- * 
+ *
+ * Complexity:
+ * - Time:  O(log n)
+ * - Space: O(1)
+ *
+ * Example:
+ *   int[] nums = {1, 3, 5, 7, 9};
+ *   int index = search(nums, 5);  // Returns 2
+ *
  * @param array the sorted array to search
  * @param target the value to find
- * @return index of target, or -1 if not found
+ * @return index of target, or Integer.MIN_VALUE if not found
  * @throws IllegalArgumentException if array is null
- * @throws IllegalArgumentException if array is not sorted
- * 
- * @example
- * <pre>
- * int[] nums = {1, 3, 5, 7, 9};
- * int index = search(nums, 5);  // Returns 2
- * </pre>
  */
 public int search(int[] array, int target) {
-    // Implementation
+  // implementation
 }
 ```
+
+Inline comments (`//`) are avoided unless explaining a non-obvious *why*.
+Comments that merely repeat what the code says are omitted.
 
 #### **4. Error Handling**
 

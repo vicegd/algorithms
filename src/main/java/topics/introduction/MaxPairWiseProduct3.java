@@ -18,33 +18,33 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class MaxPairWiseProduct3 {
-	private static Logger log = LoggerFactory.getLogger(MaxPairWiseProduct3.class);
-	private List<Integer> numbers = new ArrayList<Integer>();
-	
-	public MaxPairWiseProduct3() {
-		Path path = Paths.get("src/main/java/topics/introduction/MaxPairWiseProductRandomNumbers.txt");
-		try (BufferedReader reader = Files.newBufferedReader(path)) {
-		    for (String number : reader.readLine().split(" ")) {
-		    	numbers.add(Integer.valueOf(number));
-		    }
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public long compute() {
-		long max = 0;
-		for (int i = 0; i < numbers.size(); i++) {
-			for (int j = 0; j < numbers.size(); j++) {
-				if (i != j) {
-					long result = numbers.get(i) * numbers.get(j);
-					if (result > max)
-						max = result;
-				}
-			}
-		}
-		log.info("The result is = " + max);
-		return max;
-	}
+  private static Logger log = LoggerFactory.getLogger(MaxPairWiseProduct3.class);
+  private List<Integer> numbers = new ArrayList<Integer>();
+  
+  public MaxPairWiseProduct3() {
+    Path path = Paths.get("src/main/java/topics/introduction/MaxPairWiseProductRandomNumbers.txt");
+    try (BufferedReader reader = Files.newBufferedReader(path)) {
+        for (String number : reader.readLine().split(" ")) {
+          numbers.add(Integer.valueOf(number));
+        }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  public long compute() {
+    long max = 0;
+    for (int i = 0; i < numbers.size(); i++) {
+      for (int j = 0; j < numbers.size(); j++) {
+        if (i != j) {
+          long result = numbers.get(i) * numbers.get(j);
+          if (result > max)
+            max = result;
+        }
+      }
+    }
+    log.info("The result is = " + max);
+    return max;
+  }
 }
 

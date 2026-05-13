@@ -57,74 +57,74 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.utils.ISortingAlgorithm
  */
 public class Bubble implements ISortingAlgorithm{
-	static Logger log = LoggerFactory.getLogger(Bubble.class);
-	
-	/**
-	 * Sorts an array of integers using bubble sort (without tracing).
-	 *
-	 * This is the standard bubble sort implementation that sorts the array
-	 * in-place without logging intermediate steps.
-	 *
-	 * Algorithm Steps:
-	 * 1. For i from 1 to n-1:
-	 * 2.   For j from n-1 down to i:
-	 * 3.     If elements[j-1] > elements[j]: swap elements[j-1] and elements[j]
-	 *
-	 * Why This Order:
-	 * We iterate backwards through the unsorted portion because this places
-	 * the smallest element in its correct position after each inner loop pass.
-	 *
-	 * Example:
-	 *   int[] array = {5, 2, 8, 1, 9};
-	 *   bubbleSort.sort(array);
-	 *   // array is now: {1, 2, 5, 8, 9}
-	 *
-	 * @param elements the array to sort (modified in-place)
-	 * @throws NullPointerException if elements is null
-	 */
-	@Override
-	public void sort(int[] elements) {
-		for (int i = 1; i < elements.length; i++) {
-			for (int j = elements.length - 1; j >= i; j--) {
-				if (elements[j-1] > elements[j]){
-					Util.interchange(elements, j-1, j);
-				}
-			}
-		}
-	}
-	
-	/**
-	 * Sorts an array of integers using bubble sort with execution tracing.
-	 *
-	 * This variant logs intermediate states of the array during sorting.
-	 * Useful for understanding the algorithm's progression or educational demonstrations.
-	 *
-	 * Tracing Output:
-	 * After each pass, the current state of the array is logged if tracing is enabled:
-	 *   Initial:      [5, 2, 8, 1, 9]
-	 *   After pass 1: [2, 5, 1, 8, 9]  (9 in place)
-	 *   After pass 2: [2, 1, 5, 8, 9]  (8 in place)
-	 *   After pass 3: [1, 2, 5, 8, 9]  (5 in place)
-	 *
-	 * @param elements the array to sort (modified in-place)
-	 * @param trace if true, logs intermediate states via SLF4J debug level;
-	 *              if false, no tracing occurs (behaves like {@link #sort(int[])})
-	 * @throws NullPointerException if elements is null
-	 * @see #sort(int[]) for sorting without tracing
-	 * @see Util#trace(int, int[]) for tracing implementation
-	 */
-	@Override
-	public void sort(int[] elements, boolean trace) {
-		log.debug("Bubble method");
-		for (int i = 1; i < elements.length; i++) {
-			for (int j = elements.length - 1; j >= i; j--) {
-				if (elements[j-1] > elements[j]){
-					Util.interchange(elements, j-1, j);
-				}
-			}
-			if (trace) Util.trace(i, elements);
-		}
-	}
+  static Logger log = LoggerFactory.getLogger(Bubble.class);
+  
+  /**
+   * Sorts an array of integers using bubble sort (without tracing).
+   *
+   * This is the standard bubble sort implementation that sorts the array
+   * in-place without logging intermediate steps.
+   *
+   * Algorithm Steps:
+   * 1. For i from 1 to n-1:
+   * 2.   For j from n-1 down to i:
+   * 3.     If elements[j-1] > elements[j]: swap elements[j-1] and elements[j]
+   *
+   * Why This Order:
+   * We iterate backwards through the unsorted portion because this places
+   * the smallest element in its correct position after each inner loop pass.
+   *
+   * Example:
+   *   int[] array = {5, 2, 8, 1, 9};
+   *   bubbleSort.sort(array);
+   *   // array is now: {1, 2, 5, 8, 9}
+   *
+   * @param elements the array to sort (modified in-place)
+   * @throws NullPointerException if elements is null
+   */
+  @Override
+  public void sort(int[] elements) {
+    for (int i = 1; i < elements.length; i++) {
+      for (int j = elements.length - 1; j >= i; j--) {
+        if (elements[j-1] > elements[j]){
+          Util.interchange(elements, j-1, j);
+        }
+      }
+    }
+  }
+  
+  /**
+   * Sorts an array of integers using bubble sort with execution tracing.
+   *
+   * This variant logs intermediate states of the array during sorting.
+   * Useful for understanding the algorithm's progression or educational demonstrations.
+   *
+   * Tracing Output:
+   * After each pass, the current state of the array is logged if tracing is enabled:
+   *   Initial:      [5, 2, 8, 1, 9]
+   *   After pass 1: [2, 5, 1, 8, 9]  (9 in place)
+   *   After pass 2: [2, 1, 5, 8, 9]  (8 in place)
+   *   After pass 3: [1, 2, 5, 8, 9]  (5 in place)
+   *
+   * @param elements the array to sort (modified in-place)
+   * @param trace if true, logs intermediate states via SLF4J debug level;
+   *              if false, no tracing occurs (behaves like {@link #sort(int[])})
+   * @throws NullPointerException if elements is null
+   * @see #sort(int[]) for sorting without tracing
+   * @see Util#trace(int, int[]) for tracing implementation
+   */
+  @Override
+  public void sort(int[] elements, boolean trace) {
+    log.debug("Bubble method");
+    for (int i = 1; i < elements.length; i++) {
+      for (int j = elements.length - 1; j >= i; j--) {
+        if (elements[j-1] > elements[j]){
+          Util.interchange(elements, j-1, j);
+        }
+      }
+      if (trace) Util.trace(i, elements);
+    }
+  }
 
 }
 

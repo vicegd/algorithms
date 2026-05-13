@@ -18,18 +18,18 @@ public abstract class Node implements Comparable<Node> {
     /**
      * Constructor for Node objects
      */
-	public Node() { //Values by default
-    	depth = 0; 
-    	parentID = null; //It does not have parent unless we say another thing
-    	ID = UUID.randomUUID();
-	}
-	
+  public Node() { //Values by default
+      depth = 0; 
+      parentID = null; //It does not have parent unless we say another thing
+      ID = UUID.randomUUID();
+  }
+  
     /**
      * Gets the ID of the node
      * @return ID of the node
      */
     public UUID getID() {
-    	return ID;
+      return ID;
     }
     
     /**
@@ -37,29 +37,29 @@ public abstract class Node implements Comparable<Node> {
      * @return The parentID variable
      */
     public UUID getParentID() {
-    	return parentID;
+      return parentID;
     }
     
-	/**
-	 * Getter for depth
-	 * @return The depth variable
-	 */
+  /**
+   * Getter for depth
+   * @return The depth variable
+   */
     public int getDepth() {return depth;}
-	  
+    
     /**
      * Getter for heuristicValue
      * @return The heuristicValue variable
      */
-	public int getHeuristicValue() { return heuristicValue; }
-	
-	/**
-	 * Compares whether two nodes are equal using the ToString method
-	 * @param n Another node to be compared with
-	 * @return True if there are equal. False otherwise
-	 */
+  public int getHeuristicValue() { return heuristicValue; }
+  
+  /**
+   * Compares whether two nodes are equal using the ToString method
+   * @param n Another node to be compared with
+   * @return True if there are equal. False otherwise
+   */
     public boolean equals(Node n) {
-		return (n.toString().equals(toString()));
-	}
+    return (n.toString().equals(toString()));
+  }
 
     /**
      * We can have extra information about the problem to prune all the nodes
@@ -67,22 +67,22 @@ public abstract class Node implements Comparable<Node> {
      * do not prune anything
      * @return Value of the initial prune limit 
      */
-	public int initialValuePruneLimit() {
-		return Integer.MAX_VALUE; //Implementation by default
-	}
+  public int initialValuePruneLimit() {
+    return Integer.MAX_VALUE; //Implementation by default
+  }
     
-	@Override
-	public int compareTo(Node node) { //BRANCHING METHOD
-		int totalValue = heuristicValue;
-		int totalValueToBeCompared = node.getHeuristicValue();
-		
-		if (totalValue > totalValueToBeCompared) return 1; //this has less priority (is bigger)
-		else if (totalValue == totalValueToBeCompared) return 0; //The same priority
-		else return -1; //this has more priority (is smaller)
-	}
+  @Override
+  public int compareTo(Node node) { //BRANCHING METHOD
+    int totalValue = heuristicValue;
+    int totalValueToBeCompared = node.getHeuristicValue();
     
-	public abstract void calculateHeuristicValue();
-	public abstract ArrayList<Node> expand();
-	public abstract boolean isSolution();
+    if (totalValue > totalValueToBeCompared) return 1; //this has less priority (is bigger)
+    else if (totalValue == totalValueToBeCompared) return 0; //The same priority
+    else return -1; //this has more priority (is smaller)
+  }
+    
+  public abstract void calculateHeuristicValue();
+  public abstract ArrayList<Node> expand();
+  public abstract boolean isSolution();
 }
 

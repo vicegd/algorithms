@@ -11,18 +11,18 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class MaxPairWiseProduct {
-	private static Logger log = LoggerFactory.getLogger(MaxPairWiseProduct.class);
-	int number1;
-	int number2;
-	
-	public MaxPairWiseProduct() {
-		number1 = 100_000;
-		number2 = 1_000_000;
-	}
-	
-	public int compute() {
-		log.info("The result is = " + number1 * number2);
-		return number1 * number2;
-	}
+  private static Logger log = LoggerFactory.getLogger(MaxPairWiseProduct.class);
+  int number1;
+  int number2;
+  
+  public MaxPairWiseProduct() {
+    number1 = 100_000;
+    number2 = 1_000_000;
+  }
+  
+  public int compute() {
+    log.info("The result is = " + number1 * number2);
+    return number1 * number2;
+  }
 }
 

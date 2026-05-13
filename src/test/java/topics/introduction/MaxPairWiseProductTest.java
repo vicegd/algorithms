@@ -10,17 +10,17 @@ import org.junit.Test;
  * @author vicegd
  */
 public class MaxPairWiseProductTest {
-	/**
-	 * Computes the max pairwise product
-	 */
+  /**
+   * Computes the max pairwise product
+   */
 
-	@Test
-	@Ignore
-	public void testSum() {
-		MaxPairWiseProduct maxPairWiseProduct = new MaxPairWiseProduct();
-		int result = maxPairWiseProduct.compute();
-		assertEquals("The max pairwise product was not calculated correctly", 100_000_000_000L, result);
-	}
+  @Test
+  @Ignore
+  public void testSum() {
+    MaxPairWiseProduct maxPairWiseProduct = new MaxPairWiseProduct();
+    int result = maxPairWiseProduct.compute();
+    assertEquals("The max pairwise product was not calculated correctly", 100_000_000_000L, result);
+  }
 
 }
 

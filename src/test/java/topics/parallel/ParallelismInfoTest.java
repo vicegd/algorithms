@@ -11,22 +11,22 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class ParallelismInfoTest {
-	private static Logger log = LoggerFactory.getLogger(ParallelismInfoTest.class);
-	
-	/**
-	 * Shows the level of parallelism of the computer
-	 */
-	@Test
-	public void executeTask() {
-	   ForkJoinPool pool = new ForkJoinPool(7);
-	   log.debug("Level of parallelism: " + 
-	   pool.getParallelism());
-	   pool.close();
-	   log.debug("Available processors: " + 
-	   Runtime.getRuntime().availableProcessors()); 
-	}
+  private static Logger log = LoggerFactory.getLogger(ParallelismInfoTest.class);
+  
+  /**
+   * Shows the level of parallelism of the computer
+   */
+  @Test
+  public void executeTask() {
+     ForkJoinPool pool = new ForkJoinPool(7);
+     log.debug("Level of parallelism: " + 
+     pool.getParallelism());
+     pool.close();
+     log.debug("Available processors: " + 
+     Runtime.getRuntime().availableProcessors()); 
+  }
 
-	  	
+      
 
 }
 

@@ -11,31 +11,31 @@ import topics.sorting.utils.Util;
  * @author vicegd
  */
 public class Radix implements ISortingAlgorithm{
-	@SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
     //10 queues for base 10 numbers
-	private Queue<Integer>[] buckets = new ArrayDeque[10];
-	private int[] elements = null;
+  private Queue<Integer>[] buckets = new ArrayDeque[10];
+  private int[] elements = null;
 
-	public Radix() { 
+  public Radix() { 
         for (int i=0; i<10; i++) {
             buckets[i] = new ArrayDeque<Integer>();
         }
-	}
-	
+  }
+  
     private int getMaxNumberOfDigits() {
-    	int maxPosition = Util.findPosMax(elements, 0);
-    	int maxValue = elements[maxPosition];
-    	int maxNumberOfDigits = String.valueOf(maxValue).length();
+      int maxPosition = Util.findPosMax(elements, 0);
+      int maxValue = elements[maxPosition];
+      int maxNumberOfDigits = String.valueOf(maxValue).length();
         return maxNumberOfDigits;
     }
     
     private int getDigit(int integer, int divisor) {
         return (integer / divisor) % 10;
     }
-	
-	@Override
-	public void sort(int[] elements) {
-		this.elements = elements;
+  
+  @Override
+  public void sort(int[] elements) {
+    this.elements = elements;
         int numberOfDigits = getMaxNumberOfDigits(); //k value
         int divisor = 1; //to iterate the positons (1, 10, ...)
         
@@ -53,11 +53,11 @@ public class Radix implements ISortingAlgorithm{
             }
             divisor *= 10;
         }
-	}
-	
-	@Override
-	public void sort(int[] elements, boolean trace) {
-		this.elements = elements;
+  }
+  
+  @Override
+  public void sort(int[] elements, boolean trace) {
+    this.elements = elements;
         int numberOfDigits = getMaxNumberOfDigits(); //k value
         int divisor = 1; //to iterate the positons (1, 10, ...)
         
@@ -76,8 +76,8 @@ public class Radix implements ISortingAlgorithm{
             divisor *= 10;
             Util.traceMessage("Digit: " + n, elements);
         }
-	}
-	
+  }
+  
 
 
 
