@@ -9,7 +9,7 @@ package topics.divideconquer.utils;
  * elements to the right are greater than or equal to the pivot.
  *
  * @author vicegd
- * @see topics.sorting.Quick
+ * @see topics.sorting.Quicksort
  */
 public class Util {
   /* This is a linear process O(n). At the end it leaves the pivot 

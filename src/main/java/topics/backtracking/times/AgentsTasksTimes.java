@@ -38,8 +38,7 @@ public class AgentsTasksTimes {
   }
   
   /**
-   * To measure execution times for a specific problem
-   * @param nTimes Number of times the task is performed
+   * Measures execution times for the backtracking assignment problem.
    */
   public void execute() {
     long t1, t2;
