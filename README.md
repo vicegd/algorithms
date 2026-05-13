@@ -9,8 +9,9 @@ A comprehensive collection of **algorithm implementations** covering fundamental
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Java 25** or higher
-- **Maven 3.6+**
+- **Java 15+** (project compiles with Java 25)
+- **Maven 3.6+** (tested with 3.9+, uses plugins requiring 3.6+)
+- **JUnit 5.10.2** (managed automatically by Maven)
 - Git (optional)
 
 ### Installation & Setup
@@ -174,7 +175,7 @@ Master concurrent programming with Fork/Join Framework.
 - Parallel array operations
 - Concurrent file processing
 
-**Framework:** Java ForkJoinPool (Java 7+)
+**Framework:** Java ForkJoinPool
 
 **📖 Learn more:** See [parallel/README.md](src/main/java/topics/parallel/README.md)
 
@@ -231,7 +232,7 @@ University of Oviedo
 
 ## 📜 License
 
-MIT License — Copyright (c) 2016 Vicente García Díaz  
+MIT License — Copyright (c) 2026 Vicente García Díaz  
 See [LICENSE](LICENSE) file for details
 
 ---
