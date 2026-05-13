@@ -36,18 +36,35 @@ mvn test -Dtest=YourTestClassName
 ```
 algorithms/
 ├── src/
-│   ├── main/java/topics/          # Algorithm implementations
-│   │   ├── sorting/               # Sorting algorithms
-│   │   ├── divideconquer/         # Divide & Conquer strategies
-│   │   ├── dynamic/               # Dynamic Programming
-│   │   ├── greedy/                # Greedy Algorithms
-│   │   ├── backtracking/          # Backtracking techniques
-│   │   ├── branchandbound/        # Branch & Bound methods
-│   │   ├── parallel/              # Parallel algorithms
-│   │   └── principles/            # Data structure principles
-│   └── test/java/topics/          # Unit tests (JUnit 5)
-├── pom.xml                         # Maven configuration
-└── README.md                       # This file
+│   ├── main/java/topics/               # Algorithm implementations
+│   │   ├── introduction/               # Getting started, recursion, search, data structures
+│   │   │   └── examples/               # Java Collections examples (ArrayList, Stack, TreeSet…)
+│   │   ├── sorting/                    # Sorting algorithms
+│   │   │   ├── others/                 # Additional sorts (Heapsort, Radix, Shell, Bidirectional…)
+│   │   │   └── utils/                  # Shared sorting utilities & interface
+│   │   ├── divideconquer/              # Divide & Conquer strategies
+│   │   │   └── utils/                  # Shared D&C utilities
+│   │   ├── dynamic/                    # Dynamic Programming
+│   │   ├── greedy/                     # Greedy Algorithms
+│   │   │   └── agentsTasks/            # Agent-task assignment timing helpers
+│   │   ├── backtracking/               # Backtracking techniques
+│   │   │   └── times/                  # Timing / benchmark helpers
+│   │   ├── branchandbound/             # Branch & Bound methods
+│   │   │   ├── times/                  # Timing / benchmark helpers
+│   │   │   └── util/                   # Core B&B framework (Heap, Node…)
+│   │   │       └── threads/            # Thread-safe B&B variants
+│   │   └── parallel/                   # Parallel algorithms (ForkJoin)
+│   └── test/java/topics/               # Unit tests (JUnit 5)
+├── .github/                            # GitHub configuration
+│   └── workflows/                      # CI/CD pipelines
+│       └── javadoc.yml                 # Publish Javadoc to GitHub Pages
+├── .editorconfig                       # Editor formatting rules
+├── .gitignore                          # Git ignore patterns
+├── pom.xml                             # Maven configuration
+├── README.md                           # This file
+├── CONTRIBUTING.md                     # Contribution guidelines
+├── CHANGELOG.md                        # Release history
+└── LICENSE                             # MIT License
 ```
 
 ---
@@ -62,6 +79,12 @@ New to algorithms? Start here!
 - How to measure efficiency (Big-O)
 - Problem-solving strategies
 - Correctness vs Efficiency trade-offs
+- Data structures: Arrays, LinkedLists, Stacks, Queues, Hash Tables, Trees
+- Search algorithms: Linear search, Binary search
+- Recursion fundamentals
+- Problem-solving patterns (max/min, aggregation, search)
+
+**Why start here:** All other algorithm categories depend on these foundations. Building a strong base here makes everything else easier.
 
 **Key Example:** MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
 
@@ -178,21 +201,6 @@ Master concurrent programming with Fork/Join Framework.
 **Framework:** Java ForkJoinPool
 
 **📖 Learn more:** See [parallel/README.md](src/main/java/topics/parallel/README.md)
-
----
-
-### 8. **Principles & Fundamentals**
-Master data structures, recursion, and basic search techniques.
-
-**Core Topics:**
-- Data structures: Arrays, LinkedLists, Stacks, Queues, Hash Tables, Trees
-- Search algorithms: Linear search, Binary search
-- Recursion fundamentals
-- Problem-solving patterns (max/min, aggregation, search)
-
-**Why start here:** All other algorithm categories depend on these foundations. Building a strong base here makes everything else easier.
-
-**📖 Learn more:** See [principles/README.md](src/main/java/topics/principles/README.md)
 
 ---
 

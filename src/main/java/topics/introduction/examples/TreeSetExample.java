@@ -1,37 +1,37 @@
-package topics.principles.examples;
+package topics.introduction.examples;
 
-import java.util.Vector;
+import java.util.TreeSet;
 
 /**
- * Demonstrates the legacy thread-safe {@link java.util.Vector} collection.
+ * Demonstrates {@link java.util.TreeSet} with natural sorted ordering.
  *
- * Vector is a synchronized dynamic array. In modern Java, {@link java.util.ArrayList}
- * (unsynchronized) or {@link java.util.concurrent.CopyOnWriteArrayList}
- * (concurrent) are generally preferred.
+ * Shows how TreeSet stores elements in ascending order and supports
+ * range-view operations such as {@code subSet}.
  *
  * @author vicegd
  */
-public class VectorExample {
+public class TreeSetExample {
 
   public static void main(String[] args) {
-    Vector<String> collection = new Vector<String>();
+    TreeSet<String> collection = new TreeSet<String>();
     System.out.println("Initial size of the collection: " + collection.size());
     
     //Adding elements
+    collection.add("D");
     collection.add("A");
     collection.add("B");
     collection.add("C");
-    collection.add("D");
-    collection.add(1, "A2");
+    collection.add("E");
     System.out.println("Size after additions: " + collection.size());
     System.out.println("Contents: " + collection);
     
     //Removing elements
-    collection.remove("A2");
-    collection.remove(3);
-    
+    collection.remove("A");
     System.out.println("Size after deletions: " + collection.size());
     System.out.println("Contents: " + collection);
+    
+    //Obtaining subset
+    System.out.println(collection.subSet("B", "E"));
   }
 
 }

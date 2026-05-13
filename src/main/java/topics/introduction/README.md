@@ -203,6 +203,94 @@ Practice: Verify this with actual measurements!
 
 ---
 
+### **Factorial.java**
+
+**Purpose**: Demonstrate recursion through the classic factorial function
+
+**What it does**: Computes n! both iteratively and recursively, and checks for invalid input (negative numbers).
+
+**Learning goal:**
+- Understand base cases and recursive cases
+- Compare iterative vs recursive implementations
+- Reason about termination and correctness
+
+**Example:**
+```
+factorial(4) = 4 × 3 × 2 × 1 = 24
+factorial(0) = 1  (base case)
+factorial(-1) = -1 (invalid — returns sentinel value)
+```
+
+---
+
+### **GetAdditionFromList.java**
+
+**Purpose**: Sum all elements of an integer array
+
+**What it does**: Iterates over an array and accumulates the total using a single loop.
+
+**Learning goal:**
+- Aggregation pattern (running total)
+- Linear O(n) traversal
+
+**Example:**
+```
+[3, 1, 10, 5, -1] → sum = 18
+```
+
+---
+
+### **GetMaximumFromList.java**
+
+**Purpose**: Find the maximum element in an integer array
+
+**What it does**: Keeps a running maximum while scanning the array once.
+
+**Learning goal:**
+- Min/max pattern (running best)
+- How a single pass suffices
+
+**Example:**
+```
+[3, 1, 10, 5, -1] → max = 10
+```
+
+---
+
+### **Search.java**
+
+**Purpose**: Demonstrate the three fundamental search strategies
+
+**Algorithms covered:**
+
+| Method | Complexity | Requirement |
+|--------|-----------|-------------|
+| Sequential search | O(n) | Unsorted array |
+| Sentinel search | O(n) | Uses a `List` with sentinel trick |
+| Binary search | O(log n) | Sorted array |
+
+**Key insight:** Sorting a list first (O(n log n)) unlocks binary search (O(log n)), which pays off when many searches are performed on the same data.
+
+---
+
+### **examples/ subpackage**
+
+Nine standalone programs demonstrating core Java Collections Framework types:
+
+| Class | Data Structure | Key Characteristic |
+|-------|---------------|--------------------|
+| `ArrayListExample` | `ArrayList` | Resizable array, index access |
+| `LinkedListExample` | `LinkedList` | Doubly linked, O(1) insert at ends |
+| `ArrayDequeExample` | `ArrayDeque` | Fast double-ended queue / stack |
+| `StackExample` | `Stack` | LIFO, legacy class |
+| `VectorExample` | `Vector` | Thread-safe legacy list |
+| `HashSetExample` | `HashSet` | Unordered, O(1) lookup |
+| `LinkedHashSetExample` | `LinkedHashSet` | Insertion-ordered set |
+| `TreeSetExample` | `TreeSet` | Sorted (red-black tree) |
+| `PriorityQueueExample` | `PriorityQueue` | Min-heap, retrieves smallest first |
+
+---
+
 ## Learning Path
 
 ### **Week 1: Foundations**
@@ -254,7 +342,7 @@ Practice: Verify this with actual measurements!
 ### **Week 3: Apply Knowledge**
 
 9. 🎯 **Next Problem**
-   - Move to `principles/` section
+   - Study `Factorial.java`, `Search.java`, and the `examples/` subpackage in this section
    - Apply MaxPairWiseProduct lessons to new problems
    - Focus on: correctness first, then optimization
 
@@ -330,12 +418,7 @@ O(n!) - Factorial     │  Impractical
 
 **Recommended Path:**
 
-1. **Move to `principles/`**
-   - Learn search algorithms
-   - Understand recursion
-   - Master basic patterns
-
-2. **Then to `sorting/`**
+1. **Move to `sorting/`**
    - Apply divide & conquer
    - Compare algorithm efficiency
    - Understand stability
@@ -355,7 +438,6 @@ O(n!) - Factorial     │  Impractical
 
 ### 🔗 **Related Files**
 
-- See [principles/README.md](../principles/README.md) for foundational concepts
 - See [sorting/README.md](../sorting/README.md) to apply these ideas to sorting
 - See main [README.md](../../README.md) for complete curriculum overview
 

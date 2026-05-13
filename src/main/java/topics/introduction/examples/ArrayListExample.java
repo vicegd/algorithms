@@ -1,25 +1,23 @@
-package topics.principles.examples;
+package topics.introduction.examples;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
- * Demonstrates {@link java.util.LinkedList} as a doubly-linked list with
- * operations at both ends: addFirst, addLast, removeFirst, and removeLast.
+ * Demonstrates basic {@link java.util.ArrayList} operations: add, remove, and iteration.
  *
  * @author vicegd
  */
-public class LinkedListExample {
+public class ArrayListExample {
 
   public static void main(String[] args) {
-    LinkedList<String> collection = new LinkedList<String>();
+    ArrayList<String> collection = new ArrayList<String>();
     System.out.println("Initial size of the collection: " + collection.size());
     
     //Adding elements
+    collection.add("A");
     collection.add("B");
     collection.add("C");
     collection.add("D");
-    collection.addLast("E");
-    collection.addFirst("A");
     collection.add(1, "A2");
     System.out.println("Size after additions: " + collection.size());
     System.out.println("Contents: " + collection);
@@ -27,9 +25,7 @@ public class LinkedListExample {
     //Removing elements
     collection.remove("A2");
     collection.remove(3);
-    collection.removeFirst();
-    collection.removeLast();
-    //String firstElement = collection.peekFirst();
+    
     System.out.println("Size after deletions: " + collection.size());
     System.out.println("Contents: " + collection);
   }
