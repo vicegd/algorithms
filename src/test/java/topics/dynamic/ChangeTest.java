@@ -10,15 +10,18 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Unit tests for the Change (coin change) Dynamic Programming implementation.
+ * Unit tests for the {@link Change} (coin change) Dynamic Programming
+ * implementation.
  *
- * Covers three classic cases where the greedy approach fails and confirms that
- * the DP solution always returns the true minimum coin count.
+ * <p>Covers three classic cases where the greedy approach fails and confirms
+ * that the DP solution always returns the true minimum coin count.
  *
- * Test Cases:
- * - Case 1: coins=[1,6,4],                   amount=15 -> greedy: 5, DP: 4
- * - Case 2: coins=[1,2,20,50,100,200],       amount=60 -> greedy: 3, DP: 3
- * - Case 3: coins=[1,4,5,12,20,50,100,200],  amount=15 -> greedy: 4, DP: 3
+ * <table border="1" summary="Test cases">
+ *   <tr><th>Case</th><th>Coins</th><th>Amount</th><th>Greedy</th><th>DP (optimal)</th></tr>
+ *   <tr><td>1</td><td>[1,6,4]</td><td>15</td><td>5</td><td>4</td></tr>
+ *   <tr><td>2</td><td>[1,2,20,50,100,200]</td><td>60</td><td>3</td><td>3</td></tr>
+ *   <tr><td>3</td><td>[1,4,5,12,20,50,100,200]</td><td>15</td><td>4</td><td>3</td></tr>
+ * </table>
  *
  * @author vicegd
  * @see Change
@@ -38,10 +41,10 @@ class ChangeTest {
   }
 
   /**
-   * Case 1: Greedy fails - coins [1, 6, 4], amount 15.
+   * Case 1: greedy fails with {@code coins=[1,6,4]}, {@code amount=15}.
    *
-   * Greedy picks 6+6+1+1+1 = 5 coins.
-   * DP finds   6+4+4+1   = 4 coins (optimal).
+   * <p>Greedy picks 6+6+1+1+1 = 5 coins.
+   * DP finds 6+4+4+1 = <strong>4 coins</strong> (optimal).
    */
   @Test
   @DisplayName("Case 1: coins=[1,6,4], amount=15 -> 4 coins")
@@ -52,9 +55,10 @@ class ChangeTest {
   }
 
   /**
-   * Case 2: From ChangeNotOptimal greedy case 1 - coins [1,2,20,50,100,200], amount 60.
+   * Case 2: greedy agrees with DP — {@code coins=[1,2,20,50,100,200]},
+   * {@code amount=60}.
    *
-   * Optimal: 20+20+20 = 3 coins.
+   * <p>Both greedy and DP find 20+20+20 = <strong>3 coins</strong>.
    */
   @Test
   @DisplayName("Case 2: coins=[1,2,20,50,100,200], amount=60 -> 3 coins")
@@ -65,10 +69,11 @@ class ChangeTest {
   }
 
   /**
-   * Case 3: From ChangeNotOptimal greedy case 2 - coins [1,4,5,12,20,50,100,200], amount 15.
+   * Case 3: greedy fails with {@code coins=[1,4,5,12,20,50,100,200]},
+   * {@code amount=15}.
    *
-   * Greedy picks 12+1+1+1 = 4 coins.
-   * DP finds   5+5+5     = 3 coins (optimal).
+   * <p>Greedy picks 12+1+1+1 = 4 coins.
+   * DP finds 5+5+5 = <strong>3 coins</strong> (optimal).
    */
   @Test
   @DisplayName("Case 3: coins=[1,4,5,12,20,50,100,200], amount=15 -> 3 coins")

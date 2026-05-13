@@ -4,43 +4,51 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Coin Change Problem - Dynamic Programming Solution.
+ * Coin Change Problem — Dynamic Programming solution.
  *
- * Problem Statement:
- * Given an amount of money and a set of coin denominations, find the minimum
+ * <p>Given an amount of money and a set of coin denominations, finds the minimum
  * number of coins needed to make exact change. Each denomination may be used
  * any number of times (unbounded selection).
  *
- * Why Greedy Fails:
- * Greedily picking the largest coin that fits does NOT always give the minimum.
+ * <h2>Why Greedy Fails</h2>
+ * <p>Greedily picking the largest coin that fits does <em>not</em> always give
+ * the minimum. For example, with {@code amount=15} and {@code coins=[1,6,4]}:
+ * <pre>
+ *   Greedy:  6+6+1+1+1 = 5 coins
+ *   Optimal: 6+4+4+1   = 4 coins  ← what DP finds
+ * </pre>
  *
- * Example where greedy fails (amount=15, coins=[1,6,4]):
- *   Greedy: 6+6+1+1+1 = 5 coins
- *   Optimal: 6+4+4+1  = 4 coins  <- what DP finds
+ * <h2>Why Dynamic Programming Works</h2>
+ * <p>The problem has <strong>optimal substructure</strong>: the minimum coins
+ * for amount {@code j} using denominations {@code 0..i} depends only on
+ * already-solved smaller sub-problems. It also has
+ * <strong>overlapping sub-problems</strong>: many intermediate amounts are
+ * recomputed in naive recursion, making memoisation worthwhile.
  *
- * Why Dynamic Programming Works:
- * The problem has optimal substructure: the minimum coins for amount j using
- * denomination types 0..i depends only on already-solved smaller sub-problems.
- * It also has overlapping sub-problems: many intermediate amounts are computed
- * multiple times in naive recursion, making memoization worthwhile.
- *
- * DP Recurrence Relation:
+ * <h2>Recurrence Relation</h2>
+ * <pre>
  *   dp[i][j] = min(
- *     dp[i-1][j],              // Skip coin type i
- *     1 + dp[i][j - coins[i]]  // Use one more coin of type i (unbounded)
+ *     dp[i-1][j],              // skip coin type i
+ *     1 + dp[i][j - coins[i]]  // use one more coin of type i (unbounded)
  *   )
- *   Base case: dp[0][j] = j  (only coins[0]=1 available; need j of them)
+ *   Base case: dp[0][j] = j   (only coins[0]=1 available)
+ * </pre>
  *
- * Complexity Analysis:
- * - Time:  O(amount x types)  fills the entire DP table cell by cell
- * - Space: O(amount x types)  the DP table itself
- *   Note: reducible to O(amount) using a single rolling 1D array
+ * <h2>Complexity</h2>
+ * <ul>
+ *   <li><strong>Time:</strong>  O(amount &times; types) — fills the entire DP table</li>
+ *   <li><strong>Space:</strong> O(amount &times; types) — the DP table itself
+ *       (reducible to O(amount) with a rolling 1-D array)</li>
+ * </ul>
  *
- * Example Table (amount=15, coins=[1,6,4]):
- *     j:  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
- *  [1]:   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
- *  [6]:   0  1  2  3  4  5  1  2  3  4  5  6  2  3  4  5
- *  [4]:   0  1  2  3  1  2  1  2  2  3  2  3  2  3  2  4  <- answer: 4
+ * <h2>Example Table</h2>
+ * <p>{@code amount=15, coins=[1,6,4]}:
+ * <pre>
+ *      j:  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+ *   [1]:   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+ *   [6]:   0  1  2  3  4  5  1  2  3  4  5  6  2  3  4  5
+ *   [4]:   0  1  2  3  1  2  1  2  2  3  2  3  2  3  2  4  ← answer: 4
+ * </pre>
  *
  * @author vicegd
  * @see topics.greedy.Change for the greedy approach (suboptimal in general)
@@ -50,32 +58,43 @@ public class Change {
   private static final Logger LOG = LoggerFactory.getLogger(Change.class);
 
   /**
-   * Finds the minimum number of coins needed to make exact change for amount.
+   * Finds the minimum number of coins needed to make exact change for
+   * {@code amount}.
    *
-   * Uses bottom-up DP, building the solution table row by row.
-   * Each row i adds denomination coins[i] to the available set.
+   * <p>Uses bottom-up DP, building the solution table row by row.
+   * Each row {@code i} adds denomination {@code coins[i]} to the available set.
    *
-   * Key difference from 0/1 knapsack: when taking coin i, the lookup is
-   * sol[i][j - coins[i]] (same row) instead of sol[i-1][...] (previous row),
-   * because each denomination can be reused as many times as needed.
+   * <p><strong>Key difference from 0/1 knapsack:</strong> when taking coin
+   * {@code i}, the lookup is {@code sol[i][j - coins[i]]} (same row) instead
+   * of {@code sol[i-1][...]} (previous row), because each denomination can be
+   * reused as many times as needed.
    *
-   * Algorithm Steps:
-   * 1. Initialize row 0: sol[0][j] = j  (need j copies of the unit coin)
-   * 2. For each coin type i from 1 to types-1:
-   *    For each amount j from 0 to amount:
-   *      - notPicking = sol[i-1][j]
-   *      - picking    = 1 + sol[i][j - coins[i]]  (only if j >= coins[i])
-   *      - sol[i][j]  = min(notPicking, picking)
-   * 3. Return sol[types-1][amount]
+   * <h3>Algorithm Steps</h3>
+   * <ol>
+   *   <li>Initialise row 0: {@code sol[0][j] = j} (need {@code j} copies of
+   *       the unit coin).</li>
+   *   <li>For each coin type {@code i} from 1 to {@code types-1}:<br>
+   *       For each amount {@code j} from 0 to {@code amount}:
+   *       <ul>
+   *         <li>{@code notPicking = sol[i-1][j]}</li>
+   *         <li>{@code picking    = 1 + sol[i][j - coins[i]]} (only if
+   *             {@code j >= coins[i]})</li>
+   *         <li>{@code sol[i][j]  = min(notPicking, picking)}</li>
+   *       </ul>
+   *   </li>
+   *   <li>Return {@code sol[types-1][amount]}.</li>
+   * </ol>
    *
-   * Complexity Analysis:
-   * - Time:  O(amount x types)
-   * - Space: O(amount x types)
+   * <h3>Complexity</h3>
+   * <ul>
+   *   <li><strong>Time:</strong>  O(amount &times; types)</li>
+   *   <li><strong>Space:</strong> O(amount &times; types)</li>
+   * </ul>
    *
-   * @param amount the target amount (must be >= 0)
-   * @param coins  available denominations; coins[0] must be 1 to guarantee
-   *               a solution always exists for any positive amount
-   * @return the minimum number of coins that sum exactly to amount
+   * @param amount the target amount (must be &ge; 0)
+   * @param coins  available denominations; {@code coins[0]} must be 1 to
+   *               guarantee a solution always exists for any positive amount
+   * @return the minimum number of coins that sum exactly to {@code amount}
    */
   public int change(int amount, int[] coins) {
     var types = coins.length;
