@@ -26,8 +26,14 @@ jobs:
       - name: Generate Javadoc
         run: mvn --no-transfer-progress javadoc:javadoc
 
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p _deploy/javadoc
+          cp -r docs/. _deploy/
+          cp -r target/reports/apidocs/. _deploy/javadoc/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: target/reports/apidocs
+          publish_dir: _deploy
