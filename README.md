@@ -226,6 +226,20 @@ mvn test jacoco:report
 - **API Documentation:** [vicegd.github.io/algorithms](http://vicegd.github.io/algorithms) — Javadoc for all packages and classes in this repository
 - **Learning Guide:** [learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
 
+
+---
+
+## 🤝 Contributing
+
+This is an educational project. Suggestions for improvements are welcome.    
+Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## 📝 Changelog
+
+Complete release history: [CHANGELOG.md](CHANGELOG.md)
+
 ---
 
 ## 👨‍💼 Author
@@ -240,16 +254,3 @@ University of Oviedo
 
 MIT License — Copyright (c) 2016 Vicente García Díaz  
 See [LICENSE](LICENSE) file for details
-
----
-
-## 🤝 Contributing
-
-This is an educational project. Suggestions for improvements are welcome.    
-Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
-
----
-
-## 📝 Changelog
-
-Complete release history: [CHANGELOG.md](CHANGELOG.md)
