@@ -77,7 +77,7 @@ algorithms/
 - Factorial Computation
 - Foundational Arithmetic Engine
 - Maximum Value Extraction
-- MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n)
+- MaxPairWiseProduct problem with 6 different implementations showing optimization progressions
 - Random Dataset Generator
 - Search Algorithms
 
@@ -195,19 +195,12 @@ mvn test jacoco:report
 - **API Documentation:** [vicegd.github.io/algorithms](http://vicegd.github.io/algorithms) — Javadoc for all packages and classes in this repository
 - **Learning Guide:** [learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
 
-
 ---
 
 ## 🤝 Contributing
 
 This is an educational project. Suggestions for improvements are welcome.    
 Full contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
-
----
-
-## 📝 Changelog
-
-Complete release history: [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
