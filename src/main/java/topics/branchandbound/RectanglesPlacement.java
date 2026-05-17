@@ -3,208 +3,265 @@ package topics.branchandbound;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 import topics.branchandbound.util.BranchAndBound;
 import topics.branchandbound.util.Node;
 
 /**
- * BRANCH AND BOUND PROBLEM: OPTIMAL PLACEMENT OF RECTANGLES
+ * <h1>Optimal Placement of Rectangles</h1>
+ * <p>
+ * This class solves a 2D bin packing variant where a given set of rectangular pieces 
+ * must be placed on an <i>N &times; N</i> grid. The objective is to minimize the 
+ * bounding box area of the placed pieces. It utilizes a <strong>Branch and Bound</strong> 
+ * algorithm to systematically evaluate positions and orientations while pruning sub-optimal 
+ * configurations.
+ * </p>
+ * * <h2>Complexity</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O((2 &times; N&sup2;)<sup>P</sup>)</code> - Where <i>N</i> is the board dimension and <i>P</i> is the number of pieces. For each piece, the algorithm explores all grid cells in two orientations. Bounding heuristics heavily prune this theoretical worst-case.</li>
+ * <li><strong>Space Complexity:</strong> <code>O(N&sup2;)</code> per state node - Required for storing the 2D matrix representing the board configuration.</li>
+ * </ul>
+ *
  * @author vicegd
  */
-public class RectanglesPlacement extends BranchAndBound {    
-  /**
-   * Constructor for RectanglesPlacement objects
-   * @param n Size of the board (n x n)
-   * @param pieces List of pieces to be placed on the board
-   */
-  public RectanglesPlacement(int n, List<Piece> pieces) {
-      rootNode = new Game(n, pieces); //We create the board to start playing
-  }
+public class RectanglesPlacement extends BranchAndBound {
+
+    /**
+     * Initializes the problem solver and establishes the execution tree root.
+     *
+     * @param boardSize The dimension of the square board (N &times; N).
+     * @param pieces    The collection of rectangular pieces to be placed.
+     */
+    public RectanglesPlacement(int boardSize, List<Piece> pieces) {
+        rootNode = new BoardState(boardSize, pieces);
+    }
 }
-/***************************************************/
 
+/**
+ * <p>
+ * Represents a distinct physical configuration of the board within the state space tree.
+ * It tracks placed rectangles, calculates the bounding area heuristic, and generates 
+ * valid subsequent placements.
+ * </p>
+ */
+class BoardState extends Node {
+    private final int[][] board;
+    private final List<Piece> pieces;
 
-/***************************************************/
-class Game extends Node {
-    private int[][] board; //Board to place rectangles
-    private List<Piece> pieces; //Pieces (rectangles) to be placed on the board
-
-    public Game(int n, List<Piece> pieces) { //Generates a new board and pieces (to place them in the board in the best way possible) (ROOT NODE)
-        board = new int[n][n]; //Size of the board n x n
+    /**
+     * Constructs the root node representing an empty board.
+     *
+     * @param boardSize The dimension of the square board.
+     * @param pieces    The list of pieces pending placement.
+     */
+    public BoardState(int boardSize, List<Piece> pieces) {
+        super();
+        this.board = new int[boardSize][boardSize];
         this.pieces = pieces;
     }
 
-    public Game(int[][] board, List<Piece> pieces, int depth, UUID parentID) {
+    /**
+     * Constructs a child node representing a subsequent placement state.
+     *
+     * @param board    The new board configuration.
+     * @param pieces   The list of pieces pending placement.
+     * @param depth    The current depth in the state space tree.
+     * @param parentID The unique identifier of the parent node.
+     */
+    public BoardState(int[][] board, List<Piece> pieces, int depth, UUID parentID) {
+        super();
         this.board = board;
         this.pieces = pieces;
         this.depth = depth;
-        this.parentID = parentID;
+        this.parentId = parentID;
         calculateHeuristicValue();
     }
 
-    private ArrayList<Object> placeNewPiece() {
-        ArrayList<Object> boards = new ArrayList<Object>();
+    /**
+     * Generates all mathematically valid mathematical configurations extending from 
+     * the current state by placing the next available piece.
+     *
+     * @return A list containing the resulting child nodes.
+     */
+    @Override
+    public ArrayList<Node> expand() {
+        var children = new ArrayList<Node>();
         
-        for (int i=0; i<board.length; i++) {
-          for (int j=0; j<board.length; j++) {
-                int[][] newBoard = tryPositionNewPiece(i, j, PieceOrientation.Horizontal);
-                if (newBoard != null) boards.add(newBoard);
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                int[][] horizontalPlacement = tryPositionNewPiece(i, j, PieceOrientation.HORIZONTAL);
+                if (horizontalPlacement != null) {
+                    children.add(new BoardState(horizontalPlacement, pieces, depth + 1, this.getId()));
+                }
 
-                newBoard = tryPositionNewPiece(i, j, PieceOrientation.Vertical);
-                if (newBoard != null) boards.add(newBoard);
-          }
-        }        
-        return boards;
+                int[][] verticalPlacement = tryPositionNewPiece(i, j, PieceOrientation.VERTICAL);
+                if (verticalPlacement != null) {
+                    children.add(new BoardState(verticalPlacement, pieces, depth + 1, this.getId()));
+                }
+            }
+        }
+        
+        return children;
     }
-    
+
+    /**
+     * Attempts to place the current piece at the specified coordinates and orientation.
+     *
+     * @param x           The target horizontal coordinate.
+     * @param y           The target vertical coordinate.
+     * @param orientation The orientation of the piece.
+     * @return A new board matrix if the placement is valid; <code>null</code> otherwise.
+     */
     private int[][] tryPositionNewPiece(int x, int y, PieceOrientation orientation) {
-      int[][] newBoard = new int[board.length][board.length];
-      for (int i = 0; i < board.length; i++)
-        for (int j = 0; j < board.length; j++)
-          newBoard[i][j] = board[i][j]; //Copy the board in a new board for new nodes
-      
-      if (insertNewPiece(x, y, orientation, newBoard, pieces.get(getDepth())))
-          return newBoard;
-      else return null; //If we return null, then it is not a valid node
+        int[][] nextBoard = copyBoard();
+        
+        boolean isValid = insertNewPiece(x, y, orientation, nextBoard, pieces.get(depth));
+        return isValid ? nextBoard : null;
     }
-    
-    private boolean insertNewPiece(int x, int y, PieceOrientation orientation, int[][] newBoard, Piece piece) {
-      boolean result = false;
-      
-      int limitX = 0;
-        int limitY = 0;
-      if (orientation == PieceOrientation.Horizontal) { //The default orientation
-        limitX = piece.x;
-        limitY = piece.y;
-      }
-        else { //If the orientation is vertical we need to interchange the coordinates of the piece
-          limitX = piece.y;
-          limitY = piece.x;
-        }
-      
-      //Check the size of the board
-      if ((x+limitX > newBoard.length)||(y+limitY > newBoard.length)) return false;
-      
-      //Check if the piece is on another piece
-      for (int i=x; i<x+limitX; i++) {
-          for (int j=y; j<y+limitY; j++) {
-            if (newBoard[i][j] != 0) return false;
-          }
-        }  
 
-      //We need that the piece is next to another piece (but not on another piece)
-      if (depth == 0) result = true; //The first element does not need a neighbor
-      else { //If it is not the first element
-        if (x+limitX < newBoard.length) //On the button
-          for (int k = y; k < y+limitY; k++)
-            if (newBoard[x+limitX][k] != 0) result = true; //We have a neighbor
-        if (x != 0) //On the top
-          for (int k = y; k < y+limitY; k++)
-            if (newBoard[x-1][k] != 0) result = true; //We have a neighbor
-        if (y != 0) //On the left
-          for (int k = x; k < x+limitX; k++)
-            if (newBoard[k][y-1] != 0) result = true; //We have a neighbor
-        if (y+limitY < newBoard.length) //On the right
-          for (int k = x; k < x+limitX; k++)
-            if (newBoard[k][y+limitY] != 0) result = true; //We have a neighbor
-      }
-      
-      //We insert the piece on the board
-      for (int i=x; i<x+limitX; i++) {
-          for (int j=y; j<y+limitY; j++) {
-                newBoard[i][j] = getDepth()+1;
-          }
+    /**
+     * Validates and applies the insertion of a piece onto the board matrix.
+     * Imposes bounds checking, overlap prevention, and adjacency constraints.
+     */
+    private boolean insertNewPiece(int x, int y, PieceOrientation orientation, int[][] nextBoard, Piece piece) {
+        int pieceWidth = (orientation == PieceOrientation.HORIZONTAL) ? piece.width() : piece.height();
+        int pieceHeight = (orientation == PieceOrientation.HORIZONTAL) ? piece.height() : piece.width();
+        
+        // Validation: Bounds check
+        if (x + pieceWidth > nextBoard.length || y + pieceHeight > nextBoard.length) {
+            return false;
         }
-      
-      return result;
+        
+        // Validation: Overlap check
+        for (int i = x; i < x + pieceWidth; i++) {
+            for (int j = y; j < y + pieceHeight; j++) {
+                if (nextBoard[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+
+        // Validation: Adjacency constraint (must touch at least one existing piece unless it's the first one)
+        if (depth > 0 && !hasAdjacentNeighbor(x, y, pieceWidth, pieceHeight, nextBoard)) {
+            return false;
+        }
+        
+        // Apply State: Insert the piece
+        for (int i = x; i < x + pieceWidth; i++) {
+            for (int j = y; j < y + pieceHeight; j++) {
+                nextBoard[i][j] = depth + 1;
+            }
+        }
+        
+        return true;
+    }
+
+    /**
+     * Evaluates if the proposed placement touches an existing piece on the board.
+     */
+    private boolean hasAdjacentNeighbor(int x, int y, int width, int height, int[][] nextBoard) {
+        // Check Bottom Edge
+        if (x + width < nextBoard.length) {
+            for (int k = y; k < y + height; k++) {
+                if (nextBoard[x + width][k] != 0) return true;
+            }
+        }
+        // Check Top Edge
+        if (x > 0) {
+            for (int k = y; k < y + height; k++) {
+                if (nextBoard[x - 1][k] != 0) return true;
+            }
+        }
+        // Check Left Edge
+        if (y > 0) {
+            for (int k = x; k < x + width; k++) {
+                if (nextBoard[k][y - 1] != 0) return true;
+            }
+        }
+        // Check Right Edge
+        if (y + height < nextBoard.length) {
+            for (int k = x; k < x + width; k++) {
+                if (nextBoard[k][y + height] != 0) return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Creates a deep copy of the 2D board matrix.
+     */
+    private int[][] copyBoard() {
+        int[][] copy = new int[board.length][board.length];
+        for (int i = 0; i < board.length; i++) {
+            System.arraycopy(board[i], 0, copy[i], 0, board.length);
+        }
+        return copy;
+    }
+
+    /**
+     * Computes the bounding box area of all placed pieces. This serves as the 
+     * lower-bound heuristic estimate to prune sub-optimal configurations.
+     */
+    @Override
+    public void calculateHeuristicValue() {
+        int minX = Integer.MAX_VALUE, maxX = -1;
+        int minY = Integer.MAX_VALUE, maxY = -1;
+        boolean isEmpty = true;
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if (board[i][j] != 0) {
+                    isEmpty = false;
+                    minY = Math.min(minY, i);
+                    maxY = Math.max(maxY, i);
+                    minX = Math.min(minX, j);
+                    maxX = Math.max(maxX, j);
+                }
+            }
+        }
+
+        if (isEmpty) {
+            this.heuristicValue = 0;
+        } else {
+            this.heuristicValue = (maxX - minX + 1) * (maxY - minY + 1);
+        }
+    }
+
+    /**
+     * Determines whether the current node represents a fully resolved configuration.
+     *
+     * @return <code>true</code> if all pieces have been placed; <code>false</code> otherwise.
+     */
+    @Override
+    public boolean isSolution() {
+        return depth == pieces.size();
     }
 
     @Override
     public String toString() {
-      StringBuffer sb = new StringBuffer("=============\n");
-        for (int i=0; i<board.length; i++) {
-            for (int j=0; j<board.length; j++)
-              sb.append(board[i][j]);
+        var sb = new StringBuilder("=============\n");
+        for (int[] row : board) {
+            for (int cell : row) {
+                sb.append(cell);
+            }
             sb.append("\n");
         }
         sb.append("=============\n");
         return sb.toString();
     }
-  
-  @Override
-  public void calculateHeuristicValue() {
-      int firstValueX = -1;
-      int firstValueY = -1;
-      int lastValueX = -1;
-      int lastValueY = -1;
-        for (int i=0; i<board.length; i++) {
-            for (int j=0; j<board.length; j++) {
-              if ((firstValueY == -1)&&(board[i][j] != 0)) {
-                firstValueY = i;
-              }
-              if (board[i][j] != 0) {
-                lastValueY = i;
-              }
-            }  
-        }
-        
-        for (int i=0; i<board.length; i++) {
-            for (int j=0; j<board.length; j++) {
-              if ((firstValueX == -1)&&(board[j][i] != 0)) {
-                firstValueX = i;
-              }
-              if (board[j][i] != 0) {
-                lastValueX = i;
-              }
-            }  
-        }
-        heuristicValue = (Math.abs(lastValueX-firstValueX)+1)*(Math.abs(lastValueY-firstValueY)+1); //Area      
-  }
-
-    /* To get the children of the current node. They 
-     * point to their parent through the parentID */
-  @Override
-  public ArrayList<Node> expand() {
-    ArrayList<Node> result = new ArrayList<Node>();
-        ArrayList<Object> boards = new ArrayList<Object>();
-        Game temp;
-        int[][] testBoard;
-        
-        //Possible positions for a new piece placed on the board
-        boards = placeNewPiece(); //We could place the new piece in different locations, so for each location we have a new state
-        for (Object board : boards) {
-          testBoard = (int[][])board;
-            temp = new Game(testBoard, pieces, depth+1, this.getID()); //parentID = UUID of the previous node
-            result.add(temp);
-        }
-        return result;
-  }
-  
-  @Override
-    public boolean isSolution() {
-      return (depth == pieces.size()) ? true : false; //We have a solution only when all the pieces are placed
-    }
-
-} //Game
-/***************************************************/
-
-
-/***************************************************/
-class Piece {
-  int x;
-  int y;
-  
-  public Piece(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
 }
-/***************************************************/
 
+/**
+ * Models the dimensions of a rectangular piece to be placed.
+ *
+ * @param width  The primary horizontal dimension.
+ * @param height The primary vertical dimension.
+ */
+record Piece(int width, int height) {}
 
-/***************************************************/
+/**
+ * Defines the permissible orientations for placing a piece on the board.
+ */
 enum PieceOrientation {
-  Horizontal,
-  Vertical
+    HORIZONTAL,
+    VERTICAL
 }
-/***************************************************/

@@ -1,108 +1,113 @@
 package topics.branchandbound;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 /**
- * EightPuzzle JUnit tests
+ * <h1>Test Suite for the 8-Puzzle Solver</h1>
+ * <p>
+ * Validates the resolution algorithms, state pruning mechanisms, and bounding 
+ * heuristics across solvable and mathematically unsolvable board configurations.
+ * </p>
+ *
  * @author vicegd
  */
-public class EightPuzzleTest {
-  private static Logger log = LoggerFactory.getLogger(EightPuzzleTest.class);
-  private EightPuzzle puzzle;
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("Eight Puzzle Tests - Setup");
-  }
-  
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("Eight Puzzle Tests - Teardown");
-  }
-  
-  /**
-   * It gives the solution for a specific position of the pieces (18 steps)
-   */
-  @Test
-  public void testEightPuzzleOk() {
-    HeuristicType heuristicType = HeuristicType.Manhattan; //Manhattan or WrongPlace  
-      
-    //EXAMPLE 1 (IT HAS A VALID SOLUTION). 18 Steps with Manhattan
-    int[] board = new int[9]; 
-    board[0] = 2; board[1] = 3; board[2] = 6; board[3] = 1; board[4] = 5;
-      board[5] = 4; board[6] = 9; board[7] = 7; board[8] = 8;
-    puzzle = new EightPuzzle(heuristicType, board); 
-    puzzle.branchAndBound(puzzle.getRootNode()); 
-    puzzle.printSolutionTrace(); 
-    int result = puzzle.getBestNode().getHeuristicValue();
-    assertEquals(0, result);
-  }
-  
-  /**
-   * It gives the solution for a specific position of the pieces (54 steps)
-   */
-  @Test
-  public void testEightPuzzleOk2() {
-    HeuristicType heuristicType = HeuristicType.WrongPlace; //Manhattan or WrongPlace  
-      
-    //EXAMPLE 2 (IT HAS A VALID SOLUTION). 54 Steps with WrongPlace
-    int[] board = new int[9]; 
-    board[0] = 2; board[1] = 3; board[2] = 6; board[3] = 1; board[4] = 5;
-      board[5] = 4; board[6] = 9; board[7] = 7; board[8] = 8;
-    puzzle = new EightPuzzle(heuristicType, board); 
-    puzzle.branchAndBound(puzzle.getRootNode()); 
-    puzzle.printSolutionTrace(); 
-    int result = puzzle.getBestNode().getHeuristicValue();
-    assertEquals(0, result);
-  }
-  
-  /**
-   * It gives the solution for a specific position of the pieces (1 step)
-   */
-  @Test
-  public void testEightPuzzleOk3() {
-    HeuristicType heuristicType = HeuristicType.Manhattan; //Manhattan or WrongPlace
-
-      //EXAMPLE 3 (IT HAS A VALID SOLUTION). IT IS ALREADY DONE
-    int[] board = new int[9];
-      board[0] = 1; board[1] = 2; board[2] = 3; board[3] = 4; board[4] = 5; 
-      board[5] = 6; board[6] = 7; board[7] = 8; board[8] = 9;
-
-    puzzle = new EightPuzzle(heuristicType, board); 
-    puzzle.branchAndBound(puzzle.getRootNode()); 
-    puzzle.printSolutionTrace(); 
-    int result = puzzle.getBestNode().getHeuristicValue();
-    assertEquals(0, result);
-  }
-  
-  /**
-   * It gives no solution for a specific position of the pieces
-   */
-  @Test(expected=NullPointerException.class)
-  public void testEightPuzzleNo() {
-    HeuristicType heuristicType = HeuristicType.Manhattan; //Manhattan or WrongPlace
-
-      //EXAMPLE 4 (IT HAS NOT A VALID SOLUTION)
-    int[] board = new int[9];
-      board[0] = 9; board[1] = 3; board[2] = 7; board[3] = 6; board[4] = 5;
-      board[5] = 4; board[6] = 8; board[7] = 2; board[8] = 1;
+class EightPuzzleTest {
+    private static final Logger log = LoggerFactory.getLogger(EightPuzzleTest.class);
     
-    puzzle = new EightPuzzle(heuristicType, board); 
-    puzzle.branchAndBound(puzzle.getRootNode()); 
-    puzzle.printSolutionTrace(); 
-    puzzle.getBestNode().getHeuristicValue();
-  }
-}
+    /**
+     * Initializes context and resources prior to executing the test suite.
+     */
+    @BeforeAll
+    static void setup() {
+        log.trace("Initializing Eight Puzzle Test Suite");
+    }
+    
+    /**
+     * Cleans up resources after the entire test suite has finished execution.
+     */
+    @AfterAll
+    static void teardown() {
+        log.trace("Tearing down Eight Puzzle Test Suite");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> A moderately scrambled board configuration.</p>
+     * <p><strong>Expected Outcome:</strong> The Branch and Bound algorithm utilizing 
+     * the Manhattan distance heuristic must locate the final configuration (heuristic = 0).</p>
+     */
+    @Test
+    void shouldSolvePuzzleUsingManhattanHeuristic() {
+        int[] board = {2, 3, 6, 1, 5, 4, 9, 7, 8};
+        
+        var puzzle = new EightPuzzle(HeuristicType.MANHATTAN, board); 
+        puzzle.branchAndBound(puzzle.getRootNode()); 
+        puzzle.printSolutionTrace(); 
+        
+        int finalHeuristic = puzzle.getBestNode().getHeuristicValue();
+        assertEquals(0, finalHeuristic, 
+            "The Manhattan heuristic evaluation of the best node must yield exactly 0 indicating a solved state.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> A highly scrambled board configuration.</p>
+     * <p><strong>Expected Outcome:</strong> The Branch and Bound algorithm utilizing 
+     * the Misplaced Tiles heuristic must successfully locate the final configuration.</p>
+     */
+    @Test
+    void shouldSolvePuzzleUsingMisplacedTilesHeuristic() {
+        int[] board = {2, 3, 6, 1, 5, 4, 9, 7, 8};
+        
+        var puzzle = new EightPuzzle(HeuristicType.WRONG_PLACE, board); 
+        puzzle.branchAndBound(puzzle.getRootNode()); 
+        puzzle.printSolutionTrace(); 
+        
+        int finalHeuristic = puzzle.getBestNode().getHeuristicValue();
+        assertEquals(0, finalHeuristic, 
+            "The Wrong Place heuristic evaluation of the best node must yield exactly 0 indicating a solved state.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> A board that is inherently in the target state.</p>
+     * <p><strong>Expected Outcome:</strong> The algorithm must immediately identify the 
+     * target geometry and return the baseline heuristic without further evaluation.</p>
+     */
+    @Test
+    void shouldIdentifyAlreadySolvedPuzzle() {
+        int[] board = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
+        var puzzle = new EightPuzzle(HeuristicType.MANHATTAN, board); 
+        puzzle.branchAndBound(puzzle.getRootNode()); 
+        puzzle.printSolutionTrace(); 
+        
+        int finalHeuristic = puzzle.getBestNode().getHeuristicValue();
+        assertEquals(0, finalHeuristic, 
+            "A pre-solved board geometry must be identified immediately, yielding a heuristic of 0.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> A mathematically scrambled board containing an odd 
+     * inversion parity, making it unsolvable.</p>
+     * <p><strong>Expected Outcome:</strong> The pruning function must discard the entire 
+     * execution tree. Attempting to extract the best node subsequently triggers a Null Pointer Exception.</p>
+     */
+    @Test
+    void shouldRejectUnsolvablePuzzleBoard() {
+        int[] board = {9, 3, 7, 6, 5, 4, 8, 2, 1};
+        
+        var puzzle = new EightPuzzle(HeuristicType.MANHATTAN, board); 
+        puzzle.branchAndBound(puzzle.getRootNode()); 
+        puzzle.printSolutionTrace(); 
+        
+        // Verifies the operational artifact of the framework when no valid node is mapped.
+        assertThrows(NullPointerException.class, () -> {
+            puzzle.getBestNode().getHeuristicValue();
+        }, "Querying the heuristic of an unsolvable board must throw a NullPointerException as the tree is heavily pruned.");
+    }
+}

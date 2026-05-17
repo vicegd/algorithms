@@ -7,97 +7,137 @@ import org.slf4j.LoggerFactory;
 import topics.branchandbound.util.Node;
 
 /**
- * Main class to solve problems using the Branch and Bound technique
- * We need to extend it for any specific problem
+ * <h1>Concurrent Branch and Bound Execution Engine</h1>
+ * <p>
+ * An abstract base class providing the core algorithmic framework for solving 
+ * combinatorial optimization problems using a multithreaded <strong>Branch and Bound</strong> paradigm.
+ * </p>
+ * <p>
+ * This engine manages the state space tree explicitly using a concurrent priority queue.
+ * It dispatches a specified number of worker threads that collaboratively explore the 
+ * state space, sharing a globally visible upper bound to systematically prune 
+ * sub-optimal branches across all execution contexts.
+ * </p>
+ *
  * @author vicegd
  */
-public class BranchAndBoundThreads {
-  private static Logger log = LoggerFactory.getLogger(BranchAndBoundThreads.class);
-  protected static HeapThreads ds; //Nodes to be explored (not used nodes)
-  protected static Node bestNode; //To save the final node of the best solution
-  protected static Node rootNode; //Initial node
-  protected static int pruneLimit; //To prune nodes above this value
-         
-  /**
-   * Constructor for BrancAndBount objects
-   */
-  public BranchAndBoundThreads() {
-    ds = new HeapThreads(); //We create an instance of the Heap class to save the nodes
-  }
+public abstract class BranchAndBoundThreads {
+    private static final Logger log = LoggerFactory.getLogger(BranchAndBoundThreads.class);
+    
+    /**
+     * The concurrent priority queue managing the active, unexplored nodes in the state space tree.
+     */
+    protected static HeapThreads nodeHeap; 
+    
+    /**
+     * The node representing the optimal valid configuration discovered globally across all threads.
+     * Marked as volatile to ensure immediate visibility across CPU caches.
+     */
+    protected static volatile Node bestNode; 
+    
+    /**
+     * The origin state of the problem environment.
+     */
+    protected static Node rootNode; 
+    
+    /**
+     * The global upper bound metric used to prune paths mathematically incapable 
+     * of yielding a better outcome. Marked as volatile to guarantee thread-safe visibility.
+     */
+    protected static volatile int globalUpperBound; 
+          
+    /**
+     * Initializes the concurrent memory structures required for the execution engine.
+     */
+    protected BranchAndBoundThreads() {
+        nodeHeap = new HeapThreads(); 
+    }
         
-  /**
-   * Manages all the process, from the beginning to the end
-   * @param rootNode Starting state of the problem
-   * @param numberOfThreads Number of threads used 
-   */
-  public void branchAndBound(Node rootNode, int numberOfThreads) { 
-    ds.insert(rootNode); //First node to be explored
-    
-    pruneLimit = rootNode.initialValuePruneLimit();
-    
-    List<WorkerThread> threads = new ArrayList<WorkerThread>();
+    /**
+     * Executes the multithreaded Branch and Bound systemic loop.
+     *
+     * @param initialNode     The starting mathematical state of the problem environment.
+     * @param numberOfThreads The total number of concurrent worker threads to dispatch.
+     */
+    public void branchAndBound(Node initialNode, int numberOfThreads) { 
+        nodeHeap.insert(initialNode);
+        
+        rootNode = initialNode;
+        globalUpperBound = initialNode.initialValuePruneLimit();
+        
+        var workers = new ArrayList<WorkerThread>();
 
-    for (int i = 0; i < numberOfThreads; i++) {
-      WorkerThread w = new WorkerThread();
-      threads.add(w);
+        for (int i = 0; i < numberOfThreads; i++) {
+            workers.add(new WorkerThread());
+        }
+        
+        // Dispatch workers with a slight execution stagger to prevent simultaneous 
+        // starvation on the initially shallow state space tree.
+        for (var worker : workers) {
+            worker.start();
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                log.error("Thread dispatch interrupted", e);
+            }
+        }
+        
+        // Synchronize the main execution thread until all workers have exhausted the state space
+        for (var worker : workers) {
+            try {
+                worker.join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                log.error("Thread join interrupted", e);
+            }
+        }
     }
     
-    for (WorkerThread w : threads) {
-      w.start();
-      try {
-        Thread.sleep(50);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-    
-    for (WorkerThread w : threads) {
-      try {
-        w.join();
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-  }
-    
-  /**
-   * Gets the root node
-   * @return The root node
-   */
+    /**
+     * Retrieves the foundational starting state of the problem.
+     *
+     * @return The root node of the execution tree.
+     */
     public Node getRootNode() {
-      return rootNode;
+        return rootNode;
     }
     
-  /**
-   * Gets the best node
-   * @return The best node
-   */
+    /**
+     * Retrieves the node encapsulating the mathematically optimal path or configuration.
+     *
+     * @return The best discovered node, or <code>null</code> if no valid solution exists.
+     */
     public Node getBestNode() {
-      return bestNode;
+        return bestNode;
     }
 
     /**
-     * Prints the solution from the root node to the best node
+     * Extracts and logs the complete topological lineage of the optimal path, 
+     * detailing every state transition from the root node to the final solution leaf.
      */
     public void printSolutionTrace() {
-      if (bestNode == null) {
-      log.debug("Original:");
-      log.debug(rootNode.toString());
-        log.debug("THERE IS NO SOLUTION");
-      } 
-      else {
-        //Extract the path of the used nodes from bestNode to the rootNode
-            ArrayList<Node> result = ds.extractUsedNodesFrom(bestNode);
+        if (bestNode == null) {
+            log.debug("Original State:");
+            log.debug(rootNode != null ? rootNode.toString() : "Undefined Root");
+            log.debug("THERE IS NO VALID SOLUTION");
+            return;
+        } 
+        
+        List<Node> pathLineage = nodeHeap.extractUsedNodesFrom(bestNode);
 
-            for (int i = 0; i < result.size();  i++) {
-          if (i == 0) 
-            log.debug("Original:");
-          else 
-            log.debug("Step " + i + ":");
-        log.debug(result.get(result.size()-i-1).toString());
-          }
-            log.debug("\nSolution with " + bestNode.getDepth() + " step(s).");  
-      }
+        // Iterate backwards through the lineage list to print chronologically from root to leaf
+        for (int i = 0; i < pathLineage.size(); i++) {
+            Node chronologicalStep = pathLineage.get(pathLineage.size() - 1 - i);
+            
+            if (i == 0) {
+                log.debug("Original State:");
+            } else {
+                log.debug("Step {}:", i);
+            }
+            log.debug("\n{}", chronologicalStep);
+        }
+        
+        log.debug("\nSolution reached in {} step(s).", bestNode.getDepth());  
     }
 }
-

@@ -2,250 +2,222 @@ package topics.branchandbound;
 
 import java.util.ArrayList;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import topics.branchandbound.util.BranchAndBound;
 import topics.branchandbound.util.Node;
 
 /**
- * BRANCH AND BOUND PROBLEM: THE PUZZLE
+ * <h1>The 8-Puzzle Problem</h1>
+ * <p>
+ * Evaluates and solves the classic sliding puzzle (8-Puzzle) using a 
+ * <strong>Branch and Bound</strong> algorithmic strategy. The system leverages 
+ * mathematical heuristics to estimate the cost to the target configuration, 
+ * efficiently navigating the state space tree.
+ * </p>
+ *
  * @author vicegd
  */
-public class EightPuzzle extends BranchAndBound {  
-  /**
-   * Constructor for EightPuzzle objects
-   * @param heuristicType Type of the heuristic used to solve the problem - Manhattan or WrongPlace
-   * @param board Representation of the board for playing the EightPuzzle
-   */
+public class EightPuzzle extends BranchAndBound {
+    
+    /**
+     * Initializes the puzzle solver and builds the execution tree root.
+     *
+     * @param heuristicType The specific evaluation strategy (e.g., Manhattan distance).
+     * @param board         The 1D array representation of the 3x3 grid.
+     */
     public EightPuzzle(HeuristicType heuristicType, int[] board) {
-      rootNode = new Puzzle(heuristicType, board); //We create the puzzle to start playing
+        rootNode = new PuzzleState(heuristicType, board);
     }
 }
-/***************************************************/
 
+/**
+ * <p>
+ * Represents a distinct physical configuration of the board within the execution tree.
+ * It calculates heuristic bounds and generates topologically valid child states.
+ * </p>
+ * * <h2>Complexity</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O(b<sup>d</sup>)</code> - Where <i>b</i> is the branching factor (average 3 valid moves) and <i>d</i> is the depth of the optimal solution. The heuristic severely prunes unpromising branches.</li>
+ * <li><strong>Space Complexity:</strong> <code>O(b &times; d)</code> - Dictated by the nodes residing in the priority queue waiting to be evaluated.</li>
+ * </ul>
+ */
+class PuzzleState extends Node {
+    private static final int EMPTY_TILE = 9;
+    private static final int BOARD_DIMENSION = 3;
 
-/***************************************************/
-class Puzzle extends Node {
-    private int[] board; //Board
-    private HeuristicType heuristicType; //Type of heuristic function
+    private final int[] board;
+    private final HeuristicType heuristicType;
 
-    public Puzzle(HeuristicType heuristicType, int[] board) { //Generates a fresh set of squares (ROOT NODE)
-      this.heuristicType = heuristicType;
-      this.board = board;
+    /**
+     * Constructs the root node of the state space tree.
+     *
+     * @param heuristicType The heuristic function applied to evaluate paths.
+     * @param board         The initial state of the puzzle.
+     */
+    public PuzzleState(HeuristicType heuristicType, int[] board) {
+        super();
+        this.heuristicType = heuristicType;
+        this.board = board;
     }
 
-    public Puzzle(int[] board, HeuristicType heuristicType, int depth, UUID parentID) {
+    /**
+     * Constructs a child node representing a subsequent move.
+     *
+     * @param board         The state of the board after the move.
+     * @param heuristicType The heuristic function to evaluate the state.
+     * @param depth         The current depth level in the execution tree.
+     * @param parentID      The unique identifier of the preceding state.
+     */
+    public PuzzleState(int[] board, HeuristicType heuristicType, int depth, UUID parentID) {
+        super();
         this.board = board;
         this.heuristicType = heuristicType;
         this.depth = depth;
-        this.parentID = parentID;
+        this.parentId = parentID;
         calculateHeuristicValue();
     }
 
-    /* Returns a copy of the board but in this
-     * case, moving the empty cell upwards */
-    private int[] up() {
-        int[] temp = board.clone();
-        int emptyCell = 0;
-        for (int i=0; i<temp.length; i++) {
-            if (temp[i] == 9)
-                emptyCell = i;
+    /**
+     * Generates all mathematically and physically valid child states.
+     *
+     * @return A list of valid subsequent board configurations.
+     */
+    @Override
+    public ArrayList<Node> expand() {
+        var children = new ArrayList<Node>();
+        int emptyIndex = getEmptyTileIndex();
+
+        // Evaluate physical boundaries and branch conditionally
+        if (emptyIndex >= BOARD_DIMENSION) { // Can move UP
+            children.add(createChildNode(emptyIndex, emptyIndex - BOARD_DIMENSION));
         }
-        //Invalid option check
-        if (emptyCell < 3) //It is not possible to move the piece in the indicated direction (empty cell in 0, 1 or 2)
-            return temp;
-        temp[emptyCell] = temp[emptyCell-3];
-        temp[emptyCell-3] = 9;
-        return temp;
-    }
-  
-    /* Returns a copy of the board but in this
-     * case, moving the empty cell downwards */
-    private int[] down() {
-        int[] temp = board.clone();
-        int emptyCell= 0;
-        for (int i=0; i<temp.length; i++) {
-            if (temp[i] == 9)
-                emptyCell = i;
+        if (emptyIndex < board.length - BOARD_DIMENSION) { // Can move DOWN
+            children.add(createChildNode(emptyIndex, emptyIndex + BOARD_DIMENSION));
         }
-        //Invalid option check
-        if (emptyCell > 5) //It is not possible to move the piece in the indicated direction (empty cell in 6, 7 or 8)
-            return temp;
-        temp[emptyCell] = temp[emptyCell+3];
-        temp[emptyCell+3] = 9;
-        return temp;
+        if (emptyIndex % BOARD_DIMENSION != 0) { // Can move LEFT
+            children.add(createChildNode(emptyIndex, emptyIndex - 1));
+        }
+        if (emptyIndex % BOARD_DIMENSION != BOARD_DIMENSION - 1) { // Can move RIGHT
+            children.add(createChildNode(emptyIndex, emptyIndex + 1));
+        }
+
+        return children;
     }
 
-    /* Returns a copy of the board but in this
-     * case, moving the empty cell to the left */
-    private int[] left() {
-        int[] temp = board.clone();
-        int emptyCell= 0;
-        for (int i=0; i<temp.length; i++) {
-            if (temp[i] == 9)
-                emptyCell = i;
+    private int getEmptyTileIndex() {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == EMPTY_TILE) {
+                return i;
+            }
         }
-        //Invalid option check
-        if (emptyCell%3 == 0) //It is not possible to move the piece in the indicated direction (empty cell in 0,3 or 6)
-            return temp;
-        temp[emptyCell] = temp[emptyCell-1];
-        temp[emptyCell-1] = 9;
-        return temp;
-    }
- 
-    /* Returns a copy of the board but in this
-     * case, moving the empty cell to the right */
-    private int[] right() {
-        int[] temp = board.clone();
-        int emptyCell= 0;
-        for (int i=0; i<temp.length; i++){
-            if (temp[i] == 9)
-                emptyCell = i;
-        }
-        //Invalid option check
-        if (emptyCell%3 == 2) //It is not possible to move the piece in the indicated direction (empty cell in 2, 5 or 8)
-            return temp;
-        temp[emptyCell] = temp[emptyCell+1];
-        temp[emptyCell+1] = 9;
-        return temp;
+        throw new IllegalStateException("Corrupted board state: No empty tile found.");
     }
 
-    //Heuristic: count the number of pieces in the wrong place
-    private int getWrongPlaceHeuristicValue() {
-        int wrong = 0;
-        for (int i=0; i<9; i++)
-            if (board[i] != (i+1))
-                wrong++;
-        return wrong;
+    private PuzzleState createChildNode(int emptyIndex, int targetIndex) {
+        int[] nextBoard = board.clone();
+        nextBoard[emptyIndex] = nextBoard[targetIndex];
+        nextBoard[targetIndex] = EMPTY_TILE;
+        return new PuzzleState(nextBoard, heuristicType, depth + 1, this.getId());
     }
 
-    //Heuristic: Manhattan distance
-    private int getManhattanHeuristicValue() {
+    /**
+     * Computes the lower-bound heuristic value. Applies mathematical pruning 
+     * by evaluating inversion parity to instantly discard unsolvable configurations.
+     */
+    @Override
+    public void calculateHeuristicValue() {
+        if (isUnsolvable()) {
+            this.heuristicValue = Integer.MAX_VALUE;
+            return;
+        }
+        
+        this.heuristicValue = switch (heuristicType) {
+            case MANHATTAN -> calculateManhattanDistance();
+            case WRONG_PLACE -> calculateMisplacedTiles();
+        };
+    }
+
+    /**
+     * Evaluates the parity of inversions across the 1D grid representation.
+     * Odd total combinations dictate that the puzzle can never reach the target state.
+     *
+     * @return <code>true</code> if the configuration is mathematically unsolvable.
+     */
+    private boolean isUnsolvable() {
+        int inversions = 0;
+        int emptyTilePosition = 0;
+
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == EMPTY_TILE) {
+                emptyTilePosition = i + 1; // 1-based index calculation
+            }
+            for (int j = i + 1; j < board.length; j++) {
+                if (board[i] > board[j]) {
+                    inversions++;
+                }
+            }
+        }
+
+        int parityAdjustment = (emptyTilePosition % 2 == 0) ? 1 : 0;
+        return (inversions + parityAdjustment) % 2 != 0;
+    }
+
+    /**
+     * Calculates the sum of the absolute horizontal and vertical distances 
+     * from each tile to its target final position.
+     */
+    private int calculateManhattanDistance() {
         int manhattan = 0;
-        int x1, x2, y1, y2;
-        for (int i=0; i<9; i++) {
-            //Breaks the game locations into a grid formation
-            //Measures the distance using grid length
-            x1 = (board[i]-1)%3; //Actual horizontal distance
-            x2 = i%3; //Optimal horizontal distance
-            y1 = (board[i]-1)/3; //Actual vertical distance
-            y2 = i/3; //Optimal vertical distance
-            manhattan += Math.abs(x1-x2) + Math.abs(y1-y2);
+        for (int i = 0; i < board.length; i++) {
+            int targetX = (board[i] - 1) % BOARD_DIMENSION;
+            int currentX = i % BOARD_DIMENSION;
+            
+            int targetY = (board[i] - 1) / BOARD_DIMENSION;
+            int currentY = i / BOARD_DIMENSION;
+            
+            manhattan += Math.abs(targetX - currentX) + Math.abs(targetY - currentY);
         }
         return manhattan;
     }
-    
-    private boolean prune() { //PRUNING METHOD
-      boolean result = false;
-      
-      int x = 0;
-      int sum = 0;
-      for (int i = 1; i <= 9; i++) {
-        sum += smaller(i);
-      }
-      if ((position(9)%2) == 0) 
-        x = 1;
-      
-      if ((sum + x)%2 == 1) { //It is an odd number
-        result = true;
-      }
-      
-      return result;
+
+    /**
+     * Evaluates the raw count of tiles that do not reside in their target position.
+     */
+    private int calculateMisplacedTiles() {
+        int misplaced = 0;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] != i + 1) {
+                misplaced++;
+            }
+        }
+        return misplaced;
     }
-  
-    /* It is the number of pieces such that j<i 
-     * and position(j) > position(i) */
-    private int smaller(int i) { 
-      int j = 0;
-      for (int k = position(i); k < board.length; k++) {
-        if (board[k] < i) j++;
-      }
-      return j;
+
+    @Override
+    public boolean isSolution() {
+        return getHeuristicValue() == 0;
     }
-    
-    /* Position in the initial state of the piece number i */
-    private int position(int i) { 
-      int position = -1;
-      for (int k = 0; k < board.length; k++) {
-        if (board[k] == i)
-          position = k+1; //We start at 0
-      }
-      return position;
-    }
-   
+
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer("===============\n");
-        for (int i=1; i<=9; i++) {
-            if ((i%3) == 1)
-                sb.append(" | "); //First |
+        var sb = new StringBuilder("===============\n");
+        for (int i = 0; i < board.length; i++) {
+            if (i % BOARD_DIMENSION == 0) sb.append(" | ");
             
-            if (board[i-1] == 9)
-                sb.append("  | ");
-            else
-                sb.append(board[i-1]+" | ");
+            sb.append(board[i] == EMPTY_TILE ? "  | " : board[i] + " | ");
             
-            if ((i%3) == 0) //Each three numbers...
-                sb.append("\n===============\n");
+            if (i % BOARD_DIMENSION == BOARD_DIMENSION - 1) sb.append("\n===============\n");
         }
         return sb.toString();
     }
-
-    @Override
-    public void calculateHeuristicValue() {
-    if (prune()) 
-      heuristicValue = Integer.MAX_VALUE;
-    else {
-        switch (heuristicType){
-        case Manhattan:
-          heuristicValue = getManhattanHeuristicValue();
-          break;
-        case WrongPlace:
-          heuristicValue = getWrongPlaceHeuristicValue();
-          break;
-        }
-    }   
-    }
-    
-    /* To get the children of the current node. They 
-     * point to their parent through the parentID */
-  @Override
-  public ArrayList<Node> expand() {
-    ArrayList<Node> result = new ArrayList<Node>();
-    int[] testBoard;
-      Puzzle temp;
-         
-      //Possible movements of the pieces towards the empty cell
-      testBoard = up(); //UP
-      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-      result.add(temp);
-          
-      testBoard = down(); //DOWN
-      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-      result.add(temp);
-          
-      testBoard = left(); //LEFT
-      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-      result.add(temp);
-          
-      testBoard = right(); //RIGHT
-      temp = new Puzzle(testBoard, heuristicType, depth+1, this.getID());
-      result.add(temp);
-      return result;
-  }
-
-  @Override
-  public boolean isSolution() {
-    return (getHeuristicValue() == 0) ? true : false;
-  }
-
-} //Puzzle
-/***************************************************/
-
-
-/***************************************************/
-enum HeuristicType {
-  Manhattan,
-  WrongPlace
 }
-/***************************************************/
 
-
+/**
+ * Defines the available mathematical heuristics applied to evaluate proximity 
+ * to the puzzle's final state.
+ */
+enum HeuristicType {
+    MANHATTAN,
+    WRONG_PLACE
+}

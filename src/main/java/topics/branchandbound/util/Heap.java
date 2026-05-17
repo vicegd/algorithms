@@ -68,7 +68,7 @@ public class Heap {
    */
   public Node extractBestNode() {
     Node node = nodes.poll();
-        usedNodes.put(node.getID(), node); //We save it because it can be part of the solution
+        usedNodes.put(node.getId(), node); //We save it because it can be part of the solution
         //In addition, we can check if we have explored a node previously
     return node;
   }
@@ -82,12 +82,12 @@ public class Heap {
     ArrayList<Node> result = new ArrayList<Node>();
     
         result.add(node); //Add the last node
-        UUID parentID = node.getParentID(); //Find its parent node
+        UUID parentID = node.getParentId(); //Find its parent node
 
         while (parentID != null) { //While there is a parent node
           node = usedNodes.get(parentID);
             result.add(node);
-            parentID = node.getParentID();
+            parentID = node.getParentId();
         }
               
     return result;

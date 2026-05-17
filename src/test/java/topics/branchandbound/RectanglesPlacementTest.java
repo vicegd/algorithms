@@ -1,164 +1,153 @@
 package topics.branchandbound;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 /**
- * RectanglesPlacement JUnit tests
+ * <h1>Test Suite for Optimal Rectangles Placement</h1>
+ * <p>
+ * Validates the Branch and Bound algorithm's ability to optimally pack 2D shapes. 
+ * Employs testing assertions to verify spatial optimization and constraint enforcement 
+ * (such as boundary limits and adjacency rules).
+ * </p>
+ *
  * @author vicegd
  */
-public class RectanglesPlacementTest {
-  private static Logger log = LoggerFactory.getLogger(RectanglesPlacementTest.class);
-  private RectanglesPlacement rect;
-  private RectanglesPlacementThreads rectThreads;
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("Rectangles Placement Tests - Setup");
-  }
-  
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("Rectangles Placement Tests - Teardown");
-  }
-  
-  /**
-   * It gives the solution for a specific board and pieces (6 pieces)
-   */
-  @Test
-  public void testRectanglesPlacementOk() {
-    int n = 5; //Size of the board
+class RectanglesPlacementTest {
+    private static final Logger log = LoggerFactory.getLogger(RectanglesPlacementTest.class);
+    
+    /**
+     * Initializes context and resources prior to executing the test suite.
+     */
+    @BeforeAll
+    static void setup() {
+        log.trace("Initializing Rectangles Placement Test Suite");
+    }
+    
+    /**
+     * Cleans up resources after the entire test suite has finished execution.
+     */
+    @AfterAll
+    static void teardown() {
+        log.trace("Tearing down Rectangles Placement Test Suite");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> 6 assorted pieces evaluated on a 5x5 grid.</p>
+     * <p><strong>Expected Outcome:</strong> The algorithm successfully packs the pieces, 
+     * yielding a minimal bounding box area of exactly 25.</p>
+     */
+    @Test
+    void shouldFindOptimalAreaForSixPiecesOn5x5Board() {
+        var pieces = List.of(
+            new Piece(2, 5), new Piece(1, 3), new Piece(1, 5),
+            new Piece(3, 1), new Piece(1, 1), new Piece(2, 1)
+        );
         
-        //EXAMPLE 1
-        List<Piece> pieces = new ArrayList<Piece>();
-        Piece p1 = new Piece(2, 5);
-        Piece p2 = new Piece(1, 3);
-        Piece p3 = new Piece(1, 5);
-        Piece p4 = new Piece(3, 1);
-        Piece p5 = new Piece(1, 1);
-        Piece p6 = new Piece(2, 1);
-        pieces.add(p1); pieces.add(p2); pieces.add(p3); pieces.add(p4); pieces.add(p5); pieces.add(p6);
+        var rect = new RectanglesPlacement(5, pieces); 
+        rect.branchAndBound(rect.getRootNode()); 
+        rect.printSolutionTrace(); 
         
-    rect = new RectanglesPlacement(n, pieces); 
-    rect.branchAndBound(rect.getRootNode()); 
-    rect.printSolutionTrace(); //There is always a solution for this problem
-    int result = rect.getBestNode().getHeuristicValue();
-    assertEquals(25, result);
-  }
-  
-  /**
-   * It gives the solution for a specific board and pieces (3 pieces)
-   */
-  @Test
-  public void testRectanglesPlacementOk2() {
-    int n = 5; //Size of the board
+        int optimalArea = rect.getBestNode().getHeuristicValue();
+        assertEquals(25, optimalArea, "The minimal bounding box area for the given configuration must be exactly 25.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> 3 assorted pieces evaluated on a 5x5 grid.</p>
+     * <p><strong>Expected Outcome:</strong> The algorithm compacts the pieces into a subset 
+     * of the board, yielding a minimal bounding box area of exactly 9.</p>
+     */
+    @Test
+    void shouldFindOptimalAreaForThreePiecesOn5x5Board() {
+        var pieces = List.of(new Piece(1, 2), new Piece(2, 2), new Piece(1, 3));
         
-        //EXAMPLE 2
-        List<Piece> pieces = new ArrayList<Piece>();
-        Piece p1 = new Piece(1, 2);
-        Piece p2 = new Piece(2, 2);
-        Piece p3 = new Piece(1, 3);
-        pieces.add(p1); pieces.add(p2); pieces.add(p3);
+        var rect = new RectanglesPlacement(5, pieces); 
+        rect.branchAndBound(rect.getRootNode()); 
+        rect.printSolutionTrace(); 
         
-    rect = new RectanglesPlacement(n, pieces); 
-    rect.branchAndBound(rect.getRootNode()); 
-    rect.printSolutionTrace(); //There is always a solution for this problem
-    int result = rect.getBestNode().getHeuristicValue();
-    assertEquals(9, result);
-  }
-  
-  /**
-   * It gives the solution for a specific board and pieces (2 pieces)
-   */
-  @Test
-  public void testRectanglesPlacementOk3() {
-    int n = 5; //Size of the board
+        int optimalArea = rect.getBestNode().getHeuristicValue();
+        assertEquals(9, optimalArea, "The minimal bounding box area for the given configuration must be exactly 9.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> 2 assorted pieces evaluated on a 5x5 grid.</p>
+     * <p><strong>Expected Outcome:</strong> The pieces are tightly adjacent, yielding a 
+     * bounding box area of exactly 4.</p>
+     */
+    @Test
+    void shouldFindOptimalAreaForTwoPiecesOn5x5Board() {
+        var pieces = List.of(new Piece(1, 3), new Piece(1, 1));
         
-        //EXAMPLE 3
-        List<Piece> pieces = new ArrayList<Piece>();
-        Piece p1 = new Piece(1, 3);
-        Piece p2 = new Piece(1, 1);
-        pieces.add(p1); pieces.add(p2);     
+        var rect = new RectanglesPlacement(5, pieces); 
+        rect.branchAndBound(rect.getRootNode()); 
+        rect.printSolutionTrace(); 
         
-    rect = new RectanglesPlacement(n, pieces); 
-    rect.branchAndBound(rect.getRootNode()); 
-    rect.printSolutionTrace(); //There is always a solution for this problem
-    int result = rect.getBestNode().getHeuristicValue();
-    assertEquals(4, result);
-  }
-  
-  /**
-   * It gives no solution for a specific board and pieces (no enough space)
-   */
-  @Test(expected=NullPointerException.class)
-  public void testRectanglesPlacementNo() {
-    int n = 2; //Size of the board
+        int optimalArea = rect.getBestNode().getHeuristicValue();
+        assertEquals(4, optimalArea, "The minimal bounding box area for the given configuration must be exactly 4.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> Pieces that physically exceed the geometric limits of a 2x2 board.</p>
+     * <p><strong>Expected Outcome:</strong> The constraints strictly reject placement. The tree 
+     * is heavily pruned, and no valid final node is established.</p>
+     */
+    @Test
+    void shouldRejectPlacementWhenInsufficientSpaceExists() {
+        var pieces = List.of(new Piece(1, 3), new Piece(1, 1));
+        
+        var rect = new RectanglesPlacement(2, pieces); 
+        rect.branchAndBound(rect.getRootNode()); 
+        rect.printSolutionTrace(); 
+        
+        assertThrows(NullPointerException.class, () -> {
+            rect.getBestNode().getHeuristicValue();
+        }, "Querying the heuristic of an unfeasible placement must throw a NullPointerException.");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> 6 assorted pieces evaluated on a larger 8x8 grid.</p>
+     * <p><strong>Expected Outcome:</strong> The algorithm successfully packs the pieces, 
+     * discovering a tighter optimal area of exactly 24 due to expanded rotational freedom.</p>
+     */
+    @Test
+    void shouldFindOptimalAreaForSixPiecesOn8x8Board() {
+        var pieces = List.of(
+            new Piece(2, 5), new Piece(1, 3), new Piece(1, 5),
+            new Piece(3, 1), new Piece(1, 1), new Piece(2, 1)
+        );
+        
+        var rect = new RectanglesPlacement(8, pieces); 
+        rect.branchAndBound(rect.getRootNode()); 
+        rect.printSolutionTrace(); 
+        
+        int optimalArea = rect.getBestNode().getHeuristicValue();
+        assertEquals(24, optimalArea, "The minimal bounding box area for the 8x8 configuration must be exactly 24.");
+    }
 
-        List<Piece> pieces = new ArrayList<Piece>();
-        Piece p1 = new Piece(1, 3);
-        Piece p2 = new Piece(1, 1);
-        pieces.add(p1); pieces.add(p2);     
+    /**
+     * <p><strong>Scenario:</strong> Multithreaded evaluation of 6 pieces on an 8x8 grid.</p>
+     * <p><strong>Expected Outcome:</strong> The concurrent framework identically packs the pieces, 
+     * achieving the same minimal area of 24.</p>
+     */
+    @Test
+    void shouldFindOptimalAreaUsingConcurrentBranchAndBound() {
+        var pieces = List.of(
+            new Piece(2, 5), new Piece(1, 3), new Piece(1, 5),
+            new Piece(3, 1), new Piece(1, 1), new Piece(2, 1)
+        );
         
-    rect = new RectanglesPlacement(n, pieces); 
-    rect.branchAndBound(rect.getRootNode()); 
-    rect.printSolutionTrace(); //There is always a solution for this problem (with enough space)
-    rect.getBestNode().getHeuristicValue();
-  }
-  
-  @Test
-  public void testRectanglesPlacementBigOk() {
-    int n = 8; //Size of the board
+        var rectThreads = new RectanglesPlacementThreads(8, pieces); 
+        rectThreads.branchAndBound(rectThreads.getRootNode(), 4); 
+        rectThreads.printSolutionTrace(); 
         
-        //EXAMPLE 1
-        List<Piece> pieces = new ArrayList<Piece>();
-        Piece p1 = new Piece(2, 5);
-        Piece p2 = new Piece(1, 3);
-        Piece p3 = new Piece(1, 5);
-        Piece p4 = new Piece(3, 1);
-        Piece p5 = new Piece(1, 1);
-        Piece p6 = new Piece(2, 1);
-        pieces.add(p1); pieces.add(p2); pieces.add(p3); pieces.add(p4); pieces.add(p5); pieces.add(p6);
-        
-    rect = new RectanglesPlacement(n, pieces); 
-    rect.branchAndBound(rect.getRootNode()); 
-    rect.printSolutionTrace(); //There is always a solution for this problem
-    int result = rect.getBestNode().getHeuristicValue();
-    assertEquals(24, result);
-  }
-  
-  @Test
-  public void testRectanglesPlacementBigThreadsOk() {
-    int n = 8; //Size of the board
-        
-        //EXAMPLE 1
-        List<Piece> pieces = new ArrayList<Piece>();
-        Piece p1 = new Piece(2, 5);
-        Piece p2 = new Piece(1, 3);
-        Piece p3 = new Piece(1, 5);
-        Piece p4 = new Piece(3, 1);
-        Piece p5 = new Piece(1, 1);
-        Piece p6 = new Piece(2, 1);
-        pieces.add(p1); pieces.add(p2); pieces.add(p3); pieces.add(p4); pieces.add(p5); pieces.add(p6);
-        
-    rectThreads = new RectanglesPlacementThreads(n, pieces); 
-    rectThreads.branchAndBound(rectThreads.getRootNode(), 4); 
-    rectThreads.printSolutionTrace(); //There is always a solution for this problem
-    int result = rectThreads.getBestNode().getHeuristicValue();
-    assertEquals(24, result);
-  }
+        int optimalArea = rectThreads.getBestNode().getHeuristicValue();
+        assertEquals(24, optimalArea, "The concurrent branch and bound execution must yield the same optimal area of 24.");
+    }
 }
-

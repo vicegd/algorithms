@@ -1,52 +1,75 @@
 package topics.branchandbound.util.threads;
 
-import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import topics.branchandbound.util.Node;
 
 /**
- * Worker thread for the parallel Branch and Bound search.
- *
- * Each {@code WorkerThread} repeatedly pulls the most promising node from the
- * shared data structure, expands it, and updates the global pruning limit when
- * a better solution is found. Threads stop when the data structure is empty or
- * no node can improve the current best solution.
+ * <h1>Concurrent Worker Thread</h1>
+ * <p>
+ * Represents an independent execution context within the multithreaded 
+ * <strong>Branch and Bound</strong> algorithmic framework. Each worker actively 
+ * competes to extract the most promising mathematical states from a shared 
+ * priority queue, expands them, and evaluates the resulting topological branches.
+ * </p>
+ * <p>
+ * The thread coordinates with its peers by referencing and updating a global 
+ * upper bound constraint. If a worker discovers a superior optimal solution, 
+ * it claims a global lock to update the benchmark, immediately accelerating 
+ * the pruning operations of all other active threads.
+ * </p>
+ * * <h2>Complexity</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O(1)</code> per state extraction and evaluation block. The aggregate lifecycle time depends entirely on the size of the unpruned state space distributed across the thread pool.</li>
+ * <li><strong>Space Complexity:</strong> <code>O(1)</code> auxiliary space per thread. The worker operates strictly on references to the globally managed heap and does not construct isolated data structures beyond transient local variables.</li>
+ * </ul>
  *
  * @author vicegd
  * @see BranchAndBoundThreads
  */
 public class WorkerThread extends Thread {
-  private static Logger log = LoggerFactory.getLogger(WorkerThread.class);          
+    private static final Logger log = LoggerFactory.getLogger(WorkerThread.class);          
   
-  @Override
-  public void run() { 
-    log.debug(Thread.currentThread().getName() + " - STARTING");
-    long l1 = System.currentTimeMillis();
+    /**
+     * Executes the continuous extraction and evaluation loop until the shared 
+     * state space tree is exhausted or completely pruned.
+     */
+    @Override
+    public void run() { 
+        log.debug("{} - STARTING", Thread.currentThread().getName());
+        long startTime = System.currentTimeMillis();
     
-    while (!BranchAndBoundThreads.ds.empty() && BranchAndBoundThreads.ds.estimateBest() < BranchAndBoundThreads.pruneLimit) {
-      Node node;
-      node = BranchAndBoundThreads.ds.extractBestNode();  
-      ArrayList<Node> children = node.expand();         
+        // Continuously poll the shared frontier as long as viable nodes exist
+        while (!BranchAndBoundThreads.nodeHeap.isEmpty() && 
+               BranchAndBoundThreads.nodeHeap.estimateBest() < BranchAndBoundThreads.globalUpperBound) {
+            
+            Node currentNode = BranchAndBoundThreads.nodeHeap.extractBestNode();  
+            
+            // Failsafe: Handles the race condition where the queue empties between the while-condition and extraction
+            if (currentNode == null) {
+                continue;
+            }
+            
+            var children = currentNode.expand();        
 
-      for (Node child : children) 
-        if (child.isSolution()) {
-          int cost = child.getHeuristicValue();      
-          synchronized(this) {
-            if (cost < BranchAndBoundThreads.pruneLimit) {            
-              BranchAndBoundThreads.pruneLimit = cost;
-              BranchAndBoundThreads.bestNode = child;
-            } 
-          }
+            for (Node child : children) {
+                if (child.isSolution()) {
+                    int cost = child.getHeuristicValue();      
+                    
+                    // Global synchronization block: Ensures atomic updates to the shared optimal benchmark
+                    synchronized (BranchAndBoundThreads.class) {
+                        if (cost < BranchAndBoundThreads.globalUpperBound) {            
+                            BranchAndBoundThreads.globalUpperBound = cost;
+                            BranchAndBoundThreads.bestNode = child;
+                        } 
+                    }
+                } else if (child.getHeuristicValue() < BranchAndBoundThreads.globalUpperBound) {
+                    BranchAndBoundThreads.nodeHeap.insert(child);
+                }
+            }
         }
-        else           
-          if (child.getHeuristicValue() < BranchAndBoundThreads.pruneLimit) {
-            BranchAndBoundThreads.ds.insert(child);
-          }
-    } //while
-    long l2 = System.currentTimeMillis();
-    log.debug(Thread.currentThread().getName() + " - FINISHING AFTER " + (l2-l1) + " milliseconds");
-  }
-    
+        
+        long endTime = System.currentTimeMillis();
+        log.debug("{} - FINISHING AFTER {} milliseconds", Thread.currentThread().getName(), (endTime - startTime));
+    }
 }

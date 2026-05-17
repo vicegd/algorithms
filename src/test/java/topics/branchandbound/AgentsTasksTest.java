@@ -1,54 +1,65 @@
 package topics.branchandbound;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
- * AgentsTasks JUnit tests
+ * <h1>Test Suite for Task Assignment Algorithm</h1>
+ * <p>
+ * Validates the optimal mathematical resolution of the Branch and Bound strategy 
+ * across specific cost matrices to ensure heuristic accuracy and bounding efficiency.
+ * </p>
+ *
  * @author vicegd
  */
-public class AgentsTasksTest {
-  private static Logger log = LoggerFactory.getLogger(AgentsTasksTest.class);
-  private AgentsTasks tasks;
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("Agents Tasks Tests - Setup");
-  }
-  
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("Agents Tasks Tests - Teardown");
-  }
-  
-  /**
-   * It gives the solution for a specific cost matrix
-   */
-  @Test
-  public void testAgentsTasks() {
-    int n = 4; //Size of the table
-    int[][] c = new int[n][n];
-      c[0][0]=11;c[0][1]=12;c[0][2]=18;c[0][3]=40;
-        c[1][0]=14;c[1][1]=15;c[1][2]=13;c[1][3]=22;
-        c[2][0]=11;c[2][1]=17;c[2][2]=19;c[2][3]=23;
-        c[3][0]=17;c[3][1]=14;c[3][2]=20;c[3][3]=28; 
+class AgentsTasksTest {
+    private static final Logger log = LoggerFactory.getLogger(AgentsTasksTest.class);
     
-    tasks = new AgentsTasks(n, c); 
-    tasks.branchAndBound(tasks.getRootNode()); 
-    tasks.printSolutionTrace(); 
-    int result = tasks.getBestNode().getHeuristicValue();
-    assertEquals(61, result);
-  }
-  
+    /**
+     * Initializes context and resources prior to executing the test suite.
+     */
+    @BeforeAll
+    static void setup() {
+        log.trace("Initializing Agents Tasks Test Suite");
+    }
+    
+    /**
+     * Cleans up resources after the entire test suite has finished execution.
+     */
+    @AfterAll
+    static void teardown() {
+        log.trace("Tearing down Agents Tasks Test Suite");
+    }
+    
+    /**
+     * <p><strong>Scenario:</strong> A hardcoded 4x4 non-uniform cost matrix.</p>
+     * <p><strong>Expected Outcome:</strong> The Branch and Bound algorithm must resolve 
+     * the optimal cost vector and correctly aggregate to exactly 61.</p>
+     */
+    @Test
+    void shouldFindOptimalAssignmentCostForFourAgents() {
+        int problemSize = 4;
+        
+        int[][] costMatrix = {
+            {11, 12, 18, 40},
+            {14, 15, 13, 22},
+            {11, 17, 19, 23},
+            {17, 14, 20, 28}
+        };
+        
+        var assignmentEngine = new AgentsTasks(problemSize, costMatrix);
+        
+        assignmentEngine.branchAndBound(assignmentEngine.getRootNode());
+        assignmentEngine.printSolutionTrace();
+        
+        int optimalCost = assignmentEngine.getBestNode().getHeuristicValue();
+        
+        assertEquals(61, optimalCost, 
+            "The minimal operational cost for the provided 4x4 matrix must be exactly 61.");
+    }
 }
-
