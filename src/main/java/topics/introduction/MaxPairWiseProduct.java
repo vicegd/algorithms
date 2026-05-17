@@ -3,26 +3,48 @@ package topics.introduction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/***
- * Computes the max pairwise product among different numbers
- * E.g.: 7 3 6 => 42
- * However, in this example we will only work with two integer numbers
- * @author vicegd
+/**
+ * <h1>Maximum Pairwise Product</h1>
+ * <p>
+ * Evaluates the product of two specified integers. This example serves to 
+ * demonstrate the critical vulnerability of <strong>Integer Overflow</strong> 
+ * in arithmetic synthesis, strictly enforcing the promotion of 32-bit operands 
+ * to 64-bit evaluations prior to multiplication.
+ * </p>
+ * <h2>Complexity</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O(1)</code> - The calculation executes natively in constant time.</li>
+ * <li><strong>Space Complexity:</strong> <code>O(1)</code> - Operates using strictly constant memory.</li>
+ * </ul>
  *
+ * @author vicegd
  */
 public class MaxPairWiseProduct {
-  private static Logger log = LoggerFactory.getLogger(MaxPairWiseProduct.class);
-  int number1;
-  int number2;
-  
-  public MaxPairWiseProduct() {
-    number1 = 100_000;
-    number2 = 1_000_000;
-  }
-  
-  public int compute() {
-    log.info("The result is = " + number1 * number2);
-    return number1 * number2;
-  }
+    private static final Logger log = LoggerFactory.getLogger(MaxPairWiseProduct.class);
+    
+    private final int operandA;
+    private final int operandB;
+    
+    /**
+     * Initializes the computational context with hardcoded large integers 
+     * designed to trigger a 32-bit arithmetic overflow if not handled correctly.
+     */
+    public MaxPairWiseProduct() {
+        this.operandA = 100_000;
+        this.operandB = 1_000_000;
+    }
+    
+    /**
+     * Computes the mathematical product of the predefined integers.
+     *
+     * @return The exact mathematical product safely evaluated as a 64-bit integer.
+     */
+    public long compute() {
+        // Casting the first operand to a 'long' forces the arithmetic processor 
+        // to evaluate the multiplication in 64-bit space, preventing overflow truncation.
+        long result = (long) operandA * operandB;
+        
+        log.info("The result is = {}", result);
+        return result;
+    }
 }
-

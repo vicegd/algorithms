@@ -1,22 +1,34 @@
 package topics.introduction;
 
 /**
- * To get the addition of a list of numbers
+ * <h1>Array Summation</h1>
+ * <p>
+ * Provides a sequential mathematical utility to calculate the aggregate sum 
+ * of all elements contained within a one-dimensional integer array.
+ * </p>
+ * <h2>Complexity</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O(N)</code> - Requires a single linear traversal evaluating every element in the array exactly once.</li>
+ * <li><strong>Space Complexity:</strong> <code>O(1)</code> - The evaluation requires a strictly constant amount of auxiliary memory, operating independently of the array's dimension.</li>
+ * </ul>
+ *
  * @author vicegd
  */
 public class GetAdditionFromList {
-  
-  /**
-   * To sum up the total value of the numbers contained in an array
-   * @param list Array with numbers
-   * @return The sum of all the numbers
-   */
-  public int sum(int[] list){
-    int value = 0;
-      for (int i = 0; i < list.length; i++){
-        value += list[i];
-      }
-      return value;
-  }
-
+    
+    /**
+     * Computes the total aggregate value of the provided sequence of integers.
+     *
+     * @param numbers The integer array to be evaluated.
+     * @return The exact mathematical sum of all elements within the array.
+     */
+    public int sum(int[] numbers) {
+        int totalValue = 0;
+        
+        for (int number : numbers) {
+            totalValue += number;
+        }
+        
+        return totalValue;
+    }
 }

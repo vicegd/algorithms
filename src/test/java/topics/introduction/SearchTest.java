@@ -1,88 +1,103 @@
 package topics.introduction;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Search JUnit tests
+ * <h1>Validation Suite for Search Algorithms</h1>
+ * <p>
+ * Verifies the logical accuracy of the Sequential, Sentinel, and Binary search 
+ * algorithms against both successful retrievals and deliberate misses.
+ * </p>
+ *
  * @author vicegd
  */
-public class SearchTest {
-  private static Search search;
+class SearchTest {
+    private static final Logger log = LoggerFactory.getLogger(SearchTest.class);
+    private static Search searchEngine;
   
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    search = new Search();
-  }
+    /**
+     * Initializes the context and instantiates the computational engine 
+     * prior to executing the validations.
+     */
+    @BeforeAll
+    static void setup() {
+        log.trace("Initializing Search Algorithm Validation Context");
+        searchEngine = new Search();
+    }
   
-  /**
-   * Searches number 10 in the array (Sequential)
-   */
-  @Test
-  public void searchSequentialOK() {
-    int[] list = {3, 1, 10, 5, -1};
-    boolean result = search.searchSequential(list, 10);
-    assertEquals("The operation is not correct. The number should be found", true, result);
-  }
+    /**
+     * <p><strong>Scenario:</strong> Standard sequential search for an existing element.</p>
+     */
+    @Test
+    void shouldFindElementUsingSequentialSearch() {
+        int[] dataset = {3, 1, 10, 5, -1};
+        boolean isFound = searchEngine.searchSequential(dataset, 10);
+        
+        assertTrue(isFound, "The linear search must successfully locate the existing number 10.");
+    }
   
-  /**
-   * Searches number 100 in the array (Sequential)
-   */
-  @Test
-  public void searchSequentialNo() {
-    int[] list = {3, 1, 10, 5, -1};
-    boolean result = search.searchSequential(list, 100);
-    assertEquals("The operation is not correct. The number should not be found", false, result);
-  }
+    /**
+     * <p><strong>Scenario:</strong> Standard sequential search for a non-existent element.</p>
+     */
+    @Test
+    void shouldNotFindMissingElementUsingSequentialSearch() {
+        int[] dataset = {3, 1, 10, 5, -1};
+        boolean isFound = searchEngine.searchSequential(dataset, 100);
+        
+        assertFalse(isFound, "The linear search must accurately report the absence of the number 100.");
+    }
   
-  /**
-   * Searches number 10 in the array (Sequential with sentinel)
-   */
-  @Test
-  public void searchSequentialSentinelOK() {
-    List<Integer> list = new ArrayList<Integer>();
-    list.add(3); list.add(1); list.add(10); list.add(5); list.add(-1);
-    boolean result = search.searchSequentialSentinel(list, 10);
-    assertEquals("The operation is not correct. The number should be found", true, result);
-  }
+    /**
+     * <p><strong>Scenario:</strong> Sentinel-backed sequential search for an existing element.</p>
+     */
+    @Test
+    void shouldFindElementUsingSentinelSearch() {
+        List<Integer> dataset = new ArrayList<>(Arrays.asList(3, 1, 10, 5, -1));
+        boolean isFound = searchEngine.searchSequentialSentinel(dataset, 10);
+        
+        assertTrue(isFound, "The sentinel search must successfully locate the existing number 10.");
+    }
   
-  /**
-   * Searches number 100 in the array (Sequential with sentinel)
-   */
-  @Test
-  public void searchSequentialSentinelNo() {
-    List<Integer> list = new ArrayList<Integer>();
-    list.add(3); list.add(1); list.add(10); list.add(5); list.add(-1);
-    boolean result = search.searchSequentialSentinel(list, 100);
-    assertEquals("The operation is not correct. The number should not be found", false, result);
-  }
+    /**
+     * <p><strong>Scenario:</strong> Sentinel-backed sequential search for a non-existent element.</p>
+     */
+    @Test
+    void shouldNotFindMissingElementUsingSentinelSearch() {
+        List<Integer> dataset = new ArrayList<>(Arrays.asList(3, 1, 10, 5, -1));
+        boolean isFound = searchEngine.searchSequentialSentinel(dataset, 100);
+        
+        assertFalse(isFound, "The sentinel search must accurately distinguish the injected sentinel from original data.");
+    }
   
-  /**
-   * Searches number 15 in the array (Binary)
-   */
-  @Test
-  public void searchBinaryOK() {
-    int[] list = {-1, 1, 3, 4, 15, 100};
-    boolean result = search.searchBinary(list, 15);
-    assertEquals("The operation is not correct. The number should be found", true, result);
-  }
+    /**
+     * <p><strong>Scenario:</strong> Binary search across a sorted dataset for an existing element.</p>
+     */
+    @Test
+    void shouldFindElementUsingBinarySearch() {
+        int[] sortedDataset = {-1, 1, 3, 4, 15, 100};
+        boolean isFound = searchEngine.searchBinary(sortedDataset, 15);
+        
+        assertTrue(isFound, "The binary search must successfully locate the number 15 within the logarithmic divisions.");
+    }
   
-  /**
-   * Searches number 92 in the array (Binary)
-   */
-  @Test
-  public void searchBinaryNo() {
-    int[] list = {-1, 1, 3, 4, 15, 100};
-    boolean result = search.searchBinary(list, 92);
-    assertEquals("The operation is not correct. The number should not be found", false, result);
-  }
-  
+    /**
+     * <p><strong>Scenario:</strong> Binary search across a sorted dataset for a non-existent element.</p>
+     */
+    @Test
+    void shouldNotFindMissingElementUsingBinarySearch() {
+        int[] sortedDataset = {-1, 1, 3, 4, 15, 100};
+        boolean isFound = searchEngine.searchBinary(sortedDataset, 92);
+        
+        assertFalse(isFound, "The binary search must accurately exhaust the search space and report the absence of 92.");
+    }
 }
