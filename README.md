@@ -88,17 +88,17 @@ algorithms/
 
 ### 2. **Sorting Algorithms**
 **Main implementations:**
-- Bidirectional Bubble
-- Binary Insertion
-- Bubble Sort
-- Bubble (Sentinel)
-- Direct Insertion
-- Direct Selection
-- Heapsort
-- Mergesort
-- Quicksort (Median-3)
-- Radix sort 
-- Shellsort
+- Bidirectional Bubble Sort (Cocktail Shaker Sort)
+- Binary Insertion Sort Algorithm
+- Bubble Sort Algorithm (Left-Bubbling)
+- Bubble Sort Algorithm (Optimized with Sentinel)
+- Direct Insertion Sort Algorithm
+- Direct Selection Sort Algorithm
+- Heapsort Algorithm
+- Mergesort Algorithm
+- Quicksort Algorithm (Median-of-Three)
+- Radix Sort Algorithm (LSD - Least Significant Digit)
+- Shellsort Algorithm
 
 **📖 Learn more:** See [Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting-algorithms)
 
