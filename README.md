@@ -206,8 +206,8 @@ mvn test jacoco:report
 To keep the repository organized and secure, our documentation is divided into the following files:
 
 * 📖 **[Contributing Guide](CONTRIBUTING.md):** Coding standards and how to participate.
-* 🤝 **[Code of Conduct](CODE_OF_CONDUCT.md):** Our guidelines for a healthy and welcoming educational environment.
-* 🛡️ **[Security Policy](SECURITY.md):** What we consider algorithmic vulnerabilities and how to report them.
+* 🤝 **[Code of Conduct](CODE_OF_CONDUCT.md):** Guidelines for a healthy and welcoming educational environment.
+* 🛡️ **[Security Policy](SECURITY.md):** Possible algorithmic vulnerabilities and how to report them.
 * ⏱️ **[Changelog](CHANGELOG.md):** Version history and the evolution of the codebase since 2015.
 
 ---

@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ---
 
 ## [1.0.0] - 2026-05-17
-### 🚀 Official Stable Release & Major Refactoring
+### 🚀 Stable Release & Major Refactoring
 This release establishes a fully modernized, thread-safe, and robust academic framework for algorithm engineering, consolidating all architectural improvements from 2015 to the present.
 
 ### 🆕 Added
