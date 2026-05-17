@@ -71,7 +71,7 @@ algorithms/
 
 ## 📚 Core Topics & Algorithms
 
-### 0. **Getting Started - Introduction**
+### 1. **Foundations of Algorithms**
 New to algorithms? Start here!
 
 **What you'll learn:**
@@ -92,7 +92,7 @@ New to algorithms? Start here!
 
 ---
 
-### 1. **Sorting Algorithms**
+### 2. **Sorting Algorithms**
 Learn fundamental sorting techniques with complexity analysis.
 
 | Algorithm | File | Time | Space | Best Use Case |
@@ -108,7 +108,7 @@ Learn fundamental sorting techniques with complexity analysis.
 
 ---
 
-### 2. **Divide & Conquer**
+### 3. **Divide & Conquer**
 Master the divide-and-conquer problem-solving paradigm.
 
 **Key Concepts:**
@@ -126,7 +126,7 @@ Master the divide-and-conquer problem-solving paradigm.
 
 ---
 
-### 3. **Greedy Algorithms**
+### 4. **Greedy Algorithms**
 Learn when greedy choices lead to optimal solutions.
 
 **Note:** Contains both **optimal** and **sub-optimal** implementations for learning.
@@ -142,7 +142,7 @@ Learn when greedy choices lead to optimal solutions.
 
 ---
 
-### 4. **Dynamic Programming**
+### 5. **Dynamic Programming**
 Solve optimization problems by building solutions from subproblems.
 
 **Key Concepts:**
@@ -161,7 +161,7 @@ Solve optimization problems by building solutions from subproblems.
 
 ---
 
-### 5. **Backtracking**
+### 6. **Backtracking**
 Explore systematic search techniques with pruning.
 
 **Applications:**
@@ -177,7 +177,7 @@ Explore systematic search techniques with pruning.
 
 ---
 
-### 6. **Branch & Bound**
+### 7. **Branch & Bound**
 Solve optimization problems using intelligent search.
 
 **Covered Problems:**
@@ -189,7 +189,7 @@ Solve optimization problems using intelligent search.
 
 ---
 
-### 7. **Parallel Algorithms**
+### 8. **Parallel Algorithms**
 Master concurrent programming with Fork/Join Framework.
 
 **Topics:**
