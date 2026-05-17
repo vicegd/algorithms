@@ -1,93 +1,110 @@
 package topics.backtracking;
 
+import java.util.StringJoiner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * BACKTRACKING PROBLEM: SUBSETS OF A GIVEN SUM
- * This program, given a set consisting of n different positive 
- * integers, computes all subsets which sum a given value c
+ * <h1>Subset Sum Problem</h1>
+ * <p>
+ * This class identifies all possible subsets of a given array of strictly positive 
+ * integers whose elements sum up to a specific target value. It utilizes a 
+ * <strong>Backtracking</strong> algorithm with an inclusion/exclusion branching model.
+ * </p>
+ * * <h2>Complexity</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O(2<sup>N</sup>)</code> - The state space tree models a binary choice (include or exclude) for each of the <i>N</i> elements. Pruning drastically reduces the physical paths explored.</li>
+ * <li><strong>Space Complexity:</strong> <code>O(N)</code> - Dictated by the memory required to maintain the boolean tracking array and the maximum depth of the JVM call stack.</li>
+ * </ul>
+ *
  * @author vicegd
  */
 public class SubsetsGivenSum {
-  private static Logger log = LoggerFactory.getLogger(SubsetsGivenSum.class);
-  private int n; //The amount of numbers we have for working with
-  private int c; //The sum we are looking for
-  private int[]v; //n positive different numbers     
-  private boolean[] mark; //If a number is added or not
-  private int sum; //Cumulative sum until a state 
-  private int counter; //Number of solutions
-  
-  /**
-   * Constructor for SubsetsGivenSum objects
-   * @param n Number of elements for each case
-   * @param c Sum that we are looking for
-   */  
-  public SubsetsGivenSum(int n, int c) {
-    this.n = n;
-    this.c = c;
-    
-    v = new int[n];
-    mark = new boolean[n];
-  
-    counter = 0;
-    sum = 0;
-  }
-  
-  /**
-   * An example: the first n natural numbers
-   */
-  public void assumption1() {
-    for (int i=0; i<n; i++) 
-      v[i] = i+1;
-  }
-  
-  /**
-   * Another example: the first square numbers
-   */
-  public void assumption2() {
-    for (int i=0; i<n; i++) 
-      v[i] = (i+1)*(i+1);
-  }
-  
-  /**
-   * Performs the backtracking process
-   * @param level Level in the tree of states starting at 0
-   */
-  public void backtracking(int level) {
-    if (level == n) { //There is already a subset to be analyzed
-      if (sum == c) { //If meets the requirement (the final value c)
-        counter++; //Then we have a new solution
-        log.debug("SUBSET SUMS "+c+"=");
-        StringBuilder sb = new StringBuilder();
-        for (int k=0; k<n ;k++)
-          if (mark[k]) //All marked numbers are part of the subset 
-            sb.append(v[k]+"+");
-        log.debug(sb.toString());
-      }          
-    }    
-    else
-      if (sum <= c) //If sum>c it can be pruned, since the values we are working with are positive
-        //With j=1 the element does not belong to the solution; with j=0 we consider the element as part of the solution (there are two different possibilities)
-        for (int j=0; j<=1; j++) { 
-          if (j == 0) { 
-            sum = sum + v[level];
-            mark[level] = true;
-          }    
-          backtracking(level+1);
-          if (j == 0) { //Unmark the marked after the backtracking process
-            sum = sum - v[level];
-            mark[level] = false;
-          }
-        } //for
-  } //backtracking
-  
-  /**
-   * Gets the number of solutions after the backtracking process
-   * @return Number of solutions
-   */
-  public int getNumberOfSolutions() {
-    return counter;
-  }
-} 
+    private static final Logger log = LoggerFactory.getLogger(SubsetsGivenSum.class);
 
+    private final int[] elements;
+    private final int targetSum;
+    private final boolean[] isElementIncluded;
+    private int solutionCount;
+
+    /**
+     * Initializes the Subset Sum solver.
+     *
+     * @param elements  An array of positive, distinct integers representing the mathematical set.
+     * @param targetSum The exact cumulative sum required for a subset to be considered a valid solution.
+     */
+    public SubsetsGivenSum(int[] elements, int targetSum) {
+        this.elements = elements;
+        this.targetSum = targetSum;
+        this.isElementIncluded = new boolean[elements.length];
+        this.solutionCount = 0;
+    }
+
+    /**
+     * Triggers the backtracking execution to find all valid subsets.
+     */
+    public void solve() {
+        backtrack(0, 0);
+    }
+
+    /**
+     * The core recursive engine that evaluates inclusion and exclusion of set elements.
+     *
+     * @param currentIndex The current depth in the state space tree, pointing to the element under evaluation.
+     * @param currentSum   The cumulative sum of all elements currently included in the active path.
+     */
+    private void backtrack(int currentIndex, int currentSum) {
+        // Pruning: Since the domain consists strictly of positive integers, 
+        // any path exceeding the target sum is mathematically a dead end.
+        if (currentSum > targetSum) {
+            return;
+        }
+
+        // Base Case: All elements have been evaluated.
+        if (currentIndex == elements.length) {
+            if (currentSum == targetSum) {
+                solutionCount++;
+                logSolution();
+            }
+            return;
+        }
+
+        // Branch 1: Include the current element in the subset
+        isElementIncluded[currentIndex] = true;
+        backtrack(currentIndex + 1, currentSum + elements[currentIndex]);
+
+        // Branch 2: Exclude the current element from the subset (Rollback state)
+        isElementIncluded[currentIndex] = false;
+        backtrack(currentIndex + 1, currentSum);
+    }
+
+    /**
+     * Formats and logs the elements forming the valid subset.
+     * <p>
+     * String construction is bypassed if debug logging is disabled to preserve CPU cycles.
+     * </p>
+     */
+    private void logSolution() {
+        if (!log.isDebugEnabled()) {
+            return;
+        }
+
+        var joiner = new StringJoiner(" + ");
+        for (int i = 0; i < elements.length; i++) {
+            if (isElementIncluded[i]) {
+                joiner.add(String.valueOf(elements[i]));
+            }
+        }
+        
+        log.debug("SUBSET SUMS {} = {}", targetSum, joiner);
+    }
+
+    /**
+     * Retrieves the total count of valid subsets discovered by the algorithm.
+     *
+     * @return The integer count of valid solutions.
+     */
+    public int getSolutionCount() {
+        return solutionCount;
+    }
+}

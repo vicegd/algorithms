@@ -9,7 +9,7 @@ A comprehensive collection of **algorithm implementations** covering fundamental
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Java 15+** (project compiles with Java 25)
+- **Java 25+** (project compiles with Java 26)
 - **Maven 3.6+** (tested with 3.9+, uses plugins requiring 3.6+)
 - **JUnit 5.10.2** (managed automatically by Maven)
 - Git (optional)
