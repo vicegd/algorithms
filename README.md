@@ -88,7 +88,7 @@ New to algorithms? Start here!
 
 **Key Example:** MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
 
-**📖 Learn more:** See [introduction/README.md](src/main/java/topics/introduction/README.md)
+**📖 Learn more:** See [Foundations](https://learnalgorithms.dev/concepts/category/1-foundations)
 
 ---
 
@@ -104,7 +104,7 @@ Learn fundamental sorting techniques with complexity analysis.
 | Quicksort | `Quicksort.java` | O(n log n) avg | O(log n) | General purpose |
 | Mergesort | `Mergesort.java` | O(n log n) | O(n) | Stable sorting needed |
 
-**📖 Learn more:** See [sorting/README.md](src/main/java/topics/sorting/README.md)
+**📖 Learn more:** See [Foundations of Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting)
 
 ---
 
@@ -122,11 +122,27 @@ Master the divide-and-conquer problem-solving paradigm.
 - **Array Operations:** Vector Sum, Mergesort, Quicksort
 - **Statistical:** Median, Mode, Majoritarian Element, Max Sum
 
-**📖 Learn more:** See [divideconquer/README.md](src/main/java/topics/divideconquer/README.md)
+**📖 Learn more:** See [Divide and Conquer](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/divide-and-conquer)
 
 ---
 
-### 3. **Dynamic Programming**
+### 3. **Greedy Algorithms**
+Learn when greedy choices lead to optimal solutions.
+
+**Note:** Contains both **optimal** and **sub-optimal** implementations for learning.
+
+**Classic Problems:**
+- Coin Change (Optimal vs Non-Optimal)
+- Knapsack Problem variants
+- File Disk Optimization
+- Agent Task Assignment
+- Chess Horse Movement
+
+**📖 Learn more:** See [Greedy Algorithms](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/greedy-algorithms)
+
+---
+
+### 4. **Dynamic Programming**
 Solve optimization problems by building solutions from subproblems.
 
 **Key Concepts:**
@@ -141,23 +157,7 @@ Solve optimization problems by building solutions from subproblems.
 - Combinations/Permutations
 - River Travel Optimization
 
-**📖 Learn more:** See [dynamic/README.md](src/main/java/topics/dynamic/README.md)
-
----
-
-### 4. **Greedy Algorithms**
-Learn when greedy choices lead to optimal solutions.
-
-**Note:** Contains both **optimal** and **sub-optimal** implementations for learning.
-
-**Classic Problems:**
-- Coin Change (Optimal vs Non-Optimal)
-- Knapsack Problem variants
-- File Disk Optimization
-- Agent Task Assignment
-- Chess Horse Movement
-
-**📖 Learn more:** See [greedy/README.md](src/main/java/topics/greedy/README.md)
+**📖 Learn more:** See [Dynamic Programming](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/dynamic-programming)
 
 ---
 
@@ -173,7 +173,7 @@ Explore systematic search techniques with pruning.
 
 **Complexity:** Exponential, with pruning optimizations
 
-**📖 Learn more:** See [backtracking/README.md](src/main/java/topics/backtracking/README.md)
+**📖 Learn more:** See [Backtracking](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/backtracking)
 
 ---
 
@@ -185,7 +185,7 @@ Solve optimization problems using intelligent search.
 - Rectangle Placement Optimization
 - Agent Task Assignment
 
-**📖 Learn more:** See [branchandbound/README.md](src/main/java/topics/branchandbound/README.md)
+**📖 Learn more:** See [Branch and Bound](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/branch-and-bound)
 
 ---
 
@@ -200,7 +200,7 @@ Master concurrent programming with Fork/Join Framework.
 
 **Framework:** Java ForkJoinPool
 
-**📖 Learn more:** See [parallel/README.md](src/main/java/topics/parallel/README.md)
+**📖 Learn more:** See [Parallel Algorithms](https://learnalgorithms.dev/concepts/advanced-execution-models/parallel-algorithms)
 
 ---
 
