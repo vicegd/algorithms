@@ -11,7 +11,7 @@ In the context of algorithmic engineering, we care deeply about computational st
 * **Concurrency Deadlocks:** Thread freezing in parallel implementations.
 
 ### How to report an issue
-**Just open a standard GitHub Issue!** We believe that discussing algorithmic flaws, edge-case failures, and memory limits openly is a fantastic learning opportunity for all students. 
+**Just open a standard GitHub Issue!** We believe that discussing algorithmic flaws, edge-case failures, and memory limits openly is a fantastic learning opportunity for all. 
 
 1. Go to the **Issues** tab.
 2. Create a new issue describing the flaw.
