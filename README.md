@@ -101,6 +101,7 @@ algorithms/
 - Shellsort
 
 **📖 Learn more:** See [Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting-algorithms)
+
 ---
 
 ### 3. **Divide & Conquer**
