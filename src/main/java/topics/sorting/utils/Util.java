@@ -3,102 +3,118 @@ package topics.sorting.utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /**
- * Helper class to trace and use common operations among sorting algorithms
+ * <h1>Sorting Utilities</h1>
+ * <p>
+ * A stateless collection of helper methods for array manipulation, 
+ * element swapping, and educational execution tracing.
+ * </p>
+ *
  * @author vicegd
  */
-public class Util {
-  static Logger log = LoggerFactory.getLogger(Util.class);
+public final class Util {
+    private static final Logger log = LoggerFactory.getLogger(Util.class);
   
-  /**
-   * Logs messages for the sorting algorithm
-   * @param iteration Number of iteration in the algorithm (from 0)
-   * @param elements Array with numbers
-   */
-  public static void trace(int iteration, int[] elements){
-    StringBuilder sb = new StringBuilder();
-    sb.append("Iteration: " + iteration + " - ");
-    for (int k = 0; k < elements.length; k++){
-      sb.append(elements[k] + " ");
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     */
+    private Util() {
+        throw new UnsupportedOperationException("Utility classes cannot be instantiated.");
     }
-    log.trace(sb.toString());
-  }
-  
-  /**
-   * Logs messages for the Shell sorting algorithm
-   * @param k Value of the k parameter in the Shell algorithm
-   * @param pos Value for the pos parameter in the Shell algorithm
-   * @param elements Array with numbers
-   */
-  public static void traceShellSort(int k, int pos, int[] elements){
-    StringBuilder sb = new StringBuilder();
-    sb.append("K: " + k + " - POS: " + pos + " - ");
-    for (int i = 0; i< elements.length; i++){
-      sb.append(elements[i] + " ");
-    }
-    log.trace(sb.toString());
-  }
-  
-  /**
-   * Logs string messages for some sorting algorithms
-   * @param message Message to be logged
-   * @param elements Array with numbers
-   */
-  public static void traceMessage(String message, int[] elements){
-    StringBuilder sb = new StringBuilder();
-    sb.append(message + " - ");
-    for (int k = 0; k < elements.length; k++){
-      sb.append(elements[k] + " ");
-    }
-    log.trace(sb.toString());
-  }
-  
-  /**
-   * Interchanges element i and element j
-   * @param elements Array with numbers
-   * @param i Position of one element to be interchanged
-   * @param j Position of the other element
-   */
-  public static void interchange(int[] elements, int i, int j) {
-    int temp = elements[i];
-    elements[i] = elements[j];
-    elements[j] = temp;
-  }
-  
-  /**
-   * Finds the position of the smallest element in the array
-   * @param elements Array with numbers
-   * @param firstElement First element from which it is going to search
-   * @return Position of the smallest element
-   */
-  public static int findPosMin(int[] elements, int firstElement) {
-    int value = Integer.MAX_VALUE;
-    int pos = Integer.MAX_VALUE;
-    for (int i = firstElement; i < elements.length; i++){
-      if (elements[i] < value){
-        value = elements[i];  
-        pos = i;
-      }
-    }
-    return pos;
-  }
-  
-  /**
-   * Finds the position of the biggest element in the array
-   * @param elements Array with numbers
-   * @param firstElement First element from which it is going to search
-   * @return Position of the biggest element
-   */
-  public static int findPosMax(int[] elements, int firstElement) {
-    int value = Integer.MIN_VALUE;
-    int pos = Integer.MIN_VALUE;
-    for (int i = firstElement; i < elements.length; i++){
-      if (elements[i] > value){
-        value = elements[i];
-        pos = i;
-      }
-    }
-    return pos;
-  }
-}
 
+    /**
+     * Logs the current state of the array during a specific iteration.
+     *
+     * @param iteration The current algorithmic loop iteration.
+     * @param elements  The array being sorted.
+     */
+    public static void trace(int iteration, int[] elements) {
+        if (log.isTraceEnabled()) {
+            log.trace("Iteration: {} - {}", iteration, formatArray(elements));
+        }
+    }
+  
+    /**
+     * Logs the specific state for the Shell Sort algorithm.
+     *
+     * @param k        Value of the gap sequence parameter.
+     * @param pos      Value of the current position parameter.
+     * @param elements The array being sorted.
+     */
+    public static void traceShellSort(int k, int pos, int[] elements) {
+        if (log.isTraceEnabled()) {
+            log.trace("K: {} - POS: {} - {}", k, pos, formatArray(elements));
+        }
+    }
+  
+    /**
+     * Logs a custom contextual message alongside the array contents.
+     *
+     * @param message  The message to be logged.
+     * @param elements The array being sorted.
+     */
+    public static void traceMessage(String message, int[] elements) {
+        if (log.isTraceEnabled()) {
+            log.trace("{} - {}", message, formatArray(elements));
+        }
+    }
+  
+    /**
+     * Interchanges (swaps) two elements within an array in-place.
+     *
+     * @param elements The target array.
+     * @param i        Position of the first element.
+     * @param j        Position of the second element.
+     */
+    public static void swap(int[] elements, int i, int j) {
+        int temp = elements[i];
+        elements[i] = elements[j];
+        elements[j] = temp;
+    }
+  
+    /**
+     * Locates the position of the smallest element within a specific sub-array.
+     *
+     * @param elements     The target array.
+     * @param firstElement The starting index for the search boundary.
+     * @return The index of the smallest element.
+     */
+    public static int findPosMin(int[] elements, int firstElement) {
+        int minPos = firstElement;
+        for (int i = firstElement + 1; i < elements.length; i++) {
+            if (elements[i] < elements[minPos]) {
+                minPos = i;
+            }
+        }
+        return minPos;
+    }
+  
+    /**
+     * Locates the position of the largest element within a specific sub-array.
+     *
+     * @param elements     The target array.
+     * @param firstElement The starting index for the search boundary.
+     * @return The index of the largest element.
+     */
+    public static int findPosMax(int[] elements, int firstElement) {
+        int maxPos = firstElement;
+        for (int i = firstElement + 1; i < elements.length; i++) {
+            if (elements[i] > elements[maxPos]) {
+                maxPos = i;
+            }
+        }
+        return maxPos;
+    }
+
+    /**
+     * Internal helper to format arrays into space-separated strings cleanly.
+     */
+    private static String formatArray(int[] elements) {
+        return Arrays.stream(elements)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining(" "));
+    }
+}
