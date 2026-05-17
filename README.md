@@ -9,7 +9,7 @@ A collection of **algorithm implementations** covering fundamental computer scie
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Java 25+** (project compiles with Java 25)
+- **Java 21+** (project compiles with Java 21)
 - **Maven 3.6+** (tested with 3.9+, uses plugins requiring 3.6+)
 - **JUnit 5.10.2** (managed automatically by Maven)
 - Git (optional)
@@ -193,7 +193,7 @@ mvn test jacoco:report
 ## 📖 Additional Resources
 
 - **API Documentation:** [vicegd.github.io/algorithms](http://vicegd.github.io/algorithms) — Javadoc for all packages and classes in this repository
-- **Learning Guide:** [learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
+- **Learn Algorithms:** [learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
 
 ---
 
