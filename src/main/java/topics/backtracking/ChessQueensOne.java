@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * It employs a highly optimized <strong>Backtracking</strong> algorithm that halts 
  * execution immediately upon discovering the first valid topological configuration.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> Bounded by <code>O(N!)</code> - The algorithm attempts to place exactly one queen per column. The early termination mechanism drastically reduces the practical execution time if a valid arrangement exists early in the search tree.</li>
  * <li><strong>Space Complexity:</strong> <code>O(N)</code> - Required for the state-tracking boolean arrays and the maximum depth of the JVM call stack.</li>

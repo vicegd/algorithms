@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * It employs a highly optimized <strong>Backtracking</strong> algorithm utilizing 
  * 1D boolean arrays to achieve <code>O(1)</code> feasibility checks for rows and diagonals.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> Bounded by <code>O(N!)</code> - The algorithm places exactly one queen per column, drastically reducing the search space compared to testing all board cells. Extensive pruning further limits actual execution paths.</li>
  * <li><strong>Space Complexity:</strong> <code>O(N)</code> - Required for the state-tracking boolean arrays and the maximum depth of the JVM call stack.</li>

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * integers whose elements sum up to a specific target value. It utilizes a 
  * <strong>Backtracking</strong> algorithm with an inclusion/exclusion branching model.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> <code>O(2<sup>N</sup>)</code> - The state space tree models a binary choice (include or exclude) for each of the <i>N</i> elements. Pruning drastically reduces the physical paths explored.</li>
  * <li><strong>Space Complexity:</strong> <code>O(N)</code> - Dictated by the memory required to maintain the boolean tracking array and the maximum depth of the JVM call stack.</li>

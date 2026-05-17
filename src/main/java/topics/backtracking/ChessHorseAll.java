@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * to visit every square on an <i>N &times; N</i> chessboard exactly once. It employs a
  * <strong>Backtracking</strong> algorithm to explore the state space tree systemically.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> <code>O(8<sup>N&sup2;</sup>)</code> - In the worst-case scenario, the algorithm explores 8 branching possibilities at each of the N&sup2; depth levels.</li>
  * <li><strong>Space Complexity:</strong> <code>O(N&sup2;)</code> - Required for storing the board matrix and the maximum depth of the JVM call stack.</li>
