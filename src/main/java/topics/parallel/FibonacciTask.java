@@ -3,7 +3,7 @@ package topics.parallel;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * <h1>Parallel Fibonacci (Fork/Join Framework)</h1>
+ * <h1>Parallel Fibonacci (Fork/Join)</h1>
  * <p>
  * Computes the Fibonacci sequence utilizing Java's Fork/Join parallel execution model.
  * The task recursively splits the workload into smaller asynchronous sub-tasks 

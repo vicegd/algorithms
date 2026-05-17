@@ -73,7 +73,14 @@ algorithms/
 
 ### 1. **Foundations of Algorithms**
 **Main implementations:**
-- MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
+- Array Summation
+- Factorial Computation
+- Foundational Arithmetic Engine
+- Maximum Value Extraction
+- MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n)
+- Random Dataset Generator
+- Search Algorithms
+
 
 **📖 Learn more:** See [Foundations of Algorithms](https://learnalgorithms.dev/concepts/category/1-foundations-of-algorithms)
 
@@ -113,8 +120,6 @@ algorithms/
 - Agent Task Assignment
 - Chess Horse Movement
 
-**Note:** Contains both **optimal** and **sub-optimal** implementations for learning.
-
 **📖 Learn more:** See [Greedy Algorithms](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/greedy-algorithms)
 
 ---
@@ -133,11 +138,12 @@ algorithms/
 
 ### 6. **Backtracking**
 **Main implementations:**
-- N-Queens Problem
-- Permutations
-- Subsets with given sum
-- Chess Horse paths
-- Agent Task Assignment
+- Permutations Generation
+- Subset Sum Problem
+- The Knight's Tour Problem (All Solutions)
+- The Knight's Tour Problem (First Solution)
+- The N-Queens Problem (All Solutions)
+- The N-Queens Problem (First Solution)
 
 **📖 Learn more:** See [Backtracking](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/backtracking)
 
@@ -145,9 +151,10 @@ algorithms/
 
 ### 7. **Branch & Bound**
 **Main implementations:**
-- Eight Puzzle (3x3 sliding puzzle)
-- Rectangle Placement Optimization
-- Agent Task Assignment
+- Task Assignment Problem
+- The 8-Puzzle Problem
+- Optimal Placement of Rectangles
+- Optimal Placement of Rectangles (Concurrent Execution)
 
 **📖 Learn more:** See [Branch and Bound](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/branch-and-bound)
 
@@ -155,10 +162,12 @@ algorithms/
 
 ### 8. **Parallel Algorithms**
 **Main implementations:**
-- Fibonacci
-- File Processing
-
-**Framework:** Java ForkJoinPool
+- Naive Recursive Fibonacci
+- Parallel Array Transformation (Fork/Join)
+- Parallel Array Squaring (Fork/Join)
+- Parallel Array Summation (Fork/Join)
+- Parallel Fibonacci (Fork/Join)
+- Parallel File Processing (Fork/Join)
 
 **📖 Learn more:** See [Parallel Algorithms](https://learnalgorithms.dev/concepts/advanced-execution-models/parallel-algorithms)
 
