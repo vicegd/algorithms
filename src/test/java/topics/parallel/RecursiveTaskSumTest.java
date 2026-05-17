@@ -1,69 +1,91 @@
 package topics.parallel;
 
-import static org.junit.Assert.assertEquals;
-import java.util.concurrent.ForkJoinPool;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.concurrent.ForkJoinPool;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
- * RecursiveTaskSum JUnit tests
+ * <h1>Validation Suite for Parallel Summation</h1>
+ * <p>
+ * Verifies mathematical reduction correctness and benchmarks execution times 
+ * over a highly populated floating-point array using JUnit 5.
+ * </p>
+ *
  * @author vicegd
  */
-public class RecursiveTaskSumTest {
-  private static Logger log = LoggerFactory.getLogger(RecursiveTaskSumTest.class);
-  private static ForkJoinPool pool; //Task pool 
-  private static double[] data; //Numbers to work with
+class RecursiveTaskSumTest {
+    private static final Logger log = LoggerFactory.getLogger(RecursiveTaskSumTest.class);
+    
+    private static ForkJoinPool pool; 
+    private static double[] data; 
   
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("Recursive Task Sum Tests - Setup");
-    pool = new ForkJoinPool(); //Task pool 
-      data = new double[999999]; //Numbers to work with
-      
-      //Initialize numbers with values that alternate between positive and negative 
-      for(int i = 0; i < data.length; i++) //Some values
-        data[i] = (double)(((i%2) == 0) ? i : -i) ;
-   
-      log.trace("The original sequence:"); 
-      StringBuilder sb = new StringBuilder();
-      for(int i=0; i < data.length; i++)  
-        sb.append(data[i] + " ");
-      log.trace(sb.toString());
-  }
+    /**
+     * Provisions concurrent resources and structures an alternate dataset 
+     * of 999,999 values prior to executing benchmarks.
+     */
+    @BeforeAll
+    static void setup() {
+        log.trace("Recursive Task Sum Tests - Instantiating Context");
+        pool = new ForkJoinPool(); 
+        data = new double[999_999]; 
+        
+        // Alternating mathematical formula sign initializer loop
+        for (int i = 0; i < data.length; i++) { 
+            data[i] = ((i % 2) == 0) ? i : -i;
+        }
+        
+        // Safe stringification via streams guarded under configuration verification check
+        if (log.isTraceEnabled()) {
+            String initialSequenceDump = Arrays.stream(data)
+                    .limit(50) // Safe clamping limit for visualization logs
+                    .mapToObj(String::valueOf)
+                    .collect(Collectors.joining(" "));
+            log.trace("Original sequence initialized (Clamped view of first 50 entries): [{}]...", initialSequenceDump);
+        }
+    }
   
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("Recursive Task Sum Tests - Teardown");
-  }
+    /**
+     * Disposes of hardware execution thread environments gracefully.
+     */
+    @AfterAll
+    static void teardown() {
+        log.trace("Recursive Task Sum Tests - Shutting Down Context Pool");
+        if (pool != null) {
+            pool.shutdown();
+        }
+    }
   
-  /**
-   * Obtains the sum of the values in an array
-   */
-  @Test
-  public void executeTask() {
-      RecursiveTaskSum task = new RecursiveTaskSum(data, 0, data.length); 
-      long t1 = System.currentTimeMillis(); //to measure the time
-      double result = pool.invoke(task); //Start the main ForkJoinTask 
-      long t2 = System.currentTimeMillis();
-      
-      log.trace("Elapsed time: " + (t2-t1) + " ms"); 
-      log.trace("Result: " + result);
-      
-      //0.001 is the "fuzzy factor", something like the margin of error 
-      //since doubles may not be exactly equal
-       assertEquals(499999, result, 0.001); 
-  }
-
-
-
+    /**
+     * <p><strong>Scenario:</strong> Accumulating 999,999 alternated float primitives in parallel.</p>
+     * <p><strong>Expected Outcome:</strong> Total sum must equate perfectly to 499,999 
+     * under a delta margin of <code>1E-3</code> due to floating-point truncation variances.</p>
+     */
+    @Test
+    void shouldAggregateArraySumInParallelCorrectly() {
+        var task = new RecursiveTaskSum(data, 0, data.length); 
+        
+        Instant start = Instant.now();
+        double computedResult = pool.invoke(task); 
+        Instant end = Instant.now();
+        
+        log.trace("Parallel Reduction completed in {} ms", Duration.between(start, end).toMillis());
+        log.trace("Reduction Mathematical Result: {}", computedResult);
+        
+        // Assert true reduction logic accuracy using JUnit 5 assertion constraints
+        double expectedResult = 499_999.0;
+        double precisionDelta = 0.001;
+        
+        assertEquals(expectedResult, computedResult, precisionDelta,
+            "The parallel summation deviated past the safe floating-point precision constraint boundary."); 
+    }
 }
-

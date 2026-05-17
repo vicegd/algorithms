@@ -1,52 +1,57 @@
-
 package topics.parallel;
 
-import java.util.concurrent.ForkJoinPool;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Path;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.ForkJoinPool;
+
 /**
- * FileProcessingTask JUnit tests
+ * <h1>Validation Suite for Parallel File Processing</h1>
+ * <p>
+ * Provisions a concurrent environment to benchmark the Fork/Join file processor.
+ * </p>
+ *
  * @author vicegd
  */
-public class FileProcessingTaskTest {
-  private static Logger log = LoggerFactory.getLogger(FileProcessingTaskTest.class);
-  private static ForkJoinPool pool; //Task pool 
+class FileProcessingTaskTest {
+    private static final Logger log = LoggerFactory.getLogger(FileProcessingTaskTest.class);
+    private static ForkJoinPool pool; 
   
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("File Processing Taks Tests - Setup");
-    pool = new ForkJoinPool();
-  }
+    @BeforeAll
+    static void setup() {
+        log.trace("File Processing Task Tests - Initializing ForkJoinPool");
+        pool = new ForkJoinPool();
+    }
   
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("File Processing Taks Tests - Teardown");
-  }
+    @AfterAll
+    static void teardown() {
+        log.trace("File Processing Task Tests - Shutting Down ForkJoinPool");
+        if (pool != null) {
+            pool.shutdown();
+        }
+    }
   
-  /**
-   * Process several files in parallel
-   */
-  @Test
-  public void executeTask() {
-    FileProcessingTask problem = new FileProcessingTask("c:\\WINDOWS", null);                
+    /**
+     * <p><strong>Scenario:</strong> Scanning and processing a directory in parallel.</p>
+     */
+    @Test
+    void shouldProcessFilesInParallel() {
+        // Cross-platform safe path. Replaces the hardcoded "C:\\WINDOWS" to prevent 
+        // test failures for students using macOS or Linux environments.
+        var targetDirectory = Path.of(System.getProperty("user.dir"));
+        
+        var task = new FileProcessingTask(targetDirectory);                
 
-        long t1 = System.currentTimeMillis(); 
-      pool.invoke(problem); 
-      long t2 = System.currentTimeMillis();
+        Instant start = Instant.now(); 
+        pool.invoke(task); 
+        Instant end = Instant.now();
       
-      log.trace("Elapsed time: " + (t2-t1) + " ms");;
-  }
-  
+        log.trace("Parallel File Processing completed in {} ms", Duration.between(start, end).toMillis());
+    }
 }
-

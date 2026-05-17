@@ -1,65 +1,96 @@
 package topics.parallel;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.RecursiveAction;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.concurrent.RecursiveAction;
+import java.util.stream.Collectors;
+
 /**
- * Parallel file processing task using the Fork/Join framework.
- *
- * Recursively splits a list of Java source files into smaller sub-tasks
- * (using {@link java.util.concurrent.RecursiveAction}) until each sub-task
- * contains at most {@code THRESHOLD} files, then processes them. Demonstrates
- * the Fork/Join divide-and-conquer pattern for parallel I/O workloads.
+ * <h1>Parallel File Processing (Fork/Join)</h1>
+ * <p>
+ * Demonstrates the divide-and-conquer pattern utilizing Java's {@link RecursiveAction}.
+ * It recursively splits a list of files into smaller sub-tasks until they hit 
+ * the defined threshold, allowing the ForkJoinPool to process the I/O workload in parallel.
+ * </p>
+ * <p>
+ * <strong>Modernization Note:</strong> Utilizes NIO.2 ({@link Path}, {@link Files}) 
+ * for robust and efficient filesystem traversal.
+ * </p>
  *
  * @author vicegd
  * @see java.util.concurrent.ForkJoinPool
- * @see java.util.concurrent.RecursiveAction
  */
-class FileProcessingTask extends RecursiveAction {
-  private static Logger log = LoggerFactory.getLogger(FileProcessingTask.class);
-  private static final long serialVersionUID = 1L;
-  private static final int THRESHOLD = 5;
-  private List<File> javaFiles = null;
-  private String dirPath;
-   
-  public FileProcessingTask(String dirPath, List<File> javaFiles) {
-    this.dirPath = dirPath;
-    this.javaFiles = javaFiles;
-  }
-   
-  @Override
-  protected void compute() {
-        if (javaFiles == null) { //First time to start processing files
-          javaFiles = new ArrayList<File>();
-          File sourceDir = new File(dirPath);
-            if (sourceDir.isDirectory()) {
-              for (File file : sourceDir.listFiles()){
-                javaFiles.add(file);
-              }
-            }
+public class FileProcessingTask extends RecursiveAction {
+    private static final Logger log = LoggerFactory.getLogger(FileProcessingTask.class);
+    private static final long serialVersionUID = 1L;
+    
+    /** The granularity threshold. Maximum files processed per thread. */
+    private static final int THRESHOLD = 5;
+    
+    private final List<Path> filesToProcess;
+
+    /**
+     * Root Constructor: Initializes the task by scanning the target directory.
+     * <p>
+     * Utilizes Java Streams to efficiently filter and collect regular files, 
+     * ignoring sub-directories.
+     * </p>
+     *
+     * @param directory The root directory to scan.
+     */
+    public FileProcessingTask(Path directory) {
+        List<Path> scannedFiles = List.of();
+        try (var stream = Files.list(directory)) {
+            scannedFiles = stream
+                    .filter(Files::isRegularFile)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            log.error("Failed to read directory: {}", directory, e);
         }
-        if (javaFiles.size() <= THRESHOLD) {
-          processFiles(javaFiles);
-        }
-        else {
-            int center = javaFiles.size() / 2;
-            List<File> part1 = javaFiles.subList(0, center);
-            List<File> part2 = javaFiles.subList(center, javaFiles.size());
-            invokeAll(new FileProcessingTask(dirPath, part1),
-                new FileProcessingTask(dirPath, part2));
-        }
-  }
-   
-  protected void processFiles(List<File> filesToProcess) {
-    for (File file : filesToProcess){
-      log.trace(Thread.currentThread().getName()
-          + " " + file.getName());
+        this.filesToProcess = scannedFiles;
     }
-  }
+
+    /**
+     * Internal Recursive Constructor: Used strictly by the fork/join split logic.
+     *
+     * @param files The subset of files to process.
+     */
+    private FileProcessingTask(List<Path> files) {
+        this.filesToProcess = files;
+    }
+
+    @Override
+    protected void compute() {
+        if (filesToProcess.isEmpty()) {
+            return;
+        }
+
+        // Base Case: Process files if the list is within the threshold
+        if (filesToProcess.size() <= THRESHOLD) {
+            processFiles(filesToProcess);
+        } else {
+            // Recursive Case: Divide the list into two halves and invoke parallel tasks
+            int center = filesToProcess.size() / 2;
+            
+            var part1 = new FileProcessingTask(filesToProcess.subList(0, center));
+            var part2 = new FileProcessingTask(filesToProcess.subList(center, filesToProcess.size()));
+            
+            invokeAll(part1, part2);
+        }
+    }
+
+    /**
+     * Simulates the actual processing of the file batch within the current thread.
+     */
+    private void processFiles(List<Path> batch) {
+        String threadName = Thread.currentThread().getName();
+        for (Path file : batch) {
+            log.trace("[{}] Processing: {}", threadName, file.getFileName());
+        }
+    }
 }
-   
