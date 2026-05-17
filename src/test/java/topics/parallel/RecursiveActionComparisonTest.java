@@ -88,7 +88,6 @@ class RecursiveActionComparisonTest {
     private void executeBenchmark(int parallelismLevel, int threshold) {
         // Isolate the test execution by working on a fresh clone of the data
         int[] dataClone = sourceData.clone();
-        var pool = new ForkJoinPool(parallelismLevel);
         var task = new RecursiveActionComparison(dataClone, 0, dataClone.length, threshold); 
         
         log.trace("--- Starting Benchmark ---");
@@ -96,10 +95,11 @@ class RecursiveActionComparisonTest {
         log.trace("Sequential Threshold: {}", threshold); 
         
         Instant start = Instant.now();
-        pool.invoke(task); 
-        Instant end = Instant.now();
-        
-        pool.shutdown();
+        Instant end;
+        try (ForkJoinPool pool = new ForkJoinPool(parallelismLevel)) {
+            pool.invoke(task);
+            end = Instant.now();
+        }
         
         log.trace("Elapsed time: {} ms", Duration.between(start, end).toMillis());
         
