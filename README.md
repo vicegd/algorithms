@@ -88,7 +88,7 @@ New to algorithms? Start here!
 
 **Key Example:** MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
 
-**📖 Learn more:** See [Foundations](https://learnalgorithms.dev/concepts/category/1-foundations)
+**📖 Learn more:** See [Foundations of Algorithms](https://learnalgorithms.dev/concepts/category/1-foundations)
 
 ---
 
@@ -104,7 +104,7 @@ Learn fundamental sorting techniques with complexity analysis.
 | Quicksort | `Quicksort.java` | O(n log n) avg | O(log n) | General purpose |
 | Mergesort | `Mergesort.java` | O(n log n) | O(n) | Stable sorting needed |
 
-**📖 Learn more:** See [Foundations of Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting)
+**📖 Learn more:** See [Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting-algorithms)
 
 ---
 
