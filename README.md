@@ -88,19 +88,17 @@ algorithms/
 
 ### 2. **Sorting Algorithms**
 **Main implementations:**
-| Algorithm | File | Time (Avg/Worst) | Space | Best Use Case |
-|-----------|------|------------------|-------|---------------|
-| Bubble Sort | `Bubble.java` | O(n²) | O(1) | Educational baseline (strictly O(n²)) |
-| Bubble (Sentinel) | `BubbleSentinel.java` | O(n²) / O(n) best | O(1) | Nearly sorted data (early termination) |
-| Bidirectional Bubble | `BidirectionalBubble.java` | O(n²) | O(1) | Educational (Mitigates "turtle" values) |
-| Direct Insertion | `DirectInsertion.java` | O(n²) | O(1) | Small arrays or continuous data streams |
-| Binary Insertion | `BinaryInsertion.java` | O(n²) | O(1) | When comparisons are expensive but shifts are cheap |
-| Direct Selection | `DirectSelection.java` | O(n²) | O(1) | Memory write-constrained systems |
-| Shellsort | `Shellsort.java` | Sub-quadratic | O(1) | Medium-sized datasets (Generalization of Insertion) |
-| Quicksort (Median-3) | `Quicksort.java` | O(n log n) | O(log n) | Fast, general-purpose sorting |
-| Heapsort | `Heapsort.java` | O(n log n) | O(1) | Strict memory constraints (Guaranteed performance) |
-| Radix Sort (LSD) | `Radix.java` | O(k × n) | O(n) | Large datasets of integers (Non-comparative) |
-| Mergesort | `Mergesort.java` | O(n log n) | O(n) | When strict stable sorting is required |
+- Bidirectional Bubble
+- Binary Insertion
+- Bubble Sort
+- Bubble (Sentinel)
+- Direct Insertion
+- Direct Selection
+- Heapsort
+- Mergesort
+- Quicksort (Median-3)
+- Radix sort 
+- Shellsort
 
 **📖 Learn more:** See [Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting-algorithms)
 ---
