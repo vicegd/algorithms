@@ -1,6 +1,6 @@
 # Algorithms: A Comprehensive Educational Repository
 
-A comprehensive collection of **algorithm implementations** covering fundamental computer science concepts. This project is designed as an educational resource for students learning algorithmic problem-solving through practical code examples.
+A collection of **algorithm implementations** covering fundamental computer science concepts. This project is designed as an educational resource for students learning algorithmic problem-solving through practical code examples.
 
 **Course:** Algorithmics | **Institution:** [School of Computer Science](https://ingenieriainformatica.uniovi.es/) | [University of Oviedo](http://www.uniovi.es)
 
@@ -72,29 +72,15 @@ algorithms/
 ## 📚 Core Topics & Algorithms
 
 ### 1. **Foundations of Algorithms**
-New to algorithms? Start here!
+**Main implementations:**
+- MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
 
-**What you'll learn:**
-- What is an algorithm?
-- How to measure efficiency (Big-O)
-- Problem-solving strategies
-- Correctness vs Efficiency trade-offs
-- Data structures: Arrays, LinkedLists, Stacks, Queues, Hash Tables, Trees
-- Search algorithms: Linear search, Binary search
-- Recursion fundamentals
-- Problem-solving patterns (max/min, aggregation, search)
-
-**Why start here:** All other algorithm categories depend on these foundations. Building a strong base here makes everything else easier.
-
-**Key Example:** MaxPairWiseProduct problem with 6 different implementations showing optimization progression from O(n²) to O(n).
-
-**📖 Learn more:** See [Foundations of Algorithms](https://learnalgorithms.dev/concepts/category/1-foundations)
+**📖 Learn more:** See [Foundations of Algorithms](https://learnalgorithms.dev/concepts/category/1-foundations-of-algorithms)
 
 ---
 
 ### 2. **Sorting Algorithms**
-Learn fundamental sorting techniques with complexity analysis.
-
+**Main implementations:**
 | Algorithm | File | Time | Space | Best Use Case |
 |-----------|------|------|-------|---------------|
 | Bubble Sort | `Bubble.java` | O(n²) | O(1) | Educational purposes |
@@ -109,15 +95,8 @@ Learn fundamental sorting techniques with complexity analysis.
 ---
 
 ### 3. **Divide & Conquer**
-Master the divide-and-conquer problem-solving paradigm.
-
-**Key Concepts:**
-- Breaking problems into smaller subproblems
-- Solving recursively
-- Combining solutions
-
-**Implementations:**
-- **Searching:** Binary Search (O(log n))
+**Main implementations:**
+- **Searching:** Binary Search
 - **Mathematical:** Fibonacci, Factorial, GCD
 - **Array Operations:** Vector Sum, Mergesort, Quicksort
 - **Statistical:** Median, Mode, Majoritarian Element, Max Sum
@@ -127,30 +106,21 @@ Master the divide-and-conquer problem-solving paradigm.
 ---
 
 ### 4. **Greedy Algorithms**
-Learn when greedy choices lead to optimal solutions.
-
-**Note:** Contains both **optimal** and **sub-optimal** implementations for learning.
-
-**Classic Problems:**
+**Main implementations:**
 - Coin Change (Optimal vs Non-Optimal)
 - Knapsack Problem variants
 - File Disk Optimization
 - Agent Task Assignment
 - Chess Horse Movement
 
+**Note:** Contains both **optimal** and **sub-optimal** implementations for learning.
+
 **📖 Learn more:** See [Greedy Algorithms](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/greedy-algorithms)
 
 ---
 
 ### 5. **Dynamic Programming**
-Solve optimization problems by building solutions from subproblems.
-
-**Key Concepts:**
-- Overlapping subproblems
-- Optimal substructure
-- Memoization vs Tabulation
-
-**Problems Solved:**
+**Main implementations:**
 - Fibonacci Sequence
 - 0/1 Knapsack Problem
 - Coin Change Problem
@@ -162,25 +132,19 @@ Solve optimization problems by building solutions from subproblems.
 ---
 
 ### 6. **Backtracking**
-Explore systematic search techniques with pruning.
-
-**Applications:**
+**Main implementations:**
 - N-Queens Problem
 - Permutations
 - Subsets with given sum
 - Chess Horse paths
 - Agent Task Assignment
 
-**Complexity:** Exponential, with pruning optimizations
-
 **📖 Learn more:** See [Backtracking](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/backtracking)
 
 ---
 
 ### 7. **Branch & Bound**
-Solve optimization problems using intelligent search.
-
-**Covered Problems:**
+**Main implementations:**
 - Eight Puzzle (3x3 sliding puzzle)
 - Rectangle Placement Optimization
 - Agent Task Assignment
@@ -190,13 +154,9 @@ Solve optimization problems using intelligent search.
 ---
 
 ### 8. **Parallel Algorithms**
-Master concurrent programming with Fork/Join Framework.
-
-**Topics:**
-- Recursive task decomposition
-- Work-stealing algorithms
-- Parallel array operations
-- Concurrent file processing
+**Main implementations:**
+- Fibonacci
+- File Processing
 
 **Framework:** Java ForkJoinPool
 
