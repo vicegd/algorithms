@@ -90,12 +90,6 @@ If you want to introduce a new algorithm to the repository:
 
 ## 🛠️ Getting Started
 
-### Prerequisites
-
-- Java Development Kit (JDK) 21 or higher.
-- Apache Maven 3.8 or higher.
-- Git installed on your local machine.
-
 ### Setup Your Development Environment
 
 ```bash
