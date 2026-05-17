@@ -1,6 +1,6 @@
 # Code of Conduct
 
-Welcome to the Foundations of Algorithms repository! 
+Welcome to the Algorithms repository! 
 
 This is, first and foremost, an educational space. Our primary goal is to help students and developers learn, understand, and implement algorithms. To keep this environment productive and welcoming, we ask all contributors to follow a few simple, common-sense rules.
 
@@ -15,11 +15,3 @@ This is, first and foremost, an educational space. Our primary goal is to help s
 * **Harassment:** Any form of insults, discrimination, or public/private harassment is strictly prohibited.
 * **Plagiarism:** As an educational repository, academic integrity matters. Do not submit code stripped from other repositories without proper attribution.
 * **Destructive Behavior:** Trolling, spamming, or deliberately sabotaging discussions.
-
-## 📩 Reporting Issues
-
-If you experience or witness behavior that violates these principles and makes you feel uncomfortable, please contact the maintainer directly at `vicegd@example.com`. 
-
-All reports will be kept confidential. As maintainers, we reserve the right to close issues, reject pull requests, or block users who refuse to respect this educational environment.
-
-Thank you for helping us make this a safe and great place to learn! 🎓
