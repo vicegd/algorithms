@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Binary Insertion Sort Algorithm</h1>
+ * <h1>Binary Insertion Sort</h1>
  * <p>
  * An educational optimization of the standard Direct Insertion Sort. 
  * Instead of sequentially scanning backwards to find the correct insertion 

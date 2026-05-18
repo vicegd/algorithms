@@ -3,7 +3,7 @@ package topics.introduction;
 import java.util.List;
 
 /**
- * <h1>Search Algorithms</h1>
+ * <h1>Search</h1>
  * <p>
  * Provides a comparative implementation of fundamental search algorithms 
  * (Sequential, Sentinel, and Binary) to demonstrate their operational 

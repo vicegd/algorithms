@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Direct Insertion Sort Algorithm</h1>
+ * <h1>Direct Insertion Sort</h1>
  * <p>
  * An educational sorting implementation that builds the final sorted array 
  * one item at a time. It operates similarly to how one might sort a hand of 

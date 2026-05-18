@@ -79,7 +79,7 @@ algorithms/
 - Maximum Value Extraction
 - MaxPairWiseProduct problem with 6 different implementations showing optimization progressions
 - Random Dataset Generator
-- Search Algorithms
+- Search
 
 
 **📖 Learn more:** See [Foundations of Algorithms](https://learnalgorithms.dev/concepts/category/1-foundations-of-algorithms)
@@ -89,16 +89,16 @@ algorithms/
 ### 2. **Sorting Algorithms**
 **Main implementations:**
 - Bidirectional Bubble Sort (Cocktail Shaker Sort)
-- Binary Insertion Sort Algorithm
-- Bubble Sort Algorithm (Left-Bubbling)
-- Bubble Sort Algorithm (Optimized with Sentinel)
-- Direct Insertion Sort Algorithm
-- Direct Selection Sort Algorithm
-- Heapsort Algorithm
-- Mergesort Algorithm
-- Quicksort Algorithm (Median-of-Three)
-- Radix Sort Algorithm (LSD - Least Significant Digit)
-- Shellsort Algorithm
+- Binary Insertion Sort
+- Bubble Sort (Left-Bubbling)
+- Bubble Sort (Optimized with Sentinel)
+- Direct Insertion Sort
+- Direct Selection Sort
+- Heapsort
+- Mergesort
+- Quicksort (Median-of-Three)
+- Radix Sort (LSD - Least Significant Digit)
+- Shellsort
 
 **📖 Learn more:** See [Sorting Algorithms](https://learnalgorithms.dev/concepts/foundamental-problem-domains/sorting-algorithms)
 
@@ -129,11 +129,11 @@ algorithms/
 
 ### 5. **Dynamic Programming**
 **Main implementations:**
-- Fibonacci Sequence
 - 0/1 Knapsack Problem
+- Cheaper Travel on the River
 - Coin Change Problem
-- Combinations/Permutations
-- River Travel Optimization
+- Combinations (n choose k)
+- Fibonacci Sequence
 
 **📖 Learn more:** See [Dynamic Programming](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/dynamic-programming)
 

@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>0/1 Knapsack Problem - Dynamic Programming</h1>
+ * <h1>0/1 Knapsack Problem</h1>
  * <p>
  * Evaluates a set of items, each with a specific weight and value, to determine 
  * the combination that maximizes the total value without exceeding the weight 

@@ -1,7 +1,7 @@
 package topics.dynamic;
 
 /**
- * <h1>Fibonacci Sequence - Algorithmic Paradigms</h1>
+ * <h1>Fibonacci Sequence</h1>
  * <p>
  * Computes the Fibonacci number of order N. This class serves as a masterclass 
  * in algorithmic complexity, demonstrating how the exact same mathematical problem 

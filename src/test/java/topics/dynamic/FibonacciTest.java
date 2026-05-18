@@ -26,40 +26,40 @@ class FibonacciTest {
 
     @Test
     @DisplayName("Iterative O(N) Space O(1)")
-    void shouldCalculateFibonacciIteratively() {
+    void testFibonacciIterative() {
         assertEquals(89L, fib.fibonacciIterative(11));
         assertEquals(12586269025L, fib.fibonacciIterative(50), "Handles large bounds effectively");
     }
 
     @Test
     @DisplayName("Dynamic Programming O(N) Space O(N)")
-    void shouldCalculateFibonacciWithDP() {
+    void testFibonacciDP() {
         assertEquals(89L, fib.fibonacciDP(11));
     }
 
     @Test
     @DisplayName("Tail Recursive O(N)")
-    void shouldCalculateFibonacciWithTailRecursion() {
+    void testFibonacciTailRecursive() {
         assertEquals(89L, fib.fibonacciTailRecursive(11));
     }
 
     @Test
     @DisplayName("Naive Recursive O(2^N) - Small bound only")
-    void shouldCalculateFibonacciWithNaiveRecursion() {
-        // We only test up to N=11 here to prevent the suite from hanging.
+    void testFibonacciNaiveRecursive() {
+        // We only test up to N=11 here. If we tested N=50, the test suite would hang indefinitely.
         assertEquals(89L, fib.fibonacciNaiveRecursive(11));
     }
 
     @Test
     @DisplayName("Logarithmic Fast Doubling O(log N)")
-    void shouldCalculateFibonacciLogarithmically() {
+    void testFibonacciLogarithmic() {
         assertEquals(89L, fib.fibonacciLogarithmic(11));
         assertEquals(12586269025L, fib.fibonacciLogarithmic(50), "Handles large bounds near instantly");
     }
     
     @Test
     @DisplayName("Exception Guard: Negative Input")
-    void shouldThrowExceptionOnNegativeInput() {
-        assertThrows(IllegalArgumentException.class, () -> fib.fibonacciIterative(-5), "Did not throw exception on negative input.");
+    void testNegativeInputThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> fib.fibonacciIterative(-5));
     }
 }

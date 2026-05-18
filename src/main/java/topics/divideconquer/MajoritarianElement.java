@@ -1,118 +1,160 @@
- package topics.divideconquer;
+package topics.divideconquer;
 
 import topics.sorting.Quicksort;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * //DIVIDE AND CONQUER PROBLEM: IS THERE A MAJORITARIAN ELEMENT 
- * IN n ELEMENTS?
+ * <h1>Majoritarian Element</h1>
+ * <p>
+ * Evaluates whether an array contains a "Majoritarian Element" (an element that 
+ * appears strictly more than N/2 times). This class demonstrates the evolution 
+ * of algorithmic efficiency from a brute-force approach to a linear Divide & Conquer approach.
+ * </p>
+ *
  * @author vicegd
  */
 public class MajoritarianElement {
-  
-  /**
-   * This method iteratively calculates whether there is 
-   * or not majority element. It is quadratic O(n^2) 
-   * @param v Array with numbers to be used for the calculation
-   * @return Whether there is a majoritarian element
-   */
-  public boolean majoritarian1(int[]v) {
-    int n = v.length;
-    int majority = n/2 + 1; //to be the majoritarian element, it should be at least n/2 +1 times
-    int counter = 0;
-    for (int i=0; i<n/2; i++) {
-      counter=0; //we count for each number 
-      for (int j=i; j<n; j++)
-        if (v[j]==v[i]) 
-          counter++;
-      if (counter >= majority) return true; 
+    private static final Logger log = LoggerFactory.getLogger(MajoritarianElement.class);
+
+    /**
+     * <h2>1. Naive Iterative Approach</h2>
+     * <p>
+     * Checks every single element and counts its total occurrences across the entire array.
+     * </p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> O(N&sup2;) - Quadratic</li>
+     * <li><strong>Space Complexity:</strong> O(1) - Constant</li>
+     * </ul>
+     *
+     * @param v Array of elements.
+     * @return True if a majoritarian element exists, false otherwise.
+     */
+    public boolean hasMajorityNaive(int[] v) {
+        if (v == null || v.length == 0) return false;
+        
+        int n = v.length;
+        int majorityThreshold = n / 2 + 1; 
+        
+        // We only need to check the first half. If the majority element hasn't 
+        // appeared by the midpoint, it's mathematically impossible for it to be the majority.
+        for (int i = 0; i < n / 2 + 1; i++) {
+            int counter = 0; 
+            for (int j = i; j < n; j++) {
+                if (v[j] == v[i]) counter++;
+            }
+            if (counter >= majorityThreshold) return true; 
+        }
+        return false;
+    }    
+
+    /**
+     * <h2>2. Sorting Approach</h2>
+     * <p>
+     * Sorts the array first. If a majoritarian element exists, it <em>must</em> 
+     * occupy the mathematical center of the sorted array (index N/2). We then 
+     * just count how many times this central element appears.
+     * </p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> O(N log N) - Bound by the Quicksort step</li>
+     * <li><strong>Space Complexity:</strong> O(log N) - Bounded by the Quicksort call stack</li>
+     * </ul>
+     *
+     * @param v Array of elements.
+     * @return True if a majoritarian element exists, false otherwise.
+     */
+    public boolean hasMajoritySorting(int[] v) {
+        if (v == null || v.length == 0) return false;
+
+        Quicksort quicksort = new Quicksort();
+        quicksort.sort(v);
+        
+        int n = v.length;
+        int majorityThreshold = n / 2 + 1;
+        int counter = 0;
+        int candidate = v[n / 2]; // The theoretical candidate MUST be in the middle
+        
+        for (int i = 0; i < n; i++) {
+            if (v[i] == candidate) counter++;
+        }
+        
+        return counter >= majorityThreshold; 
+    }    
+
+    /**
+     * <h2>3. Divide & Conquer Approach (Tournament/Pairing Method)</h2>
+     * <p>
+     * Recursively eliminates pairs of elements. If adjacent elements are identical, 
+     * one is kept for the next round. If they differ, both are discarded. 
+     * This dramatically reduces the search space linearly.
+     * </p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> O(N) - Linear</li>
+     * <li><strong>Space Complexity:</strong> O(N) - Array cloning and call stack</li>
+     * </ul>
+     *
+     * @param v Array of elements.
+     * @return True if a majoritarian element exists, false otherwise.
+     */
+    public boolean hasMajorityDivideAndConquer(int[] v) {
+        if (v == null || v.length == 0) return false;
+        
+        int n = v.length;
+        int majorityThreshold = n / 2 + 1;
+        int[] candidateBox = new int[1]; // Array used as a mutable pointer reference
+        
+        // Backup the original array (JVM native, extremely fast)
+        // since the recursive division strictly mutates it in-place.
+        int[] backup = v.clone(); 
+        
+        boolean candidateFound = majorityByDivision(0, n - 1, candidateBox, v);
+        
+        // Restore the original array state
+        System.arraycopy(backup, 0, v, 0, n);
+        
+        // Validation step: We must verify if the surviving candidate actually meets the threshold
+        if (candidateFound) {
+            int counter = 0;
+            for (int i = 0; i < n; i++) {
+                if (v[i] == candidateBox[0]) counter++;
+            }
+            return counter >= majorityThreshold; 
+        }  
+        return false; 
     }
-    return false;
-  }    
-  
-  /**
-   * This method previously orders the vector O(nlogn) and then it 
-   * looks for the majoritarian element (if there is one), 
-   * knowing that if there is one, it should be in the central 
-   * position (among others) v[n/2]. It is O(nlogn) + O(n) -
-   * O(nlogn)
-   * @param v Array with numbers to be used for the calculation
-   * @return Whether there is a majoritarian element
-   */
-  public boolean majoritarian2(int[]v) {
-    Quicksort quicksort = new Quicksort();
-    quicksort.sort(v);
     
-    int n = v.length;
-    int majority = n/2+1;
-    int counter = 0;
-    //if there is a majoritarian element, it should be placed in the center
-    for (int i=0; i<n; i++)
-      if (v[i] == v[n/2]) counter++;
-    if (counter >= majority) 
-      return true; 
-    else return false; 
-  }    
-  
-  /**
-   * This method is recursive and difficult to understand. 
-   * It is explained in the base book  (section 3.11) and 
-   * has a linear complexity O(n). It is DandV by division 
-   * with a=1,b=2,k=1 - O(n) 
-   * @param v Array with numbers to be used for the calculation
-   * @return Whether there is a majoritarian element
-   */
-  public boolean majoritarian3(int[]v) {
-    int n = v.length;
-    int majority = n/2+1;
-    int counter = 0;
-    int[]candi = new int[1];
-    //the vector can be changed by majoritarianByDivision
-    int[]w = new int[n];
-    for (int i=0; i<n; i++) 
-      w[i]=v[i]; 
-    
-    boolean b = (majoritarianByDivision(0, v.length-1, candi, v));
-    
-    //we restore the vector
-    for (int i=0;i<n;i++) 
-      v[i]=w[i];
-    
-    if (b) {
-      for (int i=0;i<n;i++)
-        if (v[i]==candi[0]) 
-          counter++;
-          if (counter>=majority) 
-            return true; 
-    }  
-    return false; 
-  }
-  
-  private boolean majoritarianByDivision(int left,int right, int[]candi, int[]v) { 
-     int t=right-left+1;
-     if (t<=0) 
-       return false;
-     candi[0]=v[left];
-     if (t==1)
-       return true;
-     int j=left;
-     if (t%2==0) { //it is even
-      for (int i=left+1; i<=right; i+=2)
-        if (v[i-1] == v[i]) {
-           v[j] = v[i];
-           j=j+1;
+    /**
+     * Private recursive helper for the Tournament method.
+     */
+    private boolean majorityByDivision(int left, int right, int[] candidateBox, int[] v) { 
+        int segmentLength = right - left + 1;
+        
+        if (segmentLength <= 0) return false;
+        
+        candidateBox[0] = v[left];
+        if (segmentLength == 1) return true;
+        
+        int j = left;
+        
+        if (segmentLength % 2 == 0) { // Even length
+            for (int i = left + 1; i <= right; i += 2) {
+                if (v[i - 1] == v[i]) {
+                    v[j] = v[i];
+                    j++;
+                }
+            }
+            return majorityByDivision(left, j - 1, candidateBox, v);
+        } else { // Odd length
+            for (int i = left + 1; i <= right - 1; i += 2) {
+                if (v[i - 1] == v[i]) {
+                    v[j] = v[i];
+                    j++;
+                }
+            }
+            if (!majorityByDivision(left, j - 1, candidateBox, v)) {
+                candidateBox[0] = v[right]; // The leftover odd element becomes the candidate
+            }
+            return true;
         }
-         return majoritarianByDivision(left, j-1, candi, v);
-     }
-     else { //it is odd
-       for (int i=left+1; i<=right-1; i+=2)
-        if (v[i-1] == v[i]) {
-          v[j] = v[i];
-          j=j+1;
-        }
-         if (!majoritarianByDivision(left, j-1, candi, v))
-           candi[0]=v[right];
-         return true;
-     } //else
-  }
-    
+    }
 }

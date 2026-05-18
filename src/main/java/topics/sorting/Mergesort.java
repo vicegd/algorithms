@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Mergesort Algorithm</h1>
+ * <h1>Mergesort</h1>
  * <p>
  * A classic divide-and-conquer algorithm. It works by recursively breaking down 
  * an array into two halves until each sub-array consists of a single element, 

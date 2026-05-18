@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Direct Selection Sort Algorithm</h1>
+ * <h1>Direct Selection Sort</h1>
  * <p>
  * An educational sorting implementation that divides the input list into two parts: 
  * a sorted sublist built up from left to right, and a sublist of the remaining 

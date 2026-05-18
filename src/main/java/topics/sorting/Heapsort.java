@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Heapsort Algorithm</h1>
+ * <h1>Heapsort</h1>
  * <p>
  * A highly efficient comparison-based sorting algorithm that utilizes a binary 
  * heap data structure. It divides its execution into two distinct phases:

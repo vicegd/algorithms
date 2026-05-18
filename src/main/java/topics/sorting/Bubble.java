@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Bubble Sort Algorithm (Left-Bubbling)</h1>
+ * <h1>Bubble Sort (Left-Bubbling)</h1>
  * <p>
  * Educational sorting implementation without early-termination optimizations.
  * This specific variant iterates backwards, causing the smallest elements to 

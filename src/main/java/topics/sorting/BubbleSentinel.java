@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Bubble Sort Algorithm (Optimized with Sentinel)</h1>
+ * <h1>Bubble Sort (Optimized with Sentinel)</h1>
  * <p>
  * An optimized variant of the left-bubbling sort. It introduces a "sentinel" 
  * boolean flag to monitor if any mathematical swaps occurred during the current 

@@ -1,139 +1,95 @@
 package topics.divideconquer;
 
 /**
- * Binary Search implementation for finding an element in a sorted array.
+ * <h1>Binary Search</h1>
+ * <p>
+ * A classic Divide and Conquer algorithm used to find the position of a target 
+ * value within a <strong>strictly sorted array</strong>. It operates by repeatedly 
+ * dividing the search interval in half.
+ * </p>
  *
- * Algorithm Overview:
- * Implements the classic binary search algorithm using two approaches:
- * - Iterative: Uses a while loop, O(1) space complexity
- * - Recursive: Uses method recursion, O(log n) space for call stack
+ * <h2>Algorithm Steps</h2>
+ * <ol>
+ * <li>Begin with the mid-point of the whole array as a search key.</li>
+ * <li>If the value of the search key is equal to the item, return the index.</li>
+ * <li>If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half.</li>
+ * <li>Otherwise, narrow it to the upper half.</li>
+ * <li>Repeatedly check until the value is found or the interval is empty.</li>
+ * </ol>
  *
- * Divide and Conquer Strategy:
- * 1. Divide:  Split array into two halves at midpoint
- * 2. Conquer: Compare target with middle element
- * 3. Combine: Recursively search appropriate half
- *
- * Time Complexity:
- * - Best case:           O(1) - element at middle position
- * - Average case:        O(log n)
- * - Worst case:          O(log n) - element at end or not found
- * - Space (iterative):   O(1)
- * - Space (recursive):   O(log n) for recursion stack
- *
- * Precondition: Array must be sorted in ascending order.
- *
- * Example:
- *   int[] sortedArray = {1, 3, 5, 7, 9, 11, 13};
- *   BinarySearch searcher = new BinarySearch();
- *   int position = searcher.binarySearch1(sortedArray, 7);  // Returns 3
- *   int notFound = searcher.binarySearch1(sortedArray, 6);  // Returns Integer.MIN_VALUE
+ * <h2>Complexity Analysis</h2>
+ * <ul>
+ * <li><strong>Time Complexity:</strong> <code>O(log N)</code> in the worst/average case. <code>O(1)</code> in the best case (found at the first midpoint).</li>
+ * <li><strong>Space Complexity (Iterative):</strong> <code>O(1)</code> - Requires only a few pointers.</li>
+ * <li><strong>Space Complexity (Recursive):</strong> <code>O(log N)</code> - Memory consumed by the call stack depth.</li>
+ * </ul>
  *
  * @author vicegd
- * @see #binarySearch1(int[], int) Iterative implementation
- * @see #binarySearch2(int[], int) Recursive implementation
  */
 public class BinarySearch {
-  /**
-   * Iterative binary search implementation.
-   *
-   * Uses a while loop to repeatedly divide the search space in half.
-   * More efficient than the recursive version (no stack overhead).
-   *
-   * Algorithm Steps:
-   * 1. Initialize left = 0, right = array length - 1
-   * 2. While left <= right:
-   *    - Calculate middle = (left + right) / 2
-   *    - If array[middle] == target: Return middle
-   *    - If array[middle] > target: Search left half (right = middle - 1)
-   *    - If array[middle] < target: Search right half (left = middle + 1)
-   * 3. If element not found: Return Integer.MIN_VALUE
-   *
-   * Example:
-   *   int index = binarySearch1(new int[]{1, 3, 5, 7, 9}, 5);  // Returns 2
-   *
-   * @param v the sorted array to search in (must be in ascending order)
-   * @param x the value to search for
-   * @return the index of x in array v, or Integer.MIN_VALUE if not found
-   * @throws NullPointerException if array v is null
-   */
-  public int binarySearch1(int[]v, int x) {
-    int left = 0;
-    int right = v.length-1;
-    int center;
-    while (left <= right) {
-      center = (left+right) / 2;
-      if (v[center]==x) 
-        return center;
-      else if (v[center]>x) //the element is on the left
-        right=center-1;
-      else left=center+1;  //the element is on the right               
+
+    /**
+     * Iterative implementation of Binary Search.
+     * Highly recommended over the recursive version due to O(1) space complexity.
+     *
+     * @param v The strictly sorted array to search in (ascending order).
+     * @param x The target value to locate.
+     * @return The index of the target value, or Integer.MIN_VALUE if not found.
+     */
+    public int binarySearchIterative(int[] v, int x) {
+        if (v == null || v.length == 0) return Integer.MIN_VALUE;
+
+        int left = 0;
+        int right = v.length - 1;
+
+        while (left <= right) {
+            // Mathematically safe midpoint calculation to prevent Integer Overflow
+            int center = left + (right - left) / 2;
+
+            if (v[center] == x) {
+                return center;
+            } else if (v[center] > x) {
+                right = center - 1; // The target must be in the left half
+            } else {
+                left = center + 1;  // The target must be in the right half
+            }
+        }
+        
+        return Integer.MIN_VALUE; // Target does not exist in the array
     }
-    return Integer.MIN_VALUE; //x does not exist
-  }
-  
-  /**
-   * Recursive binary search implementation.
-   *
-   * Uses method recursion to divide the search space. Demonstrates
-   * the recursive divide-and-conquer pattern, though the iterative version
-   * is generally preferred due to lower memory overhead.
-   *
-   * Recurrence Relation:
-   *   T(n) = T(n/2) + O(1)  ->  O(log n)
-   *
-   * Why Divide and Conquer Works:
-   * - Optimal substructure: Solution to finding x in array depends on
-   *   finding x in left or right half
-   * - Independent subproblems: Left and right searches do not interfere
-   * - Exponential speedup: Each step eliminates half the remaining elements
-   *   -> logarithmic total steps
-   *
-   * Example:
-   *   int index = binarySearch2(new int[]{1, 3, 5, 7, 9, 11, 13}, 7);  // Returns 3
-   *
-   * @param v the sorted array to search in (must be in ascending order)
-   * @param x the value to search for
-   * @return the index of x in array v, or Integer.MIN_VALUE if not found
-   * @see #binarySearch1(int[], int) for iterative alternative
-   */
-  public int binarySearch2(int[]v,int x) {
-    return searchByDivision(0, v.length-1, v, x);
-  }
-  
-  /**
-   * Private recursive helper for binary search.
-   *
-   * Maintains the bounds of the search space (left and right indices) and
-   * recursively narrows them until the element is found or the space is empty.
-   *
-   * Base Cases:
-   * - If left > right:       Search space exhausted, return Integer.MIN_VALUE
-   * - If array[center] == x: Element found, return center
-   *
-   * Recursive Cases:
-   * - If array[center] > x: Recursively search left half
-   * - If array[center] < x: Recursively search right half
-   *
-   * Stack usage: This recursive approach uses O(log n) stack space.
-   * The iterative version ({@link #binarySearch1}) is safer for very large arrays.
-   *
-   * @param left  the left boundary (inclusive) of current search space
-   * @param right the right boundary (inclusive) of current search space
-   * @param v     the array being searched
-   * @param x     the value to search for
-   * @return the index of x, or Integer.MIN_VALUE if not found
-   */
-  private int searchByDivision(int left,int right, int[]v, int x) {
-    if (left > right) 
-      return Integer.MIN_VALUE;  //x does not exist
-    else {
-      int center = (left + right)/2;
-      if (v[center] == x) 
-        return center;
-      else if (v[center] > x) //the element is on the left
-        return searchByDivision(left,center-1, v, x);
-      else return searchByDivision(center+1, right, v, x); //the element is on the right                 
+
+    /**
+     * Recursive implementation of Binary Search.
+     * Demonstrates the Divide and Conquer paradigm elegantly, though it incurs 
+     * O(log N) auxiliary space penalty due to the call stack.
+     *
+     * @param v The strictly sorted array to search in (ascending order).
+     * @param x The target value to locate.
+     * @return The index of the target value, or Integer.MIN_VALUE if not found.
+     */
+    public int binarySearchRecursive(int[] v, int x) {
+        if (v == null || v.length == 0) return Integer.MIN_VALUE;
+        return searchByDivision(0, v.length - 1, v, x);
     }
-  }
-  
+
+    /**
+     * Private recursive helper method handling the bounds.
+     */
+    private int searchByDivision(int left, int right, int[] v, int x) {
+        if (left > right) {
+            return Integer.MIN_VALUE; // Search space exhausted
+        }
+
+        int center = left + (right - left) / 2;
+
+        if (v[center] == x) {
+            return center;
+        } else if (v[center] > x) {
+            // The target must be in the left half
+            return searchByDivision(left, center - 1, v, x);
+        } else {
+            // The target must be in the right half
+            return searchByDivision(center + 1, right, v, x);
+        }
+    }
 }

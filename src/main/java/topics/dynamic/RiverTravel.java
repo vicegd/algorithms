@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>Cheaper Travel on the River - Dynamic Programming</h1>
+ * <h1>Cheaper Travel on the River</h1>
  * <p>
  * A classic routing problem. Given a river with <code>N</code> docks, you can only 
  * travel downstream (from dock <code>i</code> to dock <code>j</code> where <code>i &lt; j</code>).

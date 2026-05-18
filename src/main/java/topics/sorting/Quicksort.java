@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Quicksort Algorithm (Median-of-Three)</h1>
+ * <h1>Quicksort (Median-of-Three)</h1>
  * <p>
  * A highly efficient, divide-and-conquer sorting algorithm. This implementation 
  * utilizes the "Median-of-Three" heuristic for pivot selection to heavily mitigate 

@@ -10,7 +10,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 /**
- * <h1>Radix Sort Algorithm (LSD - Least Significant Digit)</h1>
+ * <h1>Radix Sort (LSD - Least Significant Digit)</h1>
  * <p>
  * A non-comparative integer sorting algorithm that groups keys by individual 
  * digits that share the same significant position and value. This implementation 

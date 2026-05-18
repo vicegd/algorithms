@@ -7,7 +7,7 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Shellsort Algorithm</h1>
+ * <h1>Shellsort</h1>
  * <p>
  * An highly efficient optimization of Direct Insertion Sort. It overcomes the 
  * limitation of Insertion Sort (where elements only move one position at a time) 

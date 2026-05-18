@@ -1,54 +1,47 @@
 package topics.divideconquer;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * VectorSum JUnit tests
+ * <h1>Validation Suite for Vector Summation Paradigms</h1>
+ * <p>
+ * Verifies structural calculations produce mathematical parity across all 
+ * three operational variants.
+ * </p>
+ *
  * @author vicegd
  */
-public class VectorSumTest {
-  private static VectorSum sum;
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    sum = new VectorSum();
-  }
-  
-  /**
-   * Calculates the addition of the numbers in an array in an iterative way
-   */
-  @Test
-  public void sumIterative() {
-    int[] v = {1, 30, 40, 13, 92, 34, 5, 2, 8};
-    int result = sum.sum1(v);
-    assertEquals(225, result);
-  }  
-  
-  /**
-   * Calculates the addition of the numbers in an array in a recursive way (subtraction)
-   */
-  @Test
-  public void sumRecursiveSubtraction() {
-    int[] v = {1, 30, 40, 13, 92, 34, 5, 2, 8};
-    int result = sum.sum2(v);
-    assertEquals(225, result);
-  }
-  
-  /**
-   * Calculates the addition of the numbers in an array in a recursive way (division)
-   */
-  @Test
-  public void sumRecursiveDivision() {
-    int[] v = {1, 30, 40, 13, 92, 34, 5, 2, 8};
-    int result = sum.sum3(v);
-    assertEquals(225, result);
-  }
-  
+@DisplayName("Vector Summation Paradigms")
+class VectorSumTest {
+    private static VectorSum sumCalculator;
+    
+    @BeforeAll
+    static void setup() {
+        sumCalculator = new VectorSum();
+    }
+    
+    @Test
+    @DisplayName("Iterative O(N): Accumulate element sequence via standard loop register")
+    void shouldSumIteratively() {
+        int[] v = {1, 30, 40, 13, 92, 34, 5, 2, 8};
+        assertEquals(225, sumCalculator.sumIterative(v), "Iterative summation loop mismatch.");
+    }  
+    
+    @Test
+    @DisplayName("Subtraction O(N): Accumulate element sequence via linear recursion bounds")
+    void shouldSumRecursivelyWithSubtraction() {
+        int[] v = {1, 30, 40, 13, 92, 34, 5, 2, 8};
+        assertEquals(225, sumCalculator.sumRecursiveSubtraction(v), "Subtraction-based recursive mismatch.");
+    }
+    
+    @Test
+    @DisplayName("Division O(N): Accumulate element sequence via symmetric binary split tree")
+    void shouldSumRecursivelyWithDivision() {
+        int[] v = {1, 30, 40, 13, 92, 34, 5, 2, 8};
+        assertEquals(225, sumCalculator.sumRecursiveDivision(v), "Division-based binary recursive mismatch.");
+    }
 }
-
