@@ -1,7 +1,7 @@
 package topics.divideconquer;
 
 /**
- * <h1>Vector Summation - Algorithmic Structural Variations</h1>
+ * <h1>Vector Summation (Algorithmic Structural Variations)</h1>
  * <p>
  * Computes the total sum of elements within an integer array. This class acts 
  * as a pristine educational baseline to compare Iteration, Divide & Conquer 
