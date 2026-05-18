@@ -1,97 +1,61 @@
 package topics.dynamic;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
- * Combinations JUnit tests
+ * <h1>Validation Suite for Combinations</h1>
+ * <p>
+ * Verifies the mathematical accuracy of the combination calculations and 
+ * highlights the extreme performance disparity between Dynamic Programming 
+ * and Naive Recursion.
+ * </p>
+ *
  * @author vicegd
  */
-public class CombinationsTest {
-  private static Logger log = LoggerFactory.getLogger(CombinationsTest.class);
-  private Combinations comb;
-  long[][] table; //To calculate the combinations in a dynamic programming way
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("Combinations Tests - Setup");
-  }
-  
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("Combinations Tests - Teardown");
-  }
-  
-  /**
-   * It gives the combinations value (n taken k by k)
-   */
-  @Test
-  public void testCombinationsDP() {
-    int n = 52; 
-    int k = 5;
+@DisplayName("Combinations - Dynamic Programming vs Recursion")
+class CombinationsTest {
+    private static final Logger log = LoggerFactory.getLogger(CombinationsTest.class);
+    private static Combinations comb;
 
-    table = new long[n+1][k+1];
-    comb = new Combinations();
-    long result = comb.combinations(table, n, k);
-    //comb.writeSolution(table, n, k);    
-    assertEquals(2598960, result);
-  }
-  
-  /**
-   * It gives the combinations value (n taken k by k)
-   */
-  @Test
-  public void testCombinationsDP2() {
-    int n = 100; 
-    int k = 15;
+    @BeforeAll
+    static void setup() {
+        comb = new Combinations();
+        log.trace("Combinations Validation Suite Initialized");
+    }
 
-    table = new long[n+1][k+1];
-    comb = new Combinations();
-    long result = comb.combinations(table, n, k);
-    //comb.writeSolution(table, n, k);
-    //This result is too big to be calculated with D&C instead
-    assertEquals(253338471349988640L, result);
-  }
-  
-  /**
-   * It gives the combinations value (n taken k by k)
-   */
-  @Test
-  public void testCombinationsDP3() {
-    int n = 9; 
-    int k = 5;
+    @Test
+    @DisplayName("DP: Standard deck of cards (52 choose 5)")
+    void shouldCalculateStandardDeckCombinations() {
+        assertEquals(2598960L, comb.combinationsDP(52, 5), "Failed to calculate standard 52C5 combination.");
+    }
 
-    table = new long[n+1][k+1];
-    comb = new Combinations();
-    long result = comb.combinations(table, n, k);
-    comb.writeSolution(table, n, k);
-    assertEquals(126, result);
-  }
+    @Test
+    @DisplayName("DP: Large dataset calculation (100 choose 15)")
+    void shouldCalculateLargeScaleCombinations() {
+        // DP resolves this instantly
+        assertEquals(253338471349988640L, comb.combinationsDP(100, 15), "Failed to scale to large datasets.");
+    }
 
-  /**
-   * It gives the combinations value (n taken k by k)
-   */
-  @Test
-  public void testCombinationsDC() {
-    int n = 100; 
-    int k = 15;
+    @Test
+    @DisplayName("DP: Small dataset for matrix logging (9 choose 5)")
+    void shouldCalculateSmallScaleCombinations() {
+        assertEquals(126L, comb.combinationsDP(9, 5), "Failed to calculate small scale combination.");
+    }
 
-    comb = new Combinations();
-    long result = comb.combinationsDivideAndConquer(n, k);  
-    assertEquals(253338471349988640L, result);
-  }
-  
-
+    @Test
+    @DisplayName("Recursion: Noticeable lag on moderate datasets (30 choose 15)")
+    void shouldDemonstrateRecursiveLagOnModerateDatasets() {
+        long start = System.currentTimeMillis();
+        long result = comb.combinationsRecursive(30, 15);
+        long end = System.currentTimeMillis();
+        
+        log.debug("Recursive C(30, 15) took {} ms", (end - start));
+        assertEquals(155117520L, result, "Recursive method failed to calculate the correct result.");
+    }
 }
-

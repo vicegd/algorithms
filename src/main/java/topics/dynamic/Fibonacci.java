@@ -1,100 +1,143 @@
 package topics.dynamic;
 
 /**
- * DYNAMIC PROGRAMMING: CALCULATE THE FIBONACCI NUMBER OF ORDER n
- * Fibonacci Series = 0,1,1,2,3,5,8,13,21,34,55,89,...
- * e.g. the 0 is when n=0 and the 89 is when n=11
+ * <h1>Fibonacci Sequence - Algorithmic Paradigms</h1>
+ * <p>
+ * Computes the Fibonacci number of order N. This class serves as a masterclass 
+ * in algorithmic complexity, demonstrating how the exact same mathematical problem 
+ * can be solved using different paradigms, ranging from unaffordable exponential 
+ * time to highly optimized logarithmic time.
+ * </p>
+ * <p>Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...</p>
+ *
  * @author vicegd
  */
 public class Fibonacci {
-  
-  /**
-   * First iterative solution with a
-   * temporal complexity O(n)
-   * @param n Positive number to be used as input
-   * @return Fibonacci value for n
-   */
-  public int fib1(int n) {
-    int n1 = 0;
-    int n2 = 1;
-    for (int i = 1; i <= n; i++) {
-      int s = n1+n2;
-      n1 = n2;
-      n2 = s;
-    }
-    return n1;
-  }  
-  
-  /**
-   * Second iterative solution with time 
-   * complexity O(n) and that uses a vector. 
-   * Simple case of the DYNAMIC PROGRAMMING 
-   * technique (MORE ON THAT LATER IN THE 
-   * COURSE)
-   * @param n Positive number to be used as input
-   * @param v Array to help in the calculation
-   * @return Fibonacci value for n
-   */
-  public int fib2(int n, int[]v) {
-    v[0] = 0;
-    v[1] = 1;
-    for (int i=2; i <= n; i++) 
-      v[i]= v[i-1] + v[i-2];
-    return v[n];
-  }
-  
-  /**
-   * First recursive version, with a linear 
-   * complexity O(n). It is DandC by subtraction
-   * with a=1,b=1,k=0 - O(n) 
-   * @param n Positive number to be used as input
-   * @return Fibonacci value for n
-   */
-  public int fib3(int n) {
-    return aux(0,1,n);
-  }
-  private int aux(int n1, int n2, int n) {
-    if (n < 1) 
-      return n1;
-    return aux(n2, n1+n2, n-1);
-  }
-  
-  /**
-   * Second recursive version, with equation 
-   * T(n)=T(n-1)+T(n-2)+O(1), that once solved 
-   * is exponential O(1.6^n). 
-   * IN SHORT, THIS IS AN UNAFFORDABLE SOLUTION 
-   * @param n Positive number to be used as input
-   * @return Fibonacci value for n
-   */
-  public int fib4(int n) {
-    if (n <= 1) 
-      return n;
-    return fib4(n-1) + fib4(n-2);
-  }
-  
-  /**
-   * DandC sophisticated solution that is O(log n). 
-   * It is DandV by division with a=1,b=2,k=0 and 
-   * it is programmed in an iterative way.
-   * @param n Positive number to be used as input
-   * @return Fibonacci value for n
-   */
-  public int fib5(int n) {
-    int i=1;int j=0;int k=0;int h=1;int t=0;
-    while (n>0) {
-      if (n%2==1) { 
-        t=j*h;
-        j=i*h+j*k+t;
-        i=i*k+t;
-      }
-      t=h*h;
-      h=2*k*h+t;
-      k=k*k+t;
-      n=n/2;
-    }
-    return j;
-  }  
-  
-}
 
+    /**
+     * <h2>1. Iterative Approach (Space Optimized DP)</h2>
+     * <p>Computes Fibonacci using a simple loop. It only keeps track of the 
+     * last two values instead of the entire array.</p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> <code>O(N)</code></li>
+     * <li><strong>Space Complexity:</strong> <code>O(1)</code></li>
+     * </ul>
+     *
+     * @param n Positive integer input.
+     * @return Fibonacci value for n.
+     */
+    public long fibonacciIterative(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative numbers.");
+        if (n == 0) return 0;
+
+        long n1 = 0;
+        long n2 = 1;
+        for (int i = 2; i <= n; i++) {
+            long sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+        }
+        return n2;
+    }
+
+    /**
+     * <h2>2. Dynamic Programming Approach (Tabulation)</h2>
+     * <p>Uses a 1D array to store previously computed values, avoiding 
+     * recalculations. This is the fundamental concept of Bottom-Up DP.</p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> <code>O(N)</code></li>
+     * <li><strong>Space Complexity:</strong> <code>O(N)</code></li>
+     * </ul>
+     *
+     * @param n Positive integer input.
+     * @return Fibonacci value for n.
+     */
+    public long fibonacciDP(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative numbers.");
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        long[] dp = new long[n + 1];
+        dp[0] = 0;
+        dp[1] = 1;
+        
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+
+    /**
+     * <h2>3. Tail Recursive Approach (Divide & Conquer by Subtraction)</h2>
+     * <p>A linear recursive version that passes the accumulators forward. 
+     * Modern compilers can optimize this to prevent StackOverflows.</p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> <code>O(N)</code></li>
+     * <li><strong>Space Complexity:</strong> <code>O(N)</code> (Call stack)</li>
+     * </ul>
+     *
+     * @param n Positive integer input.
+     * @return Fibonacci value for n.
+     */
+    public long fibonacciTailRecursive(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative numbers.");
+        return tailHelper(0, 1, n);
+    }
+
+    private long tailHelper(long n1, long n2, int n) {
+        if (n == 0) return n1;
+        if (n == 1) return n2;
+        return tailHelper(n2, n1 + n2, n - 1);
+    }
+
+    /**
+     * <h2>4. Naive Recursive Approach (The Trap)</h2>
+     * <p>Strict translation of the mathematical formula <code>F(n) = F(n-1) + F(n-2)</code>.
+     * It solves the same overlapping subproblems millions of times.</p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> Exponential <code>O(1.618^N)</code> - UNAFFORDABLE FOR N > 45.</li>
+     * <li><strong>Space Complexity:</strong> <code>O(N)</code> (Call stack)</li>
+     * </ul>
+     *
+     * @param n Positive integer input.
+     * @return Fibonacci value for n.
+     */
+    public long fibonacciNaiveRecursive(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative numbers.");
+        if (n <= 1) return n;
+        
+        return fibonacciNaiveRecursive(n - 1) + fibonacciNaiveRecursive(n - 2);
+    }
+
+    /**
+     * <h2>5. Logarithmic Approach (Fast Doubling / Matrix Exponentiation)</h2>
+     * <p>Sophisticated Divide & Conquer algorithm that exploits mathematical 
+     * matrix identities to compute the answer skipping massive amounts of steps.</p>
+     * <ul>
+     * <li><strong>Time Complexity:</strong> <code>O(log N)</code></li>
+     * <li><strong>Space Complexity:</strong> <code>O(1)</code></li>
+     * </ul>
+     *
+     * @param n Positive integer input.
+     * @return Fibonacci value for n.
+     */
+    public long fibonacciLogarithmic(int n) {
+        if (n < 0) throw new IllegalArgumentException("Fibonacci undefined for negative numbers.");
+        if (n == 0) return 0;
+        
+        long i = 1, j = 0, k = 0, h = 1, t;
+        
+        while (n > 0) {
+            if (n % 2 == 1) {
+                t = j * h;
+                j = i * h + j * k + t;
+                i = i * k + t;
+            }
+            t = h * h;
+            h = 2 * k * h + t;
+            k = k * k + t;
+            n = n / 2;
+        }
+        return j;
+    }
+}

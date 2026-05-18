@@ -1,103 +1,69 @@
 package topics.dynamic;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
- * RiverTravel JUnit tests
+ * <h1>Validation Suite for River Travel (DP)</h1>
+ * <p>
+ * Ensures the algorithm correctly identifies cheaper multi-stop routes 
+ * over direct travel routes in a Directed Acyclic Graph representation.
+ * </p>
+ *
  * @author vicegd
  */
-public class RiverTravelTest {
-  private static Logger log = LoggerFactory.getLogger(RiverTravelTest.class);
-  private RiverTravel travel;
-  private int[][]t; //Fees from Ei to Ej (i<j)
-  private int[][]c; //Minimum cost for each pair of docks (to be calculated)
-  private int[][]expectedResult; //Expected Result
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("River Travel Tests - Setup");
-  }
-  
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("River Travel Tests - Teardown");
-  }
-  
-  /**
-   * It gives the minimum cost for each pair of docks
-   */
-  @Test
-  public void testRiverTravel() {
-    int n=5; //Number of docks
-    t = new int[n][n]; //Fees from Ei to Ej (i<j)
-    t[0][1]=3;t[0][2]=8;t[0][3]=9;t[0][4]=20;
-    t[1][2]=5;t[1][3]=5;t[1][4]=2;
-    t[2][3]=3;t[2][4]=6;
-    t[3][4]=2;
-      
-    c = new int[n][n]; //Minimum cost for each pair of docks (to be calculated)
-    
-    expectedResult = new int[n][n]; 
-    expectedResult[0][1]=3;expectedResult[0][2]=8;expectedResult[0][3]=8;expectedResult[0][4]=5;
-    expectedResult[1][2]=5;expectedResult[1][3]=5;expectedResult[1][4]=2;
-    expectedResult[2][3]=3;expectedResult[2][4]=5;
-    expectedResult[3][4]=2;
-    
-    travel = new RiverTravel();
-    travel.riverTravel(t, c);
-    
-    for (int i=0; i<n; i++) {
-      for (int j=0; j<n; j++) {
-        assertEquals(expectedResult[i][j], c[i][j]);
-      }
-    }
-    travel.writeMatrix(t);
-    travel.writeMatrix(c);
-  }
-  
-  /**
-   * It gives the minimum cost for each pair of docks
-   */
-  @Test
-  public void testRiverTravel2() {
-    int n=5; //Number of docks
-    t = new int[n][n]; //Fees from Ei to Ej (i<j)
-    t[0][1]=6;t[0][2]=9;t[0][3]=12;t[0][4]=22;
-    t[1][2]=5;t[1][3]=12;t[1][4]=17;
-    t[2][3]=4;t[2][4]=14;
-    t[3][4]=9;
-      
-    c = new int[n][n]; //Minimum cost for each pair of docks (to be calculated)
-    
-    expectedResult = new int[n][n]; 
-    expectedResult[0][1]=6;expectedResult[0][2]=9;expectedResult[0][3]=12;expectedResult[0][4]=21;
-    expectedResult[1][2]=5;expectedResult[1][3]=9;expectedResult[1][4]=17;
-    expectedResult[2][3]=4;expectedResult[2][4]=13;
-    expectedResult[3][4]=9;
-    
-    travel = new RiverTravel();
-    travel.riverTravel(t, c);
-    
-    for (int i=0; i<n; i++) {
-      for (int j=0; j<n; j++) {
-        assertEquals(expectedResult[i][j], c[i][j]);
-      }
-    }
-    travel.writeMatrix(t);
-    travel.writeMatrix(c);
-  }
-  
-}
+@DisplayName("River Travel Routing - Dynamic Programming")
+class RiverTravelTest {
+    private static RiverTravel travel;
 
+    @BeforeAll
+    static void setup() {
+        travel = new RiverTravel();
+    }
+
+    @Test
+    @DisplayName("Should find optimal downstream routes (Case 1)")
+    void shouldCalculateOptimalRoutesCase1() {
+        int n = 5;
+        int[][] tariff = new int[n][n];
+        tariff[0][1] = 3; tariff[0][2] = 8; tariff[0][3] = 9; tariff[0][4] = 20;
+        tariff[1][2] = 5; tariff[1][3] = 5; tariff[1][4] = 2;
+        tariff[2][3] = 3; tariff[2][4] = 6;
+        tariff[3][4] = 2;
+
+        int[][] expected = new int[n][n];
+        expected[0][1] = 3; expected[0][2] = 8; expected[0][3] = 8; expected[0][4] = 5;
+        expected[1][2] = 5; expected[1][3] = 5; expected[1][4] = 2;
+        expected[2][3] = 3; expected[2][4] = 5;
+        expected[3][4] = 2;
+
+        int[][] result = travel.calculateMinimumCosts(tariff);
+
+        // assertArrayEquals natively compares multi-dimensional arrays in JUnit 5
+        assertArrayEquals(expected, result, "Failed to calculate the correct minimum cost matrix for Case 1.");
+    }
+
+    @Test
+    @DisplayName("Should find optimal downstream routes with heavier initial tariffs (Case 2)")
+    void shouldCalculateOptimalRoutesCase2() {
+        int n = 5;
+        int[][] tariff = new int[n][n];
+        tariff[0][1] = 6; tariff[0][2] = 9; tariff[0][3] = 12; tariff[0][4] = 22;
+        tariff[1][2] = 5; tariff[1][3] = 12; tariff[1][4] = 17;
+        tariff[2][3] = 4; tariff[2][4] = 14;
+        tariff[3][4] = 9;
+
+        int[][] expected = new int[n][n];
+        expected[0][1] = 6; expected[0][2] = 9; expected[0][3] = 12; expected[0][4] = 21;
+        expected[1][2] = 5; expected[1][3] = 9; expected[1][4] = 17;
+        expected[2][3] = 4; expected[2][4] = 13;
+        expected[3][4] = 9;
+
+        int[][] result = travel.calculateMinimumCosts(tariff);
+
+        assertArrayEquals(expected, result, "Failed to calculate the correct minimum cost matrix for Case 2.");
+    }
+}

@@ -1,4 +1,4 @@
-# Contributing to Foundations of Algorithms
+# Contributing to the Algorithms repository
 
 Thank you for your interest in contributing! This repository is an educational hub designed to help university students master classical, sequential, and parallel algorithms through clean, modern, and elegant Java code.
 
