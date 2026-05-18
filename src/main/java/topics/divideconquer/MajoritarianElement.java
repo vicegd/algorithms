@@ -1,8 +1,6 @@
 package topics.divideconquer;
 
 import topics.sorting.Quicksort;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Majoritarian Element</h1>
@@ -15,8 +13,6 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class MajoritarianElement {
-    private static final Logger log = LoggerFactory.getLogger(MajoritarianElement.class);
-
     /**
      * <h2>1. Naive Iterative Approach</h2>
      * <p>

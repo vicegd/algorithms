@@ -3,8 +3,6 @@ package topics.dynamic;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @DisplayName("Coin Change - Dynamic Programming Optimization")
 class ChangeTest {
-    private static final Logger log = LoggerFactory.getLogger(ChangeTest.class);
     private static Change changeCalculator;
 
     @BeforeAll
