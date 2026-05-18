@@ -79,8 +79,7 @@ algorithms/
 - Maximum Value Extraction
 - MaxPairWiseProduct problem with 6 different implementations showing optimization progressions
 - Random Dataset Generator
-- Search
-
+- Search (Algorithmic Structural Variations)
 
 **📖 Learn more:** See [Foundations of Algorithms](https://learnalgorithms.dev/concepts/category/1-foundations-of-algorithms)
 
@@ -106,10 +105,16 @@ algorithms/
 
 ### 3. **Divide & Conquer**
 **Main implementations:**
-- **Searching:** Binary Search
-- **Mathematical:** Fibonacci, Factorial, GCD
-- **Array Operations:** Vector Sum, Mergesort, Quicksort
-- **Statistical:** Median, Mode, Majoritarian Element, Max Sum
+- Binary Search
+- Factorial Calculation
+- Fibonacci Sequence
+- Greatest Common Divisor (GCD)
+- Majoritarian Element
+- Maximum Subarray Sum
+- Median Calculation (K-th Smallest Element)
+- Mode Calculation
+- Sequential (Linear) Search
+- Vector Summation (Algorithmic Structural Variations)
 
 **📖 Learn more:** See [Divide and Conquer](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/divide-and-conquer)
 
