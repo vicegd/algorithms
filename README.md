@@ -1,4 +1,4 @@
-# Algorithms: A Comprehensive Educational Repository
+# Algorithms: An Educational Repository
 
 A collection of **algorithm implementations** covering fundamental computer science concepts. This project is designed as an educational resource for students learning algorithmic problem-solving through practical code examples.
 
