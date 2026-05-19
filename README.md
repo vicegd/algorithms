@@ -16,7 +16,7 @@ A collection of **algorithm implementations** covering fundamental computer scie
 
 ### Installation, Setup & Testing
 
-The project includes **comprehensive unit tests** using **JUnit 5**.
+The project includes **unit tests** using **JUnit**.
 
 ```bash
 # Clone the repository
