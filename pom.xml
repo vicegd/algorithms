@@ -37,6 +37,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.12.0</version>
         <configuration>
+          <reportOutputDirectory>${project.build.directory}/site</reportOutputDirectory>
           <additionalJOption>-Xdoclint:-html,-missing</additionalJOption>
           <encoding>UTF-8</encoding>
         </configuration>
