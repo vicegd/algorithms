@@ -1,8 +1,6 @@
 package topics.backtracking.agents;
 
 import java.util.concurrent.ThreadLocalRandom;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Empirical Runtime Analysis for Backtracking</h1>
@@ -14,8 +12,6 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class AgentsTasksTimes {
-    private static final Logger log = LoggerFactory.getLogger(AgentsTasksTimes.class);
-
     public static void main(String[] args) {
         System.out.println("=========================================================");
         System.out.println("  BENCHMARKING PURE BACKTRACKING (Empirical Curve O(N!))");

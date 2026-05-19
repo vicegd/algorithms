@@ -1,4 +1,4 @@
-package topics.divideconquer;
+package topics.divideconquer.gcd;
 
 /**
  * <h1>Greatest Common Divisor (GCD)</h1>

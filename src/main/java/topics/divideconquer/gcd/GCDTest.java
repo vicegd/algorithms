@@ -1,4 +1,4 @@
-package topics.divideconquer;
+package topics.divideconquer.gcd;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
