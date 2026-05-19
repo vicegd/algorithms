@@ -124,8 +124,8 @@ class BoardState extends Node {
      * Imposes bounds checking, overlap prevention, and adjacency constraints.
      */
     private boolean insertNewPiece(int x, int y, PieceOrientation orientation, int[][] nextBoard, Piece piece) {
-        int pieceWidth = (orientation == PieceOrientation.HORIZONTAL) ? piece.width() : piece.height();
-        int pieceHeight = (orientation == PieceOrientation.HORIZONTAL) ? piece.height() : piece.width();
+        int pieceWidth = (orientation == PieceOrientation.HORIZONTAL) ? piece.x : piece.y;
+        int pieceHeight = (orientation == PieceOrientation.HORIZONTAL) ? piece.y : piece.x;
         
         // Validation: Bounds check
         if (x + pieceWidth > nextBoard.length || y + pieceHeight > nextBoard.length) {
@@ -249,20 +249,4 @@ class BoardState extends Node {
         sb.append("=============\n");
         return sb.toString();
     }
-}
-
-/**
- * Models the dimensions of a rectangular piece to be placed.
- *
- * @param width  The primary horizontal dimension.
- * @param height The primary vertical dimension.
- */
-record Piece(int width, int height) {}
-
-/**
- * Defines the permissible orientations for placing a piece on the board.
- */
-enum PieceOrientation {
-    HORIZONTAL,
-    VERTICAL
 }
