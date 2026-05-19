@@ -1,6 +1,6 @@
 package topics.divideconquer;
 
-import topics.sorting.Quicksort;
+import topics.sorting.quicksort.Quicksort;
 
 /**
  * <h1>Majoritarian Element</h1>

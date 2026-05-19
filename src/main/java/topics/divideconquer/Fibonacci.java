@@ -9,7 +9,7 @@ package topics.divideconquer;
  * </p>
  *
  * @author vicegd
- * @see topics.dynamic.Fibonacci for Dynamic Programming approaches.
+ * @see topics.dynamic.fibonacci.Fibonacci for Dynamic Programming approaches.
  */
 public class Fibonacci {
 

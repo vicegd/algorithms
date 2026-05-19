@@ -167,6 +167,7 @@ algorithms/
 
 ### 6. **Backtracking**
 **Main implementations:**
+- Agent-Task Assignment
 - Permutations Generation
 - Subset Sum
 - The Knight's Tour (All Solutions)

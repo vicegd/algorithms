@@ -1,7 +1,7 @@
 package topics.divideconquer;
 
 import topics.divideconquer.utils.Util;
-import topics.sorting.Quicksort;
+import topics.sorting.quicksort.Quicksort;
 
 /**
  * <h1>Median Calculation</h1>
