@@ -7,8 +7,15 @@ topics.branchandbound
 topics.branchandbound.times
 topics.branchandbound.util
 topics.branchandbound.util.threads
-topics.divideconquer
-topics.divideconquer.utils
+topics.divideconquer.factorial
+topics.divideconquer.fibonacci
+topics.divideconquer.gcd
+topics.divideconquer.majoritarian
+topics.divideconquer.maxsum
+topics.divideconquer.median
+topics.divideconquer.mode
+topics.divideconquer.search
+topics.divideconquer.vectorsum
 topics.dynamic.change
 topics.dynamic.combinations
 topics.dynamic.fibonacci
