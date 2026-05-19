@@ -24,13 +24,20 @@ jobs:
           cache: maven
 
       - name: Generate Javadoc
-        run: mvn --no-transfer-progress javadoc:javadoc
+        run: mvn --no-transfer-progress compile javadoc:javadoc
 
       - name: Prepare deploy directory
         run: |
           mkdir -p _deploy/javadoc
           cp -r docs/. _deploy/
-          cp -r target/site/apidocs/. _deploy/javadoc/
+          APIDOCS=$(find target -type d -name "apidocs" 2>/dev/null | head -1)
+          if [ -z "$APIDOCS" ]; then
+            echo "::error::Javadoc directory not found under target/. Contents of target/:"
+            find target -maxdepth 3 -type d
+            exit 1
+          fi
+          echo "Copying Javadoc from: $APIDOCS"
+          cp -r "$APIDOCS/." _deploy/javadoc/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
