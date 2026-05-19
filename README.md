@@ -11,10 +11,12 @@ A collection of **algorithm implementations** covering fundamental computer scie
 ### Prerequisites
 - **Java 21+** (project compiles with Java 21)
 - **Maven 3.6+** (tested with 3.9+, uses plugins requiring 3.6+)
-- **JUnit 5.10.2** (managed automatically by Maven)
+- **JUnit 5.10+** (managed automatically by Maven)
 - Git (optional)
 
-### Installation & Setup
+### Installation, Setup & Testing
+
+The project includes **comprehensive unit tests** using **JUnit 5**.
 
 ```bash
 # Clone the repository
@@ -29,6 +31,15 @@ mvn test
 
 # Run a specific test class
 mvn test -Dtest=YourTestClassName
+
+# Run all tests with verbose output
+mvn test -X
+
+# Run tests for specific topic
+mvn test -Dtest=sorting/*Test
+
+# Run with coverage report (if configured)
+mvn test jacoco:report
 ```
 
 ### Project Structure
@@ -38,9 +49,8 @@ algorithms/
 ├── src/
 │   ├── main/java/topics/               # Algorithm implementations
 │   │   ├── introduction/               # Getting started, recursion, search, data structures
-│   │   │   └── examples/               # Java Collections examples (ArrayList, Stack, TreeSet…)
-│   │   ├── sorting/                    # Sorting algorithms
-│   │   │   ├── others/                 # Additional sorts (Heapsort, Radix, Shell, Bidirectional…)
+│   │   │   └── examples/               # Java Collections examples (ArrayList, ArrayDeque, LinkedList, Stack, TreeSet…)
+│   │   ├── sorting/                    # Sorting algorithms (Bubble, Mergesort, Quicksort, Heapsort, Radix, Shell…)
 │   │   │   └── utils/                  # Shared sorting utilities & interface
 │   │   ├── divideconquer/              # Divide & Conquer strategies
 │   │   │   └── utils/                  # Shared D&C utilities
@@ -51,19 +61,25 @@ algorithms/
 │   │   │   └── times/                  # Timing / benchmark helpers
 │   │   ├── branchandbound/             # Branch & Bound methods
 │   │   │   ├── times/                  # Timing / benchmark helpers
-│   │   │   └── util/                   # Core B&B framework (Heap, Node…)
-│   │   │       └── threads/            # Thread-safe B&B variants
+│   │   │   └── util/                   # Core B&B framework (BranchAndBound, Heap, Node…)
+│   │   │       └── threads/            # Thread-safe B&B variants (BranchAndBoundThreads, HeapThreads, WorkerThread)
 │   │   └── parallel/                   # Parallel algorithms (ForkJoin)
 │   └── test/java/topics/               # Unit tests (JUnit 5)
 ├── .github/                            # GitHub configuration
-│   └── workflows/                      # CI/CD pipelines
-│       └── javadoc.yml                 # Publish Javadoc to GitHub Pages
+│   ├── workflows/                      # CI/CD pipelines
+│   │   └── javadoc.yml                 # Publish Javadoc to GitHub Pages
+│   ├── ISSUE_TEMPLATE/                 # Issue templates (bug report, feature request, custom)
+│   ├── java-upgrade/                   # Java upgrade hooks
+│   └── dependabot.yml                  # Dependabot version updates (Maven)
 ├── .editorconfig                       # Editor formatting rules
 ├── .gitignore                          # Git ignore patterns
+├── .vscode/                            # VS Code workspace settings
 ├── pom.xml                             # Maven configuration
 ├── README.md                           # This file
 ├── CONTRIBUTING.md                     # Contribution guidelines
 ├── CHANGELOG.md                        # Release history
+├── CODE_OF_CONDUCT.md                  # Code of conduct
+├── SECURITY.md                         # Security policy
 └── LICENSE                             # MIT License
 ```
 
@@ -183,23 +199,6 @@ algorithms/
 - Parallel File Processing (Fork/Join)
 
 **📖 Learn more:** See [Parallel Algorithms](https://learnalgorithms.dev/concepts/advanced-execution-models/parallel-algorithms)
-
----
-
-## 🧪 Testing
-
-The project includes **comprehensive unit tests** using **JUnit 5**.
-
-```bash
-# Run all tests with verbose output
-mvn test -X
-
-# Run tests for specific topic
-mvn test -Dtest=sorting/*Test
-
-# Run with coverage report (if configured)
-mvn test jacoco:report
-```
 
 ---
 
