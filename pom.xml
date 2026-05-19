@@ -10,15 +10,13 @@
   </properties>
   
   <build>
+    <sourceDirectory>src/topics</sourceDirectory>
     <resources>
       <resource>
-        <directory>src/main/java</directory>
+        <directory>src/topics</directory>
         <excludes>
           <exclude>**/*.java</exclude>
         </excludes>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
       </resource>
     </resources>
     <plugins>
