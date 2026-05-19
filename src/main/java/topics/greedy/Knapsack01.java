@@ -56,19 +56,22 @@ public class Knapsack01 {
 
         int currentWeight = 0;
 
+        int totalValue = 0;
+
         // 3. Greedily attempt to pack items O(N)
         for (Item item : items) {
             // Because items CANNOT be broken, we must check if the whole item fits
             if (currentWeight + item.weight <= maxWeight) {
-                solution[item.originalIndex] = 1; 
+                solution[item.originalIndex] = 1;
                 currentWeight += item.weight;
+                totalValue += item.value;
             }
             // If it doesn't fit, we simply skip it and evaluate the next one.
             // This skipping is exactly what causes the Greedy Trap.
         }
 
         if (log.isTraceEnabled()) {
-            log.trace("Sub-Optimal Greedy Allocation Result: {}", Arrays.toString(solution));
+            log.trace("Sub-Optimal Greedy Allocation Result: {}, Total Value: {}", Arrays.toString(solution), totalValue);
         }
 
         return solution;

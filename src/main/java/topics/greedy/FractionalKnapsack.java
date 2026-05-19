@@ -94,13 +94,11 @@ public class FractionalKnapsack {
     private static class Item {
         int originalIndex;
         int weight;
-        int value;
         float ratio;
 
         Item(int index, int weight, int value) {
             this.originalIndex = index;
             this.weight = weight;
-            this.value = value;
             this.ratio = (float) value / weight;
         }
     }
