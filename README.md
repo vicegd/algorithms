@@ -204,8 +204,8 @@ algorithms/
 
 ## 📖 Additional Resources
 
-- **API Documentation:** [https://vicegd.github.io/algorithms/javadoc/index.html](https://vicegd.github.io/algorithms/javadoc/index.html) — Javadoc for all packages and classes in this repository
-- **Learn Algorithms:** [https://learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
+- **API Documentation:** [vicegd.github.io/algorithms/javadoc](https://vicegd.github.io/algorithms/javadoc/index.html) — Javadoc for all packages and classes in this repository
+- **Learn Algorithms:** [learnalgorithms.dev](https://learnalgorithms.dev) — In-depth explanations of the algorithms and related topics
 
 ---
 
