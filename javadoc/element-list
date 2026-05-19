@@ -4,9 +4,9 @@ topics.backtracking.nqueens
 topics.backtracking.permutations
 topics.backtracking.subsetsum
 topics.branchandbound
-topics.branchandbound.times
-topics.branchandbound.util
-topics.branchandbound.util.threads
+topics.branchandbound.agents
+topics.branchandbound.eightpuzzle
+topics.branchandbound.rectangles
 topics.divideconquer.factorial
 topics.divideconquer.fibonacci
 topics.divideconquer.gcd
