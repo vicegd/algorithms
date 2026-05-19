@@ -30,7 +30,7 @@ jobs:
         run: |
           mkdir -p _deploy/javadoc
           cp -r docs/. _deploy/
-          cp -r target/reports/apidocs/. _deploy/javadoc/
+          cp -r target/site/apidocs/. _deploy/javadoc/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
