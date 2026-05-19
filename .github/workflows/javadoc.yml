@@ -24,7 +24,18 @@ jobs:
           cache: maven
 
       - name: Generate Javadoc
-        run: mvn --no-transfer-progress compile javadoc:javadoc
+        run: |
+          echo "=== Java files found in repo ==="
+          find . -name "*.java" -not -path "./target/*" | sort | head -30
+          echo ""
+          echo "=== Maven effective sourceDirectory ==="
+          mvn --no-transfer-progress help:effective-pom 2>/dev/null | grep -i "sourceDirectory" || true
+          echo ""
+          echo "=== Generating Javadoc ==="
+          mvn --no-transfer-progress -e javadoc:javadoc
+          echo ""
+          echo "=== Target structure after generation ==="
+          find target -type d | sort
 
       - name: Prepare deploy directory
         run: |
