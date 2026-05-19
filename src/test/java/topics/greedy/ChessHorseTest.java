@@ -1,67 +1,53 @@
 package topics.greedy;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
- * ChessHorse JUnit tests
+ * <h1>Validation Suite for Knight's Tour (Greedy)</h1>
+ * <p>
+ * Evaluates Warnsdorff's heuristic on scenarios that are perfectly 
+ * solvable by the algorithm, and scenarios where the greedy trap triggers a dead end.
+ * </p>
+ *
  * @author vicegd
  */
-public class ChessHorseTest {
-  private static Logger log = LoggerFactory.getLogger(ChessHorseTest.class);
-  private ChessHorse chess;
-  
-  /**
-   * Initializes the object to perform tests
-   */
-  @BeforeClass
-  public static void setup() {
-    log.trace("Chess Horse - Setup");
-  }
-  
-  /**
-   * Ends the object to perform tests
-   */
-  @AfterClass
-  public static void teardown() {
-    log.trace("Chess Horse - Teardown");
-  }
-  
-  /**
-   * Shows the state of the board
-   * In this case there is not solution
-   */
-  @Test
-  public void testChessNo() {
-    int n = 5;
-    int[] initialPos = new int[]{ 3, 4}; //PosX and PosY
-    
-    chess = new ChessHorse(n);
-    boolean result = chess.horse(initialPos); //Initial position of the horse (x, y)
-    chess.writeSolution();
-    assertFalse(result);
-  }
-  
-  /**
-   * Shows the state of the board
-   * In this case there is solution
-   */
-  @Test
-  public void testChessOk() {
-    int n = 8;
-    int[] initialPos = new int[]{ 1, 3}; //PosX and PosY
-    
-    chess = new ChessHorse(n);
-    boolean result = chess.horse(initialPos); //Initial position of the horse (x, y)
-    chess.writeSolution();
-    assertTrue(result);
-  }
-  
-}
+@DisplayName("Knight's Tour - Warnsdorff's Heuristic")
+class ChessHorseTest {
+    private static final Logger log = LoggerFactory.getLogger(ChessHorseTest.class);
 
+    @BeforeAll
+    static void setup() {
+        log.trace("Initializing Knight's Tour Benchmarks");
+    }
+
+    @Test
+    @DisplayName("Should hit a dead end and fail to complete the 5x5 board")
+    void shouldFailOnSpecificBoardAndStart() {
+        int n = 5;
+        int[] initialPos = {3, 4}; // Starting near the corner
+        
+        ChessHorse chess = new ChessHorse(n);
+        boolean result = chess.solveTour(initialPos); 
+        
+        assertFalse(result, "Algorithm unexpectedly completed a mathematically unresolvable greedy path.");
+    }
+
+    @Test
+    @DisplayName("Should successfully complete the full 8x8 chessboard")
+    void shouldCompleteFullChessboard() {
+        int n = 8;
+        int[] initialPos = {1, 3}; 
+        
+        ChessHorse chess = new ChessHorse(n);
+        boolean result = chess.solveTour(initialPos); 
+        
+        assertTrue(result, "Algorithm failed to complete a standard solvable 8x8 tour.");
+    }
+}

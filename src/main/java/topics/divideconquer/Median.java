@@ -4,7 +4,7 @@ import topics.divideconquer.utils.Util;
 import topics.sorting.Quicksort;
 
 /**
- * <h1>Median Calculation (K-th Smallest Element)</h1>
+ * <h1>Median Calculation</h1>
  * <p>
  * Finds the median of an unsorted array. This class demonstrates the evolution 
  * from a brute-force sorting approach to the highly optimized Quickselect algorithm.

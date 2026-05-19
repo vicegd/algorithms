@@ -6,7 +6,7 @@ import topics.branchandbound.util.BranchAndBound;
 import topics.branchandbound.util.Node;
 
 /**
- * <h1>The 8-Puzzle Problem</h1>
+ * <h1>The 8-Puzzle</h1>
  * <p>
  * Evaluates and solves the classic sliding puzzle (8-Puzzle) using a 
  * <strong>Branch and Bound</strong> algorithmic strategy. The system leverages 

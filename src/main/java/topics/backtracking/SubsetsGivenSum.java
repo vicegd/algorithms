@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>Subset Sum Problem</h1>
+ * <h1>Subset Sum</h1>
  * <p>
  * This class identifies all possible subsets of a given array of strictly positive 
  * integers whose elements sum up to a specific target value. It utilizes a 

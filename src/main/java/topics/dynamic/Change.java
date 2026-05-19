@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>Coin Change Problem</h1>
+ * <h1>Coin Change</h1>
  * <p>
  * Computes the absolute minimum number of coins required to make exact change 
  * for a specific target amount. Each denomination can be selected an unlimited 

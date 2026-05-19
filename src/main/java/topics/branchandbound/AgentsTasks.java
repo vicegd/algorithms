@@ -8,7 +8,7 @@ import topics.branchandbound.util.BranchAndBound;
 import topics.branchandbound.util.Node;
 
 /**
- * <h1>Task Assignment Problem</h1>
+ * <h1>Task Assignment</h1>
  * <p>
  * Evaluates the optimal distribution of <i>N</i> independent tasks among <i>N</i> agents, 
  * minimizing the total overall operational cost. It employs a <strong>Branch and Bound</strong> 

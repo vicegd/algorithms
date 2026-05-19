@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>The N-Queens Problem (First Solution)</h1>
+ * <h1>The N-Queens (First Solution)</h1>
  * <p>
  * This class calculates a single mathematically valid arrangement of <i>N</i> queens 
  * on an <i>N &times; N</i> chessboard such that no two queens threaten each other.

@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>The Knight's Tour Problem (First Solution)</h1>
+ * <h1>The Knight's Tour (First Solution)</h1>
  * <p>
  * This class calculates a single valid path that a Knight can take to visit 
  * every square on an <i>N &times; N</i> chessboard exactly once. It employs a 

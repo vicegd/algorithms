@@ -77,7 +77,7 @@ algorithms/
 - Factorial Computation
 - Foundational Arithmetic Engine
 - Maximum Value Extraction
-- MaxPairWiseProduct problem with 6 different implementations showing optimization progressions
+- MaxPairWiseProduct with 6 different implementations showing optimization progressions
 - Random Dataset Generator
 - Search (Algorithmic Structural Variations)
 
@@ -111,7 +111,7 @@ algorithms/
 - Greatest Common Divisor (GCD)
 - Majoritarian Element
 - Maximum Subarray Sum
-- Median Calculation (K-th Smallest Element)
+- Median Calculation
 - Mode Calculation
 - Sequential (Linear) Search
 - Vector Summation (Algorithmic Structural Variations)
@@ -122,11 +122,16 @@ algorithms/
 
 ### 4. **Greedy Algorithms**
 **Main implementations:**
-- Coin Change (Optimal vs Non-Optimal)
-- Knapsack Problem variants
-- File Disk Optimization
-- Agent Task Assignment
-- Chess Horse Movement
+- 0/1 Knapsack
+- Agent-Task Assignment
+- Coin Change
+- Disk Packing
+- Fractional Knapsack
+- Knight's Tour
+- Knight's Tour (Warnsdorff's Heuristic)
+- Multi-Plumber Scheduling
+- Single-Plumber Scheduling
+
 
 **📖 Learn more:** See [Greedy Algorithms](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/greedy-algorithms)
 
@@ -134,9 +139,9 @@ algorithms/
 
 ### 5. **Dynamic Programming**
 **Main implementations:**
-- 0/1 Knapsack Problem
+- 0/1 Knapsack
 - Cheaper Travel on the River
-- Coin Change Problem
+- Coin Change
 - Combinations (n choose k)
 - Fibonacci Sequence
 
@@ -147,11 +152,11 @@ algorithms/
 ### 6. **Backtracking**
 **Main implementations:**
 - Permutations Generation
-- Subset Sum Problem
-- The Knight's Tour Problem (All Solutions)
-- The Knight's Tour Problem (First Solution)
-- The N-Queens Problem (All Solutions)
-- The N-Queens Problem (First Solution)
+- Subset Sum
+- The Knight's Tour (All Solutions)
+- The Knight's Tour (First Solution)
+- The N-Queens (All Solutions)
+- The N-Queens (First Solution)
 
 **📖 Learn more:** See [Backtracking](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/backtracking)
 
@@ -159,8 +164,8 @@ algorithms/
 
 ### 7. **Branch & Bound**
 **Main implementations:**
-- Task Assignment Problem
-- The 8-Puzzle Problem
+- Task Assignment
+- The 8-Puzzle
 - Optimal Placement of Rectangles
 - Optimal Placement of Rectangles (Concurrent Execution)
 
