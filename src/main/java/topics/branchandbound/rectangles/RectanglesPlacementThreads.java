@@ -1,7 +1,8 @@
-package topics.branchandbound;
+package topics.branchandbound.rectangles;
 
 import java.util.List;
-import topics.branchandbound.util.threads.BranchAndBoundThreads;
+
+import topics.branchandbound.BranchAndBoundThreads;
 
 /**
  * <h1>Optimal Placement of Rectangles (Concurrent Execution)</h1>
