@@ -1,6 +1,6 @@
 package topics.greedy.disk;
 
-import topics.sorting.quicksort.Quicksort;
+import java.util.Arrays;
 
 /**
  * <h1>Disk Packing</h1>
@@ -34,8 +34,7 @@ public class DiskPacking {
 
         // Defensive copy to prevent mutating the original input array
         int[] sortedFiles = files.clone();
-        Quicksort quicksort = new Quicksort();
-        quicksort.sort(sortedFiles);
+        Arrays.sort(sortedFiles);
 
         int usedSpace = 0;
         int fileCount = 0;
@@ -74,8 +73,7 @@ public class DiskPacking {
         if (files == null || files.length == 0 || discCapacity <= 0) return 0;
 
         int[] sortedFiles = files.clone();
-        Quicksort quicksort = new Quicksort();
-        quicksort.sort(sortedFiles);
+        Arrays.sort(sortedFiles);
 
         int usedSpace = 0;
 

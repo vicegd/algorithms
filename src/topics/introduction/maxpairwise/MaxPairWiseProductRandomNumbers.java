@@ -34,7 +34,7 @@ public class MaxPairWiseProductRandomNumbers {
      * @param args Command-line arguments (not utilized).
      */
     public static void main(String... args) {
-        Path path = Paths.get("src/main/java/topics/introduction/MaxPairWiseProductRandomNumbers.txt");
+        Path path = Paths.get("src/topics/introduction/maxpairwise/MaxPairWiseProductRandomNumbers.txt");
         Random random = new Random();
         int totalNumbers = 100_000;
         

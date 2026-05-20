@@ -37,7 +37,7 @@ public class MaxPairWiseProduct5 {
      * space-separated integers from the filesystem into memory.
      */
     public MaxPairWiseProduct5() {
-        Path path = Paths.get("src/main/java/topics/introduction/MaxPairWiseProductRandomNumbers.txt");
+        Path path = Paths.get("src/topics/introduction/maxpairwise/MaxPairWiseProductRandomNumbers.txt");
         
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             String line = reader.readLine();

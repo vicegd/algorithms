@@ -1,6 +1,6 @@
 package topics.divideconquer.majoritarian;
 
-import topics.sorting.quicksort.Quicksort;
+import java.util.Arrays;
 
 /**
  * <h1>Majoritarian Element</h1>
@@ -52,8 +52,8 @@ public class MajoritarianElement {
      * just count how many times this central element appears.
      * </p>
      * <ul>
-     * <li><strong>Time Complexity:</strong> O(N log N) - Bound by the Quicksort step</li>
-     * <li><strong>Space Complexity:</strong> O(log N) - Bounded by the Quicksort call stack</li>
+     * <li><strong>Time Complexity:</strong> O(N log N) - Bound by the sorting step</li>
+     * <li><strong>Space Complexity:</strong> O(N) - Defensive copy to avoid mutating the input</li>
      * </ul>
      *
      * @param v Array of elements.
@@ -62,16 +62,17 @@ public class MajoritarianElement {
     public boolean hasMajoritySorting(int[] v) {
         if (v == null || v.length == 0) return false;
 
-        Quicksort quicksort = new Quicksort();
-        quicksort.sort(v);
+        // Defensive copy: do not mutate the caller's array
+        int[] copy = v.clone();
+        Arrays.sort(copy);
         
-        int n = v.length;
+        int n = copy.length;
         int majorityThreshold = n / 2 + 1;
         int counter = 0;
-        int candidate = v[n / 2]; // The theoretical candidate MUST be in the middle
+        int candidate = copy[n / 2]; // The theoretical candidate MUST be in the middle
         
         for (int i = 0; i < n; i++) {
-            if (v[i] == candidate) counter++;
+            if (copy[i] == candidate) counter++;
         }
         
         return counter >= majorityThreshold; 

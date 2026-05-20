@@ -1,6 +1,6 @@
 package topics.divideconquer.mode;
 
-import topics.sorting.quicksort.Quicksort;
+import java.util.Arrays;
 
 /**
  * <h1>Mode Calculation</h1>
@@ -79,8 +79,7 @@ public class Mode {
         // Prevent side-effects: Do not mutate the original user array
         int[] copy = v.clone();
         
-        Quicksort quicksort = new Quicksort();
-        quicksort.sort(copy);
+        Arrays.sort(copy);
         
         int n = copy.length;
         int modeValue = copy[0];

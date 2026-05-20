@@ -4,16 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>Foundational Arithmetic Engine</h1>
+ * <h1>Hello World</h1>
  * <p>
- * Establishes a baseline structural configuration for mathematical operations, 
- * demonstrating fundamental parameter evaluation and arithmetic synthesis.
+ * The classic first program. Demonstrates the minimal structure of a Java class:
+ * a method that takes parameters, performs a simple operation, and returns a result.
  * </p>
- * <h2>Complexity</h2>
- * <ul>
- * <li><strong>Time Complexity:</strong> <code>O(1)</code> - The arithmetic synthesis is executed in constant time natively by the processor.</li>
- * <li><strong>Space Complexity:</strong> <code>O(1)</code> - No auxiliary data structures are instantiated.</li>
- * </ul>
  *
  * @author vicegd
  */
@@ -21,14 +16,14 @@ public class HelloWorld {
     private static final Logger log = LoggerFactory.getLogger(HelloWorld.class);
     
     /**
-     * Computes the mathematical summation of two distinct integer values.
+     * Returns the sum of two integers.
      *
-     * @param termA The primary arithmetic operand.
-     * @param termB The secondary arithmetic operand.
-     * @return The strict algebraic sum of the provided terms.
+     * @param a First integer.
+     * @param b Second integer.
+     * @return a + b
      */
-    public int sum(int termA, int termB) {
-        log.info("Executing fundamental integer addition");
-        return termA + termB;
+    public int sum(int a, int b) {
+        log.info("sum({}, {})", a, b);
+        return a + b;
     }
 }

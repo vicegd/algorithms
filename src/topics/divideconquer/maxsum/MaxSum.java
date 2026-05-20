@@ -18,7 +18,8 @@ public class MaxSum {
      * Tests every possible combination of start and end indices (i and j), 
      * and uses a third nested loop (k) to calculate the sum from scratch every time.
      * </p>
-     * * @param v Array of integers.
+     *
+     * @param v Array of integers.
      * @return The maximum contiguous sum.
      */
     public int maxSubarrayCubic(int[] v) {
@@ -48,7 +49,8 @@ public class MaxSum {
      * Eliminates the third loop. It recognizes that the sum of array[i..j] 
      * is simply array[i..j-1] + array[j]. It accumulates the sum dynamically.
      * </p>
-     * * @param v Array of integers.
+     *
+     * @param v Array of integers.
      * @return The maximum contiguous sum.
      */
     public int maxSubarrayQuadratic(int[] v) {
@@ -77,7 +79,8 @@ public class MaxSum {
      * 2. Entirely in the right half.
      * 3. Crossing the midpoint.
      * </p>
-     * * @param v Array of integers.
+     *
+     * @param v Array of integers.
      * @return The maximum contiguous sum.
      */
     public int maxSubarrayDivideAndConquer(int[] v) {
