@@ -10,7 +10,7 @@
   </properties>
   
   <build>
-    <sourceDirectory>src/topics</sourceDirectory>
+    <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
         <directory>src/topics</directory>
