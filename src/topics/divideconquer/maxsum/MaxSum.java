@@ -91,6 +91,7 @@ public class MaxSum {
         }
 
         // Prevent Integer Overflow mathematically
+        // (left + right) / 2 can overflow if left and right are large, so we use:
         int center = left + (right - left) / 2;
         
         int maxLeft = maxSumByDivision(left, center, v);
