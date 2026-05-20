@@ -27,13 +27,13 @@ jobs:
         run: |
           set -euo pipefail
           mvn --no-transfer-progress -e compile javadoc:jar
-          test -d target/apidocs || (echo "ERROR: target/apidocs not created" && exit 1)
+          test -d target/reports/apidocs || (echo "ERROR: target/reports/apidocs not created" && exit 1)
 
       - name: Prepare deploy directory
         run: |
           mkdir -p _deploy/javadoc
           cp -r docs/. _deploy/
-          cp -r target/apidocs/. _deploy/javadoc/
+          cp -r target/reports/apidocs/. _deploy/javadoc/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
