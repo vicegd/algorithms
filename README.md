@@ -9,7 +9,7 @@ A collection of **algorithm implementations** covering fundamental computer scie
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Java 21+** (project compiles with Java 21)
+- **Java 25+** (project compiles with Java 21)
 - **Maven 3.6+** (tested with 3.9+, uses plugins requiring 3.6+)
 - **JUnit 5.10+** (managed automatically by Maven)
 - Git (optional)

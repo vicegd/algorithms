@@ -10,10 +10,11 @@
   </properties>
   
   <build>
-    <sourceDirectory>src/main/java</sourceDirectory>
+    <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>src</testSourceDirectory>
     <resources>
       <resource>
-        <directory>src/main/java</directory>
+        <directory>src</directory>
         <excludes>
           <exclude>**/*.java</exclude>
         </excludes>
@@ -24,6 +25,17 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.15.0</version>
+        <configuration>
+          <!-- Exclude duplicates under main/ and test/ so only src/topics/ is compiled -->
+          <excludes>
+            <exclude>main/**</exclude>
+            <exclude>test/**</exclude>
+          </excludes>
+          <testExcludes>
+            <testExclude>main/**</testExclude>
+            <testExclude>test/**</testExclude>
+          </testExcludes>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -38,6 +50,8 @@
           <show>package</show>
           <additionalJOption>-Xdoclint:-html,-missing</additionalJOption>
           <encoding>UTF-8</encoding>
+          <!-- src/ is the correct sourcepath root: topics.sorting.bubble -> src/topics/sorting/bubble/ -->
+          <sourcepath>${basedir}/src</sourcepath>
         </configuration>
       </plugin>
     </plugins>
@@ -72,58 +86,5 @@
 	    <version>1.7.13</version>
 	</dependency>
   </dependencies>
-
-  <profiles>
-    <profile>
-      <!-- Activates automatically in CI where src/main/java does not exist -->
-      <id>ci</id>
-      <activation>
-        <file>
-          <missing>src/main/java</missing>
-        </file>
-      </activation>
-      <build>
-        <resources>
-          <resource>
-            <directory>src/topics</directory>
-            <excludes>
-              <exclude>**/*.java</exclude>
-            </excludes>
-          </resource>
-        </resources>
-        <plugins>
-          <plugin>
-            <!-- <sourceDirectory> is not allowed in profile builds (BuildBase);
-                 use build-helper to add src/topics as an additional source root in CI -->
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <version>3.6.0</version>
-            <executions>
-              <execution>
-                <id>add-source</id>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>add-source</goal>
-                </goals>
-                <configuration>
-                  <sources>
-                    <source>src/topics</source>
-                  </sources>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <configuration>
-              <!-- src/ is the correct root: package topics.sorting.bubble -> src/topics/sorting/bubble/ -->
-              <sourcepath>${basedir}/src</sourcepath>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
 </project>

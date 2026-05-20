@@ -1,8 +1,6 @@
 package topics.divideconquer.maxsum;
 
 import java.util.concurrent.ThreadLocalRandom;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Empirical Runtime Analysis for Maximum Subarray Sum</h1>
@@ -22,8 +20,6 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class MaxSumBenchmark {
-    private static final Logger log = LoggerFactory.getLogger(MaxSumBenchmark.class);
-
     public static void main(String[] args) {
         MaxSum engine = new MaxSum();
 
