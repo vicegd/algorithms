@@ -1,49 +1,38 @@
-package seminars.en._20.seminar3;
+package topics.greedy.rapiddefense;
 
+/**
+ * Represents a team of defenders available for deployment.
+ */
 public class Defender implements Comparable<Defender> {
-	private int id; //id of the team
-	private int numberDefenders; //number of people in the team
-	private boolean assigned; //is it the team assigned to any city?
-	
-	public Defender(int id, int number) {
-		this.id = id;
-		this.numberDefenders = number;
-		this.assigned = false;
-	}
+    private final int id;
+    private final int numberDefenders;
+    private boolean assigned;
 
-	public void setNumberDefenders(int number) {
-		this.numberDefenders = number;
-	}
+    public Defender(int id, int numberDefenders) {
+        this.id = id;
+        this.numberDefenders = numberDefenders;
+        this.assigned = false;
+    }
 
-	public int getNumberDefenders() {
-		return numberDefenders;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public boolean isAssigned() {
-		return assigned;
-	}
+    public int getNumberDefenders() {
+        return numberDefenders;
+    }
 
-	public void setAssigned(boolean assigned) {
-		this.assigned = assigned;
-	}
+    public boolean isAssigned() {
+        return assigned;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setAssigned(boolean assigned) {
+        this.assigned = assigned;
+    }
 
-	/**
-	 * Needed to sort defenders
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	@Override
-	public int compareTo(Defender defenders2) {
-		if (this.numberDefenders == defenders2.numberDefenders)
-			return 0;
-		else
-			if (this.numberDefenders < defenders2.numberDefenders)
-				return -1;
-			else
-				return 1;
-	}
-
+    @Override
+    public int compareTo(Defender other) {
+        // Java modern standard for comparing primitive fields
+        return Integer.compare(this.numberDefenders, other.numberDefenders);
+    }
 }

@@ -1,44 +1,38 @@
-package seminars.en._20.seminar3;
+package topics.greedy.rapiddefense;
 
+/**
+ * Represents a city invaded by enemies.
+ */
 public class City implements Comparable<City> {
-	private int id;			//id of the city
-	private int numberEnemies;	//number of enemies
-	private int assignment; //the index of the defender team that is assigned to this city
-	
-	public City(int id, int enemies) {
-		this.id = id;
-		this.numberEnemies = enemies;
-		this.assignment = -1;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	
-	public int getNumberEnemies() {		
-		return numberEnemies;
-	}
-	
-	public void setAssignment(int assignment) {
-		this.assignment = assignment;
-	}
+    private final int id;
+    private final int numberEnemies;
+    private int defenderTeamId; 
 
-	public int getAssignment() {
-		return assignment;
-	}
-	
-	/**
-	 * Needed to sort cities
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	@Override
-	public int compareTo(City city2) {
-		if (this.numberEnemies == city2.numberEnemies)
-			return 0;
-		else if (this.numberEnemies < city2.numberEnemies)
-				return -1;
-			else
-				return 1;
-	}
-	
+    public City(int id, int numberEnemies) {
+        this.id = id;
+        this.numberEnemies = numberEnemies;
+        this.defenderTeamId = -1; // -1 indicates no team assigned yet
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNumberEnemies() {
+        return numberEnemies;
+    }
+
+    public int getDefenderTeamId() {
+        return defenderTeamId;
+    }
+
+    public void setDefenderTeamId(int defenderTeamId) {
+        this.defenderTeamId = defenderTeamId;
+    }
+
+    @Override
+    public int compareTo(City other) {
+        // Java modern standard for comparing primitive fields
+        return Integer.compare(this.numberEnemies, other.numberEnemies);
+    }
 }

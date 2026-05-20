@@ -146,6 +146,7 @@ algorithms/
 - Knight's Tour
 - Knight's Tour (Warnsdorff's Heuristic)
 - Multi-Plumber Scheduling
+- Rapid Defense Assignment
 - Single-Plumber Scheduling
 
 

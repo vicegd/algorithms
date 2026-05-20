@@ -83,7 +83,6 @@
         </file>
       </activation>
       <build>
-        <sourceDirectory>src/topics</sourceDirectory>
         <resources>
           <resource>
             <directory>src/topics</directory>
@@ -93,6 +92,27 @@
           </resource>
         </resources>
         <plugins>
+          <plugin>
+            <!-- <sourceDirectory> is not allowed in profile builds (BuildBase);
+                 use build-helper to add src/topics as an additional source root in CI -->
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.6.0</version>
+            <executions>
+              <execution>
+                <id>add-source</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>add-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>src/topics</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
