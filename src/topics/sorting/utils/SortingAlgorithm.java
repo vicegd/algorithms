@@ -1,5 +1,5 @@
 
-package topics.sorting;
+package topics.sorting.utils;
 
 /**
  * <h1>Sorting Algorithm Contract</h1>

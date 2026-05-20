@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import topics.branchandbound.BranchAndBound;
-import topics.branchandbound.Node;
+import topics.branchandbound.utils.BranchAndBound;
+import topics.branchandbound.utils.Node;
 
 /**
  * <h1>Optimal Placement of Rectangles</h1>

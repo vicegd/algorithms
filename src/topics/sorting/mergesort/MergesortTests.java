@@ -3,7 +3,7 @@ package topics.sorting.mergesort;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import topics.sorting.SortingAlgorithm;
+import topics.sorting.utils.SortingAlgorithm;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package topics.introduction;
+package topics.introduction.maximum;
 
 /**
  * <h1>Maximum Value Extraction</h1>

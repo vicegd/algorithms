@@ -1,7 +1,5 @@
 package topics.divideconquer.median;
 
-import topics.sorting.quicksort.Quicksort;
-
 /**
  * <h1>Median Calculation</h1>
  * <p>
@@ -42,10 +40,9 @@ public class Median {
         
         // Prevent side-effects: Do not mutate the original array
         int[] copy = v.clone();
-        
-        Quicksort quicksort = new Quicksort();
-        quicksort.sort(copy);
-        
+
+        sort(copy, 0, copy.length - 1);
+
         int centerPosition = copy.length / 2;
         return copy[centerPosition]; 
     }    
@@ -82,6 +79,14 @@ public class Median {
      * Private Quickselect recursive helper.
      * Finds the k-th smallest element within the segment boundaries.
      */
+    /** Recursive quicksort using the local Util partition scheme. */
+    private void sort(int[] v, int left, int right) {
+        if (left >= right) return;
+        int pivot = Util.partition(v, left, right);
+        sort(v, left, pivot - 1);
+        sort(v, pivot + 1, right);
+    }
+
     private int quickselect(int left, int right, int[] v, int k) { 
         // Base case: If the segment is only one element long, we've found it
         if (left == right) {

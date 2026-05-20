@@ -4,7 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import topics.branchandbound.BranchAndBound;
+import topics.branchandbound.utils.BranchAndBound;
 
 /**
  * <h1>Sequential Performance Benchmark (Rectangle Placement)</h1>

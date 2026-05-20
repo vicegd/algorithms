@@ -1,9 +1,11 @@
-package topics.branchandbound;
+package topics.branchandbound.utils.threads;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import topics.branchandbound.utils.Node;
 
 /**
  * <h1>Concurrent Branch and Bound Execution Engine</h1>

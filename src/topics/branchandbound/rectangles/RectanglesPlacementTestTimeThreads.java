@@ -4,7 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import topics.branchandbound.BranchAndBoundThreads;
+import topics.branchandbound.utils.threads.BranchAndBoundThreads;
 
 /**
  * <h1>Concurrent Performance Benchmark (Rectangle Placement)</h1>

@@ -1,4 +1,4 @@
-package topics.introduction;
+package topics.introduction.search;
 
 import java.util.List;
 

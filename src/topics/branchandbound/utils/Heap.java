@@ -1,4 +1,4 @@
-package topics.branchandbound;
+package topics.branchandbound.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

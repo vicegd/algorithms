@@ -3,8 +3,8 @@ package topics.branchandbound.eightpuzzle;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import topics.branchandbound.BranchAndBound;
-import topics.branchandbound.Node;
+import topics.branchandbound.utils.BranchAndBound;
+import topics.branchandbound.utils.Node;
 
 /**
  * <h1>The 8-Puzzle</h1>

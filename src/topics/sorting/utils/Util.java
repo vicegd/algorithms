@@ -1,4 +1,4 @@
-package topics.sorting;
+package topics.sorting.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

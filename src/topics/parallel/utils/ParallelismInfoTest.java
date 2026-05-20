@@ -1,4 +1,4 @@
-package topics.parallel;
+package topics.parallel.utils;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

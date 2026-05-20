@@ -1,4 +1,4 @@
-package topics.branchandbound;
+package topics.branchandbound.utils.threads;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.PriorityBlockingQueue;
+
+import topics.branchandbound.utils.Node;
 
 /**
  * <h1>Concurrent State Space Queue (Heap)</h1>

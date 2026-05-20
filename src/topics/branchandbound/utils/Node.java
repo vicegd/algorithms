@@ -1,4 +1,4 @@
-package topics.branchandbound;
+package topics.branchandbound.utils;
 
 import java.util.List;
 import java.util.Objects;

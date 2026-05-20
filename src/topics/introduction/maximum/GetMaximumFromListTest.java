@@ -1,4 +1,4 @@
-package topics.introduction;
+package topics.introduction.maximum;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

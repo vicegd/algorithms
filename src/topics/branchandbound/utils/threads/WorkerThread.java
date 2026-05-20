@@ -1,7 +1,9 @@
-package topics.branchandbound;
+package topics.branchandbound.utils.threads;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import topics.branchandbound.utils.Node;
 
 /**
  * <h1>Concurrent Worker Thread</h1>

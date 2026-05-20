@@ -1,4 +1,4 @@
-package topics.branchandbound;
+package topics.branchandbound.utils;
 
 import java.util.List;
 import org.slf4j.Logger;

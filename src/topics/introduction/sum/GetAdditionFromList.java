@@ -1,4 +1,4 @@
-package topics.introduction;
+package topics.introduction.sum;
 
 /**
  * <h1>Array Summation</h1>

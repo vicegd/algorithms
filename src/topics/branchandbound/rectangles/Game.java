@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import topics.branchandbound.Node;
+import topics.branchandbound.utils.Node;
 
 /**
  * <h1>Board State for Rectangle Placement</h1>

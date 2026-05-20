@@ -1,4 +1,4 @@
-package topics.introduction;
+package topics.introduction.helloworld;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

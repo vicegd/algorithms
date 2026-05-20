@@ -3,8 +3,8 @@ package topics.sorting.selection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import topics.sorting.SortingAlgorithm;
-import topics.sorting.Util;
+import topics.sorting.utils.SortingAlgorithm;
+import topics.sorting.utils.Util;
 
 /**
  * <h1>Direct Selection Sort</h1>
