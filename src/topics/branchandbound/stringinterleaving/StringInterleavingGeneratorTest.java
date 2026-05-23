@@ -4,8 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-// Mock import assuming your util structure
-// import topics.branchandbound.utils.HeapRepeatedNodes; 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,7 +30,7 @@ class StringInterleavingBBTest {
         // Heap customHeap = new HeapRepeatedNodes();
         
         // Mocking the heap for the test context
-        StringInterleavingBB engine = new StringInterleavingGenerator(a, b, null /* replace with customHeap */);
+        StringInterleavingGenerator engine = new StringInterleavingGenerator(a, b, null /* replace with customHeap */);
         
         log.trace("Starting State Space Search. Pruning is DISABLED.");
         engine.branchAndBound(engine.getRootNode());

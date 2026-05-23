@@ -1,5 +1,5 @@
 //BACKTRACKING PROBLEM: PATH BETWEEN TWO DIFFERENT NODES OF A GRAPH
-package seminars.en._20.seminar4;
+package topics.backtracking.paths;
 
 /* This class calculates, in a graph, the highest cost simple
  * path (the worst) from a source node v[source] to a destination 

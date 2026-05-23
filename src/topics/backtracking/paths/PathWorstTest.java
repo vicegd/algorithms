@@ -1,4 +1,4 @@
-package seminars.en._20.seminar4;
+package topics.backtracking.paths;
 
 import static org.junit.Assert.assertEquals;
 

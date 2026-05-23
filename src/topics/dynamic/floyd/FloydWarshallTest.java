@@ -2,8 +2,6 @@ package topics.dynamic.floyd;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @DisplayName("Floyd-Warshall (All-Pairs Shortest Path)")
 class FloydWarshallTest {
-    private static final Logger log = LoggerFactory.getLogger(FloydWarshallTest.class);
     private static final int INF = FloydWarshall.INF;
 
     @Test

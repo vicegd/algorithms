@@ -1,5 +1,5 @@
 //BACKTRACKING PROBLEM: PATH BETWEEN TWO DIFFERENT NODES OF A GRAPH
-package seminars.en._20.seminar4;
+package topics.backtracking.paths;
 
 /* The idea is to complete this program to calculate and 
  * write all paths (both simple and not simple) in a graph 

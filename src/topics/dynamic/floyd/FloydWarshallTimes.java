@@ -1,8 +1,6 @@
 package topics.dynamic.floyd;
 
 import java.util.concurrent.ThreadLocalRandom;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Empirical Complexity Analysis: Floyd-Warshall</h1>
@@ -13,7 +11,6 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class FloydWarshallTimes {
-    private static final Logger log = LoggerFactory.getLogger(FloydWarshallTimes.class);
     private static final int INF = FloydWarshall.INF;
 
     public static void main(String[] args) {

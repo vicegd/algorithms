@@ -1,7 +1,6 @@
 package topics.branchandbound.stringinterleaving;
 
 import java.util.ArrayList;
-import java.util.List;
 import topics.branchandbound.utils.Node;
 
 /**

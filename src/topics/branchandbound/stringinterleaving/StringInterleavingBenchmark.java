@@ -2,11 +2,8 @@ package topics.branchandbound.stringinterleaving;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import topics.backtracking.stringinterleaving.StringInterleavingGenerator;
-import topics.branchandbound.stringinterleaving.StringInterleavingBB;
 
 /**
  * <h1>The Master Benchmark: String Interleaving Across Paradigms</h1>
@@ -26,8 +23,6 @@ import topics.branchandbound.stringinterleaving.StringInterleavingBB;
  * @author vicegd
  */
 public class StringInterleavingBenchmark {
-    private static final Logger log = LoggerFactory.getLogger(StringInterleavingBenchmark.class);
-
     public static void main(String[] args) {
         // SAFETY LIMIT: n=10 generates 184,756 combinations.
         // n=12 would generate 2,704,156 combinations (High risk of OutOfMemoryError in B&B Heap)
@@ -59,7 +54,7 @@ public class StringInterleavingBenchmark {
 
         // 2. Branch and Bound (State Space Search via Priority Queue)
         // Heap customHeap = new HeapRepeatedNodes();
-        StringInterleavingBB generatorBB = new StringInterleavingBB(a, b, null /* replace with customHeap */);
+        topics.branchandbound.stringinterleaving.StringInterleavingGenerator generatorBB = new topics.branchandbound.stringinterleaving.StringInterleavingGenerator(a, b, null /* replace with customHeap */);
         t1 = System.currentTimeMillis();
         generatorBB.branchAndBound(generatorBB.getRootNode());
         t2 = System.currentTimeMillis();

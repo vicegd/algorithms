@@ -1,6 +1,6 @@
 package topics.branchandbound.stringinterleaving;
 
-import java.util.ArrayList;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import topics.branchandbound.utils.BranchAndBound;
@@ -37,7 +37,7 @@ public class StringInterleavingGenerator extends BranchAndBound {
 
         while (!nodeHeap.empty() && nodeHeap.estimateBest() < globalUpperBound) {
             Node node = nodeHeap.extractBestNode();
-            ArrayList<Node> children = node.expand();
+            List<Node> children = node.expand();
 
             for (Node child : children) {
                 if (child.isSolution()) {
