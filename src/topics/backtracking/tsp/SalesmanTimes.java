@@ -1,8 +1,6 @@
 package topics.backtracking.tsp;
 
 import java.util.Random;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Empirical Complexity Analysis: TSP Optimizations</h1>
@@ -22,8 +20,6 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class SalesmanTimes {
-    private static final Logger log = LoggerFactory.getLogger(SalesmanTimes.class);
-
     public static void main(String[] args) {
         System.out.println("=====================================================================");
         System.out.println("       BENCHMARKING TSP: UN-PRUNED vs PRUNED (Branch & Bound)");

@@ -1,8 +1,6 @@
 package topics.backtracking.paths;
 
 import java.util.Random;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Empirical Analysis: Pruning Impact</h1>
@@ -12,8 +10,6 @@ import org.slf4j.LoggerFactory;
  * </p>
  */
 public class PathBestTimes {
-    private static final Logger log = LoggerFactory.getLogger(PathBestTimes.class);
-    
     public static void main(String[] args) {
         System.out.println("=====================================================================");
         System.out.println("          BENCHMARKING PATHS: UN-PRUNED vs PRUNED (B&B)");
