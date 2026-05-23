@@ -3,16 +3,12 @@ package topics.greedy.rapiddefense;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Empirical Runtime Analysis</h1>
  * <p>Demonstrates how the Naive O(N²) approach scales terribly compared to the O(N log N) approach.</p>
  */
 public class RapidDefenseBenchmark {
-    private static final Logger log = LoggerFactory.getLogger(RapidDefenseBenchmark.class);
-
     public static void main(String[] args) {
         RapidDefense engine = new RapidDefense();
 

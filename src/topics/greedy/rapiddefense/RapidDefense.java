@@ -2,8 +2,6 @@ package topics.greedy.rapiddefense;
 
 import java.util.Collections;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <h1>Rapid Defense Assignment</h1>
@@ -16,8 +14,6 @@ import org.slf4j.LoggerFactory;
  * @author vicegd
  */
 public class RapidDefense {
-    private static final Logger log = LoggerFactory.getLogger(RapidDefense.class);
-    
     /**
      * <h2>1. Naive Greedy Assignment O(N²)</h2>
      * <p>

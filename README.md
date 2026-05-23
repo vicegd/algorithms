@@ -130,6 +130,7 @@ algorithms/
 - Median Calculation
 - Mode Calculation
 - Sequential (Linear) Search
+- String Interleaving
 - Vector Summation (Algorithmic Structural Variations)
 
 **📖 Learn more:** See [Divide and Conquer](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/divide-and-conquer)
@@ -148,6 +149,8 @@ algorithms/
 - Multi-Plumber Scheduling
 - Rapid Defense Assignment
 - Single-Plumber Scheduling
+- String Interleaving
+- Traveling Salesman
 
 
 **📖 Learn more:** See [Greedy Algorithms](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/greedy-algorithms)
@@ -161,6 +164,8 @@ algorithms/
 - Coin Change
 - Combinations (n choose k)
 - Fibonacci Sequence
+- Floyd-Warshall (All-Pairs Shortest Path
+- String Interleaving
 
 **📖 Learn more:** See [Dynamic Programming](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/dynamic-programming)
 
@@ -175,6 +180,8 @@ algorithms/
 - The Knight's Tour (First Solution)
 - The N-Queens (All Solutions)
 - The N-Queens (First Solution)
+- String Interleaving Generator
+- Traveling Salesman
 
 **📖 Learn more:** See [Backtracking](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/backtracking)
 
@@ -186,6 +193,7 @@ algorithms/
 - The 8-Puzzle
 - Optimal Placement of Rectangles
 - Optimal Placement of Rectangles (Concurrent Execution)
+- String Interleaving Generator
 
 **📖 Learn more:** See [Branch and Bound](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/branch-and-bound)
 
