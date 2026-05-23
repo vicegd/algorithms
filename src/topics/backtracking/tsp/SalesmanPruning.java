@@ -1,42 +1,51 @@
-//BACKTRACKING PROBLEM: THE TRAVELING SALESMAN PROBLEM
 package topics.backtracking.tsp;
 
-/* The traveling salesman problem is a NP problem, 
- * i.e., it has not a polynomial solution.
- * 
- * This class calculates the best cycle of all simple 
- * cycles of length n (which pass through all the nodes) */
+/**
+ * <h1>TSP Optimization with Pruning (Bounding)</h1>
+ * <p>
+ * This class implements <b>Branch & Bound</b> by pruning branches that exceed 
+ * the current {@code bestCost}.
+ * </p>
+ * * <h2>Bounding Principle</h2>
+ * <p>
+ * If {@code currentCost + edgeCost >= bestCost}, we stop exploring this path. 
+ * This is the crucial heuristic that makes this algorithm usable for slightly larger N.
+ * </p>
+ */
 public class SalesmanPruning extends Salesman {
-	public SalesmanPruning(int n, int source, int[][] weights) {
-		super(n, source, weights);
-	}
 
-	@Override
-	protected void backtracking(int current) {
-		if (current == source && length == n) {  //it is a solution state
-			if (cost < bestCost) { //we reduce the cost => we change the current best path and best cost
-				for (int l=0; l<=length; l++) 
-					bestPath[l] = path[l];
-				bestCost = cost;
-				nsol++;
-			}
-		}
-		else
-			for (int j=0; j<n; j++)
-		         if(!mark[j] && weights[current][j]!=-1 //child j of the current node
-		    	  && cost < bestCost && !mark[source]) { //PROPOSED PRUNING
-					length++;
-					cost = cost + weights[current][j];
-					mark[j] = true;
-					path[length] = j;
-	       
-					backtracking(j);  //call on the child node j of the node i
-	       
-					//we leave it as it was (available to be visited)
-					length--;
-					cost = cost - weights[current][j];
-					mark[j] = false;
-	     }
-	} //backtracking
-	
+    public SalesmanPruning(int n, int source, int[][] weights) {
+        super(n, source, weights);
+    }
+
+    @Override
+    protected void backtrack(int current) {
+        // Base case: Cycle completed
+        if (length == n - 1) {
+            super.backtrack(current);
+            return;
+        }
+
+        // Recursive step WITH PRUNING
+        for (int nextNode = 0; nextNode < n; nextNode++) {
+            if (!mark[nextNode] && weights[current][nextNode] != -1) {
+                int nextCost = cost + weights[current][nextNode];
+                
+                // PRUNING: Only explore if this branch is promising
+                if (nextCost < bestCost) {
+                    // Choose
+                    mark[nextNode] = true;
+                    path[++length] = nextNode;
+                    cost = nextCost;
+
+                    backtrack(nextNode);
+
+                    // Un-choose
+                    cost -= weights[current][nextNode];
+                    length--;
+                    mark[nextNode] = false;
+                }
+            }
+        }
+    }
 }

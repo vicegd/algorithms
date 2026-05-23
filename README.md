@@ -164,7 +164,7 @@ algorithms/
 - Coin Change
 - Combinations (n choose k)
 - Fibonacci Sequence
-- Floyd-Warshall (All-Pairs Shortest Path
+- Floyd-Warshall (All-Pairs Shortest Path)
 - String Interleaving
 
 **📖 Learn more:** See [Dynamic Programming](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/dynamic-programming)
@@ -174,6 +174,7 @@ algorithms/
 ### 6. **Backtracking**
 **Main implementations:**
 - Agent-Task Assignment
+- Paths in a graph (With Variations)
 - Permutations Generation
 - Subset Sum
 - The Knight's Tour (All Solutions)
@@ -181,7 +182,7 @@ algorithms/
 - The N-Queens (All Solutions)
 - The N-Queens (First Solution)
 - String Interleaving Generator
-- Traveling Salesman
+- Traveling Salesman (With Variations)
 
 **📖 Learn more:** See [Backtracking](https://learnalgorithms.dev/concepts/state-space-search-and-optimization/backtracking)
 

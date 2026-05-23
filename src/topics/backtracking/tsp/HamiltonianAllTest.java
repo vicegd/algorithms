@@ -5,34 +5,38 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * <h1>Validation Suite for Hamiltonian Cycles</h1>
+ * <h1>Validation Suite for Exhaustive Hamiltonian Cycles</h1>
  * <p>
- * Verifies that the exhaustive search finds exactly (N-1)! solutions.
- * For N=7, expected solutions = (7-1)! = 6! = 720.
+ * Verifies that the brute-force search mathematically explores the entire 
+ * state space, resulting in exactly (N-1)! cycles for a fully connected graph.
  * </p>
  */
-@DisplayName("Hamiltonian Cycles (Exhaustive Backtracking)")
+@DisplayName("Hamiltonian Cycles (Exhaustive Search)")
 class HamiltonianAllTest {
 
     @Test
-    @DisplayName("Should find (N-1)! unique Hamiltonian cycles for a complete graph")
-    void shouldFindAllPermutations() {
+    @DisplayName("Should find exactly (N-1)! unique Hamiltonian cycles in a complete graph")
+    void testCompleteGraphPermutations() {
         int n = 7;
+        int source = 0;
         int[][] w = generateCompleteGraph(n);
-        
-        HamiltonianAll engine = new HamiltonianAll(n, 0, w);
-        engine.solve();
-        
-        // Mathematical expectation for a complete graph: (N-1)!
-        // (7-1)! = 6! = 720
-        assertEquals(720, engine.getSolutionCount(), "The number of cycles found is incorrect.");
+
+        HamiltonianAll engine = new HamiltonianAll(n, source, w);
+        engine.backtracking();
+
+        // Mathematical validation for N=7:
+        // Expected = (7-1)! = 6! = 720
+        assertEquals(720, engine.getNumberSolutions(), "The exhaustive search failed to traverse all permutations.");
     }
 
+    /**
+     * Generates a fully connected graph where every node connects to every other node.
+     */
     private int[][] generateCompleteGraph(int n) {
         int[][] w = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                w[i][j] = (i == j) ? -1 : 10; // Simple weight of 10 for completeness
+                w[i][j] = (i == j) ? -1 : 10; // -1 for self-loops, 10 for any edge
             }
         }
         return w;

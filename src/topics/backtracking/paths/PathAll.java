@@ -1,55 +1,61 @@
-//BACKTRACKING PROBLEM: PATH BETWEEN TWO DIFFERENT NODES OF A GRAPH
 package topics.backtracking.paths;
 
-/* The idea is to complete this program to calculate and 
- * write all paths (both simple and not simple) in a graph 
- * from a  source node v[source] to a destination node 
- * v[target] (source <> destination) having a cost equal to 
- * a given threshold.
- * 
- * These paths must be smaller than 10*n nodes.
- * 
- * Test the program using different examples */
+/**
+ * <h1>Paths with an Exact Threshold Cost</h1>
+ * <p>
+ * This class calculates ALL paths (including non-simple paths/cycles) from a source 
+ * to a target node that match an exact cost threshold. 
+ * </p>
+ * * <h2>Pedagogical Note</h2>
+ * <p>
+ * Notice that we intentionally ignore the <code>mark[]</code> array in the recursive step.
+ * This allows the algorithm to revisit nodes (looping in cycles) as long as the 
+ * accumulated cost is strictly less than the threshold and the length boundary is respected.
+ * </p>
+ */
 public class PathAll extends PathSimple {
-	protected int threshold; //the cost we are looking for. We avoid paths with different cost
-		
-	public PathAll(int n, int threshold) {
-		super(n);
-		this.threshold = threshold;		
-		path = new int[10*n];
-	}
-	
-	@Override
-	public void setSource(int source) {	
-		super.setSource(source);	
-		path = new int[10*n];
-		path[0] = source;
-	}
-		
-	@Override
-	protected void backtracking(int current) {
-		if ((current==target) && (cost==threshold)) {  //it is a solution state
-			nsol++;
-			StringBuilder result = new StringBuilder();
-			for (int l=0; l<=length; l++) 
-				result.append(nodes[path[l]]+"*");
-			log.debug(result.toString());
-			log.debug("ITS COST IS = " + cost + "\n");
-		} 
-		else
-			for (int j=0; j<n ;j++) 	
-				if (weights[current][j] != -1 //child j of the current node
-						&& length < 10*n && cost < threshold) { //PROPOSED PRUNING 
-					length++;
-					cost = cost + weights[current][j];
-					path[length] = j;
-	       
-					backtracking(j);  //call on the child node j of the node i
-	       
-					//we leave it as it was (available to be visited)
-					length--;
-					cost = cost - weights[current][j];
-				}
-	} //backtracking
-	
+    protected final int threshold;
+        
+    public PathAll(int n, int threshold) {
+        super(n);
+        this.threshold = threshold;     
+        this.path = new int[10 * n]; // Expanded array to allow long, non-simple looping paths
+    }
+    
+    @Override
+    public void setSource(int source) { 
+        super.setSource(source);    
+        this.path = new int[10 * n]; // Re-initialize to ensure capacity
+        this.path[0] = source;
+    }
+        
+    @Override
+    protected void backtrack(int current) {
+        // Solution state: Target reached AND exact cost matched
+        if (current == target && cost == threshold) {
+            nsol++;
+            if (log.isTraceEnabled()) {
+                log.trace("Threshold path found: {} | Exact Cost: {}", getPathString(length), cost);
+            }
+            // We do NOT return here because we might loop out and back for the same cost 
+            // if zero-cost cycles existed (though weights are usually positive).
+        } 
+        
+        for (int j = 0; j < n; j++) {
+            // Notice the absence of "!mark[j]". We allow revisiting nodes!
+            // Pruning heuristic: Only proceed if we haven't exceeded max length OR the target cost.
+            if (weights[current][j] != -1 && length < (10 * n) - 1 && cost < threshold) {
+                // Choose
+                path[++length] = j;
+                cost += weights[current][j];
+       
+                // Explore
+                backtrack(j);
+       
+                // Un-choose
+                cost -= weights[current][j];
+                length--;
+            }
+        }
+    }
 }

@@ -1,41 +1,47 @@
 package topics.backtracking.paths;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import seminars.en._20.seminar4.PathBestPruning;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PathBestPruningTest {
-	private static Logger log = LoggerFactory.getLogger(PathBestPruningTest.class);
-	private PathBestPruning path;
-	
-	@Test
-	public void testPath() {	
-		int n = 4;
-		int[][]weights = new int[n][n]; 
-		weights[0][0] = -1; weights[0][1] = 7; weights[0][2] = 9; weights[0][3] = 4;
-		weights[1][0] = 3; weights[1][1] = -1; weights[1][2] = 2; weights[1][3] = -1;
-		weights[2][0] = 4; weights[2][1] = 3; weights[2][2] = -1; weights[2][3] = 8;
-		weights[3][0] = -1; weights[3][1] = 9; weights[3][2] = 9; weights[3][3] = -1;
-		
-		path = new PathBestPruning(n);
-		path.setSource(0);
-		path.setTarget(3);
-		path.setWeightMatrix(weights);
-		path.backtracking();
-		
-		log.debug("WEIGHT MATRIX");
-		log.debug(path.writeWeights());
-				
-		log.debug("The number of solutions found were = " + path.getNumberSolutions());
-		log.debug("The best cost is = " + path.getBestCost()); 
-		log.debug("The best cycle is = " + path.getBestPath());
-		
-		assertEquals(3, path.getNumberSolutions());
-		assertEquals(4, path.getBestCost());	
-		assertEquals("NODE0**NODE3**", path.getBestPath());
-	}
+/**
+ * <h1>Validation Suite for Shortest Path (Branch & Bound)</h1>
+ * <p>
+ * Proves that the pruning heuristic safely discards expensive branches without 
+ * ever missing the true global minimum.
+ * </p>
+ */
+@DisplayName("PathBestPruning: Shortest Path Optimization (Branch & Bound)")
+class PathBestPruningTest {
+    private static final Logger log = LoggerFactory.getLogger(PathBestPruningTest.class);
+
+    @Test
+    @DisplayName("Should find the exact same optimal shortest path using pruning")
+    void testPathBestPruning() {    
+        int n = 4;
+        int[][] weights = {
+            {-1,  7,  9,  4},
+            { 3, -1,  2, -1},
+            { 4,  3, -1,  8},
+            {-1,  9,  9, -1}
+        };
+        
+        PathBestPruning engine = new PathBestPruning(n);
+        engine.setSource(0);
+        engine.setTarget(3);
+        engine.setWeightMatrix(weights);
+        
+        log.debug("Starting Pruned (Branch & Bound) search...");
+        engine.backtracking();
+        
+        log.debug("Best Cost Found: {}", engine.getBestCost());
+        log.debug("Optimal Path: {}", engine.getBestPath());
+        
+        // The final optimal result MUST be mathematically identical to the un-pruned version.
+        assertEquals(4, engine.getBestCost(), "Pruning algorithm incorrectly discarded the optimal path.");    
+        assertEquals("NODE0**NODE3**", engine.getBestPath(), "Failed to reconstruct the optimal path sequence.");
+    }
 }

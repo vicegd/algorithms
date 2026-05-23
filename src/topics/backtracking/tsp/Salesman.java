@@ -1,57 +1,44 @@
-//BACKTRACKING PROBLEM: THE TRAVELING SALESMAN PROBLEM
 package topics.backtracking.tsp;
 
-/* The traveling salesman problem is a NP problem, 
- * i.e., it has not a polynomial solution.
- * 
- * This class calculates the best cycle of all simple 
- * cycles of length n (which pass through all the nodes) */
-public class Salesman extends HamiltonianAll {	
-	protected int[] bestPath; //to annotate the best cycle
-	protected int bestCost; //cost of the best cycle
-	
-	public Salesman(int n, int source, int[][] weights) {
-		super(n, source, weights);
-		bestPath = new int[n+1];
-		bestCost = Integer.MAX_VALUE; //a very high value
-	}
-	
-	public String getBestPath() {
-		StringBuilder sb = new StringBuilder();
-		for (int l=0; l<=n; l++)
-			sb.append(nodes[bestPath[l]]+ "**");
-		return sb.toString();
-	}
-	
-	public int getBestCost() {
-		return bestCost;
-	}
-	
-	@Override
-	protected void backtracking(int current) {
-		if (current == source && length == n) {  //it is a solution state
-			if (cost < bestCost) { //we reduce the cost => we change the current best path and best cost
-				for (int l=0; l<=length; l++) 
-					bestPath[l] = path[l];
-				bestCost = cost;
-				nsol++;
-			}
-		}
-		else
-			for (int j=0; j<n; j++)
-				if (!mark[j] && weights[current][j]!=-1) { //child j of the current node
-					length++;
-					cost = cost + weights[current][j];
-					mark[j] = true;
-					path[length] = j;
-	       
-					backtracking(j);  //call on the child node j of the node i
-	       
-					//we leave it as it was (available to be visited)
-					length--;
-					cost = cost - weights[current][j];
-					mark[j] = false;
-	     }
-	} //backtracking
-	
+/**
+ * <h1>Traveling Salesman</h1>
+ * <p>
+ * Extends HamiltonianAll to find the <b>global minimum cost</b> cycle.
+ * Unlike the base class, it stores {@code bestCost} and updates it whenever a 
+ * shorter Hamiltonian cycle is discovered.
+ * </p>
+ */
+public class Salesman extends HamiltonianAll {
+    protected final int[] bestPath;
+    protected int bestCost = Integer.MAX_VALUE;
+
+    public Salesman(int n, int source, int[][] weights) {
+        super(n, source, weights);
+        this.bestPath = new int[n + 1];
+    }
+
+    @Override
+    protected void backtrack(int current) {
+        // Base Case: Check if this cycle is the best found so far
+        if (length == n - 1) {
+            int finalCost = cost + weights[current][source];
+            if (weights[current][source] != -1 && finalCost < bestCost) {
+                bestCost = finalCost;
+                System.arraycopy(path, 0, bestPath, 0, n);
+                bestPath[n] = source;
+                nsol++;
+            }
+            return;
+        }
+
+        // Recursive step (No pruning yet)
+        super.backtrack(current);
+    }
+
+    public int getBestCost() { return bestCost; }
+    public String getBestPath() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i <= n; i++) sb.append("NODE").append(bestPath[i]).append("**");
+        return sb.toString();
+    }
 }

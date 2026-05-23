@@ -2,90 +2,96 @@ package topics.backtracking.tsp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.Random;
 
 /**
- * <h1>Hamiltonian Cycles (Exhaustive Search)</h1>
+ * <h1>Exhaustive Search for Hamiltonian Cycles</h1>
  * <p>
- * Generates all possible Hamiltonian cycles in a weighted graph using Backtracking.
- * Since the TSP is NP-Hard, this approach explores the entire search space O((N-1)!).
+ * This class implements a brute-force approach to find all simple cycles that visit every node 
+ * exactly once (Hamiltonian Cycles).
  * </p>
- * * <h2>The Backtracking Phases</h2>
+ * * <h2>Complexity Analysis</h2>
  * <ul>
- * <li><strong>Choose:</strong> Mark the next city as visited and add its weight.</li>
- * <li><strong>Explore:</strong> Recurse to the next level of the path.</li>
- * <li><strong>Un-choose:</strong> Backtrack by resetting the mark and subtracting the weight.</li>
+ * <li><b>Time Complexity:</b> O((N-1)!), where N is the number of nodes. This is due to the 
+ * permutations of nodes to visit.</li>
+ * <li><b>Space Complexity:</b> O(N) for the recursion stack and the path array.</li>
  * </ul>
  * * @author vicegd
  */
 public class HamiltonianAll {
-    private static final Logger log = LoggerFactory.getLogger(HamiltonianAll.class);
+    protected static final Logger log = LoggerFactory.getLogger(HamiltonianAll.class);
     
-    private final int n;
-    private final int[][] weights;
-    private final int source;
-    private final boolean[] visited;
-    private final int[] path;
+    protected final int n;
+    protected final int[][] weights;
+    protected final int source;
+    protected final boolean[] mark; // Visited nodes tracker
+    protected final int[] path;     // Current path sequence
     
-    private int solutionCount = 0;
-    private int currentCost = 0;
-    private int pathLength = 0;
+    protected int length = 0; // Number of steps taken
+    protected int cost = 0;   // Current accumulated cost
+    protected int nsol = 0;   // Total cycles found
 
     public HamiltonianAll(int n, int source, int[][] weights) {
         this.n = n;
         this.source = source;
-        this.weights = weights;
-        this.visited = new boolean[n];
+        this.weights = (weights != null) ? weights : generateRandomWeights(n);
+        this.mark = new boolean[n];
         this.path = new int[n + 1];
         
+        // Initial state
         this.path[0] = source;
-        this.visited[source] = true;
+        this.mark[source] = true;
     }
 
-    /**
-     * Triggers the exhaustive backtracking search.
-     */
-    public void solve() {
+    public void backtracking() {
         backtrack(source);
     }
 
-    private void backtrack(int current) {
-        // Base case: All nodes visited and path closed back to source
-        if (pathLength == n - 1) {
+    /**
+     * Core backtracking logic following the Choose-Explore-Unchoose paradigm.
+     * @param current The current node being visited.
+     */
+    protected void backtrack(int current) {
+        // Base case: If path length is N-1, we have visited all nodes.
+        // We only need to check if we can return to the source.
+        if (length == n - 1) {
             if (weights[current][source] != -1) {
-                solutionCount++;
-                logSolution();
+                nsol++;
+                log.trace("Hamiltonian cycle found. Cost: {}", cost + weights[current][source]);
             }
             return;
         }
 
-        // Recursive step: Try every possible next node
+        // Recursive step: Explore every unvisited neighbor
         for (int nextNode = 0; nextNode < n; nextNode++) {
-            if (!visited[nextNode] && weights[current][nextNode] != -1) {
+            if (!mark[nextNode] && weights[current][nextNode] != -1) {
                 // 1. CHOOSE
-                visited[nextNode] = true;
-                pathLength++;
-                path[pathLength] = nextNode;
-                currentCost += weights[current][nextNode];
-                
+                mark[nextNode] = true;
+                path[++length] = nextNode;
+                cost += weights[current][nextNode];
+
                 // 2. EXPLORE
                 backtrack(nextNode);
-                
-                // 3. UN-CHOOSE
-                visited[nextNode] = false;
-                currentCost -= weights[current][nextNode];
-                pathLength--;
+
+                // 3. UN-CHOOSE (Backtrack)
+                cost -= weights[current][nextNode];
+                length--;
+                mark[nextNode] = false;
             }
         }
     }
 
-    private void logSolution() {
-        StringBuilder sb = new StringBuilder("Cycle found: ");
-        for (int i = 0; i <= pathLength; i++) sb.append("NODE").append(path[i]).append("-");
-        sb.append("NODE").append(source);
-        log.trace("{} | Cost: {}", sb.toString(), currentCost);
+    private int[][] generateRandomWeights(int n) {
+        int[][] w = new int[n][n];
+        Random r = new Random();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                w[i][j] = w[j][i] = r.nextInt(99) + 1;
+            }
+            w[i][i] = -1; // No self-loops
+        }
+        return w;
     }
 
-    public int getSolutionCount() {
-        return solutionCount;
-    }
+    public int getNumberSolutions() { return nsol; }
 }
