@@ -1,4 +1,4 @@
-package topics.divideconquer.majoritarian;
+package topics.divideconquer.majority;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * <h1>Validation Suite for Majoritarian Element Algorithms</h1>
+ * <h1>Validation Suite for Majority Element Algorithms</h1>
  * <p>
  * Ensures all three paradigms correctly identify whether a majority 
  * element (> N/2 occurrences) exists within an array.
@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author vicegd
  */
-@DisplayName("Majoritarian Element - Algorithmic Paradigms")
-class MajoritarianElementTest {
-    private static MajoritarianElement elem;
+@DisplayName("Majority Element - Algorithmic Paradigms")
+class MajorityElementTest {
+    private static MajorityElement elem;
 
     @BeforeAll
     static void setup() {
-        elem = new MajoritarianElement();
+        elem = new MajorityElement();
     }
 
     @Test

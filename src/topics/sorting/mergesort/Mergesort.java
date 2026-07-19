@@ -1,8 +1,5 @@
 package topics.sorting.mergesort;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -32,44 +29,34 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class Mergesort implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(Mergesort.class);
 
     @Override
     public void sort(int[] elements) {
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Mergesort execution");
         }
 
         // Memory Optimization: Allocate a SINGLE auxiliary array once, rather than 
         // allocating thousands of small arrays during every recursive merge step.
         int[] auxiliarySpace = new int[elements.length];
         
-        mergeSortRecursive(elements, auxiliarySpace, 0, elements.length - 1, trace);
+        mergeSortRecursive(elements, auxiliarySpace, 0, elements.length - 1);
     }
 
     /**
      * Recursively divides the array into halves.
      */
-    private void mergeSortRecursive(int[] elements, int[] aux, int left, int right, boolean trace) {
+    private void mergeSortRecursive(int[] elements, int[] aux, int left, int right) {
         if (left < right) {
             // Prevents potential integer overflow mathematically
             int center = left + (right - left) / 2;
             
             // Sort left and right halves
-            mergeSortRecursive(elements, aux, left, center, trace);
-            mergeSortRecursive(elements, aux, center + 1, right, trace);
+            mergeSortRecursive(elements, aux, left, center);
+            mergeSortRecursive(elements, aux, center + 1, right);
             
             // Merge the two sorted halves
-            combine(elements, aux, left, center, right, trace);
+            combine(elements, aux, left, center, right);
         }
     }
 
@@ -83,7 +70,7 @@ public class Mergesort implements SortingAlgorithm {
      * @param center   Ending index of the left segment.
      * @param right    Ending index of the right segment.
      */
-    private void combine(int[] elements, int[] aux, int left, int center, int right, boolean trace) {
+    private void combine(int[] elements, int[] aux, int left, int center, int right) {
         // Copy the target segment into the auxiliary array for safe reading
         for (int i = left; i <= right; i++) {
             aux[i] = elements[i];
@@ -111,10 +98,6 @@ public class Mergesort implements SortingAlgorithm {
             elements[currentIndex] = aux[indexLeft];
             currentIndex++;
             indexLeft++;
-        }
-
-        if (trace) {
-            Util.traceMessage("Merged segment [" + left + " to " + right + "]", elements);
         }
     }
 }

@@ -1,8 +1,5 @@
 package topics.sorting.bubble;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -35,22 +32,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class Bubble implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(Bubble.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to the traceable method with tracing disabled
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return; // Array is trivial; no sorting required
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating strictly O(N^2) left-bubbling Bubble Sort execution");
         }
 
         // The outer loop defines the expanding boundary of the sorted array on the left (index i)
@@ -61,11 +47,6 @@ public class Bubble implements SortingAlgorithm {
                 if (elements[j - 1] > elements[j]) {
                     Util.swap(elements, j - 1, j);
                 }
-            }
-            
-            if (trace) {
-                // Log the state of the array after the smallest element has been secured
-                Util.trace(i + 1, elements);
             }
         }
     }

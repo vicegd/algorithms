@@ -14,12 +14,12 @@ import org.slf4j.LoggerFactory;
  *
  * <h2>Dynamic Programming Transition Matrix (2D)</h2>
  * <p>
- * This implementation constructs a 2D matrix of size <code>(N+1) &times; (W+1)</code>.
- * Row <code>0</code> represents having "0 items" available (base case = 0 value).
+ * This implementation constructs a 2D matrix of size <code>N &times; (W+1)</code>.
+ * Row <code>0</code> represents having only the first item available (base case).
  * For each subsequent cell <code>dp[i][w]</code>, we decide whether to:
  * </p>
  * <ol>
- * <li><strong>Leave the item:</strong> Inherit the maximum value from the row directly above <code>dp[i-1][w]</code>.</li>
+ * <li><strong>Leave the item:</strong> Inherit the maximum value from the row directly above: <code>dp[i-1][w]</code>.</li>
  * <li><strong>Take the item:</strong> Add the item's value to the maximum value found in the row above, shifted left by the item's weight: <code>ItemValue + dp[i-1][w - ItemWeight]</code>.</li>
  * </ol>
  *
@@ -59,28 +59,32 @@ public class Knapsack01 {
         }
 
         int n = weights.length;
-        
-        // DP Matrix: +1 row for the "0 items" base case, +1 col for "0 capacity" base case.
-        // By default, Java initializes the array with 0.0f, which perfectly matches our base cases.
-        float[][] dp = new float[n + 1][maxWeight + 1];
 
-        // i represents the number of items considered (1 to N)
-        for (int i = 1; i <= n; i++) {
-            
-            // Adjust index by -1 to access the correct item in the input arrays
-            int currentWeight = weights[i - 1];
-            float totalItemValue = benefits[i - 1] * currentWeight;
+        // DP Matrix: N rows (one per item), W+1 columns (one per capacity 0..maxWeight).
+        // By default, Java initializes the array with 0.0f, which matches the base column (capacity 0 = 0 value).
+        float[][] dp = new float[n][maxWeight + 1];
+
+        // Base case (row 0): using only item 0, it contributes its value only when it fits.
+        float item0Value = benefits[0] * weights[0];
+        for (int w = 0; w <= maxWeight; w++) {
+            dp[0][w] = (weights[0] <= w) ? item0Value : 0.0f;
+        }
+
+        // i represents the item being introduced (1 to N-1)
+        for (int i = 1; i < n; i++) {
+            int currentWeight = weights[i];
+            float totalItemValue = benefits[i] * currentWeight;
 
             // w represents the current capacity being evaluated (0 to maxWeight)
             for (int w = 0; w <= maxWeight; w++) {
-                
+
                 if (currentWeight <= w) {
                     // Option 1: Don't take the item (look directly up)
                     float notTakingItem = dp[i - 1][w];
-                    
+
                     // Option 2: Take the item (look up and left)
                     float takingItem = totalItemValue + dp[i - 1][w - currentWeight];
-                    
+
                     dp[i][w] = Math.max(notTakingItem, takingItem);
                 } else {
                     // The item doesn't fit at all, we must leave it
@@ -93,15 +97,15 @@ public class Knapsack01 {
             printMatrix(dp, n, maxWeight);
         }
 
-        return dp[n][maxWeight];
+        return dp[n - 1][maxWeight];
     }
 
     /**
      * Helper method to format the 2D DP matrix for clean console logging.
      */
     private void printMatrix(float[][] dp, int n, int maxWeight) {
-        StringBuilder sb = new StringBuilder("\nDP Matrix (Rows: Items 0 to N, Cols: Capacity 0 to W):\n");
-        for (int i = 0; i <= n; i++) {
+        StringBuilder sb = new StringBuilder("\nDP Matrix (Rows: Items 0 to N-1, Cols: Capacity 0 to W):\n");
+        for (int i = 0; i < n; i++) {
             sb.append(String.format("Item %d: | ", i));
             for (int w = 0; w <= maxWeight; w++) {
                 sb.append(String.format("%6.1f | ", dp[i][w]));

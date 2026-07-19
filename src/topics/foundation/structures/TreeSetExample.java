@@ -52,7 +52,7 @@ public class TreeSetExample {
         System.out.println("Contents: " + collection);
         
         // Range-View Operation: Generates a sorted subset in O(log N) time.
-        // Note that subSet(fromElement, toElement) is inclusive of the start bound and exclusive of the end bound.
+        // Note that subSet(fromElement, toElement) is inclusive of the start bound and exclusive of the end bound
         System.out.println("Subset from 'B' (inclusive) to 'E' (exclusive): " + collection.subSet("B", "E"));
     }
 }

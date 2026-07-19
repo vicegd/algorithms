@@ -1,8 +1,5 @@
 package topics.sorting.insertion;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -36,22 +33,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class BinaryInsertion implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(BinaryInsertion.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to prevent code duplication
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Binary Insertion Sort execution");
         }
 
         // 'i' marks the boundary of the sorted portion
@@ -79,10 +65,6 @@ public class BinaryInsertion implements SortingAlgorithm {
 
             // Phase 3: Insert the key into its mathematical position
             elements[left] = key;
-
-            if (trace) {
-                Util.trace(i, elements);
-            }
         }
     }
 }

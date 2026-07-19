@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>Combinations (n choose k)</h1>
+ * <h1>Combinations</h1>
  * <p>
  * Calculates the mathematical combinations of <code>n</code> elements taken 
  * <code>k</code> at a time. This implementation highlights the dramatic difference 

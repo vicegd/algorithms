@@ -1,7 +1,7 @@
 package topics.divideconquer.search;
 
 /**
- * <h1>Sequential (Linear) Search</h1>
+ * <h1>Sequential Search</h1>
  * <p>
  * Implements the baseline linear search paradigm to locate an element within an array. 
  * Unlike Binary Search, Sequential Search makes no assumptions about data layout 

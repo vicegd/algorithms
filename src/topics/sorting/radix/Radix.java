@@ -1,8 +1,5 @@
 package topics.sorting.radix;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -37,22 +34,11 @@ import java.util.Queue;
  * @see topics.sorting.SortingAlgorithm
  */
 public class Radix implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(Radix.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to prevent logic duplication
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating LSD Radix Sort execution");
         }
 
         // Initialize empty buckets locally to ensure the algorithm is strictly stateless and thread-safe
@@ -80,11 +66,6 @@ public class Radix implements SortingAlgorithm {
                 while (!bucket.isEmpty()) {
                     elements[index++] = bucket.remove(); // Removes and retrieves the head
                 }
-            }
-            
-            if (trace) {
-                // Formatting mathematically (pass 0 -> 1s, pass 1 -> 10s, pass 2 -> 100s)
-                Util.traceMessage(String.format("Distributed by %ds place", divisor), elements);
             }
             
             divisor *= 10;

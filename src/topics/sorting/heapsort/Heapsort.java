@@ -1,8 +1,5 @@
 package topics.sorting.heapsort;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -29,28 +26,17 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class Heapsort implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(Heapsort.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to the traceable method to avoid duplicating the algorithmic logic
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Heapsort execution");
         }
 
         int n = elements.length;
 
         // Phase 1: Build the initial Max-Heap from the bottom up
-        buildHeap(elements, n, trace);
+        buildHeap(elements, n);
 
         // Phase 2: Extract the maximum element and place it at the end of the array
         while (n > 1) {
@@ -59,16 +45,8 @@ public class Heapsort implements SortingAlgorithm {
             // Move the current maximum (root at index 0) to the end of the unsorted boundary
             Util.swap(elements, 0, n);
             
-            if (trace) {
-                Util.traceMessage("Extracted Max to index " + n, elements);
-            }
-            
             // Restore the Max-Heap property for the remaining unsorted elements
             downHeap(elements, 0, n);
-            
-            if (trace) {
-                Util.traceMessage("Downheap restored Max-Heap", elements);
-            }
         }
     }
 
@@ -76,14 +54,10 @@ public class Heapsort implements SortingAlgorithm {
      * Rearranges the input array to satisfy the Max-Heap property.
      * Operates in O(N) time complexity.
      */
-    private void buildHeap(int[] elements, int heapSize, boolean trace) {
+    private void buildHeap(int[] elements, int heapSize) {
         // Start from the last non-leaf node and sift down to the root
         for (int i = (heapSize / 2) - 1; i >= 0; i--) {
             downHeap(elements, i, heapSize);
-            
-            if (trace) {
-                Util.traceMessage("BUILDING HEAP - Downheap from index " + i, elements);
-            }
         }
     }
 

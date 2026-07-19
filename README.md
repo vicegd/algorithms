@@ -105,8 +105,8 @@ algorithms/
 **Main implementations:**
 - Bidirectional Bubble Sort (Cocktail Shaker Sort)
 - Binary Insertion Sort
-- Bubble Sort (Left-Bubbling)
-- Bubble Sort (Optimized with Sentinel)
+- Bubble Sort
+- Bubble Sort with Sentinel
 - Direct Insertion Sort
 - Direct Selection Sort
 - Heapsort
@@ -124,14 +124,14 @@ algorithms/
 - Binary Search
 - Factorial Calculation
 - Fibonacci Sequence
-- Greatest Common Divisor (GCD)
-- Majoritarian Element
+- Greatest Common Divisor
+- Majority Element
 - Maximum Subarray Sum
 - Median Calculation
 - Mode Calculation
-- Sequential (Linear) Search
+- Sequential Search
 - String Interleaving
-- Vector Summation (Algorithmic Structural Variations)
+- Vector Summation
 
 **📖 Learn more:** See [Divide and Conquer](https://learnalgorithms.dev/concepts/algorithm-design-paradigms/divide-and-conquer)
 
@@ -162,7 +162,7 @@ algorithms/
 - 0/1 Knapsack
 - Cheaper Travel on the River
 - Coin Change
-- Combinations (n choose k)
+- Combinations
 - Fibonacci Sequence
 - Floyd-Warshall (All-Pairs Shortest Path)
 - String Interleaving
@@ -177,10 +177,10 @@ algorithms/
 - Paths in a graph (With Variations)
 - Permutations Generation
 - Subset Sum
-- The Knight's Tour (All Solutions)
-- The Knight's Tour (First Solution)
-- The N-Queens (All Solutions)
-- The N-Queens (First Solution)
+- Knight's Tour (All Solutions)
+- Knight's Tour (First Solution)
+- N-Queens (All Solutions)
+- N-Queens (First Solution)
 - String Interleaving Generator
 - Traveling Salesman (With Variations)
 
@@ -190,7 +190,7 @@ algorithms/
 
 ### 7. **Branch & Bound**
 **Main implementations:**
-- Task Assignment
+- Agent-Task Assignment
 - The 8-Puzzle
 - Optimal Placement of Rectangles
 - Optimal Placement of Rectangles (Concurrent Execution)

@@ -1,8 +1,5 @@
 package topics.sorting.selection;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -26,22 +23,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class DirectSelection implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(DirectSelection.class);
 
     @Override  
     public void sort(int[] elements) {
-        // Delegate to the traceable method with tracing disabled to prevent logic duplication
-        sort(elements, false);
-    }
-    
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Direct Selection Sort execution");
         }
 
         // 'i' marks the boundary between the sorted (left) and unsorted (right) portions
@@ -53,10 +39,6 @@ public class DirectSelection implements SortingAlgorithm {
             // Micro-optimization: Only execute memory writes if the minimum is not already in place
             if (i != posMin) {
                 Util.swap(elements, i, posMin);
-            }
-            
-            if (trace) {
-                Util.trace(i + 1, elements);
             }
         }
     }

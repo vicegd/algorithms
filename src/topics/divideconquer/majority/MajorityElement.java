@@ -1,18 +1,18 @@
-package topics.divideconquer.majoritarian;
+package topics.divideconquer.majority;
 
 import java.util.Arrays;
 
 /**
- * <h1>Majoritarian Element</h1>
+ * <h1>Majority Element</h1>
  * <p>
- * Evaluates whether an array contains a "Majoritarian Element" (an element that 
+ * Evaluates whether an array contains a "Majoritary Element" (an element that 
  * appears strictly more than N/2 times). This class demonstrates the evolution 
  * of algorithmic efficiency from a brute-force approach to a linear Divide & Conquer approach.
  * </p>
  *
  * @author vicegd
  */
-public class MajoritarianElement {
+public class MajorityElement {
     /**
      * <h2>1. Naive Iterative Approach</h2>
      * <p>

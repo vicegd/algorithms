@@ -1,13 +1,10 @@
 package topics.sorting.bubble;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 /**
- * <h1>Bubble Sort (Optimized with Sentinel)</h1>
+ * <h1>Bubble Sort with Sentinel</h1>
  * <p>
  * An optimized variant of the left-bubbling sort. It introduces a "sentinel" 
  * boolean flag to monitor if any mathematical swaps occurred during the current 
@@ -27,22 +24,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class BubbleSentinel implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(BubbleSentinel.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to the traceable method with tracing disabled to prevent code duplication
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Optimized Bubble Sort (Sentinel) execution");
         }
 
         int i = 1;
@@ -58,13 +44,6 @@ public class BubbleSentinel implements SortingAlgorithm {
                 if (elements[j - 1] > elements[j]) {
                     Util.swap(elements, j - 1, j);
                     hasChange = true; // Trigger the sentinel flag
-                }
-            }
-
-            if (trace) {
-                Util.trace(i, elements);
-                if (!hasChange) {
-                    log.trace("Sentinel triggered early termination: Sequence is perfectly sorted.");
                 }
             }
             

@@ -47,7 +47,7 @@ public class StackExample {
         collection.add("D");
         
         // Vector Inheritance Leak: Allows indexed insertion, shifting subsequent elements
-        // This explicitly breaks the strict LIFO contract of a traditional stack.
+        // This explicitly breaks the strict LIFO contract of a traditional stack
         collection.add(1, "A2");
         
         // Standard Stack Operations: Retrieves and removes the top elements ("D" then "C")
@@ -62,7 +62,7 @@ public class StackExample {
         
         // Vector Inheritance Leak: Allows arbitrary indexed removals
         // Note: Depending on the sequence of pops/removes above, this specific index 
-        // may trigger an ArrayIndexOutOfBoundsException if the stack size falls below 4.
+        // may trigger an ArrayIndexOutOfBoundsException if the stack size falls below 4
         collection.remove(3);
 
         System.out.println("Size after deletions: " + collection.size());

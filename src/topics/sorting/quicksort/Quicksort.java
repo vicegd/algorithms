@@ -1,8 +1,5 @@
 package topics.sorting.quicksort;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -34,24 +31,14 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class Quicksort implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(Quicksort.class);
 
     @Override
     public void sort(int[] elements) {
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
         }
         
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Quicksort execution (Median-of-Three)");
-        }
-        
-        quickSortRecursive(elements, 0, elements.length - 1, 1, trace);
+        quickSortRecursive(elements, 0, elements.length - 1, 1);
     }
 
     /**
@@ -82,7 +69,7 @@ public class Quicksort implements SortingAlgorithm {
     /**
      * Internal recursive execution of the Quicksort partitioning logic.
      */
-    private void quickSortRecursive(int[] elements, int left, int right, int level, boolean trace) {
+    private void quickSortRecursive(int[] elements, int left, int right, int level) {
         if (left >= right) {
             return; // Base case: Segment is 1 element or invalid
         }
@@ -111,18 +98,9 @@ public class Quicksort implements SortingAlgorithm {
             // Restore the pivot to its mathematically correct and final position
             Util.swap(elements, i, right);
             
-            if (trace) {
-                Util.traceMessage("Level: " + level + " Pivot placed: " + pivot, elements);
-            }
-            
             // Recursively sort the dynamically created sub-arrays
-            quickSortRecursive(elements, left, i - 1, level + 1, trace);
-            quickSortRecursive(elements, i + 1, right, level + 1, trace);
-        } else {
-            // Segment of 3 or fewer elements is already sorted by medianOfThree
-            if (trace) {
-                Util.traceMessage("Level: " + level + " (Base case sorted)", elements);
-            }
+            quickSortRecursive(elements, left, i - 1, level + 1);
+            quickSortRecursive(elements, i + 1, right, level + 1);
         }
     }
 }

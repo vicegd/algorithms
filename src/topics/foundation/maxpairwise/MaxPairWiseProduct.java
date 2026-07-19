@@ -37,12 +37,10 @@ public class MaxPairWiseProduct {
     /**
      * Computes the mathematical product of the predefined integers.
      *
-     * @return The exact mathematical product safely evaluated as a 64-bit integer.
+     * @return The mathematical product safely evaluated as an integer.
      */
-    public long compute() {
-        // Casting the first operand to a 'long' forces the arithmetic processor 
-        // to evaluate the multiplication in 64-bit space, preventing overflow truncation.
-        long result = (long) operandA * operandB;
+    public int compute() {
+        int result = operandA * operandB;
         
         log.info("The result is = {}", result);
         return result;

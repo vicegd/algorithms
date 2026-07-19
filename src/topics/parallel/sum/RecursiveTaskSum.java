@@ -28,7 +28,7 @@ public class RecursiveTaskSum extends RecursiveTask<Double> {
     private final int end;
     
     /**
-     * Initializes a sum task for a dedicated boundary segment of the array.
+     * Initializes a sum task for a dedicated boundary segment of the array
      *
      * @param data  The source numerical array.
      * @param start The inclusive starting boundary index.

@@ -1,8 +1,5 @@
 package topics.sorting.shellsort;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -37,22 +34,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class Shellsort implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(Shellsort.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to the traceable method to avoid duplicating the core logic
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Shellsort execution");
         }
 
         int n = elements.length;
@@ -74,10 +60,6 @@ public class Shellsort implements SortingAlgorithm {
                 
                 // Insert the key into its mathematically correct gapped position
                 elements[j + gap] = key;
-                
-                if (trace) {
-                    Util.traceShellSort(gap, i, elements);
-                }
             }
         }
     }

@@ -29,7 +29,7 @@ class MaxPairWiseProductTest {
         log.trace("Executing Max Pairwise Product Overflow Validation");
         
         var calculator = new MaxPairWiseProduct();
-        long result = calculator.compute();
+        int result = calculator.compute();
         
         assertEquals(100_000_000_000L, result, 
             "The product must be evaluated in 64-bit memory space to accurately yield 100,000,000,000.");

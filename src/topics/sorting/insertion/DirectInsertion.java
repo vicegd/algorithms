@@ -1,8 +1,5 @@
 package topics.sorting.insertion;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -37,22 +34,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class DirectInsertion implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(DirectInsertion.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to the traceable method with tracing disabled to prevent logic duplication
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Direct Insertion Sort execution");
         }
 
         // 'i' marks the boundary between the sorted (left) and unsorted (right) portions
@@ -68,10 +54,6 @@ public class DirectInsertion implements SortingAlgorithm {
             
             // Insert the key into its mathematically correct sorted position
             elements[j + 1] = key;
-            
-            if (trace) {
-                Util.trace(i, elements);
-            }
         }
     }
 }

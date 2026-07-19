@@ -1,5 +1,7 @@
 package topics.divideconquer.median;
 
+import java.util.Arrays;
+
 /**
  * <h1>Median Calculation</h1>
  * <p>
@@ -26,7 +28,7 @@ public class Median {
      * the elements on the left and right sides of the median.
      * </p>
      * <ul>
-     * <li><strong>Time Complexity:</strong> O(N log N) - Bound by the Quicksort step.</li>
+     * <li><strong>Time Complexity:</strong> O(N log N) - Bound by the {@link Arrays#sort} step.</li>
      * <li><strong>Space Complexity:</strong> O(N) - We clone the array to prevent mutating the user's original data.</li>
      * </ul>
      *
@@ -41,7 +43,7 @@ public class Median {
         // Prevent side-effects: Do not mutate the original array
         int[] copy = v.clone();
 
-        sort(copy, 0, copy.length - 1);
+        Arrays.sort(copy);
 
         int centerPosition = copy.length / 2;
         return copy[centerPosition]; 
@@ -79,14 +81,6 @@ public class Median {
      * Private Quickselect recursive helper.
      * Finds the k-th smallest element within the segment boundaries.
      */
-    /** Recursive quicksort using the local Util partition scheme. */
-    private void sort(int[] v, int left, int right) {
-        if (left >= right) return;
-        int pivot = Util.partition(v, left, right);
-        sort(v, left, pivot - 1);
-        sort(v, pivot + 1, right);
-    }
-
     private int quickselect(int left, int right, int[] v, int k) { 
         // Base case: If the segment is only one element long, we've found it
         if (left == right) {
@@ -98,13 +92,13 @@ public class Median {
 
         // Analyze where the pivot landed relative to our target 'k'
         if (pivotPosition == k) {
-            // Jackpot: The pivot landed exactly on the median index.
+            // The pivot landed exactly on the median index
             return v[pivotPosition];
         } else if (pivotPosition > k) {
-            // The median must be to the left of the pivot. Discard the right half.
+            // The median must be to the left of the pivot. Discard the right half
             return quickselect(left, pivotPosition - 1, v, k);
         } else {
-            // The median must be to the right of the pivot. Discard the left half.
+            // The median must be to the right of the pivot. Discard the left half
             return quickselect(pivotPosition + 1, right, v, k);
         }
     }

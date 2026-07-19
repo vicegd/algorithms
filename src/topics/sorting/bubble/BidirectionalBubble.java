@@ -1,8 +1,5 @@
 package topics.sorting.bubble;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
@@ -28,22 +25,11 @@ import topics.sorting.utils.Util;
  * @see topics.sorting.SortingAlgorithm
  */
 public class BidirectionalBubble implements SortingAlgorithm {
-    private static final Logger log = LoggerFactory.getLogger(BidirectionalBubble.class);
 
     @Override
     public void sort(int[] elements) {
-        // Delegate to the traceable method with tracing disabled
-        sort(elements, false);
-    }
-
-    @Override
-    public void sort(int[] elements, boolean trace) {
         if (elements == null || elements.length <= 1) {
             return;
-        }
-
-        if (trace && log.isDebugEnabled()) {
-            log.debug("Initiating Bidirectional Bubble Sort execution");
         }
 
         int left = 0;
@@ -72,10 +58,6 @@ public class BidirectionalBubble implements SortingAlgorithm {
                     Util.swap(elements, i, i + 1);
                     hasChange = true;
                 }
-            }
-
-            if (trace) {
-                Util.trace(left + 1, elements);
             }
 
             // Narrow the boundaries as the extremities are now guaranteed to be in their final sorted positions

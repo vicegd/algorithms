@@ -48,8 +48,8 @@ public class PriorityQueueExample {
         System.out.println("Size after operations: " + queue.size());
         System.out.print("Extracted Elements: ");
         
-        // Priority Extraction: Continuously pops the root of the min-heap. 
-        // Despite the insertion order, the output will reliably follow the natural ordering.
+        // Priority Extraction: Continuously pops the root of the min-heap
+        // Despite the insertion order, the output will reliably follow the natural ordering
         while (!queue.isEmpty()) {
             System.out.print(queue.poll());
         }
