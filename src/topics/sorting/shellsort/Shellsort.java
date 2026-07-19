@@ -1,7 +1,6 @@
 package topics.sorting.shellsort;
 
 import topics.sorting.utils.SortingAlgorithm;
-import topics.sorting.utils.Util;
 
 /**
  * <h1>Shellsort</h1>

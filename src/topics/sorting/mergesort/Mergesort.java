@@ -1,13 +1,12 @@
 package topics.sorting.mergesort;
 
 import topics.sorting.utils.SortingAlgorithm;
-import topics.sorting.utils.Util;
 
 /**
  * <h1>Mergesort</h1>
  * <p>
  * A classic divide-and-conquer algorithm. It works by recursively breaking down 
- * an array into two halves until each sub-array consists of a single element, 
+ * an array into two halves un  til each sub-array consists of a single element, 
  * and then merging those sub-arrays back together in a strictly sorted order.
  * </p>
  *

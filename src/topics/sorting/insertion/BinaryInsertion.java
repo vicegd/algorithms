@@ -1,7 +1,6 @@
 package topics.sorting.insertion;
 
 import topics.sorting.utils.SortingAlgorithm;
-import topics.sorting.utils.Util;
 
 /**
  * <h1>Binary Insertion Sort</h1>
