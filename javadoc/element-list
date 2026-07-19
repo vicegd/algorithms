@@ -15,7 +15,7 @@ topics.branchandbound.utils.threads
 topics.divideconquer.factorial
 topics.divideconquer.fibonacci
 topics.divideconquer.gcd
-topics.divideconquer.majoritarian
+topics.divideconquer.majority
 topics.divideconquer.maxsum
 topics.divideconquer.median
 topics.divideconquer.mode
