@@ -33,7 +33,7 @@ class MergesortTest {
         int[] elements = {4, 5, 6, 1, 3, 2, 7, 8};
         int[] expected = {1, 2, 3, 4, 5, 6, 7, 8};
 
-        sorting.sort(elements, true);
+        sorting.sort(elements);
 
         assertArrayEquals(expected, elements, "Mergesort failed to correctly divide and merge the small sequence.");
     }
@@ -53,7 +53,7 @@ class MergesortTest {
         }
         
         // Trace is set to false here to prevent generating 1000 lines of console logs
-        sorting.sort(elements, false);
+        sorting.sort(elements);
         
         // Validate strict ascending order mathematically
         for (int i = 0; i < size; i++) {

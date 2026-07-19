@@ -48,4 +48,21 @@ public final class Util {
         return minPos;
     }
   
+    /**
+     * Locates the position of the largest element within a specific sub-array.
+     *
+     * @param elements     The target array.
+     * @param firstElement The starting index for the search boundary.
+     * @return The index of the smallest element.
+     */
+    public static int findPosMax(int[] elements, int firstElement) {
+        int maxPos = firstElement;
+        for (int i = firstElement + 1; i < elements.length; i++) {
+            if (elements[i] > elements[maxPos]) {
+                maxPos = i;
+            }
+        }
+        return maxPos;
+    }
+
 }
