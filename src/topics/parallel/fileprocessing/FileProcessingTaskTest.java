@@ -44,7 +44,7 @@ class FileProcessingTaskTest {
     void shouldProcessFilesInParallel() {
         // Cross-platform safe path. Replaces the hardcoded "C:\\WINDOWS" to prevent 
         // test failures for students using macOS or Linux environments.
-        var targetDirectory = Path.of(System.getProperty("user.dir"));
+        var targetDirectory = Path.of("C:\\xampp\\phpMyAdmin");
         
         var task = new FileProcessingTask(targetDirectory);                
 

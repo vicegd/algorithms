@@ -26,11 +26,11 @@ public class DiskPacking {
      * </ul>
      *
      * @param files Array containing the sizes of available files.
-     * @param discCapacity The maximum storage capacity of the disk.
+     * @param diskCapacity The maximum storage capacity of the disk.
      * @return The maximum number of files that can be stored.
      */
-    public int maximizeFileCount(int[] files, int discCapacity) {
-        if (files == null || files.length == 0 || discCapacity <= 0) return 0;
+    public int maximizeFileCount(int[] files, int diskCapacity) {
+        if (files == null || files.length == 0 || diskCapacity <= 0) return 0;
 
         // Defensive copy to prevent mutating the original input array
         int[] sortedFiles = files.clone();
@@ -41,7 +41,7 @@ public class DiskPacking {
 
         // Iterate ascending: Smallest first
         for (int i = 0; i < sortedFiles.length; i++) {
-            if (usedSpace + sortedFiles[i] <= discCapacity) {
+            if (usedSpace + sortedFiles[i] <= diskCapacity) {
                 usedSpace += sortedFiles[i];
                 fileCount++;
             } else {
@@ -66,11 +66,11 @@ public class DiskPacking {
      * </ul>
      *
      * @param files Array containing the sizes of available files.
-     * @param discCapacity The maximum storage capacity of the disk.
+     * @param diskCapacity The maximum storage capacity of the disk.
      * @return The total amount of disk space utilized by the greedy heuristic.
      */
-    public int maximizeSpaceUsage(int[] files, int discCapacity) {
-        if (files == null || files.length == 0 || discCapacity <= 0) return 0;
+    public int maximizeSpaceUsage(int[] files, int diskCapacity) {
+        if (files == null || files.length == 0 || diskCapacity <= 0) return 0;
 
         int[] sortedFiles = files.clone();
         Arrays.sort(sortedFiles);
@@ -79,7 +79,7 @@ public class DiskPacking {
 
         // Iterate descending: Largest first
         for (int i = sortedFiles.length - 1; i >= 0; i--) {
-            if (usedSpace + sortedFiles[i] <= discCapacity) {
+            if (usedSpace + sortedFiles[i] <= diskCapacity) {
                 usedSpace += sortedFiles[i];
             }
         }
