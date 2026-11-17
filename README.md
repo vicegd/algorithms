@@ -47,33 +47,30 @@ mvn test jacoco:report
 ```
 algorithms/
 ├── src/
-│   ├── main/java/topics/               # Algorithm implementations
-│   │   ├── introduction/               # Getting started, recursion, search, data structures
-│   │   │   └── examples/               # Java Collections examples (ArrayList, ArrayDeque, LinkedList, Stack, TreeSet…)
-│   │   ├── sorting/                    # Sorting algorithms (Bubble, Mergesort, Quicksort, Heapsort, Radix, Shell…)
-│   │   │   └── utils/                  # Shared sorting utilities & interface
-│   │   ├── divideconquer/              # Divide & Conquer strategies
-│   │   │   └── utils/                  # Shared D&C utilities
-│   │   ├── dynamic/                    # Dynamic Programming
-│   │   ├── greedy/                     # Greedy Algorithms
-│   │   │   └── agentsTasks/            # Agent-task assignment timing helpers
-│   │   ├── backtracking/               # Backtracking techniques
-│   │   │   └── times/                  # Timing / benchmark helpers
-│   │   ├── branchandbound/             # Branch & Bound methods
-│   │   │   ├── times/                  # Timing / benchmark helpers
-│   │   │   └── util/                   # Core B&B framework (BranchAndBound, Heap, Node…)
-│   │   │       └── threads/            # Thread-safe B&B variants (BranchAndBoundThreads, HeapThreads, WorkerThread)
-│   │   └── parallel/                   # Parallel algorithms (ForkJoin)
-│   └── test/java/topics/               # Unit tests (JUnit 5)
+│   ├── log4j.properties                # Logging configuration
+│   └── topics/                         # Implementations, tests, and benchmarks
+│       ├── foundation/                 # Getting started, search, basic data structures
+│       ├── sorting/                    # Sorting algorithms (Bubble, Mergesort, Quicksort, Heapsort, Radix, Shell…)
+│       │   └── utils/                  # Shared sorting utilities & interface
+│       ├── divideconquer/              # Divide & Conquer strategies
+│       │   └── utils/                  # Shared D&C utilities
+│       ├── dynamic/                    # Dynamic Programming
+│       ├── greedy/                     # Greedy Algorithms
+│       │   └── agents/                 # Agent-task assignment & timing helpers
+│       ├── backtracking/               # Backtracking techniques
+│       ├── branchandbound/             # Branch & Bound methods
+│       │   └── utils/                  # Core B&B framework (BranchAndBound, Heap, Node…)
+│       │       └── threads/            # Thread-safe B&B variants (BranchAndBoundThreads, HeapThreads, WorkerThread)
+│       └── parallel/                   # Parallel algorithms (ForkJoin)
+├── docs/                               # GitHub Pages landing page
 ├── .github/                            # GitHub configuration
 │   ├── workflows/                      # CI/CD pipelines
+│   │   ├── ci.yml                      # Run tests and verify Javadoc on push/PR
 │   │   └── javadoc.yml                 # Publish Javadoc to GitHub Pages
 │   ├── ISSUE_TEMPLATE/                 # Issue templates (bug report, feature request, custom)
-│   ├── java-upgrade/                   # Java upgrade hooks
 │   └── dependabot.yml                  # Dependabot version updates (Maven)
 ├── .editorconfig                       # Editor formatting rules
 ├── .gitignore                          # Git ignore patterns
-├── .vscode/                            # VS Code workspace settings
 ├── pom.xml                             # Maven configuration
 ├── README.md                           # This file
 ├── CONTRIBUTING.md                     # Contribution guidelines

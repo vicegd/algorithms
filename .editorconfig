@@ -9,10 +9,10 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# Java source files: 2-space indentation (Google Java Style Guide)
+# Java source files: 4-space indentation
 [*.java]
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 # Config/markup/data files: 2-space indentation
 [*.{xml,yml,yaml,json,md}]
@@ -28,8 +28,8 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
-# Windows/shell scripts: CRLF line endings
-[*.{ps1,bat,cmd,sh}]
+# Windows batch/PowerShell scripts: CRLF line endings
+[*.{ps1,bat,cmd}]
 end_of_line = crlf
 indent_style = space
 indent_size = 2

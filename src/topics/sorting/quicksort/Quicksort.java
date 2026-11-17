@@ -28,7 +28,7 @@ import topics.sorting.utils.Util;
  * </ul>
  *
  * @author vicegd
- * @see topics.sorting.SortingAlgorithm
+ * @see topics.sorting.utils.SortingAlgorithm
  */
 public class Quicksort implements SortingAlgorithm {
 
@@ -38,7 +38,7 @@ public class Quicksort implements SortingAlgorithm {
             return;
         }
         
-        quickSortRecursive(elements, 0, elements.length - 1, 1);
+        quickSortRecursive(elements, 0, elements.length - 1);
     }
 
     /**
@@ -69,7 +69,7 @@ public class Quicksort implements SortingAlgorithm {
     /**
      * Internal recursive execution of the Quicksort partitioning logic.
      */
-    private void quickSortRecursive(int[] elements, int left, int right, int level) {
+    private void quickSortRecursive(int[] elements, int left, int right) {
         if (left >= right) {
             return; // Base case: Segment is 1 element or invalid
         }
@@ -99,8 +99,8 @@ public class Quicksort implements SortingAlgorithm {
             Util.swap(elements, i, right);
             
             // Recursively sort the dynamically created sub-arrays
-            quickSortRecursive(elements, left, i - 1, level + 1);
-            quickSortRecursive(elements, i + 1, right, level + 1);
+            quickSortRecursive(elements, left, i - 1);
+            quickSortRecursive(elements, i + 1, right);
         }
     }
 }
