@@ -23,7 +23,7 @@ import topics.sorting.utils.Util;
  * </ul>
  *
  * @author vicegd
- * @see topics.sorting.SortingAlgorithm
+ * @see topics.sorting.utils.SortingAlgorithm
  */
 public class Heapsort implements SortingAlgorithm {
 

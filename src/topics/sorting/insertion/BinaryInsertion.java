@@ -25,11 +25,11 @@ import topics.sorting.utils.SortingAlgorithm;
  * <li><strong>Time Complexity (Comparisons):</strong> <code>O(N log N)</code> - Binary search drastically reduces the number of comparisons.</li>
  * <li><strong>Time Complexity (Swaps/Shifts):</strong> <code>O(N&sup2;)</code> - Moving elements in an array still requires linear shifting, dominating the overall time complexity in average/worst cases.</li>
  * <li><strong>Space Complexity:</strong> <code>O(1)</code> - Sorts entirely in-place.</li>
- * <li><strong>Stability:</strong> Yes - Because the binary search condition <code>(key < elements[center])</code> forces the algorithm to place equal elements to the right of existing ones.</li>
+ * <li><strong>Stability:</strong> Yes - Because the binary search condition <code>(key &lt; elements[center])</code> forces the algorithm to place equal elements to the right of existing ones.</li>
  * </ul>
  *
  * @author vicegd
- * @see topics.sorting.SortingAlgorithm
+ * @see topics.sorting.utils.SortingAlgorithm
  */
 public class BinaryInsertion implements SortingAlgorithm {
 

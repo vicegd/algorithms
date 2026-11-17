@@ -25,7 +25,7 @@ import topics.sorting.utils.SortingAlgorithm;
  * </ul>
  *
  * @author vicegd
- * @see topics.sorting.SortingAlgorithm
+ * @see topics.sorting.utils.SortingAlgorithm
  */
 public class Mergesort implements SortingAlgorithm {
 
