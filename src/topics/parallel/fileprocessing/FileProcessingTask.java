@@ -32,6 +32,8 @@ public class FileProcessingTask extends RecursiveAction {
     /** The granularity threshold. Maximum files processed per thread. */
     private static final int THRESHOLD = 5;
     
+    // Path is non-serializable, but this ForkJoinTask is never serialized across JVMs.
+    @SuppressWarnings("serial")
     private final List<Path> filesToProcess;
 
     /**

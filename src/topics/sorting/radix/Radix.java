@@ -4,6 +4,8 @@ import topics.sorting.utils.SortingAlgorithm;
 import topics.sorting.utils.Util;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -31,7 +33,7 @@ import java.util.Queue;
  * </ul>
  *
  * @author vicegd
- * @see topics.sorting.SortingAlgorithm
+ * @see topics.sorting.utils.SortingAlgorithm
  */
 public class Radix implements SortingAlgorithm {
 
@@ -42,10 +44,9 @@ public class Radix implements SortingAlgorithm {
         }
 
         // Initialize empty buckets locally to ensure the algorithm is strictly stateless and thread-safe
-        @SuppressWarnings("unchecked")
-        Queue<Integer>[] buckets = new ArrayDeque[10];
+        List<Queue<Integer>> buckets = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
-            buckets[i] = new ArrayDeque<>();
+            buckets.add(new ArrayDeque<>());
         }
 
         int maxNumberOfDigits = calculateMaxDigitCount(elements);
@@ -57,7 +58,7 @@ public class Radix implements SortingAlgorithm {
             // Phase 1: Distribute elements into buckets based on the current active digit
             for (int element : elements) {
                 int digit = getDigitAtPlace(element, divisor);
-                buckets[digit].add(element);
+                buckets.get(digit).add(element);
             }
             
             // Phase 2: Re-collect elements sequentially from the buckets

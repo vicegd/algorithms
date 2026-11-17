@@ -211,12 +211,3 @@ class PuzzleState extends Node {
         return sb.toString();
     }
 }
-
-/**
- * Defines the available mathematical heuristics applied to evaluate proximity 
- * to the puzzle's final state.
- */
-enum HeuristicType {
-    MANHATTAN,
-    WRONG_PLACE
-}

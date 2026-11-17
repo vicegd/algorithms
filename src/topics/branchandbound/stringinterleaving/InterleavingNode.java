@@ -13,7 +13,7 @@ import topics.branchandbound.utils.Node;
  *
  * @author vicegd
  */
-public class InterleavingNode extends Node {
+public final class InterleavingNode extends Node {
     private final String a;
     private final String b;
     private final String currentInterleaving;
