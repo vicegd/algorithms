@@ -14,10 +14,18 @@ package topics.backtracking.paths;
  * </p>
  */
 public class PathWorst extends PathSimple { 
+    /** Sequence of vertex indices corresponding to the maximum-cost simple path found so far. */
     protected final int[] worstPath;
+    /** Maximum total edge weight among all complete simple paths discovered so far. */
     protected int worstCost;
+    /** Number of edges in {@link #worstPath}. */
     protected int worstLength;
         
+    /**
+     * Initializes the longest simple path solver for {@code n} vertices.
+     *
+     * @param n Number of vertices in the graph.
+     */
     public PathWorst(int n) {
         super(n);
         this.worstPath = new int[n];

@@ -20,8 +20,16 @@ import topics.branchandbound.utils.Heap;
  */
 public class StringInterleavingGenerator extends BranchAndBound {
     private static final Logger log = LoggerFactory.getLogger(StringInterleavingGenerator.class);
+    /** Number of complete valid interleavings generated during the search. */
     private int solutionCount;
 
+    /**
+     * Creates a generator for all valid interleavings of strings {@code a} and {@code b}.
+     *
+     * @param a          First input string.
+     * @param b          Second input string.
+     * @param customHeap Optional custom priority queue (or {@code null} to use the default {@link Heap}).
+     */
     public StringInterleavingGenerator(String a, String b, Heap customHeap) {
         if (customHeap != null) {
             this.nodeHeap = customHeap;

@@ -19,19 +19,34 @@ import org.slf4j.LoggerFactory;
 public class PathSimple {
     protected static final Logger log = LoggerFactory.getLogger(PathSimple.class);
     
+    /** Total number of vertices in the directed graph. */
     protected final int n;
+    /** Human-readable vertex labels (e.g., {@code "NODE0"}, {@code "NODE1"}, ...). */
     protected final String[] nodes;
+    /** Adjacency matrix of edge weights ({@code -1} denotes no direct edge). */
     protected int[][] weights;
     
+    /** Index of the starting vertex. */
     protected int source;
+    /** Index of the destination vertex. */
     protected int target;
     
+    /** Visited flag per vertex to prevent cycles along the current simple path. */
     protected boolean[] mark;
+    /** Sequence of vertex indices forming the current partial path. */
     protected int[] path;
+    /** Accumulated edge weight of the current partial path. */
     protected int cost = 0;
+    /** Number of edges currently in {@link #path} (depth in the search tree). */
     protected int length = 0;
+    /** Total number of valid simple paths discovered from {@link #source} to {@link #target}. */
     protected int nsol = 0;
         
+    /**
+     * Initializes the graph pathfinder for {@code n} vertices.
+     *
+     * @param n Number of vertices in the graph.
+     */
     public PathSimple(int n) {
         this.n = n;
         this.nodes = new String[n];
@@ -43,24 +58,48 @@ public class PathSimple {
         this.path = new int[n];
     }
     
+    /**
+     * Sets and marks the starting vertex as the first element of the path.
+     *
+     * @param source Index of the origin vertex ({@code 0 <= source < n}).
+     */
     public void setSource(int source) { 
         this.source = source;
         this.mark[source] = true; 
         this.path[0] = source;
     }
     
+    /**
+     * Sets the destination vertex where valid simple paths terminate.
+     *
+     * @param target Index of the target vertex ({@code 0 <= target < n}).
+     */
     public void setTarget(int target) {
         this.target = target;
     }
     
+    /**
+     * Configures the graph's adjacency weight matrix.
+     *
+     * @param weights 2D matrix where {@code weights[i][j]} is the cost from {@code i} to {@code j}, or {@code -1} if disconnected.
+     */
     public void setWeightMatrix(int[][] weights) {
         this.weights = weights;
     }
     
+    /**
+     * Entry point that launches the recursive backtracking search from {@link #source}.
+     */
     public void backtracking() {
         backtrack(source);
     }
     
+    /**
+     * Explores all unvisited neighbors of {@code current} using the classic
+     * Choose &rarr; Explore &rarr; Un-choose backtracking pattern.
+     *
+     * @param current Vertex index currently at the tip of the partial path.
+     */
     protected void backtrack(int current) {
         if (current == target) {
             nsol++;

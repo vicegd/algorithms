@@ -9,9 +9,18 @@ package topics.backtracking.tsp;
  * </p>
  */
 public class Salesman extends HamiltonianAll {
+    /** Vertex sequence of the lowest-cost Hamiltonian cycle found so far (length {@code n + 1}). */
     protected final int[] bestPath;
+    /** Global minimum tour cost discovered so far. */
     protected int bestCost = Integer.MAX_VALUE;
 
+    /**
+     * Initializes the exhaustive TSP solver.
+     *
+     * @param n       Number of vertices in the graph.
+     * @param source  Starting and ending vertex index of the tour.
+     * @param weights Adjacency matrix of edge costs ({@code -1} if no edge exists).
+     */
     public Salesman(int n, int source, int[][] weights) {
         super(n, source, weights);
         this.bestPath = new int[n + 1];

@@ -13,10 +13,18 @@ package topics.backtracking.paths;
  * </p>
  */
 public class PathBest extends PathSimple {  
+    /** Sequence of vertex indices corresponding to the minimum-cost simple path found so far. */
     protected final int[] bestPath;
+    /** Minimum total edge weight among all complete simple paths discovered so far. */
     protected int bestCost;
+    /** Number of edges in {@link #bestPath}. */
     protected int bestLength;
         
+    /**
+     * Initializes the shortest simple path solver for {@code n} vertices.
+     *
+     * @param n Number of vertices in the graph.
+     */
     public PathBest(int n) {
         super(n);
         this.bestPath = new int[n];
