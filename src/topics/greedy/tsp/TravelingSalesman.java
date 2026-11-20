@@ -20,7 +20,7 @@ package topics.greedy.tsp;
 public class TravelingSalesman {
     /**
      * Executes the Nearest Neighbor heuristic.
-     * * @param weights Adjacency matrix of the graph.
+     * @param weights Adjacency matrix of the graph.
      * @param startNode The starting city index.
      * @return A solution object containing the path and the total cost.
      */

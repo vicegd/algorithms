@@ -7,7 +7,7 @@ import java.util.Arrays;
  * <p>
  * Evaluates whether an array contains a "Majoritary Element" (an element that 
  * appears strictly more than N/2 times). This class demonstrates the evolution 
- * of algorithmic efficiency from a brute-force approach to a linear Divide & Conquer approach.
+ * of algorithmic efficiency from a brute-force approach to a linear Divide &amp; Conquer approach.
  * </p>
  *
  * @author vicegd
@@ -79,7 +79,7 @@ public class MajorityElement {
     }    
 
     /**
-     * <h2>3. Divide & Conquer Approach (Tournament/Pairing Method)</h2>
+     * <h2>3. Divide &amp; Conquer Approach (Tournament/Pairing Method)</h2>
      * <p>
      * Recursively eliminates pairs of elements. If adjacent elements are identical, 
      * one is kept for the next round. If they differ, both are discarded. 

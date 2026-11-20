@@ -6,10 +6,10 @@ import java.util.Random;
  * <h1>Empirical Complexity Analysis: TSP Optimizations</h1>
  * <p>
  * This benchmark demonstrates the massive performance difference between pure 
- * Exhaustive Search (Un-pruned) and Branch & Bound (Pruned) when solving the 
+ * Exhaustive Search (Un-pruned) and Branch &amp; Bound (Pruned) when solving the 
  * Traveling Salesman Problem.
  * </p>
- * * <h2>Pedagogical Note on Complexity</h2>
+ * <h2>Pedagogical Note on Complexity</h2>
  * <p>
  * Both algorithms mathematically share a worst-case time complexity of O(N!). 
  * However, the <b>Pruning</b> heuristic allows the algorithm to skip millions of 

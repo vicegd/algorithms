@@ -19,7 +19,7 @@ import topics.branchandbound.utils.Node;
  * it claims a global lock to update the benchmark, immediately accelerating 
  * the pruning operations of all other active threads.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> <code>O(1)</code> per state extraction and evaluation block. The aggregate lifecycle time depends entirely on the size of the unpruned state space distributed across the thread pool.</li>
  * <li><strong>Space Complexity:</strong> <code>O(1)</code> auxiliary space per thread. The worker operates strictly on references to the globally managed heap and does not construct isolated data structures beyond transient local variables.</li>

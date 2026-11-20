@@ -15,12 +15,14 @@ import org.slf4j.LoggerFactory;
  * <h2>The Greedy Choice</h2>
  * <p>
  * Because items can be fractionalized, the mathematically optimal strategy is to:
+ * </p>
  * <ol>
  * <li>Calculate the Value-to-Weight ratio for each item.</li>
  * <li>Sort items descending by this ratio.</li>
  * <li>Take as much of the highest-ratio items as possible until the knapsack is full.</li>
  * </ol>
- * This Guarantees the global optimum, unlike the 0/1 Knapsack variant which 
+ * <p>
+ * This guarantees the global optimum, unlike the 0/1 Knapsack variant which 
  * requires Dynamic Programming.
  * </p>
  *

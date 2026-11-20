@@ -4,8 +4,8 @@ package topics.divideconquer.vectorsum;
  * <h1>Vector Summation</h1>
  * <p>
  * Computes the total sum of elements within an integer array. This class acts 
- * as a pristine educational baseline to compare Iteration, Divide & Conquer 
- * by Subtraction, and Divide & Conquer by Division models.
+ * as a pristine educational baseline to compare Iteration, Divide &amp; Conquer 
+ * by Subtraction, and Divide &amp; Conquer by Division models.
  * </p>
  *
  * @author vicegd
@@ -35,7 +35,7 @@ public class VectorSum {
     }    
     
     /**
-     * <h2>2. Divide & Conquer by Subtraction</h2>
+     * <h2>2. Divide &amp; Conquer by Subtraction</h2>
      * <p>
      * Evaluates the array by peeling away a single leading item per step. 
      * Recurrence equation handles <code>a = 1, b = 1, k = 0</code>.
@@ -63,7 +63,7 @@ public class VectorSum {
     }  
     
     /**
-     * <h2>3. Divide & Conquer by Division</h2>
+     * <h2>3. Divide &amp; Conquer by Division</h2>
      * <p>
      * Bisects the array segments into equal binary halves symmetrically. 
      * Recurrence equation maps to <code>a = 2, b = 2, k = 0</code>.

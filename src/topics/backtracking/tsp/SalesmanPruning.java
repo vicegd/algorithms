@@ -3,10 +3,10 @@ package topics.backtracking.tsp;
 /**
  * <h1>TSP Optimization with Pruning (Bounding)</h1>
  * <p>
- * This class implements <b>Branch & Bound</b> by pruning branches that exceed 
+ * This class implements <b>Branch &amp; Bound</b> by pruning branches that exceed 
  * the current {@code bestCost}.
  * </p>
- * * <h2>Bounding Principle</h2>
+ * <h2>Bounding Principle</h2>
  * <p>
  * If {@code currentCost + edgeCost >= bestCost}, we stop exploring this path. 
  * This is the crucial heuristic that makes this algorithm usable for slightly larger N.

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * Finds ALL simple paths from a source node to a target node using Backtracking.
  * A simple path is a path that does not repeat any nodes.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <p>
  * Since finding all simple paths between two nodes in a complete graph involves 
  * exploring all possible permutations of intermediate nodes, the worst-case 

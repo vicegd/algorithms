@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Employs assertions to verify path generation counts across different
  * board configurations and initial states.
  * </p>
- * * @author vicegd
+ * @author vicegd
  */
 class ChessHorseAllTest {
     private static final Logger log = LoggerFactory.getLogger(ChessHorseAllTest.class);

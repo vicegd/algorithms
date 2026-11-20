@@ -6,14 +6,16 @@ package topics.divideconquer.factorial;
  * Demonstrates both the iterative and recursive paradigms for computing the 
  * factorial of a non-negative integer (N!).
  * </p>
- * * <h2>The Integer Overflow Trap</h2>
+ * <h2>The Integer Overflow Trap</h2>
  * <p>
  * Factorial functions grow explosively.
+ * </p>
  * <ul>
  * <li>Using standard 32-bit <code>int</code>, the maximum computable value is 12!</li>
  * <li>At 13!, the value exceeds 2.14 billion and causes a silent arithmetic overflow.</li>
  * <li>By upgrading to 64-bit <code>long</code>, this implementation safely computes up to 20!</li>
  * </ul>
+ * <p>
  * For values strictly greater than 20!, Java's <code>BigInteger</code> class must be used.
  * </p>
  *

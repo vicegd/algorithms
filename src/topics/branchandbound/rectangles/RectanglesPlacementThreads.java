@@ -13,7 +13,7 @@ import topics.branchandbound.utils.threads.BranchAndBoundThreads;
  * multiple branches of the state space tree simultaneously, leveraging parallel 
  * execution for performance gains on multi-core architectures.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> <code>O((2 &times; N&sup2;)<sup>P</sup>)</code> - The theoretical worst-case remains exponential relative to the grid size <i>N</i> and pieces <i>P</i>. However, concurrent evaluation accelerates the discovery of tight upper bounds, triggering earlier and more aggressive global pruning across parallel threads.</li>
  * <li><strong>Space Complexity:</strong> <code>O(T &times; N&sup2;)</code> - Where <i>T</i> is the number of concurrent worker threads. Each thread requires isolated memory allocation to track its specific subset of board configurations during traversal.</li>

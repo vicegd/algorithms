@@ -5,10 +5,10 @@ package topics.backtracking.paths;
  * <p>
  * Calculates the highest cost simple path (the worst path) from source to target.
  * </p>
- * * <h2>Pedagogical Note</h2>
+ * <h2>Pedagogical Note</h2>
  * <p>
  * Finding the longest simple path in a graph with positive weights is an NP-Hard problem. 
- * Unlike the shortest path, we cannot easily prune branches here (Branch & Bound) because 
+ * Unlike the shortest path, we cannot easily prune branches here (Branch &amp; Bound) because 
  * we never know if a currently "cheap" path might suddenly encounter a massive weight edge 
  * further down the tree. Therefore, we are forced to exhaustively evaluate O(N!) combinations.
  * </p>

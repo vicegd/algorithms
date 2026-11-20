@@ -5,7 +5,7 @@ package topics.divideconquer.maxsum;
  * <p>
  * Evaluates a sequence of numbers to find the contiguous sub-sequence that 
  * produces the largest possible sum. This class demonstrates the architectural 
- * evolution from a brute-force Cubic approach to a Logarithmic Divide & Conquer approach.
+ * evolution from a brute-force Cubic approach to a Logarithmic Divide &amp; Conquer approach.
  * </p>
  *
  * @author vicegd
@@ -72,7 +72,7 @@ public class MaxSum {
     } 
 
     /**
-     * <h2>3. Divide & Conquer Approach O(N log N)</h2>
+     * <h2>3. Divide &amp; Conquer Approach O(N log N)</h2>
      * <p>
      * Divides the array into two halves recursively. The maximum subarray must lie:
      * 1. Entirely in the left half.

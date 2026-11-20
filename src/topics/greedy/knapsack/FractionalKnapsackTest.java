@@ -41,7 +41,7 @@ class FractionalKnapsackTest {
          * Item 2: 66/30 = 2.2 (Best)
          * Item 3: 40/40 = 1.0 (Worst)
          * Item 4: 60/50 = 1.2
-         * * Execution Order: Item 2 (30kg), Item 0 (10kg), Item 1 (20kg). Used = 60kg. Remaining = 40kg.
+         * Execution Order: Item 2 (30kg), Item 0 (10kg), Item 1 (20kg). Used = 60kg. Remaining = 40kg.
          * Next is Item 4 (50kg). We only need 40kg. Fraction = 40/50 = 0.8.
          * Item 3 is ignored (0.0).
          */

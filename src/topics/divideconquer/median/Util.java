@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <h1>Divide & Conquer Utility</h1>
+ * <h1>Divide &amp; Conquer Utility</h1>
  * <p>
  * Provides foundational array manipulation and partitioning algorithms 
  * utilized by QuickSort, QuickSelect, and other Divide and Conquer strategies.

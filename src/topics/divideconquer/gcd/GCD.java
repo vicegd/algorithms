@@ -4,7 +4,7 @@ package topics.divideconquer.gcd;
  * <h1>Greatest Common Divisor</h1>
  * <p>
  * Demonstrates the massive performance gap between a naive linear search and 
- * the ancient, highly optimized Euclidean Algorithm (a pure Divide & Conquer approach).
+ * the ancient, highly optimized Euclidean Algorithm (a pure Divide &amp; Conquer approach).
  * </p>
  *
  * @author vicegd

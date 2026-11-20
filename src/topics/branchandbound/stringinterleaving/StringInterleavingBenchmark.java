@@ -14,9 +14,9 @@ import topics.backtracking.stringinterleaving.StringInterleavingGenerator;
  *
  * <h2>Phases of the Benchmark:</h2>
  * <ol>
- * <li><strong>Generation Phase:</strong> Compares Backtracking (DFS) vs Branch & Bound (BFS) 
+ * <li><strong>Generation Phase:</strong> Compares Backtracking (DFS) vs Branch &amp; Bound (BFS) 
  * for generating all valid combinations. Demonstrates the extreme overhead of maintaining a Priority Queue.</li>
- * <li><strong>Validation Phase:</strong> Compares pure Recursion (Divide & Conquer) vs Dynamic Programming 
+ * <li><strong>Validation Phase:</strong> Compares pure Recursion (Divide &amp; Conquer) vs Dynamic Programming 
  * for verifying the generated combinations. Demonstrates the power of Memoization.</li>
  * </ol>
  *
@@ -64,7 +64,7 @@ public class StringInterleavingBenchmark {
         System.out.println("--------------------------------------------------------------------------");
 
         /* ==========================================================
-         * PHASE 2: VALIDATION (Divide & Conquer vs Dynamic Programming)
+         * PHASE 2: VALIDATION (Divide &amp; Conquer vs Dynamic Programming)
          * ========================================================== */
         System.out.println("[PHASE 2] VALIDATION OF ALL GENERATED STRINGS");
 

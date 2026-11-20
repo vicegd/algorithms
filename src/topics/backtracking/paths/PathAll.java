@@ -6,7 +6,7 @@ package topics.backtracking.paths;
  * This class calculates ALL paths (including non-simple paths/cycles) from a source 
  * to a target node that match an exact cost threshold. 
  * </p>
- * * <h2>Pedagogical Note</h2>
+ * <h2>Pedagogical Note</h2>
  * <p>
  * Notice that we intentionally ignore the <code>mark[]</code> array in the recursive step.
  * This allows the algorithm to revisit nodes (looping in cycles) as long as the 

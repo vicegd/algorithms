@@ -58,7 +58,7 @@ public class Fibonacci {
     }
 
     /**
-     * <h2>3. Tail Recursive (D&C by Subtraction)</h2>
+     * <h2>3. Tail Recursive (D&amp;C by Subtraction)</h2>
      * <p>A linear recursive version. It divides the problem by subtracting 1 
      * at each step, passing the accumulated state forward.</p>
      * <ul>
@@ -94,8 +94,8 @@ public class Fibonacci {
     }
 
     /**
-     * <h2>5. Logarithmic Approach (D&C by Division)</h2>
-     * <p>Sophisticated D&C algorithm that exploits mathematical matrix identities 
+     * <h2>5. Logarithmic Approach (D&amp;C by Division)</h2>
+     * <p>Sophisticated D&amp;C algorithm that exploits mathematical matrix identities 
      * (Fast Doubling). It divides the problem size by 2 at each step instead of 1.</p>
      * <ul>
      * <li><strong>Time:</strong> O(log N)</li>

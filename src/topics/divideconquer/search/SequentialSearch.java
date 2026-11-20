@@ -8,7 +8,7 @@ package topics.divideconquer.search;
  * and functions correctly on both sorted and unsorted collections.
  * </p>
  *
- * <h2>Divide & Conquer Strategy by Subtraction</h2>
+ * <h2>Divide &amp; Conquer Strategy by Subtraction</h2>
  * <p>
  * The recursive approach demonstrates a Divide and Conquer by Subtraction model 
  * (where <code>a = 1, b = 1, k = 0</code>). Each step safely isolates the head element 

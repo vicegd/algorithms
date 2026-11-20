@@ -35,7 +35,7 @@ public class EightPuzzle extends BranchAndBound {
  * Represents a distinct physical configuration of the board within the execution tree.
  * It calculates heuristic bounds and generates topologically valid child states.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> <code>O(b<sup>d</sup>)</code> - Where <i>b</i> is the branching factor (average 3 valid moves) and <i>d</i> is the depth of the optimal solution. The heuristic severely prunes unpromising branches.</li>
  * <li><strong>Space Complexity:</strong> <code>O(b &times; d)</code> - Dictated by the nodes residing in the priority queue waiting to be evaluated.</li>

@@ -10,13 +10,13 @@ import java.util.Random;
  * This class implements a brute-force approach to find all simple cycles that visit every node 
  * exactly once (Hamiltonian Cycles).
  * </p>
- * * <h2>Complexity Analysis</h2>
+ * <h2>Complexity Analysis</h2>
  * <ul>
  * <li><b>Time Complexity:</b> O((N-1)!), where N is the number of nodes. This is due to the 
  * permutations of nodes to visit.</li>
  * <li><b>Space Complexity:</b> O(N) for the recursion stack and the path array.</li>
  * </ul>
- * * @author vicegd
+ * @author vicegd
  */
 public class HamiltonianAll {
     protected static final Logger log = LoggerFactory.getLogger(HamiltonianAll.class);

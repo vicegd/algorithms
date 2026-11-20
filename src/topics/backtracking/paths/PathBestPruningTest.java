@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * <h1>Validation Suite for Shortest Path (Branch & Bound)</h1>
+ * <h1>Validation Suite for Shortest Path (Branch &amp; Bound)</h1>
  * <p>
  * Proves that the pruning heuristic safely discards expensive branches without 
  * ever missing the true global minimum.

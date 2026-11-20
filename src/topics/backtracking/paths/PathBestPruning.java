@@ -1,7 +1,7 @@
 package topics.backtracking.paths;
 
 /**
- * <h1>Shortest Simple Path (Branch & Bound)</h1>
+ * <h1>Shortest Simple Path (Branch &amp; Bound)</h1>
  * <p>
  * Optimizes the <code>PathBest</code> search space by immediately discarding (pruning) 
  * branches that have already exceeded the current <code>bestCost</code>.

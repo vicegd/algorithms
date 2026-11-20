@@ -13,13 +13,13 @@ import org.slf4j.LoggerFactory;
  * <h2>Pedagogical Value</h2>
  * <p>
  * This pure recursive approach acts as the mathematical bridge between Greedy and Dynamic Programming:
+ * </p>
  * <ul>
  * <li>Unlike <strong>Greedy</strong>, it does not get trapped by ambiguity. If characters from A and B 
  * both match C, it branches and explores both possibilities.</li>
  * <li>Unlike <strong>Dynamic Programming</strong>, it does not memorize past results. This leads to 
  * overlapping sub-problems being recalculated multiple times.</li>
  * </ul>
- * </p>
  *
  * <ul>
  * <li><strong>Time Complexity:</strong> O(2^(N+M)) in the worst case (Exponential due to branching).</li>

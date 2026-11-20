@@ -18,7 +18,7 @@ import topics.branchandbound.utils.Node;
  * <strong>Branch and Bound</strong> execution. This data structure ensures thread-safe 
  * prioritization, extraction, and duplicate-state detection across parallel workers.
  * </p>
- * * <h2>Architecture & Complexity</h2>
+ * <h2>Architecture &amp; Complexity</h2>
  * <ul>
  * <li><strong>Priority Queue:</strong> Utilizes a <code>PriorityBlockingQueue</code> to maintain the Best-First Search ordering concurrently. Extraction is <code>O(log N)</code>.</li>
  * <li><strong>Lineage Tracking:</strong> Employs a <code>ConcurrentMap</code> to link extracted states back to their parents for final path reconstruction. Lookup is <code>O(1)</code>.</li>

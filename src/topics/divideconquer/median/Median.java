@@ -50,7 +50,7 @@ public class Median {
     }    
 
     /**
-     * <h2>2. Quickselect Approach (Divide & Conquer)</h2>
+     * <h2>2. Quickselect Approach (Divide &amp; Conquer)</h2>
      * <p>
      * Uses the Quicksort partition scheme to recursively isolate the median.
      * If the pivot lands perfectly on the median index, we stop immediately.

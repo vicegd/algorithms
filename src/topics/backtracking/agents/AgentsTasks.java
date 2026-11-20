@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * <strong>every single valid permutation</strong> of assignments to guarantee the absolute 
  * global minimum cost.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> O(N!) - Explores all factorial permutations (Pure Force).</li>
  * <li><strong>Space Complexity:</strong> O(N) - Bounded by the recursion call stack depth.</li>

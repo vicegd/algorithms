@@ -6,7 +6,7 @@ import java.util.Random;
  * <h1>Empirical Analysis: Pruning Impact</h1>
  * <p>
  * Measures the execution time difference between solving the Shortest Path 
- * with brute force (PathBest) vs. Branch & Bound (PathBestPruning).
+ * with brute force (PathBest) vs. Branch &amp; Bound (PathBestPruning).
  * </p>
  */
 public class PathBestTimes {

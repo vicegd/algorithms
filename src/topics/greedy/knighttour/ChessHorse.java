@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  * While Warnsdorff's heuristic is extremely fast and works magically well for many 
  * board sizes and starting positions, it is a purely Greedy approach and does 
  * NOT guarantee a solution in all theoretically solvable cases (it can hit dead ends).
- * Absolute guarantees require backtracking (Divide & Conquer / DFS).
+ * Absolute guarantees require backtracking (Divide &amp; Conquer / DFS).
  * </p>
  *
  * @author vicegd

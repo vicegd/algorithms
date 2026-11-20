@@ -17,12 +17,12 @@ import org.slf4j.LoggerFactory;
  * <h2>The Greedy Strategy</h2>
  * <p>
  * To achieve the mathematical optimum, we apply two principles:
+ * </p>
  * <ol>
  * <li><strong>SPT (Shortest Processing Time):</strong> Sort tasks ascending.</li>
  * <li><strong>Round-Robin Distribution:</strong> Distribute the sorted tasks cyclically 
  * across all available workers to perfectly balance the cascading wait times.</li>
  * </ol>
- * </p>
  *
  * @author vicegd
  */

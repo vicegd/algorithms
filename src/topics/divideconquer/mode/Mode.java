@@ -56,7 +56,7 @@ public class Mode {
     }    
 
     /**
-     * <h2>2. Sorting Approach (Divide & Conquer)</h2>
+     * <h2>2. Sorting Approach (Divide &amp; Conquer)</h2>
      * <p>
      * Leverages Quicksort to group identical elements together. Once sorted, 
      * finding the mode only requires a single linear pass $O(N)$ counting 
@@ -107,7 +107,7 @@ public class Mode {
     /*
      * Pedagogical Note:
      * public int[] calculateModeAdvancedDC(int[] v)
-     * There is a highly advanced Divide & Conquer method for computing the mode
+     * There is a highly advanced Divide &amp; Conquer method for computing the mode
      * that slightly improves constant factors, explained in advanced algorithm
      * literature (e.g., section 3.11 of the base book). However, the Sorting 
      * Approach is the industry standard for simplicity and robust performance.

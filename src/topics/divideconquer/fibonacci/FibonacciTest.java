@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * <h1>Validation Suite for Divide & Conquer Fibonacci</h1>
+ * <h1>Validation Suite for Divide &amp; Conquer Fibonacci</h1>
  *
  * @author vicegd
  */

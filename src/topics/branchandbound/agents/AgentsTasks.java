@@ -37,7 +37,7 @@ public class AgentsTasks extends BranchAndBound {
  * Task Assignment problem. Each node tracks partial assignments and calculates a 
  * lower-bound heuristic to guide the search process and prune sub-optimal branches.
  * </p>
- * * <h2>Complexity</h2>
+ * <h2>Complexity</h2>
  * <ul>
  * <li><strong>Time Complexity:</strong> <code>O(N!)</code> in the theoretical worst-case, mapping to every permutation. The heuristic bounding radically flattens this curve in practice.</li>
  * <li><strong>Space Complexity:</strong> <code>O(N)</code> per node. Overall heap consumption depends on the underlying priority queue dimension during traversal.</li>

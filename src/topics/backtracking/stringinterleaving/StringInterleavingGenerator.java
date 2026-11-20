@@ -16,12 +16,12 @@ import org.slf4j.LoggerFactory;
  * <h2>The Backtracking Paradigm</h2>
  * <p>
  * Notice the core pattern inside the recursive method:
+ * </p>
  * <ol>
  * <li><strong>CHOOSE:</strong> We append a character to our current path.</li>
  * <li><strong>EXPLORE:</strong> We recurse deeper into the tree.</li>
  * <li><strong>UN-CHOOSE:</strong> We delete the character to backtrack and try a parallel branch.</li>
  * </ol>
- * </p>
  *
  * <ul>
  * <li><strong>Time Complexity:</strong> O( (N+M)! / (N! * M!) ) - Combinatorial explosion.</li>

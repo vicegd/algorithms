@@ -5,7 +5,7 @@ package topics.backtracking.paths;
  * <p>
  * Extends the basic pathfinder to track and store the absolute lowest cost path.
  * </p>
- * * <h2>Pedagogical Note</h2>
+ * <h2>Pedagogical Note</h2>
  * <p>
  * This problem (Shortest Path) is NOT NP-Hard. It can be solved in polynomial time 
  * using algorithms like Dijkstra (Greedy) or Floyd-Warshall (Dynamic Programming). 

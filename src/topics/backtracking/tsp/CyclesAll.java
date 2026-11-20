@@ -5,7 +5,7 @@ package topics.backtracking.tsp;
  * <p>
  * This class calculates all simple cycles in a graph originating from a specific source node.
  * </p>
- * * <h2>Pedagogical Note: TSP vs Cycles</h2>
+ * <h2>Pedagogical Note: TSP vs Cycles</h2>
  * <ul>
  * <li><b>Traveling Salesman:</b> Requires COMPLETE simple cycles (must visit every node exactly once).</li>
  * <li><b>Node Cycles:</b> Accepts SIMPLE cycles of ANY length (visiting a subset of nodes and returning).</li>
@@ -14,7 +14,7 @@ package topics.backtracking.tsp;
  * Even though it doesn't require complete paths, the worst-case time complexity remains 
  * factorial O(N!) for highly connected graphs due to the combinatorial explosion of subsets.
  * </p>
- * * @author vicegd
+ * @author vicegd
  */
 public class CyclesAll extends HamiltonianAll {
 

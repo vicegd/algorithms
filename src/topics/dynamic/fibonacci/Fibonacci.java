@@ -68,7 +68,7 @@ public class Fibonacci {
     }
 
     /**
-     * <h2>3. Tail Recursive Approach (Divide & Conquer by Subtraction)</h2>
+     * <h2>3. Tail Recursive Approach (Divide &amp; Conquer by Subtraction)</h2>
      * <p>A linear recursive version that passes the accumulators forward. 
      * Modern compilers can optimize this to prevent StackOverflows.</p>
      * <ul>
@@ -111,7 +111,7 @@ public class Fibonacci {
 
     /**
      * <h2>5. Logarithmic Approach (Fast Doubling / Matrix Exponentiation)</h2>
-     * <p>Sophisticated Divide & Conquer algorithm that exploits mathematical 
+     * <p>Sophisticated Divide &amp; Conquer algorithm that exploits mathematical 
      * matrix identities to compute the answer skipping massive amounts of steps.</p>
      * <ul>
      * <li><strong>Time Complexity:</strong> <code>O(log N)</code></li>
