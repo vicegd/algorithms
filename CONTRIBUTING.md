@@ -17,8 +17,6 @@ This document contains the complete guidelines, standards, and templates require
 7. [Testing Requirements](#-testing-requirements)
 8. [Documentation Standards](#-documentation-standards)
 9. [Commit Message Guidelines](#-commit-message-guidelines)
-10. [Questions & Support](#-questions--support)
-11. [Recognition](#-recognition)
 
 ---
 
@@ -60,7 +58,7 @@ Code Example:
 [Provide a minimal code snippet or input data that reproduces the failure]
 
 Environment Context:
-- JDK Version: 21+
+- JDK Version: 25+
 - OS: (Windows / macOS / Linux)
 ```
 
@@ -228,8 +226,8 @@ We use **JUnit 5 (Jupiter)** exclusively for all validation suites.
   Do not dump large loops or massive array listings into the logging stream.  
   Use `log.isTraceEnabled()` conditional guards or clamp string outputs to a small number of sample entries.
 - **Preconditions vs Validation:**  
-  Do not write unit tests that violan algorithmic preconditions.  
-  Por ejemplo, no pruebes si una búsqueda binaria lanza una excepción al recibir un array desordenado; comprobar que está ordenado cuesta \(O(N)\), lo que rompe el objetivo de diseño \(O(\log N)\).
+  Do not write unit tests that violate algorithmic preconditions.  
+  For example, do not test whether binary search throws an exception when given an unsorted array; verifying sortedness costs $O(N)$, which defeats the $O(\log N)$ design goal of binary search.
 
 ### Unit Test Structural Template
 

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.0.1] - 2026-11-20
+### 🔧 Java 25, CI & Documentation Polish
+* **Java 25 Upgrade:** Updated Maven compiler source and target to Java 25 and added GitHub Actions CI (`ci.yml`) to verify unit tests and Javadoc generation on every push and pull request.
+* **Zero Compiler & Javadoc Warnings:** Resolved all `javac -Xlint:all` warnings (type safety in `Radix`, auxiliary class extraction for `HeuristicType` and `BoardState`, `final` node class in `InterleavingNode`) and cleaned up Javadoc HTML entities and `@see` references across all topics.
+* **Dependency & Build Cleanup:** Removed legacy `junit-vintage-engine` and obsolete source exclusions in `pom.xml`, and aligned `README.md` and `CONTRIBUTING.md` with the current repository layout.
+
+---
+
 ## [1.0.0] - 2026-05-17
 ### 🚀 Stable Release & Major Refactoring
 This release establishes a fully modernized, thread-safe, and robust academic framework for algorithm engineering, consolidating all architectural improvements from 2015 to the present.

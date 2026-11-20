@@ -36,9 +36,9 @@ mvn test -Dtest=YourTestClassName
 mvn test -X
 
 # Run tests for specific topic
-mvn test -Dtest=sorting/*Test
+mvn test -Dtest="topics/sorting/**/*Test"
 
-# Run with coverage report (if configured)
+# Run with coverage report (generated at target/site/jacoco/index.html)
 mvn test jacoco:report
 ```
 
@@ -49,11 +49,11 @@ algorithms/
 ├── src/
 │   ├── log4j.properties                # Logging configuration
 │   └── topics/                         # Implementations, tests, and benchmarks
-│       ├── foundation/                 # Getting started, search, basic data structures
+│       ├── foundation/                 # Getting started, search, max pairwise product, data structures
+│       │   └── structures/             # Java Collections examples (ArrayList, ArrayDeque, LinkedList, Stack, TreeSet…)
 │       ├── sorting/                    # Sorting algorithms (Bubble, Mergesort, Quicksort, Heapsort, Radix, Shell…)
 │       │   └── utils/                  # Shared sorting utilities & interface
 │       ├── divideconquer/              # Divide & Conquer strategies
-│       │   └── utils/                  # Shared D&C utilities
 │       ├── dynamic/                    # Dynamic Programming
 │       ├── greedy/                     # Greedy Algorithms
 │       │   └── agents/                 # Agent-task assignment & timing helpers
@@ -61,7 +61,7 @@ algorithms/
 │       ├── branchandbound/             # Branch & Bound methods
 │       │   └── utils/                  # Core B&B framework (BranchAndBound, Heap, Node…)
 │       │       └── threads/            # Thread-safe B&B variants (BranchAndBoundThreads, HeapThreads, WorkerThread)
-│       └── parallel/                   # Parallel algorithms (ForkJoin)
+│       └── parallel/                   # Parallel algorithms (Fork/Join)
 ├── docs/                               # GitHub Pages landing page
 ├── .github/                            # GitHub configuration
 │   ├── workflows/                      # CI/CD pipelines
