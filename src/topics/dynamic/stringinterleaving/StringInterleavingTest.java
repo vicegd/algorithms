@@ -43,8 +43,8 @@ class StringInterleavingTest {
     @Test
     @DisplayName("Should correctly reject an invalid character arrangement")
     void shouldRejectInvalidInterleaving() {
-        // Here, the characters match, but the relative order of "EVERYBODY" is broken.
-        assertFalse(engine.isInterleaved("HELLO", "EVERYBODY", "EVERYHELBODYLO"));
+        // Here, the characters match, but the relative order of "EVERYBODY" is broken ("BODY" before "EVERY").
+        assertFalse(engine.isInterleaved("HELLO", "EVERYBODY", "HELLOBODYEVERY"));
     }
 
     @Test

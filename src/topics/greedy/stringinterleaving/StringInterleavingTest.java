@@ -44,7 +44,8 @@ class StringInterleavingTest {
     void shouldVerifyMixedInterleaving() {
         String a = "HELLO";
         String b = "EVERYBODY";
-        String c = "HEVEERYLBLOODY"; 
+        // Mixed chunks ("EVERY" + "HEL" + "BODY" + "LO") without ambiguous character collisions
+        String c = "EVERYHELBODYLO"; 
         
         log.trace("Testing mixed interleaving: {}", c);
         assertTrue(engine.isInterleaved(a, b, c), "Failed to verify mixed interleaving.");

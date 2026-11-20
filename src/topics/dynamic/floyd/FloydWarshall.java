@@ -62,11 +62,20 @@ public class FloydWarshall {
      * @return Formatted string representing the optimal path.
      */
     public String reconstructPath(int[][] next, int i, int j, String[] nodeNames) {
-        if (next[i][j] == -1) {
-            return nodeNames[i] + " -> " + nodeNames[j];
-        }
-        
+        return nodeNames[i] + reconstructIntermediate(next, i, j, nodeNames) + " -> " + nodeNames[j];
+    }
+
+    /**
+     * Reconstructs the chain of intermediate nodes strictly between {@code i} and {@code j}
+     * so shared midpoint vertices are not duplicated when concatenating sub-paths.
+     */
+    private String reconstructIntermediate(int[][] next, int i, int j, String[] nodeNames) {
         int k = next[i][j];
-        return reconstructPath(next, i, k, nodeNames) + " -> " + reconstructPath(next, k, j, nodeNames);
+        if (k == -1) {
+            return "";
+        }
+        return reconstructIntermediate(next, i, k, nodeNames)
+                + " -> " + nodeNames[k]
+                + reconstructIntermediate(next, k, j, nodeNames);
     }
 }
